@@ -1,0 +1,23 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Research Questions}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Task List}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Related Work}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}OAuth 2.0 and OpenID Connect}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}OAuth 2.0 Roles}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Authorization Grants}{10}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Implicit}{10}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}Resource Owner Password Credentials}{10}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}Client Credentials}{10}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}Authorization Code}{10}{subsubsection.4.1.2.4}%
+\contentsline {section}{\numberline {4.2}PROCEED's role system}{11}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Concept and Design}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Implementation}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Evaluation}{19}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{21}{chapter.8}%
+\contentsline {chapter}{\nonumberline List of Tables}{23}{chapter*.10}%
+\contentsline {chapter}{\nonumberline List of Figures}{25}{chapter*.11}%
+\contentsline {chapter}{Appendices}{27}{section*.12}%
+\contentsline {chapter}{\nonumberline Appendix 1}{29}{chapter*.13}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

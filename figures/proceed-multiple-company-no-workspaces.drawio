@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" modified="2023-09-30T17:12:21.163Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0" etag="pZV_oEB545WsfJodTcbY" version="22.0.0" type="device">
+  <diagram name="Page-1" id="fZz1US3PmVV4NBMsYj1b">
+    <mxGraphModel dx="1434" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-9" value="Mana" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="170" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-7" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Half_Rack_ToR.svg;" vertex="1" parent="1">
+          <mxGeometry x="288.595" y="210" width="72.81" height="94.6" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-10" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Proceed MS&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="304.6" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-15" value="Organization" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="255" y="390" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-16" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-15">
+          <mxGeometry x="60" y="87" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-17" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-15">
+          <mxGeometry x="90" y="37" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-18" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-15">
+          <mxGeometry x="30" y="37" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-19" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.545;exitY=-0.014;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.524;entryY=0.958;entryDx=0;entryDy=0;entryPerimeter=0;jumpSize=0;jumpStyle=none;startSize=6;targetPerimeterSpacing=0;" edge="1" parent="1" source="a8UVeZAbzJ7houDCXe8f-15" target="a8UVeZAbzJ7houDCXe8f-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="314.0500000000002" y="370" as="sourcePoint" />
+            <mxPoint x="333.0500000000002" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-28" value="Mana" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="170" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-29" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Half_Rack_ToR.svg;" vertex="1" parent="1">
+          <mxGeometry x="538.595" y="210" width="72.81" height="94.6" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-30" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Proceed MS&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="304.6" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-31" value="Organization" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="390" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-32" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-31">
+          <mxGeometry x="60" y="87" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-33" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-31">
+          <mxGeometry x="90" y="37" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-34" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="a8UVeZAbzJ7houDCXe8f-31">
+          <mxGeometry x="30" y="37" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8UVeZAbzJ7houDCXe8f-35" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.545;exitY=-0.014;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.524;entryY=0.958;entryDx=0;entryDy=0;entryPerimeter=0;jumpSize=0;jumpStyle=none;startSize=6;targetPerimeterSpacing=0;" edge="1" parent="1" source="a8UVeZAbzJ7houDCXe8f-31" target="a8UVeZAbzJ7houDCXe8f-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="564.0500000000002" y="370" as="sourcePoint" />
+            <mxPoint x="583.0500000000002" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

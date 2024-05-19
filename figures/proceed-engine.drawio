@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" modified="2023-10-02T12:02:31.448Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0" etag="wBL78e9WpaAGD3RbYbpi" version="22.0.0" type="device">
+  <diagram name="Page-1" id="0pbR37fy-8RCgxXV9L8N">
+    <mxGraphModel dx="574" dy="329" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JdTKYb5x91K2IbOL0k7v-4" value="&lt;p style=&quot;line-height: 190%; font-size: 12px;&quot;&gt;&lt;/p&gt;&lt;div align=&quot;center&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;sup style=&quot;font-size: 12px;&quot;&gt;DPE&lt;/sup&gt;&lt;/div&gt;&lt;p style=&quot;font-size: 12px;&quot;&gt;&lt;/p&gt;" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Half_Rack_ToR.svg;verticalAlign=bottom;horizontal=1;labelPosition=center;verticalLabelPosition=top;fontSize=12;spacing=-17;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="280" y="250" width="62.81" height="81.61" as="geometry" />
+        </mxCell>
+        <mxCell id="JdTKYb5x91K2IbOL0k7v-3" value="DPE" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Half_Rack_ToR.svg;" vertex="1" parent="1">
+          <mxGeometry x="346.19" y="360" width="62.81" height="81.61" as="geometry" />
+        </mxCell>
+        <mxCell id="JdTKYb5x91K2IbOL0k7v-2" value="&lt;p style=&quot;line-height: 190%; font-size: 12px;&quot;&gt;&lt;/p&gt;&lt;div align=&quot;center&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;sup style=&quot;font-size: 12px;&quot;&gt;DPE&lt;/sup&gt;&lt;/div&gt;&lt;p style=&quot;font-size: 12px;&quot;&gt;&lt;/p&gt;" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Half_Rack_ToR.svg;verticalAlign=bottom;horizontal=1;labelPosition=center;verticalLabelPosition=top;fontSize=12;spacing=-17;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="410" y="250" width="62.81" height="81.61" as="geometry" />
+        </mxCell>
+        <mxCell id="6AcQH9RrlWRlE2u4x-1C-66" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="380" as="sourcePoint" />
+            <mxPoint x="441" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6AcQH9RrlWRlE2u4x-1C-67" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.581;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.581;entryDx=0;entryDy=0;entryPerimeter=0;jumpSize=5;sourcePerimeterSpacing=0;strokeWidth=1;startSize=6;endSize=6;spacing=1;spacingBottom=-1;" parent="1" target="JdTKYb5x91K2IbOL0k7v-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="342.81000000000006" y="297.41540999999995" as="sourcePoint" />
+            <mxPoint x="333.353522990551" y="301.33192999999983" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JdTKYb5x91K2IbOL0k7v-5" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="345" y="380" as="sourcePoint" />
+            <mxPoint x="314" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
