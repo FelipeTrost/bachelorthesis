@@ -12,12 +12,15 @@
 \contentsline {subsubsection}{\numberline {4.1.2.3}Client Credentials}{10}{subsubsection.4.1.2.3}%
 \contentsline {subsubsection}{\numberline {4.1.2.4}Authorization Code}{10}{subsubsection.4.1.2.4}%
 \contentsline {section}{\numberline {4.2}PROCEED's role system}{11}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Concept and Design}{13}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Implementation}{17}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Evaluation}{19}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{21}{chapter.8}%
-\contentsline {chapter}{\nonumberline List of Tables}{23}{chapter*.10}%
-\contentsline {chapter}{\nonumberline List of Figures}{25}{chapter*.11}%
-\contentsline {chapter}{Appendices}{27}{section*.12}%
-\contentsline {chapter}{\nonumberline Appendix 1}{29}{chapter*.13}%
+\contentsline {subsection}{\numberline {4.2.1}MS's Role System Terminology}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}MS's resources and actions}{11}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}MS's roles in casl}{12}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {5}Concept and Design}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Implementation}{19}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Evaluation}{21}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{23}{chapter.8}%
+\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.10}%
+\contentsline {chapter}{\nonumberline List of Figures}{27}{chapter*.11}%
+\contentsline {chapter}{Appendices}{29}{section*.12}%
+\contentsline {chapter}{\nonumberline Appendix 1}{31}{chapter*.13}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

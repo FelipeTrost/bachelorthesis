@@ -98,7 +98,7 @@ As the client needs confidential credentials, this flow is only suitable for con
 The exact steps are shown in figure \ref{fig:oauth:authcodeflow}.
 
 \begin{figure}[H]
-    \centering
+    \centering"
     \includegraphics[scale=0.4]{images/basic-cloud-services.drawio.png}
     \caption{Cloud Application.}
     \label{fig:oauth:authcodeflow}
@@ -112,17 +112,111 @@ i.e. to determine what actions a user can perform.
 Roles can be seen as bundles of permissions, which are granted to users.
 A user can have multiple roles.
 Typically roles are assigned to users based on their job function.
-
-\subsection{MS's Role System Terminology}
-\label{cha:relatedwork:proceedroles}
-
 %% Advantages 
 %% - One role serves multiple people
-%% - roles don't change ofte'
+%% - roles don't change ofte
 %% - roles are easier to manage than individual permissions
 RBAC can be advantageous since they can be assigned to multiple users and 
 don't change often, making them easier to manage than individual permissions.
-%% TODO: correct form for subject instead of $
-% Each permission in the system is associated with a subject\footnote{Resource type on which
-% an }.
+
+\subsection{MS's Role System Terminology}
+\label{cha:relatedwork:proceedroles:terminology}
+
+The following terms are important to understand the role system in the PROCEED MS:
+
+\begin{itemize}
+  \item Resource: A resource is any protected entity in the management system, that can be
+    accessed by users.
+  \item Action: An action is a specific operation that can be performed on a resource.
+  \item Permission: A permission is a tuple of resource type and action, which specifies that a
+    user can perform the action on the resource instances. Optionally a permission can have
+    conditions that have to be met the by resource instances, for the user to be able to perform the action.
+  \item Role: A role is a set of permissions. Roles can be assigned to users, which then
+    inherit the role's permissions. Roles can have expiration dates, after which all
+    permissions are revoked.
+\end{itemize}
+
+\subsection{MS's resources and actions}
+\label{cha:relatedwork:proceedroles:ms-resources-actions}
+
+The following are the resource types that are used in the PROCEED MS:
+
+\begin{itemize}
+  \item `Process `
+  \item `Project`
+  \item `Template`
+  \item `Task`
+  \item `Machine`
+  \item `Execution`
+  \item `Role`
+  \item `User`
+  \item `Setting`
+  \item `EnvConfig`
+  \item `RoleMapping`
+  \item `Share`
+  \item `Environment`
+  \item `Folder`
+  \item `All`
+\end{itemize}
+
+Actions:
+
+\begin{itemize}
+  \item `none`
+  \item `view`
+  \item `update`
+  \item `create`
+  \item `delete`: $ x^{n-1} - a_i $
+\end{itemize}
+
+\subsection{MS's roles in casl}
+\label{cha:relatedwork:proceedroles:casl}
+
+When checking user permissions there is a distinction between resource type and resource instance.
+A resource instance is a specific instance of a resource type, e.g. a specific process
+users are working on, is an instance of the resource type "Process". 
+If there exist any possible resource instance, where the user has permission to perform an action,
+then the user has permission to perform the action on the resource type.
+% TODO:
+E.g if a user has permission to view some process in the MS, then he has permission to view .
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstset{language=Python}
+\lstset{style=codestyle}
+\begin{lstlisting}
+import numpy as np
+    
+def incmatrix(genl1,genl2):
+    m = len(genl1)
+    n = len(genl2)
+    M = None #to become the incidence matrix
+    VT = np.zeros((n*m,1), int)  #dummy variable
+    
+    #compute the bitwise xor matrix
+    M1 = bitxormatrix(genl1)
+    M2 = np.triu(bitxormatrix(genl2),1) 
+
+    for i in range(m-1):
+        for j in range(i+1, m):
+            [r,c] = np.where(M2 == M1[i,j])
+            for k in range(len(r)):
+                VT[(i)*n + r[k]] = 1;
+                VT[(i)*n + c[k]] = 1;
+                VT[(j)*n + r[k]] = 1;
+                VT[(j)*n + c[k]] = 1;
+                
+                if M is None:
+                    M = np.copy(VT)
+                else:
+                    M = np.concatenate((M, VT), 1)
+                
+                VT = np.zeros((n*m,1), int)
+    
+    return M
+\end{lstlisting}
 

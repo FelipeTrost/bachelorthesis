@@ -4,6 +4,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>so', function()
 end)
 
 vim.opt.tw = 90;
+vim.cmd("set spell spelllang=en_us");
 
 -- require("auto-save").setup({
 --   enabled = true,
