@@ -89,7 +89,7 @@ Clients send these credentials to the authorization server and are issued an acc
 \label{cha:relatedwork:oauth:authcode}
 
 The Authorization Code grant is the most common grant type used in OAuth 2.0,
-it is similar to the implicit grant \ref{cha:relatedwork:oauth:implicit}, as it also uses HTTP redirects and it doesn't require the resource owner to share his credentials with the client.
+it is similar to the <implicit grant \ref{cha:relatedwork:oauth:implicit}, as it also uses HTTP redirects and it doesn't require the resource owner to share his credentials with the client.
 In the authorization code grant, the client redirects the resource owner to the authorization server.
 There the resource owner authenticates himself and authorizes the client.
 afterwhich the authorization server redirects the resource owner back to the client with an authorization code.
@@ -106,6 +106,60 @@ The exact steps are shown in figure \ref{fig:oauth:authcodeflow}.
 
 \subsection{OpenID Connect}
 \label{cha:relatedwork:openid}
+
+% source: https://openid.net/specs/openid-connect-core-1_0.html
+
+OpenID (OIDC for short) Connect is an identity layer built on top of the OAuth 2.0.
+While OAuth 2.0 focuses on authorization (granting clients access to resources),
+OIDC extends this to authentication.
+Since OIDC deals with authentication, I will call the resource owner the user from now on.
+
+% OIDC leverages the Authorization Code flow (described in Section \ref{cha:relatedwork:oauth:authcode}) of OAuth 2.0. However,
+OIDC uses as its base either the Authorization Code flow
+\ref{cha:relatedwork:oauth:authcode} or the Implicit flow
+\ref{cha:relatedwork:oauth:implicit} and
+it introduces a new type of token called an ID Token.
+This ID Token is a JSON Web Token (JWT) that contains minimal information about the authenticated
+user
+Most importantly, the Id Token carries a Subject identifier, which is a unique identifier
+for the user in the <- finish here 
+The Id Token is sent alongside the Access token to the client, on which step this happens
+depends on weather the Authorization Code flow or the Implicit flow is used.
+
+
+% 3.2.1.  Implicit Flow Steps
+% The Implicit Flow follows the following steps:
+%
+% Client prepares an Authentication Request containing the desired request parameters.
+% Client sends the request to the Authorization Server.
+% Authorization Server Authenticates the End-User.
+% Authorization Server obtains End-User Consent/Authorization.
+% Authorization Server sends the End-User back to the Client with an ID Token and, if requested, an Access Token.
+% Client validates the ID token and retrieves the End-User's Subject Identifier.
+% When using the implicit flow, the Id Token and, if requested, the Access Token
+% are sent to the client after the user authenticated himself.
+% After this the client could also use the Access Token to accsess 
+
+In the OIDC flow, after the client obtains the Authorization Code,
+it exchanges it for both an Access Token (as in OAuth 2.0) and an ID Token.
+The client can then validate the ID Token to ensure it's genuine and extract the user information contained within.
+
+
+% 3.1.1.  Authorization Code Flow Steps
+% The Authorization Code Flow goes through the following steps.
+%
+% Client prepares an Authentication Request containing the desired request parameters.
+% Client sends the request to the Authorization Server.
+% Authorization Server Authenticates the End-User.
+% Authorization Server obtains End-User Consent/Authorization.
+% Authorization Server sends the End-User back to the Client with an Authorization Code.
+% Client requests a response using the Authorization Code at the Token Endpoint.
+% Client receives a response that contains an ID Token and Access Token in the response body.
+% Client validates the ID token and retrieves the End-User's Subject Identifier.
+
+
+% NOTE: maybe remove this
+In essence, OIDC allows clients to obtain information about the authenticated user in a standardized way.
 
 \section{PROCEED's role system}
 \label{cha:relatedwork:proceedroles}
@@ -156,6 +210,7 @@ The following are the resource types that are used in the PROCEED MS:
   \lstinline{RoleMapping},
   \lstinline{Share},
   \lstinline{Folder}.
+
 
 These are the actions that can be performed on these resources:
   \lstinline{none},

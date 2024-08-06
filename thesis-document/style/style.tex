@@ -442,7 +442,13 @@ sensitive=false, morecomment=[s]{<!--}{-->}, morestring=[b]", morestring=[d]'}
 
 \RedeclareSectionCommand[
   beforeskip=-5\baselineskip,
-  afterskip=.5\baselineskip]{chapter}
+  afterskip=5\baselineskip]{chapter}
+
+\renewcommand\chapter{\clearpage
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
 
 
 % =========================================================================

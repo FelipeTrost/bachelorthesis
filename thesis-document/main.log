@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  6 AUG 2024 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  6 AUG 2024 20:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1251,7 +1251,7 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 <images/snet/titlepage.pdf, id=6, 932.73468pt x 1320.43312pt>
 File: images/snet/titlepage.pdf Graphic file (type pdf)
 <use images/snet/titlepage.pdf>
-Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 42.
+Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 43.
 (pdftex.def)             Requested size: 597.5317pt x 845.07433pt.
  [1
 
@@ -1261,26 +1261,12 @@ Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 42.
 
 {/home/felipetrost/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/felip
 etrost/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc} <./images/snet/title
-page.pdf>] [2]
-pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.46 \shipout\null
-                   [2]) (content/00_frontpages/01_declaration.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            *{\LARGE Eidestattliche Erklärung / Statutory Declaration}
-[2
-
-
-]
+page.pdf>] [2])
+(content/00_frontpages/01_declaration.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 1.
 
- (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd
+
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -1288,18 +1274,21 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.40245pt on input line 1.
 )
-(content/00_frontpages/03_abstract.tex [3] [4
+(content/00_frontpages/03_abstract.tex
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            *{Abstract} [2
 
-
-])
-(content/00_frontpages/04_zusammenfassung.tex [5] [6
-
+]) (content/00_frontpages/04_zusammenfassung.tex
+[3
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 4.
 
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
+ (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 4
@@ -1345,14 +1334,15 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 4.
 )
-[7] [8
-
+[4
 
 ] (main.toc)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [9] [10
+ [5
+
+] [6
 
 
 ] (content/01_introduction.tex
@@ -1372,7 +1362,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=119, 482.80376pt x 345.29pt>
+<images/basic-cloud-services.drawio.png, id=100, 482.80376pt x 345.29pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1382,51 +1372,44 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 35.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 35.
-<images/mt-cloud-services.png, id=121, 729.72626pt x 453.695pt>
+[1
+
+ <./images/basic-cloud-services.drawio.png>]
+<images/mt-cloud-services.png, id=111, 729.72626pt x 453.695pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 68.
 (pdftex.def)             Requested size: 328.37378pt x 204.16086pt.
-[1
-
-
- <./images/basic-cloud-services.drawio.png>]
-<images/quick-ms-overview.drawio.png, id=132, 610.28pt x 382.42876pt>
+<images/quick-ms-overview.drawio.png, id=112, 610.28pt x 382.42876pt>
 File: images/quick-ms-overview.drawio.png Graphic file (type png)
 <use images/quick-ms-overview.drawio.png>
 Package pdftex.def Info: images/quick-ms-overview.drawio.png  used on input lin
-e 90.
+e 92.
 (pdftex.def)             Requested size: 274.62346pt x 172.09134pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/snet/t_footer.png, id=86, 623.64026pt x 287.21095pt>
+<images/snet/snet_footer.png, id=113, 623.64026pt x 287.21095pt>
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 94.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 97.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [2 <./images/mt-cloud-services.png> <./images/snet/snet_footer.png>]
-<images/proceed-workspaces-v2.drawio.png, id=95, 603.25375pt x 493.845pt>
+<images/proceed-workspaces-v2.drawio.png, id=122, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
  line 137.
-(pdftex.def)             Requested size: 361.95503pt x 296.30928pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./images/quick-ms-overview.drawio.png>]
+(pdftex.def)             Requested size: 271.46167pt x 222.22818pt.
+ [3 <./images/quick-ms-overview.drawio.png> <./images/proceed-workspaces-v2.dra
+wio.png>]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 181.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 183.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [4 <./images/proceed-workspaces-v2.drawio.png>]
+ [4]
 chapter 2.
 [5
-
-
-] [6
-
 
 ]
 chapter 3.
@@ -1435,65 +1418,55 @@ chapter 3.
 \c@myEnumerateiii=\count375
 \c@myEnumerateiv=\count376
 \c@myEnumeratev=\count377
-\c@myEnumeratevi=\count378
-\c@myEnumeratevii=\count379
-\c@myEnumerateviii=\count380
-\c@myEnumerateix=\count381
-\enitdp@myEnumerate=\count382
+\enitdp@myEnumerate=\count378
 
-! Package enumitem Error: Undefined label.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the enumitem package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.196   \item F
-               unctional
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.196   \item F
-               unctional
-You have defined a list, but labels have not been setup.
-You can set the label field with \setlist.
+ [6
 
- 
-Here is how much of TeX's memory you used:
- 33883 strings out of 476372
- 652440 string characters out of 5793694
- 1933995 words of memory out of 5000000
- 55333 multiletter control sequences out of 15000+600000
- 589590 words of font info for 86 fonts, out of 8000000 for 9000
- 16 hyphenation exceptions out of 8191
- 108i,16n,107p,10922b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
-ox (badness 3009) has occurred while \output is active []
+])
+(content/02_related_work.tex [7]
+chapter 4.
 
- [11]
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 170.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 170.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 170.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 170.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 170.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 170.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 192.
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 218.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+LaTeX Warning: Citation `rfcOauth2' on page 8 undefined on input line 11.
 
-[12]) (content/03_concept_and_design.tex [13] [14
-
+[8
 
 ]
+
+LaTeX Warning: Citation `rfcPkce' on page 9 undefined on input line 69.
+
+[9]
+File: images/basic-cloud-services.drawio.png Graphic file (type png)
+<use images/basic-cloud-services.drawio.png>
+Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
+line 102.
+(pdftex.def)             Requested size: 193.11807pt x 138.11354pt.
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 179.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+ [10]
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 219.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 219.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 219.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 219.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 219.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 219.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 241.
+ [11]) (content/03_concept_and_design.tex
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+ [12]
 chapter 5.
 
 Overfull \hbox (26.7956pt too wide) in paragraph at lines 18--20
@@ -1501,28 +1474,28 @@ Overfull \hbox (26.7956pt too wide) in paragraph at lines 18--20
  workspaces and per-sonal workspaces.
  []
 
-[15]
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 94.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [16]) (content/04_implementation.tex [17] [18
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13
 
 ]
-chapter 6.
-) (content/05_evaluation.tex [19] [20
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 90.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 
+[14]) (content/04_implementation.tex [15]
+chapter 6.
+) (content/05_evaluation.tex [16
 
 ]
 chapter 7.
-) (content/06_conclusion.tex [21] [22
-
+) (content/06_conclusion.tex [17
 
 ]
 chapter 8.
-) [23] [24
-
+) [18
 
 ]
 chapter without number
@@ -1530,10 +1503,8 @@ chapter without number
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [25
+ [19
 
-
-] [26
 
 
 ]
@@ -1542,7 +1513,9 @@ chapter without number
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
- [27]
+ [20
+
+]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1577,17 +1550,15 @@ chapter without number
 
 
 No file main.bbl.
-[28
+[21
 
 
 
-] [29
 
 
-] [30] (content/99_appendices/a01_listings.tex
+] [22] (content/99_appendices/a01_listings.tex
 chapter without number
-) [31
-
+) [23
 
 ] (main.aux)
  ***********
@@ -1598,17 +1569,20 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34568 strings out of 476372
- 662385 string characters out of 5793694
- 2059995 words of memory out of 5000000
- 55852 multiletter control sequences out of 15000+600000
+ 34562 strings out of 476372
+ 662227 string characters out of 5793694
+ 2150995 words of memory out of 5000000
+ 55848 multiletter control sequences out of 15000+600000
  607473 words of font info for 124 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 108i,17n,107p,10922b,2312s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,16n,107p,10922b,2310s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/la
 txfont/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/c
@@ -1619,9 +1593,9 @@ ic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatin
 o/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatino
 /uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatino/
 uplr8a.pfb>
-Output written on main.pdf (43 pages, 475428 bytes).
+Output written on main.pdf (30 pages, 471889 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
- 158 named destinations out of 1000 (max. 500000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
  235 words of extra memory for PDF output out of 10000 (max. 10000000)
 

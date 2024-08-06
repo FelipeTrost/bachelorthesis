@@ -56,10 +56,10 @@ largely negating the numerous benefits listed earlier.
 
 % NOTE: maybe take this out
 Think of it like a big apartment building. Each tenant (user or organization) has their
-own private space (their data and settings), but they're all using the same building (the
-cloud application). This setup helps update the application for everyone.
+own private space (their assets), but they're all using the same building (the
+cloud application).
 
-Many popular cloud tools use this approach. For example, when you use Microsoft Teams,
+Many popular cloud applications use this approach. For example, when you use Microsoft Teams,
 Slack, or Asana, you're sharing the application with many other companies, but you only
 see and interact with your own team.
 
@@ -67,6 +67,7 @@ see and interact with your own team.
     \centering
     \includegraphics[scale=0.45]{images/mt-cloud-services.png}
     \caption{Multi tenancy in cloud applications.}
+    \vspace{-1em} % Negative value to remove space
     \label{fig:multi-tenant=cloud-applications}
 \end{figure}
 
@@ -82,7 +83,8 @@ decision points, and interactions within various business processes, providing a
 PROCEED offers two products:
 \begin{itemize}
     \item Distributed Process Engine (DPE for short): the DPEs execute bpmn processes in a distributed fashion.
-    \item Management System (MS for short): the MS is a cloud application that gives users a graphical interface to manage their processes and deploy these to the DPEs.
+    \item Management System (MS for short): the MS is a cloud application that gives users
+      a graphical interface to work on their BPMN processes and deploy these to the DPEs.
 \end{itemize}
 
 \begin{figure}[H]
@@ -90,6 +92,7 @@ PROCEED offers two products:
     \includegraphics[scale=0.45]{images/quick-ms-overview.drawio.png}
     \caption{Overview of PROCEED.}
     \label{fig:proceed-overview}
+    \vspace{-1em} % Negative value to remove space
 \end{figure}
 
 %Throughout this thesis we'll refer to any information that a user can access as an asset.
@@ -102,18 +105,16 @@ PROCEED offers two products:
 %    \item Execution related assets: Tasklist, Executions and Machines are all assets related to the execution of a BPMN model.
 %end{enumerate}
 
-Currently the MS lacks multi-tenancy support, it only supports individual users.
-Users can create assets and work on them, these can be shared by sharing the URL, but
-they're shared to everybody that is using the MS, it is not possible to selectively share
-assets.
-
-Assuming that sharing could be selective, it still isn't enough for organizations to use
-PROCEED, as it is technically possible that all members of the organization could share
-all assets with everybody that needs them, but this would be very cumbersome and
-error-prone.
-In order for organizations to be able to use PROCEED, it is not only needed, that assets can be
-worked on by its members, a whole structure is needed, where multiple people can be part
-of an organization and have shared workspaces, where they can work on assets together.
+Currently the MS lacks full multi-tenancy support, it only supports individual users and
+doesn't fully support organizations.
+For organizations to be supported, members of the organization need to be able to have a
+shared workspace, where they can work on the same assets. 
+This could technically achieved if members of the organization shared all assets with
+each other.
+However, PROCEED only supports universal sharing, meaning that all users would be able to
+see the shared assets.
+Furthermore, even if it was possible to share assets only to a group of users, it would be
+very cumbersome and error-prone.
 % This means that organizations, where multiple people work together are not supported by the
 % MS.
 % For this reason, it presents many difficulties for organizations, as there is no convenient way for multiple members of the organization to work together on assets in the MS.
@@ -124,24 +125,25 @@ of an organization and have shared workspaces, where they can work on assets tog
 % code of the MS on their own computers, which renders most benefits of cloud applications void.
 %This is because all assets are stored in a central database without a good way to isolate them from other tenants.
 %The only information that BPMN related assets are stored with, that helps towards isolating them from other tenants is the owner and a set of labels.
+For this reason, this thesis implements multi-tenant functionality into the PROCEED MS by introducing the concept of Environments. 
 
-This thesis implements multi-tenant functionality into the PROCEED MS by introducing The concept of Environments. 
-
-Each tenant will be able to work in their isolated environment, which lives in a central instance of the Management System. 
+Each tenant will be able to work in their own isolated environment, which lives in a central instance of the Management System. 
 Each account will automatically have its own Environment allowing users to work on
 personal projects. 
 Organizations will be able to create environments where multiple members can work together.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{images/proceed-workspaces-v2.drawio.png}
+    \includegraphics[scale=0.45]{images/proceed-workspaces-v2.drawio.png}
     \caption{Environments in PROCEED.}
     \label{fig:proceed-envitonments-overview}
 \end{figure}
-
-Additionally, environments will provide a more sophisticated way to manage assets. 
-Currently, the MS only provides labels for organizing assets, users cannot add, delete nor modify these labels.
-Environments will include a folder structures to organize BPMN assets, which provides more flexibility than labels.
+Additionally, environments will include a folder structure to improve the organization of
+assets.
+Currently the MS only provides labels for organizing assets.
+Assets can be labeled with one or more labels, which can be used to filter assets. 
+Users cannot add, delete nor modify these labels.
+Folders will provide more flexibility than labels.
 
 % These labels symbolize, what department the process belongs to. 
 
@@ -204,10 +206,13 @@ environment-specific permissions?
 
 % Usability and Developer Experience
 
-Intuitive UI Design: What user interface elements and interaction patterns are most effective for navigating and managing folders and environments? How can we design a user experience that is both intuitive and efficient?
-Backend Abstractions: What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? How can we minimize the impact on existing code while ensuring seamless integration?
-Frontend Abstractions: What frontend frameworks or libraries can we leverage to create a unified interface for interacting with personal and organizational environments? How can we design a flexible frontend architecture that can easily adapt to different roles and permissions?
-Additional Considerations
+\item What user interface elements and interaction patterns are most effective for navigating and managing folders and environments?
+
+\item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
+
+\item How can we minimize the impact on existing code while ensuring seamless integration?
+
+% Additional Considerations
 
 Performance and Scalability: How will the addition of environments impact the performance and scalability of the PROCEED Management System? What optimizations can be made to ensure that the system remains responsive and efficient even with a large number of users and environments?
 Migration Strategies: How can we seamlessly migrate existing PROCEED data and users into the new environment-based structure? What strategies can we employ to minimize disruption during the transition?
@@ -233,9 +238,6 @@ Security: What additional security measures are needed to protect data within en
 \begin{myEnumerate}
   \item Functional
     \begin{myEnumerate}
-        %TODO: I have to write everything about environments still
-
-
       \item The MS has to support two types of environments: personal and organization environments.
         \begin{myEnumerate}
           \item Every asset in the MS must be stored in one and only one environment.
