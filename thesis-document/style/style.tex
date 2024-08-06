@@ -68,6 +68,7 @@
 % =========================================================================
 
 \usepackage{xcolor}					% Colors
+\definecolor{codeback}{rgb}{.8,.8,.8,}
 \definecolor{LightBlue}{rgb}{0.55,0.55,1}
 \definecolor{DarkBlue}{rgb}{0.2,0.2,0.5}
 \definecolor{DarkRed}{rgb}{0.7725490196,0.05490196078,0.12549019607} % new TU red
@@ -77,28 +78,6 @@
 % = Listing style (code)
 % =========================================================================
 
-\lstdefinestyle{codestyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    xleftmargin=5mm,
-    framexleftmargin=5mm, % Adjust left margin
-    framextopmargin=5pt,  % Adjust top margin
-    frameshape={RYR}{Y}{Y}{RYR} %rounded cornets
-}
 
 % =========================================================================
 % = PAGE LAYOUT
@@ -333,7 +312,7 @@ sensitive=false, morecomment=[s]{<!--}{-->}, morestring=[b]", morestring=[d]'}
   stepnumber=1,
   tabsize=2,
   basicstyle=\ttfamily\small,
-  frame=none,
+  frame=single,
   numberfirstline=true,
   firstnumber=1,
   keywordstyle=\color{violet}\bfseries,
@@ -342,6 +321,7 @@ sensitive=false, morecomment=[s]{<!--}{-->}, morestring=[b]", morestring=[d]'}
   commentstyle=\color{lstgreen}\ttfamily,
   stringstyle=\color{lstblue}\ttfamily,
   showstringspaces=false
+    backgroundcolor=\color{gray!10!white},
 }
 
 
@@ -363,6 +343,7 @@ sensitive=false, morecomment=[s]{<!--}{-->}, morestring=[b]", morestring=[d]'}
 
 % change color of description list
 \usepackage{enumitem}
+\setlistdepth{5} % Allow up to 5 levels of nesting
 \setdescription{font=\color{Black}\rmfamily\itshape}
 %\renewenvironment{description}{\list{font=\color{Black}\itshape}}{\endlist}
 

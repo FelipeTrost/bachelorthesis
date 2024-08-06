@@ -104,6 +104,9 @@ The exact steps are shown in figure \ref{fig:oauth:authcodeflow}.
     \label{fig:oauth:authcodeflow}
 \end{figure}
 
+\subsection{OpenID Connect}
+\label{cha:relatedwork:openid}
+
 \section{PROCEED's role system}
 \label{cha:relatedwork:proceedroles}
 
@@ -140,83 +143,95 @@ The following terms are important to understand the role system in the PROCEED M
 \label{cha:relatedwork:proceedroles:ms-resources-actions}
 
 The following are the resource types that are used in the PROCEED MS:
+  \lstinline{Process}, 
+  \lstinline{Project},
+  \lstinline{Template},
+  \lstinline{Task},
+  \lstinline{Machine},
+  \lstinline{Execution},
+  \lstinline{Role},
+  \lstinline{User},
+  \lstinline{Setting},
+  \lstinline{EnvConfig},
+  \lstinline{RoleMapping},
+  \lstinline{Share},
+  \lstinline{Folder}.
 
-\begin{itemize}
-  \item `Process `
-  \item `Project`
-  \item `Template`
-  \item `Task`
-  \item `Machine`
-  \item `Execution`
-  \item `Role`
-  \item `User`
-  \item `Setting`
-  \item `EnvConfig`
-  \item `RoleMapping`
-  \item `Share`
-  \item `Environment`
-  \item `Folder`
-  \item `All`
-\end{itemize}
+These are the actions that can be performed on these resources:
+  \lstinline{none},
+  \lstinline{view},
+  \lstinline{update},
+  \lstinline{create},
+  \lstinline{delete}.
 
-Actions:
-
-\begin{itemize}
-  \item `none`
-  \item `view`
-  \item `update`
-  \item `create`
-  \item `delete`: $ x^{n-1} - a_i $
-\end{itemize}
-
-\subsection{MS's roles in casl}
+\subsection{MS's roles in CASL}
 \label{cha:relatedwork:proceedroles:casl}
 
-When checking user permissions there is a distinction between resource type and resource instance.
-A resource instance is a specific instance of a resource type, e.g. a specific process
+The PROCEED MS uses \footnote{https://casl.js.org/v6/en/}{CASL} to implement Rules. CASL
+is an isomorphic authorization JavaScript library.
+To enforce authorization CASL has abilities, which are assigned to users.
+Abilities expose functions to check weather a user can perform an action on a resource.
+Abilities are defined by four parameters: user action, subject, fields, conditions.
+User actions and subjects are analogous to actions and resources \ref{cha:relatedwork:proceedroles:terminology}.
+
+CASL differentiates between subject type and subject instance. 
+A subject instance is a specific instance of a subject type, e.g. a specific process
 users are working on, is an instance of the resource type "Process". 
-If there exist any possible resource instance, where the user has permission to perform an action,
-then the user has permission to perform the action on the resource type.
-% TODO:
-E.g if a user has permission to view some process in the MS, then he has permission to view .
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+Fields are used to specify which fields of a resource instance an action can be performed
+on, e.g. a user can update a process's name, but not its id, or creation date.
 
+Conditions are used to specify additional conditions that have to be met by a resource
+instance, for a user to be able to perform an action on it. E.g. a user can only update a
+process if he created it.
 
-\lstset{language=Python}
-\lstset{style=codestyle}
-\begin{lstlisting}
-import numpy as np
-    
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None #to become the incidence matrix
-    VT = np.zeros((n*m,1), int)  #dummy variable
-    
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1) 
+\begin{lstlisting}[
+  language=Javascript,
+  style=codestyle,
+  caption={CASL example},
+]
+import { defineAbility } from '@casl/ability';
 
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
-                
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
-                
-                VT = np.zeros((n*m,1), int)
-    
-    return M
+class User {
+  constructor(id) {
+    this.id = id;
+  }
+}
+
+class Process {
+  constructor(user, name) {
+    this.authorId = user.id;
+    this.createdOn = new Date();
+    this.name = name
+  }
+}
+
+function abilityForUser(user){
+  return defineAbility((can, cannot) => {
+    can('delete', 'User', {id: user.id});
+
+    can('update', 'Process', ['name'], {authorId: user.id});
+  });
+}
+
+const user1 = new User(1);
+const user1Ability = abilityForUser(user1);
+const user1Process = new Process(user1, 'some process');
+
+const user2 = new User(2);
+const user2Ability = abilityForUser(user2);
+
+user1Ability.can('update', 'Process'); // true
+user1Ability.can('update', user1Process, 'name'); // true
+user1Ability.can('update', user1Process, 'createdOn'); // false
+
+user1Ability.can('delete', user1); // true
+user1Ability.can('delete', user2); // false
+
+user2Ability.can('update', 'Process'); // true
+user2Ability.can('update', user1Process); //false
 \end{lstlisting}
 
+If there exist any possible resource instance, where the user has permission to perform an action,
+then the user has permission to perform the action on the resource type.
+E.g if a user has permission to view some process in the MS, then he has permission to view .

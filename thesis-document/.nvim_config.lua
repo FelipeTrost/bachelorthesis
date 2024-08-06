@@ -4,7 +4,12 @@ vim.keymap.set({ 'n', 'v' }, '<leader>so', function()
 end)
 
 vim.opt.tw = 90;
+vim.opt.wrap = true
 vim.cmd("set spell spelllang=en_us");
+
+-- remap in normal mode and all of visual mode
+vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
+vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
 
 -- require("auto-save").setup({
 --   enabled = true,
