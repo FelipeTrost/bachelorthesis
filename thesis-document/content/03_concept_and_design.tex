@@ -1,22 +1,32 @@
 \chapter{Concept and Design}
 \label{cha:conceptanddesign}
 
-The MS will have four important components: Users, Environments, Roles ans Assets.
-Every other data structure will help to fulfill the desired relationships between these.
-
+This chapter outlines the key components of the implementation of environments in the MS.
+The core components are users, environments, roles, and assets.
+In essence, users can be part of to multiple environments.
+Environments hold Assets.
+Users that are part of an environment can work on the assets that are stored in it.
+What a user can do with an asset is determined by the roles that the user has in the
+environment that the asset is stored in.
+All other components that will be introduced will help to manage these relationships.
 
 \subsection{Users}
 \label{cha:conceptanddesign:users}
 
-Users represent the actual people that use proceed.
-Each person can have one or more users.
-Users are not supposed to be used by multiple people.
-All users in the MS are stored the same, regardless of how they use the MS.
-In order to allow people to try out proceed,  without creating an account, users
-can be either authenticated or guest users.
-Guest users have a personal environment \ref{cha:conceptanddesign:environments:personal} % TODO: ref personal envs
-in which they can create assets.
-Afterwards they can authenticate them self and turn into a authenticated user.
+Users represent individual people utilizing PROCEED.
+A single person can have one or more users, but each user is intended for individual use.
+To facilitate the exploration of the MS, without creating an account, users
+can use PROCEED as guests.
+% NOTE: maybe shift this down
+Thus, we differentiate between authenticated users and guest users.
+Creating a Guest user doesn't require any data from the person creating it.
+All users have a personal environment \ref{cha:conceptanddesign:environments:personal} % TODO: ref personal envs
+in which they can create and manage assets freely.
+Guest users can transition to authenticated users whilst retaining their assets.
+
+
+TODOO
+All users in the MS are stored the same.
 
 %TODO: say what guests can do?
 
