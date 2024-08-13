@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  6 AUG 2024 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  13 AUG 2024 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1336,16 +1336,19 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 )
 [4
 
-] (main.toc)
+] (main.toc [5
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [5
-
-] [6
-
-
-] (content/01_introduction.tex
+<images/snet/snet_footer.png, id=102, 623.64026pt x 287.21095pt>
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 164.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+ [6 <./images/snet/snet_footer.png>]
+(content/01_introduction.tex
 chapter 1.
 
 Class scrbook Warning: \float@addtolists detected!
@@ -1362,7 +1365,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=100, 482.80376pt x 345.29pt>
+<images/basic-cloud-services.drawio.png, id=114, 482.80376pt x 345.29pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1374,13 +1377,15 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 35.
 [1
 
+
+
  <./images/basic-cloud-services.drawio.png>]
-<images/mt-cloud-services.png, id=111, 729.72626pt x 453.695pt>
+<images/mt-cloud-services.png, id=124, 729.72626pt x 453.695pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 68.
 (pdftex.def)             Requested size: 328.37378pt x 204.16086pt.
-<images/quick-ms-overview.drawio.png, id=112, 610.28pt x 382.42876pt>
+<images/quick-ms-overview.drawio.png, id=125, 610.28pt x 382.42876pt>
 File: images/quick-ms-overview.drawio.png Graphic file (type png)
 <use images/quick-ms-overview.drawio.png>
 Package pdftex.def Info: images/quick-ms-overview.drawio.png  used on input lin
@@ -1389,13 +1394,12 @@ e 92.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/snet/snet_footer.png, id=113, 623.64026pt x 287.21095pt>
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 97.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [2 <./images/mt-cloud-services.png> <./images/snet/snet_footer.png>]
-<images/proceed-workspaces-v2.drawio.png, id=122, 603.25375pt x 493.845pt>
+ [2 <./images/mt-cloud-services.png>]
+<images/proceed-workspaces-v2.drawio.png, id=132, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
@@ -1448,19 +1452,19 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 179.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [10]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 219.
+(Font)              scaled to size 9.37807pt on input line 225.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 219.
+(Font)              scaled to size 7.29405pt on input line 225.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 219.
+(Font)              scaled to size 5.21004pt on input line 225.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 219.
+(Font)              scaled to size 9.37807pt on input line 225.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 219.
+(Font)              scaled to size 7.29405pt on input line 225.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 219.
+(Font)              scaled to size 5.21004pt on input line 225.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 241.
+nput line 247.
  [11]) (content/03_concept_and_design.tex
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
@@ -1468,34 +1472,41 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [12]
 chapter 5.
-
-Overfull \hbox (26.7956pt too wide) in paragraph at lines 18--20
-[]\T1/ppl/m/n/10.95 We dis-tin-guish be-tween two types of workspaces: com-pany
- workspaces and per-sonal workspaces.
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13
+[13
 
 ]
+Overfull \hbox (22.6625pt too wide) in paragraph at lines 81--84
+\T1/ppl/m/n/10.95 lates each ap-pli-ca-tion. It has the same char-ac-ter-is-tic
+s as a multi-tenancy ap-proach, with-outorkspaces
+ []
+
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 90.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 104.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[14]) (content/04_implementation.tex [15]
+ [15])
+(content/04_implementation.tex
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+ [16]
 chapter 6.
-) (content/05_evaluation.tex [16
+) (content/05_evaluation.tex [17
 
 ]
 chapter 7.
-) (content/06_conclusion.tex [17
+) (content/06_conclusion.tex [18
 
 ]
 chapter 8.
-) [18
+) [19
+
+] [20
+
 
 ]
 chapter without number
@@ -1503,9 +1514,7 @@ chapter without number
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [19
-
-
+ [21
 
 ]
 chapter without number
@@ -1513,7 +1522,7 @@ chapter without number
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
- [20
+ [22
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1550,15 +1559,15 @@ chapter without number
 
 
 No file main.bbl.
-[21
+[23
 
 
 
 
 
-] [22] (content/99_appendices/a01_listings.tex
+] [24] (content/99_appendices/a01_listings.tex
 chapter without number
-) [23
+) [25
 
 ] (main.aux)
  ***********
@@ -1569,17 +1578,14 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34562 strings out of 476372
- 662227 string characters out of 5793694
- 2150995 words of memory out of 5000000
- 55848 multiletter control sequences out of 15000+600000
+ 34578 strings out of 476372
+ 662516 string characters out of 5793694
+ 2159995 words of memory out of 5000000
+ 55857 multiletter control sequences out of 15000+600000
  607473 words of font info for 124 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  108i,16n,107p,10922b,2310s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1593,9 +1599,9 @@ ic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatin
 o/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatino
 /uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/palatino/
 uplr8a.pfb>
-Output written on main.pdf (30 pages, 471889 bytes).
+Output written on main.pdf (32 pages, 478905 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 156 named destinations out of 1000 (max. 500000)
- 235 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 163 named destinations out of 1000 (max. 500000)
+ 275 words of extra memory for PDF output out of 10000 (max. 10000000)
 

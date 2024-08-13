@@ -17,11 +17,16 @@
 \contentsline {subsection}{\numberline {4.2.2}MS's resources and actions}{11}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}MS's roles in CASL}{11}{subsection.4.2.3}%
 \contentsline {chapter}{\numberline {5}Concept and Design}{13}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Implementation}{16}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Evaluation}{17}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{18}{chapter.8}%
-\contentsline {chapter}{\nonumberline List of Tables}{19}{chapter*.10}%
-\contentsline {chapter}{\nonumberline List of Figures}{20}{chapter*.11}%
-\contentsline {chapter}{Appendices}{21}{section*.12}%
-\contentsline {chapter}{\nonumberline Appendix 1}{23}{chapter*.13}%
+\contentsline {subsection}{\numberline {5.0.1}Users}{13}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}Environments}{13}{subsection.5.0.2}%
+\contentsline {subsubsection}{\numberline {5.0.2.1}Personal Environments}{13}{subsubsection.5.0.2.1}%
+\contentsline {subsubsection}{\numberline {5.0.2.2}Organization Environments}{13}{subsubsection.5.0.2.2}%
+\contentsline {subsection}{\numberline {5.0.3}Roles}{14}{subsection.5.0.3}%
+\contentsline {chapter}{\numberline {6}Implementation}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Evaluation}{18}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{19}{chapter.8}%
+\contentsline {chapter}{\nonumberline List of Tables}{21}{chapter*.10}%
+\contentsline {chapter}{\nonumberline List of Figures}{22}{chapter*.11}%
+\contentsline {chapter}{Appendices}{23}{section*.12}%
+\contentsline {chapter}{\nonumberline Appendix 1}{25}{chapter*.13}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

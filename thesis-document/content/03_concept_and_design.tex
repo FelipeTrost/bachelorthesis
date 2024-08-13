@@ -1,6 +1,69 @@
 \chapter{Concept and Design}
 \label{cha:conceptanddesign}
 
+The MS will have four important components: Users, Environments, Roles ans Assets.
+Every other data structure will help to fulfill the desired relationships between these.
+
+
+\subsection{Users}
+\label{cha:conceptanddesign:users}
+
+Users represent the actual people that use proceed.
+Each person can have one or more users.
+Users are not supposed to be used by multiple people.
+All users in the MS are stored the same, regardless of how they use the MS.
+In order to allow people to try out proceed,  without creating an account, users
+can be either authenticated or guest users.
+Guest users have a personal environment \ref{cha:conceptanddesign:environments:personal} % TODO: ref personal envs
+in which they can create assets.
+Afterwards they can authenticate them self and turn into a authenticated user.
+
+%TODO: say what guests can do?
+
+% NOTE: I think this goes in implementation
+% \subsubsection{Accounts}
+%
+% Accounts represent a use's sign in method. 
+
+\subsection{Environments}
+\label{cha:conceptanddesign:environments}
+
+Conceptually environments are the data structure in which everything, other than users, is
+stored.
+All assets and roles belong to exactly one environment.
+We distinguish between two types of environments: personal environments and organization
+environments.
+
+\subsubsection{Personal Environments}
+\label{cha:conceptanddesign:environments:personal}
+
+Personal environments are inherently assigned to each user. 
+%NOTE: remove the part with owner
+This user is the only member of this environment, and is therefore called the owner.
+No other users be a part of this environment.
+This environment has a limited feature set, which can be determined when deploying a MS
+instance.
+
+\subsubsection{Organization Environments}
+\label{cha:conceptanddesign:environments:organization}
+
+Organization environments are intended to be used by organizations, thus they can have a
+name, description and a logo.
+Organization environments extend the feature set of personal environments, the enabled
+resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} can be determined when
+deploying the MS instance.
+Organization environments can also have multiple Users that are part of it, these are
+called members.
+
+\subsection{Roles}
+
+
+
+
+-------------------------------------------------------------
+
+
+
 At the moment the Proceed Management system stores and manages all user assets the same for all users.
 There is no option to create assets such that only a specific group of people have access to it, meaning it is unsuitable for companies and large teams for which collaboration is important.
 This behaviour will be changed by the implementation of the beforementioned workspaces.
@@ -15,7 +78,8 @@ Roles will also be adapted for BPMN assets, they will be applied on the folders 
 Roles will cascade down the folder structure and be applied to all the assets in these folders as before.
 Furthermore users will now be able to see BPMN assets 
 
-We distinguish between two types of workspaces: company workspaces and personal workspaces.
+We distinguish between two types of workspaces: company winstance that completely isolates each application. It has
+the same characteristics as a multi-tenancy approach, withoutorkspaces and personal workspaces.
 Personal workspaces will offer a more simplified feature set compared to company workspaces.
 
 Every user is automatically provided with a personal workspace, offering an individualized space within the system.
