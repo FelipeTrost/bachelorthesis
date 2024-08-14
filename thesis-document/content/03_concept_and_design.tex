@@ -12,6 +12,7 @@ All other components that will be introduced will help to manage these relations
 
 \subsection{Users}
 \label{cha:conceptanddesign:users}
+%NOTE: maybe change the sctructure of this paragraph a bit
 
 Users represent individual people utilizing PROCEED.
 A single person can have one or more users, but each user is intended for individual use.
@@ -25,9 +26,6 @@ in which they can create and manage assets freely.
 Guest users can transition to authenticated users whilst retaining their assets.
 
 
-TODOO
-All users in the MS are stored the same.
-
 %TODO: say what guests can do?
 
 % NOTE: I think this goes in implementation
@@ -40,19 +38,24 @@ All users in the MS are stored the same.
 
 Conceptually environments are the data structure in which everything, other than users, is
 stored.
-All assets and roles belong to exactly one environment.
+This is so because users can be a part of multiple environments, so they can't be
+contained in only one environment.
+Everything else, assets and roles, belong to exactly one environment.
+
+
 We distinguish between two types of environments: personal environments and organization
 environments.
 
 \subsubsection{Personal Environments}
 \label{cha:conceptanddesign:environments:personal}
 
-Personal environments are inherently assigned to each user. 
+Personal environments are assigned to each user once they sign in. 
 %NOTE: remove the part with owner
-This user is the only member of this environment, and is therefore called the owner.
+The user for which the environment was created is user is the only member of this
+environment, and is therefore called the owner.
 No other users be a part of this environment.
-This environment has a limited feature set, which can be determined when deploying a MS
-instance.
+%TODO: forward ref to folders
+Personal environment only allow users to create and manage processes and folders.
 
 \subsubsection{Organization Environments}
 \label{cha:conceptanddesign:environments:organization}
@@ -60,12 +63,50 @@ instance.
 Organization environments are intended to be used by organizations, thus they can have a
 name, description and a logo.
 Organization environments extend the feature set of personal environments, the enabled
-resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} can be determined when
-deploying the MS instance.
+resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} for organization
+environments can be determined when deploying the MS instance.
 Organization environments can also have multiple Users that are part of it, these are
 called members.
 
+\subsection{Folders}
+
+Environments will contain a folder structure to store assets
+\ref{cha:relatedwork:proceed-assets}.
+At the moment writing, folders only support processes, but these could be extended to
+support other types of assets.
+% TODO: ask kai if I should explain rooted trees - would be nice to cookup a formal def
+The folder structure will be a rooted tree.
+The root of the tree will be created when the environment is created.
+% NOTE: below may not be the right workd here
+Since the root folder belongs to only one environment, and all folders are stored below
+one root folder, all folders belong to only one environment.
+Processes will then store a reference to the folder they're stored in.
+
+\subsection{Assets}
+
+All assets within the MS \ref{cha:relatedwork:proceed-assets}
+will be modified to establish a clear association with a single environment.
+Processes will be contained within folders, explicitly indicating to what environment they
+belong.
+Other asset types will store a direct reference to their environment.
+The key principle is that every asset belongs to one and only one environment, and this
+association can be easily identified.
+
+% All of the MS's assets will only change in one way, they will somehow linked to an
+% environment and only one.
+% For processes, they're contained in a folder, such that they clearly belong to one
+% environment. for other assets, they will store a reference to the environment they belong
+% to.
+% The important part is that each asset belongs to exactly one environment, and this
+% environment can be identified.
+
 \subsection{Roles}
+
+The existing role system of the ms \ref{cha:relatedwork:proceedroles} will be adapted to
+fit environments.
+Previously, roles were global, meaning that they applied to all assets in the MS.
+This will be changed so that each role belongs to only one environment and only affects 
+assets that are stored in that environment.
 
 
 
