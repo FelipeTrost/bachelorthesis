@@ -165,14 +165,30 @@ In essence, OIDC allows clients to obtain information about the authenticated us
 \section{PROCEED's Assets}
 \label{cha:relatedwork:proceed-assets}
 
+Assets are Objects that users can create and manage through the MS's interface.
+When referring to assets, we are only talking about the core features of the MS, not
+objects that aid in the usage of the MS, like Roles .e.g., which only helps with managing
+access to assets.
+Currently the MS supports the following assets:
+
+\begin{enumerate}
+  \item Processes, Project and Templates: These objects store BPNN at their core.
+  \item Task:
+  \item Machine: Object that represents a server running Distributed Process Engine. The
+    machine is used to manage properties of the server.
+    % NOTE  maybe remove execution
+  \item Execution: An execution represents a process that is being executed distributedly.
+\end{enumerate}
+
 
 \section{PROCEED's role system}
 \label{cha:relatedwork:proceedroles}
 
-The PROCEED MS uses a Role-Based Access Control (RBAC) system to mange user authorization,
-i.e. to determine what actions a user can perform.
+The PROCEED MS uses a Role-Based Access Control %(RBAC) 
+system to mange user authorization to determine what actions a user can perform.
 Roles can be seen as bundles of permissions, which are granted to users.
-A user can have multiple roles.
+A user can have multiple roles and all the permissions of the roles are additively
+combined. That is, by adding a permission, a user can never do less than before.
 Typically roles are assigned to users based on their job function.
 %% Advantages 
 %% - One role serves multiple people
