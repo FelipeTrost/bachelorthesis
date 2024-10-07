@@ -1,4 +1,4 @@
-\chapter{Implementation}
+chapter{Implementation}
 \label{cha:implementation}
 
 \section{Users}
@@ -8,7 +8,54 @@ We authenticate users by storing a JWT
 This cookie is then parsed by the MS backend and if the cookie is valid and it stores the
 % TODO: is id the correct word here
 id of an existing user, the user is considered authenticated.
-If the user couldn't be authenticated, he is redirected to the sign in page.
+If the user couldn't be authenticated, he is redirected to the sign-in page.
+
+\subsection{Authenticated Users}
+
+It is important to understand the difference between Users and Accounts.
+A user represent a person, while an accounts represents a method of signing in for a user.
+A user can have multiple accounts, but an account can only be linked to one user.
+
+\subsubsection{Development Users}
+
+When developing the MS, it is not common for the developer to have all the necessary keys
+configured in the environment variables, for the MS to be able to authenticate users with
+Oauth2 \ref{cha:relatedwork:oauth} or send sign-in emails.
+For this reason the MS implements two development users: johndoe and admin.
+When the MS is in development mode, i.e. the environment variable \lstinline{NODE_ENV} is
+set to \lstinline{development},
+the sign-in page shows a new input field where you can enter the developments user's username.
+Both users are stored as authenticated users in the MS's database and can be used to test
+the MS during development.
+
+
+% TODO: finish
+
+
+- user schema
+- accounts represent ways for a user sign in
+- user can have multiple accounts
+- account linking
+- sign in methods (+ dev sign in)
+
+
+% \begin{lstlisting}[
+%   style=codestyle,
+%   caption={},
+% ]
+% {
+%     isGuest: false;
+%     emailVerifiedOn: Date | null;
+%     firstName?: string | undefined;
+%     lastName?: string | undefined;
+%     username?: string | undefined;
+%     image?: string | null | undefined;
+%     favourites?: string[] | undefined;
+%     id?: string | undefined;
+%     email?: string | undefined;
+% }
+% \end{lstlisting}
+
 
 \subsection{Guest Users}
 
@@ -25,28 +72,37 @@ much space as possible in the MS's database.
 However, this approach has one key downside, the MS would have to implement two storage
 solutions and accordingly switch between them.
 The added complexity of storing guest user's data locally isn't worth the benefits, so we
-decided to store a guest user's data in the MS's database.
+decided to store a guest user's data in the MS's database and create an entry for him in
+the Database like for all users, with the difference that a flag is set, to indicate that
+he is a guest.
+This way, all the same endpoints that authenticated users can call to interact with the MS
+can also be called by guest users.
+An important caveat is that now all relevant endpoints have to check whether the user 
 
-If a user chooses to try the MS out as a guest, a new user entry is created in the 
 
-\subsection{Authenticated Users}
+\section{Assets}
+
+- environmentId stored on each thing to improve querying
+- talk about data normalization
+- talk about breaking normalization for perfomance gains -> reference a paper or smth
+
+\section{Environments}
+
+- environments are entry in db
+- memberships
+- environment format entry
+- verification (when envs are created by not signed in users)
+- creation
+- deletion - managing the env
+- section for folders
+- decide how to divide 
+
+Environments are stored as an entry in the MS table
 
 
-\begin{lstlisting}[
-  language=json,
-  style=codestyle,
-  caption={CASL example},
-]
-{
-    isGuest: false;
-    emailVerifiedOn: Date | null;
-    firstName?: string | undefined;
-    lastName?: string | undefined;
-    username?: string | undefined;
-    image?: string | null | undefined;
-    favourites?: string[] | undefined;
-    id?: string | undefined;
-    email?: string | undefined;
-}
-\end{lstlisting}
+\subsection{Creation}
+\subsection{Memberships}
+
+\section{Roles}
+
 
