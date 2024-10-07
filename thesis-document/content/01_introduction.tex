@@ -14,11 +14,15 @@
 % Cloud applications are those, which are served and accessed over the internet, they offer many benefits:
 
 In today's digital age, businesses heavily rely on cloud applications, software tools that
-are accessed and run entirely over the internet. Cloud applications offer many advantages:
+are accessed and run entirely over the internet.
+These tools represent a paradigm shift from traditional software applications,
+where the majority of the workload happened on the user's device.
+Shifting some of the workload to the cloud offers many advantages:
 
 \begin{itemize}
     \item Accessibility: They can be accessed anywhere from anywhere with an internet connection.
-    \item Cost-Efficient: Most cloud applications offer a subscription model, where you have to pay a monthly price, instead of paying for the whole software upfront.
+    \item Cost-Efficient: Most cloud applications implement a payment structure, where
+      users pay based on how much they use the application.
     \item Collaboration: Typically, collaboration is easier since everything can be found
       in one place, instead of having to send files back and forth.
     \item Data safety: All files are stored by the application in the cloud, and they don't
@@ -32,7 +36,7 @@ are accessed and run entirely over the internet. Cloud applications offer many a
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{images/basic-cloud-services.drawio.png}
-    \caption{Cloud Application.}
+    \caption{Users can access cloud applications from any device with an internet connection.}
     \label{fig:cloud-applications}
 \end{figure}
 
@@ -66,13 +70,14 @@ see and interact with your own team.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{images/mt-cloud-services.png}
-    \caption{Multi tenancy in cloud applications.}
+    \caption{Multi tenancy in cloud applications: the same instance of the cloud
+    application, can be used by different tenants, with different structures, without them knowing about each other.}
     \vspace{-1em} % Negative value to remove space
     \label{fig:multi-tenant=cloud-applications}
 \end{figure}
 
-PROCEED (short for PROCess EnginE in a Distributed environment) %is a cloud application,
-is a decentralized Business Process Management System.
+PROCEED%(short for PROCess EnginE in a Distributed environment)% is a cloud application,
+is a Business Process Management System.
 PROCEED uses BPMN at its core to model and execute business processes.
 %For readers unfamiliar with BPMN, 
 %it can be thought of as a powerful flowchart that can be used to describe any conceivable process.
@@ -82,7 +87,7 @@ decision points, and interactions within various business processes, providing a
 
 PROCEED offers two products:
 \begin{itemize}
-    \item Distributed Process Engine (DPE for short): the DPEs execute bpmn processes in a distributed fashion.
+    \item Distributed Process Engine (DPE for short): the DPEs execute BPMN processes.
     \item Management System (MS for short): the MS is a cloud application that gives users
       a graphical interface to work on their BPMN processes and deploy these to the DPEs.
 \end{itemize}
@@ -90,7 +95,8 @@ PROCEED offers two products:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{images/quick-ms-overview.drawio.png}
-    \caption{Overview of PROCEED.}
+    \caption{Overview of PROCEED: users interact with the Management System, to create and
+    manage BPMN models. The Management System has the ability to deploy these models to the Distributed Process Engines.}
     \label{fig:proceed-overview}
     \vspace{-1em} % Negative value to remove space
 \end{figure}
@@ -105,14 +111,14 @@ PROCEED offers two products:
 %    \item Execution related assets: Tasklist, Executions and Machines are all assets related to the execution of a BPMN model.
 %end{enumerate}
 
-% TODO explain what assets are
+% TODO !!
 
 Currently the MS lacks full multi-tenancy support, it only supports individual users and
 doesn't fully support organizations.
 For organizations to be supported, members of the organization need to be able to have a
 shared workspace, where they can work on the same assets. 
-This could technically achieved if members of the organization shared all assets with
-each other.
+% This could technically achieved if members of the organization shared all assets with
+% each other.
 However, PROCEED only supports universal sharing, meaning that all users would be able to
 see the shared assets.
 Furthermore, even if it was possible to share assets only to a group of users, it would be
@@ -127,25 +133,27 @@ very cumbersome and error-prone.
 % code of the MS on their own computers, which renders most benefits of cloud applications void.
 %This is because all assets are stored in a central database without a good way to isolate them from other tenants.
 %The only information that BPMN related assets are stored with, that helps towards isolating them from other tenants is the owner and a set of labels.
-For this reason, this thesis implements multi-tenant functionality into the PROCEED MS by introducing the concept of Environments. 
 
-Each tenant will be able to work in their own isolated environment, which lives in a central instance of the Management System. 
-Each account will automatically have its own Environment allowing users to work on
+For this reason, this thesis implements multi-tenant functionality into the PROCEED MS by introducing the concept of Environments. 
+The MS should be able to hold multiple isolated environments, where tenants can work on their assets.
+% Each tenant should be able to work in their own isolated environment, which lives in a central instance of the Management System. 
+Each user, who signs in, should automatically have their own Environment, this allows users to work on
 personal projects. 
 Organizations will be able to create environments where multiple members can work together.
+Additionally, environments should include a folder structure to improve the organization of
+assets.
+% Currently the MS only provides labels for organizing assets.
+% Assets can be labeled with one or more labels, which can be used to filter assets. 
+% Users cannot add, delete nor modify these labels.
+% Folders will provide more flexibility than labels.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{images/proceed-workspaces-v2.drawio.png}
-    \caption{Environments in PROCEED.}
+    \caption{Goal of this thesis: tenants can work in their own isolated environments in
+    the PROCEED Management System.}
     \label{fig:proceed-envitonments-overview}
 \end{figure}
-Additionally, environments will include a folder structure to improve the organization of
-assets.
-Currently the MS only provides labels for organizing assets.
-Assets can be labeled with one or more labels, which can be used to filter assets. 
-Users cannot add, delete nor modify these labels.
-Folders will provide more flexibility than labels.
 
 % These labels symbolize, what department the process belongs to. 
 
@@ -188,37 +196,39 @@ Folders will provide more flexibility than labels.
 \begin{enumerate}
 % Data Modeling and Architecture
 
-\item Environment Representation: How can we model environments within the existing PROCEED database schema to ensure data integrity, isolation, and efficient access? 
-
-\item Asset-Environment Association: How can we associate assets with their respective environments while maintaining a clear and consistent data model?
-
-\item Folder Hierarchy: What data structure (e.g., tree, graph, nested sets) is best suited for representing folder hierarchies within environments? How can we efficiently store and query this structure in the database?
+\item Environment Representation: How can we model environments within the existing
+  PROCEED database schema to ensure the following:
+\begin{itemize}
+  \item Data integrity: find a schema that facilitates data consistency after updates.
+  \item Asset-Environment Association: find a schema that associates assets with their
+    respective environments while maintaining a clear and consistent data model.
+  \item Efficient: find a schema that allows to efficiently query the database.
+\end{itemize}
 
 % Roles and Permissions
 
 \item How can we extend the existing PROCEED role system to incorporate
 environment-specific permissions? 
 
-\item How can we apply different permissions to assets based on what folder they are
-  stored in?
+\item How can organizations model their hierarchical role structures within environments
+  to allow members of the organization to have different levels of access to assets?
 
-\item What mechanisms are needed to ensure that role-based access control is consistently enforced?
+% \item What mechanisms are needed to ensure that role-based access control is consistently enforced?
 
-\item How can the frontend user interface dynamically adapt to a user's roles and permissions within different environments?
+\item How can the Management System allow users to manage assets on different
+  environments?
 
 % Usability and Developer Experience
 
-\item What user interface elements and interaction patterns are most effective for navigating and managing folders and environments?
-
-\item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
+% \item What user interface elements and interaction patterns are most effective for navigating and managing folders and environments?
 
 \item How can we minimize the impact on existing code while ensuring seamless integration?
 
 % Additional Considerations
 
-Performance and Scalability: How will the addition of environments impact the performance and scalability of the PROCEED Management System? What optimizations can be made to ensure that the system remains responsive and efficient even with a large number of users and environments?
-Migration Strategies: How can we seamlessly migrate existing PROCEED data and users into the new environment-based structure? What strategies can we employ to minimize disruption during the transition?
-Security: What additional security measures are needed to protect data within environments? How can we prevent unauthorized access to environments and their assets?
+% Performance and Scalability: How will the addition of environments impact the performance and scalability of the PROCEED Management System? What optimizations can be made to ensure that the system remains responsive and efficient even with a large number of users and environments?
+% Migration Strategies: How can we seamlessly migrate existing PROCEED data and users into the new environment-based structure? What strategies can we employ to minimize disruption during the transition?
+% Security: What additional security measures are needed to protect data within environments? How can we prevent unauthorized access to environments and their assets?
 \end{enumerate}
 
 % Task List
@@ -236,6 +246,9 @@ Security: What additional security measures are needed to protect data within en
 \setlist[myEnumerate,3]{label=\Alph*}
 \setlist[myEnumerate,4]{label=\roman*}
 \setlist[myEnumerate,5]{label=\alph*}
+
+% TODO: 
+% \item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
 
 \begin{myEnumerate}
   \item Functional
@@ -263,12 +276,15 @@ Security: What additional security measures are needed to protect data within en
                 % likely redundant
 
               \item The MS's preexisting role system must be adapted to fit environments:
-                The proceed management system already has a role system in place to manage user's access to resources, these roles need to be modified for them to work with environments.
+                The PROCEED Management System already has a role system in place to manage user's access to resources, these roles need to be modified for them to work with environments.
                 \begin{myEnumerate}
+                  \item Find a suitable inheritance model for roles based on the folder
+                    structure of an environment (e.g. a user with a role in a parent
+                    folder, can perform actions in all subfolders).
                   \item Ensure roles are always enforced in the backend.
                   \item The frontend UI must adapt to a user's roles, by only showing options that the user has permission to do.
                 \end{myEnumerate}
-                depending on the folder the asset is in.
+                % depending on the folder the asset is in.
             \end{myEnumerate}
 
         \end{myEnumerate}
@@ -329,3 +345,66 @@ Security: What additional security measures are needed to protect data within en
 % \end{enumerate}
 
 % The introduction of "environments" within this system is a pivotal enhancement. These environments serve as distinct, isolated spaces, ensuring that the contents and operations within each environment remain entirely separate from those in all other environments. This separation offers users the capability to manage various aspects of PROCEED's functionality while maintaining data and process integrity within their designated environment. This thesis explores the design, implementation, and implications of the multi-tenant feature within the Management System of Proceed, contributing to a more versatile and secure user experience.
+
+
+% \begin{enumerate}
+%     \item Interface for creatring and deleting company workspaces.
+%     
+%     \item Adapt roles to workspaces.
+%     \begin{itemize}
+%         \item Each role has to belong to one workspace
+%         \item Roles have to cascade down the folder structure of workspaces
+%         \item Roles have to roughly keep the same functionality as before.
+%     \end{itemize}
+%     
+%     \item Adapt asset storage for workspaces.
+%     \begin{itemize}
+%         \item Find a suitable solution to store assets.
+%         \item Ensure privacy between workspaces.
+%     \end{itemize}
+%     
+%     \item Adapt the Management System's API to take into account workspaces.
+%     \begin{itemize}
+%         \item Make sure that a the requester specifies the workspace he is refering to.
+%         \item Make sure that the requester belongs to the workspace where the asset he is trying to access is located.
+%         \item Implement an endpoint for users to get the workspaces they belong to.
+%         \item Implement an endpoint for users to manage the workspaces they belong to.
+%     \end{itemize}
+%     
+%     \item The Management System frontend will only have one active workspace at a time.
+%     \begin{itemize}
+%         \item All actions that manipulate assets, roles or create users, will be performed on the active workspace.
+%         \item Only the assets of the active workspace will be shown.
+%         \item There will be a clear indication of what worspace is active
+%         \item There will be an easy way to switch between workspaces.
+%     \end{itemize}
+%     
+%     \item Interfaces for managing different aspects of company workspace's members.
+%     \begin{itemize}
+%         \item Option for creating and deleting users.
+%         \begin{itemize}
+%             \item Basic creation with manual input.
+%             \item Import existing user Databases.
+%         \end{itemize}
+%         \item Option for inviting users to the workspace.
+%         \item Option to manage users' roles.
+%     \end{itemize}
+%     
+%     \item Users should be able to share assets.
+%     \begin{itemize}
+%         \item Allow users to share assets with other users.
+%         \begin{itemize}
+%             \item A person who shares something will be refered to as a sharer and the reciepient as a sharee
+%         \end{itemize}
+%         \item Users will only be able to share assets if their roles allow it.
+%         \item Each shared object has associated perimissions with it, which restrict the sharee's ability to access and manipulate it.
+%         \item Sharees will be able to view and select all workspaces where they have at least one shared asset.
+%         \begin{itemize}
+%             \item Sharees sill see the folder structure of the workspace, but they won't see any of the assets in them, besides the ones shared with him
+%         \end{itemize}
+%         \item The frontend will implement a Interface to share assets.
+%         \item The frontend will implement a Interface to manage shares.
+%         \item The frontend will indicate to the sharer, in the asset overview that an asset is shared.
+%         \item Users that are allowed to view an asset will also be able to see the users that it has been shared to.
+%     \end{itemize}
+% \end{enumerate}

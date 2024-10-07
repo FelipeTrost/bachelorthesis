@@ -1,4 +1,52 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-Describe the details of the actual implementation here...
+\section{Users}
+
+We authenticate users by storing a JWT
+\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}} cookie in their browser.
+This cookie is then parsed by the MS backend and if the cookie is valid and it stores the
+% TODO: is id the correct word here
+id of an existing user, the user is considered authenticated.
+If the user couldn't be authenticated, he is redirected to the sign in page.
+
+\subsection{Guest Users}
+
+Users that aren't signed in can choose to try the MS out as a guest, this doesn't require
+the user to input any personal information.
+
+For storing guest user data, one could take one of two approaches:
+storing the data in the user's browser or storing it in the MS's database, alongside the
+data of authenticated users.
+Storing the data locally has two great benefits: 
+The MS doesn't have to store data of users who might never return and
+the MS would become less susceptible to an attack where the attacker tries to use up as
+much space as possible in the MS's database.
+However, this approach has one key downside, the MS would have to implement two storage
+solutions and accordingly switch between them.
+The added complexity of storing guest user's data locally isn't worth the benefits, so we
+decided to store a guest user's data in the MS's database.
+
+If a user chooses to try the MS out as a guest, a new user entry is created in the 
+
+\subsection{Authenticated Users}
+
+
+\begin{lstlisting}[
+  language=json,
+  style=codestyle,
+  caption={CASL example},
+]
+{
+    isGuest: false;
+    emailVerifiedOn: Date | null;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
+    username?: string | undefined;
+    image?: string | null | undefined;
+    favourites?: string[] | undefined;
+    id?: string | undefined;
+    email?: string | undefined;
+}
+\end{lstlisting}
+

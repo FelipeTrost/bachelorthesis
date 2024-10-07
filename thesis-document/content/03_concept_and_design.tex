@@ -3,94 +3,70 @@
 
 This chapter outlines the key components of the implementation of environments in the MS.
 The core components are users, environments, roles, and assets.
-In essence, users can be part of to multiple environments.
+In essence the concept can be summarized as follows: users can be part of to multiple environments.
 Environments hold Assets.
 Users that are part of an environment can work on the assets that are stored in it.
 What a user can do with an asset is determined by the roles that the user has in the
 environment that the asset is stored in.
-All other components that will be introduced will help to manage these relationships.
+All other components that will be introduced will help to manage and enforce these relationships.
 
-\subsection{Users}
+\section{Users}
 \label{cha:conceptanddesign:users}
 %NOTE: maybe change the sctructure of this paragraph a bit
 
 Users represent individual people utilizing PROCEED.
 A single person can have one or more users, but each user is intended for individual use.
 To facilitate the exploration of the MS, without creating an account, users
-can use PROCEED as guests.
+can use the MS as guests.
 % NOTE: maybe shift this down
 Thus, we differentiate between authenticated users and guest users.
-Creating a Guest user doesn't require any data from the person creating it.
-All users have a personal environment \ref{cha:conceptanddesign:environments:personal} % TODO: ref personal envs
-in which they can create and manage assets freely.
-Guest users can transition to authenticated users whilst retaining their assets.
+Guest users have the ability to transition to authenticated users whilst retaining their assets.
+% Creating a Guest user doesn't require any data from the person creating it.
 
+All users have a personal environment \ref{cha:conceptanddesign:environments:personal}
+in which they can create and manage assets freely.
+Authenticated users can also be part of organization environments \ref{cha:conceptanddesign:environments:organization}
+where they can collaborate with other users.
 
 %TODO: say what guests can do?
 
 % NOTE: I think this goes in implementation
-% \subsubsection{Accounts}
+% \subsection{Accounts}
 %
 % Accounts represent a use's sign in method. 
 
-\subsection{Environments}
-\label{cha:conceptanddesign:environments}
+\section{Folders}
 
-Conceptually environments are the data structure in which everything, other than users, is
-stored.
-This is so because users can be a part of multiple environments, so they can't be
-contained in only one environment.
-Everything else, assets and roles, belong to exactly one environment.
+Folders are nodes in a rooted tree structure with a name and a description.
+Folders can contain other folders and assets.
+At the moment writing, folders only support processes, but they could be extended to
+support other types of assets like the ones described in \ref{cha:relatedwork:proceed-assets}.
 
+Each environment will have a folder structure to store its processes.
+The root folder is created when the environment is created.
+Each root folder and all of its children are contained by one and only one environment \ref{cha:conceptanddesign:environments}.
 
-We distinguish between two types of environments: personal environments and organization
-environments.
+Folders are intended to allow users to mirror the hierarchical structure of their
+organization and of its projects.
 
-\subsubsection{Personal Environments}
-\label{cha:conceptanddesign:environments:personal}
+% Since the root folder belongs to only one environment, and all folders are stored below
+% one root folder, all folders belong to only one environment.
+% Processes will then store a reference to the folder they're stored in.
 
-Personal environments are assigned to each user once they sign in. 
-%NOTE: remove the part with owner
-The user for which the environment was created is user is the only member of this
-environment, and is therefore called the owner.
-No other users be a part of this environment.
-%TODO: forward ref to folders
-Personal environment only allow users to create and manage processes and folders.
-
-\subsubsection{Organization Environments}
-\label{cha:conceptanddesign:environments:organization}
-
-Organization environments are intended to be used by organizations, thus they can have a
-name, description and a logo.
-Organization environments extend the feature set of personal environments, the enabled
-resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} for organization
-environments can be determined when deploying the MS instance.
-Organization environments can also have multiple Users that are part of it, these are
-called members.
-
-\subsection{Folders}
-
-Environments will contain a folder structure to store assets
-\ref{cha:relatedwork:proceed-assets}.
-At the moment writing, folders only support processes, but these could be extended to
-support other types of assets.
 % TODO: ask kai if I should explain rooted trees - would be nice to cookup a formal def
-The folder structure will be a rooted tree.
-The root of the tree will be created when the environment is created.
-% NOTE: below may not be the right workd here
-Since the root folder belongs to only one environment, and all folders are stored below
-one root folder, all folders belong to only one environment.
-Processes will then store a reference to the folder they're stored in.
 
-\subsection{Assets}
+
+\section{Assets}
 
 All assets within the MS \ref{cha:relatedwork:proceed-assets}
-will be modified to establish a clear association with a single environment.
+will be modified, so that each asset instance establishes a clear association with a single environment.
 Processes will be contained within folders, explicitly indicating to what environment they
 belong.
-Other asset types will store a direct reference to their environment.
-The key principle is that every asset belongs to one and only one environment, and this
-association can be easily identified.
+Other asset types will store a direct reference to their environment, without being
+contained in a folder structure, this can be seen as a flat folder structure.
+
+% The key principle is that every asset belongs to one and only one environment, and this
+% association can be easily identified.
 
 % All of the MS's assets will only change in one way, they will somehow linked to an
 % environment and only one.
@@ -100,119 +76,81 @@ association can be easily identified.
 % The important part is that each asset belongs to exactly one environment, and this
 % environment can be identified.
 
-\subsection{Roles}
+\section{Environments}
+\label{cha:conceptanddesign:environments}
 
-The existing role system of the ms \ref{cha:relatedwork:proceedroles} will be adapted to
-fit environments.
-Previously, roles were global, meaning that they applied to all assets in the MS.
-This will be changed so that each role belongs to only one environment and only affects 
-assets that are stored in that environment.
+Conceptually environments are the data structure in which everything, other than users, is
+stored.
+Users aren't stored in environments as they can be a part of multiple environments, 
+so they can't be contained in only one environment.
+Instead, the MS stores memberships that specify that a user is part of an environment.
+Everything else, assets and roles, belong to exactly one environment.
+
+We distinguish between two types of environments: personal environments and organization
+environments.
+
+\subsection{Personal Environments}
+\label{cha:conceptanddesign:environments:personal}
+
+Personal environments are assigned to each user once they sign in. 
+%NOTE: remove the part with owner
+The user for which the environment is created, is the only member of this
+environment, and is therefore called the owner.
+No other users be a part of this environment.
+%TODO: forward ref to folders
+Personal environment only allow users to create and manage processes and folders,
+other Features that the MS offers are disabled for personal environments and can only be
+used in organization environments \ref{cha:conceptanddesign:environments:organization}.
+
+\subsection{Organization Environments}
+\label{cha:conceptanddesign:environments:organization}
+
+Organization environments are intended to be used by organizations, thus they can have a
+name, description and a logo.
+Organization environments extend the feature set of personal environments, the enabled
+resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} for organization
+environments can be determined when deploying a MS instance.
+
+Organization environments can also have multiple Users that are part of it, these are
+called members.
 
 
+\section{Roles}
 
+Before the implementation of this thesis, roles in the MS
+\ref{cha:relatedwork:proceedroles} were global,
+meaning that their permissions applied to all assets in the MS.
+With the introduction of the folder structure in organization environments, this no longer makes sense.
+Folders allow organizations to mirror their hierarchical structure, but this wouldn't be
+entirely useful if roles were still global.
+For this reason, roles can now be associated to a folder.
+Roles that are associated with a folder cascade down the
+folder structure, i.e. a role associated to a folder will also apply to all of its children.
+Roles that aren't associated to a folder will continue to apply to all assets in the environment.
+As roles are meant to mirror a users position in an organization, they're only available
+for organization environments.
 
--------------------------------------------------------------
+% TODOFIG: show how roles cascade
 
+If a user's role allows him to view assets and is associated to a folder, then the user
+also has the permission to view all parent folders of the folder the role is associated to.
+But this is only restricted to the parent folders, not the contents of the parent folders.
+This allows users to navigate the folder structure until they reach the assets they're
+allowed to view and manage.
 
+% TODOFIG: show how user can view path to his folder
 
-At the moment the Proceed Management system stores and manages all user assets the same for all users.
-There is no option to create assets such that only a specific group of people have access to it, meaning it is unsuitable for companies and large teams for which collaboration is important.
-This behaviour will be changed by the implementation of the beforementioned workspaces.
+\subsection{Default roles}
 
-Workspaces are abstractions that enable asset isolation.
-A fundamental principle of this system is that every asset belongs exclusively to one workspace.
-Workspaces contain hierarchical structures, similar to folders, in which assets can be stored.
-The existing implementation of the Management System supports Role-based access control (RBAC).
-Which means that access to resources is determined by a user's roles.
-The implemantation of workspaces will transform the existing roles, so that each role only belongs to one workspace, and so that it only affects the assets in that workspace.
-Roles will also be adapted for BPMN assets, they will be applied on the folders that the BPMN assets are stored in, instead of being defined globally, where they apply to each asset.
-Roles will cascade down the folder structure and be applied to all the assets in these folders as before.
-Furthermore users will now be able to see BPMN assets 
+For each organization environment two roles will be created, which cannot be deleted and
+cannot be associated to a folder:
 
-We distinguish between two types of workspaces: company winstance that completely isolates each application. It has
-the same characteristics as a multi-tenancy approach, withoutorkspaces and personal workspaces.
-Personal workspaces will offer a more simplified feature set compared to company workspaces.
+\begin{itemize}
+  \item \lstinline{@admin}: This role has all permissions for all assets in the
+    organization environment and it is first assigned to the user that creates the organization environment.
+    Only users with the \lstinline{@admin} role can add new users to this role.
+  \item \lstinline{@everyone}: The permissions in this role apply to for all the users
+    that are part of the organization environment. The permissions in this role start out
+    empty, but can be modified.
+\end{itemize}
 
-Every user is automatically provided with a personal workspace, offering an individualized space within the system.
-Within his workspace, a user will be granted the admin role.
-Roles in a personal workspace will not be able to be modified.
-Personal workspaces also cannot have members, the only way to enable others to work on it's assets will be to share them with the proper permissions.
-
-Company workspaces will introduce roles that are associated with a hierarchical structure and cascade down through it, enabling role-based access control at multiple levels.
-Company workspaces can accommodate multiple members in contrast to personal workspaces.
-
-In order to facilitate cooperation, 
-the implementation will also allow sharing assets to users outside or inside the asset's workspace and granting temporary access to user's that aren't members of the workspace to the workspace.
-
-Company workspaces can be created by normal users, for this, they will have to input data about their company. After the workspace is created, the user is granted the role of administrator and can add new members.
-
-The frontend will include a interface for creating company workspaces, for adding members to the workspace, for managing the structure and roles of the workspace.
-In the context of company workspaces, when a user is created through the company workspace's interface, the user will be a regular Proceed user, with the only distinction being, that he will automatically be part of the company workspace.
-The Management System should also have the ability to import or interact with existing user Databases.
-This will facilitate team managers, to create all the accounts they need for their team at once.
-The Management system frontend will show users only the contents of one workspace at the time. It will also include a simple way to view the workspaces a user belongs to and switch between them.
-The frontend will include an interface for sharing assets and managing the permissions of the shared assets.
-
-Checklist
-
-\begin{enumerate}
-    \item Interface for creatring and deleting company workspaces.
-    
-    \item Adapt roles to workspaces.
-    \begin{itemize}
-        \item Each role has to belong to one workspace
-        \item Roles have to cascade down the folder structure of workspaces
-        \item Roles have to roughly keep the same functionality as before.
-    \end{itemize}
-    
-    \item Adapt asset storage for workspaces.
-    \begin{itemize}
-        \item Find a suitable solution to store assets.
-        \item Ensure privacy between workspaces.
-    \end{itemize}
-    
-    \item Adapt the Management System's API to take into account workspaces.
-    \begin{itemize}
-        \item Make sure that a the requester specifies the workspace he is refering to.
-        \item Make sure that the requester belongs to the workspace where the asset he is trying to access is located.
-        \item Implement an endpoint for users to get the workspaces they belong to.
-        \item Implement an endpoint for users to manage the workspaces they belong to.
-    \end{itemize}
-    
-    \item The Management System frontend will only have one active workspace at a time.
-    \begin{itemize}
-        \item All actions that manipulate assets, roles or create users, will be performed on the active workspace.
-        \item Only the assets of the active workspace will be shown.
-        \item There will be a clear indication of what worspace is active
-        \item There will be an easy way to switch between workspaces.
-    \end{itemize}
-    
-    \item Interfaces for managing different aspects of company workspace's members.
-    \begin{itemize}
-        \item Option for creating and deleting users.
-        \begin{itemize}
-            \item Basic creation with manual input.
-            \item Import existing user Databases.
-        \end{itemize}
-        \item Option for inviting users to the workspace.
-        \item Option to manage users' roles.
-    \end{itemize}
-    
-    \item Users should be able to share assets.
-    \begin{itemize}
-        \item Allow users to share assets with other users.
-        \begin{itemize}
-            \item A person who shares something will be refered to as a sharer and the reciepient as a sharee
-        \end{itemize}
-        \item Users will only be able to share assets if their roles allow it.
-        \item Each shared object has associated perimissions with it, which restrict the sharee's ability to access and manipulate it.
-        \item Sharees will be able to view and select all workspaces where they have at least one shared asset.
-        \begin{itemize}
-            \item Sharees sill see the folder structure of the workspace, but they won't see any of the assets in them, besides the ones shared with him
-        \end{itemize}
-        \item The frontend will implement a Interface to share assets.
-        \item The frontend will implement a Interface to manage shares.
-        \item The frontend will indicate to the sharer, in the asset overview that an asset is shared.
-        \item Users that are allowed to view an asset will also be able to see the users that it has been shared to.
-    \end{itemize}
-\end{enumerate}
