@@ -1,6 +1,14 @@
 vim.keymap.set({ 'n', 'v' }, '<leader>so', function()
   vim.cmd('wa')
-  vim.cmd('silent ! pdflatex main.tex && xdg-open main.pdf')
+  local ok = pcall(vim.cmd, 'silent ! pdflatex main.tex')
+
+  if not ok then
+    print('Error compiling LaTeX')
+    return
+  end
+
+  print('LaTeX compiled')
+  vim.cmd('silent ! xdg-open main.pdf')
 end)
 
 vim.opt.tw = 90;

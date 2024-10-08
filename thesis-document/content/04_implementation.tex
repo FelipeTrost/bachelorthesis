@@ -1,20 +1,98 @@
-chapter{Implementation}
+\chapter{Implementation}
 \label{cha:implementation}
+
+\section {MS Architecture}
+
+Before diving into the implementation details of environments, it is important to
+understand the architecture of the MS.
+The MS is built using Next.js \footnote{\url{https://nextjs.org/}}, a React \footnote{\url{https://reactjs.org/}}
+framework that allows for server-side rendering.
+Altough Next.js' architecture is different from traditional server-side rendered
+applications and single-page applications,
+for the purposes of this thesis,
+it can be thought of as being split into a single-page frontend and a backend.
+The frontend is the JavaScript code that is executed in the user's browser, which is
+responsible for rendering the UI, handling user input and making requests to the backend.
+The backend runs on a server, it is responsible for handling requests from the frontend,
+e.g. saving or querying data.
+
+\subsection{Data storage}
+
+% TODO: footnote or something for json
+
+The MS doesn't use a database management system, instead it stores all data in JSON files.
+Each file can be seen as a table in a traditional relational database.
+Even though this approach allows for unstructured data, the MS uses 
+Zod \footnote{\url{https://zod.dev/}} schemas to enforce a structure on
+data that is stored.
+Zod is a schema declaration and validation library, it allows the MS to define the shape
+of JSON serializable data.
+For purposes of simplicity, when we talk about a schema, instead of showing the code that
+describes the Schema, we will show the typescript type that satisfies the schema.
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Example of a Zod schema and the corresponding TypeScript type.},
+]
+import { z } from 'zod';
+
+const UserSchema = z.object({
+  id: z.string(),
+  username: z.string(),
+  image: z.string().optional(),
+})
+
+// TypeScript type that satisfies the UserSchema
+type User = {
+    id: string;
+    username: string;
+    image?: string | undefined;
+}
+\end{lstlisting}
+
+% TODO: either finish this or remove it
+Additionally, the MS stores XML files for BPMN Assets.
 
 \section{Users}
 
 We authenticate users by storing a JWT
 \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}} cookie in their browser.
 This cookie is then parsed by the MS backend and if the cookie is valid and it stores the
-% TODO: is id the correct word here
+% TODO: is "id" the correct word here
 id of an existing user, the user is considered authenticated.
 If the user couldn't be authenticated, he is redirected to the sign-in page.
 
 \subsection{Authenticated Users}
 
+Authenticated Users are users that sign in to the MS with personal information, be
+% NOTE: is Oauth2 account the correct term here?
+it an email or an Oauth2 account.
+For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest} set
+to false, to indicate that the user isn't a guest and personal information about the user.
+The schema for authenticated users is as follows:
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Schema for authenticated users.},
+]
+{
+id: string;
+isGuest: false;
+emailVerifiedOn: Date | undefined;
+                 firstName?: string | undefined;
+                 lastName?: string | undefined;
+                 username?: string | undefined;
+                 image?: string |  undefined;
+                 email?: string | undefined;
+}
+\end{lstlisting}
+
 It is important to understand the difference between Users and Accounts.
 A user represent a person, while an accounts represents a method of signing in for a user.
 A user can have multiple accounts, but an account can only be linked to one user.
+
 
 \subsubsection{Development Users}
 

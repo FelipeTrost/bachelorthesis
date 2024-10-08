@@ -251,19 +251,57 @@
      morestring=[b]',
      morestring=[b]"
   }
+
+% \lstdefinelanguage{JavaScript}{
+%      keywords={},
+%      keywordstyle=\color{bluegrey}\bfseries,
+%      morekeywords=[2]{attributes, class, classend, do, empty, endif, endwhile, fail, function, functionend, if, implements, in, inherit, inout, not, of, operations, out, return, set, then, types, while, use},
+%      keywordstyle={[2]\color{violet}\bfseries},
+%      otherkeywords={@param, @returns, @author, @type, @link, @see},
+%      sensitive=false,
+%      morecomment=[l][\color{lstgreen}]{//},
+%      morecomment=[s][\color{lstgreen}]{/*}{*/},
+%      morecomment=[s][\color{javadoc}]{/**}{*/},
+%      morestring=[b]',
+%      morestring=[b]"
+%   }
+
 \lstdefinelanguage{JavaScript}{
-     keywords={},
-     keywordstyle=\color{bluegrey}\bfseries,
-     morekeywords=[2]{attributes, class, classend, do, empty, endif, endwhile, fail, function, functionend, if, implements, in, inherit, inout, not, of, operations, out, return, set, then, types, while, use},
-     keywordstyle={[2]\color{violet}\bfseries},
-     otherkeywords={@param, @returns, @author, @type, @link, @see},
-     sensitive=false,
-     morecomment=[l][\color{lstgreen}]{//},
-     morecomment=[s][\color{lstgreen}]{/*}{*/},
-     morecomment=[s][\color{javadoc}]{/**}{*/},
-     morestring=[b]',
-     morestring=[b]"
-  }
+  keywords={abstract, any, as, boolean, break, case, catch, class, console, 
+      const, continue, debugger, declare, default, delete, do, else, enum, export, 
+      extends, false, finally, for, from, function, get, if, implements, import, in, 
+      infer, instanceof, interface, keyof, let, module, namespace, never, new, null, 
+      number, package, private, protected, public, readonly, require, return, 
+      set, static, string, super, switch, symbol, this, throw, true, try, type, typeof, 
+      undefined, unique, unknown, var, void, while, with, yield}
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
 \lstdefinelanguage{Java}{
      keywords={},
      keywordstyle=\color{bluegrey}\bfseries,
