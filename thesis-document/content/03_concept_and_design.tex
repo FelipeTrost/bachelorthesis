@@ -36,6 +36,21 @@ Authenticated users can also be part of and create organization environments
 \ref{cha:conceptanddesign:environments:organization},
 where they can collaborate with other users.
 
+\subsection{Authenticated Users and Accounts}
+
+% NOTE: is Oauth2 account the correct term here?
+In order for the same user to be able to sign in with different Oauth2 providers, e.g. with Google,
+Facebook or Discord, we store a separate record, called account, for each of the user's sign-in methods.
+% NOTE: should one to many be explained?
+This means, that the relationship between users and accounts is one-to-many,
+a user can have multiple accounts, but an account can only be linked to one user.
+This way, when a user is signing in with credentials from an Oauth2 provider, 
+the MS can look up the corresponding account to the credentials, and then find the user
+that the account is linked to.
+
+% TODOFIG: show relationship between users and accounts;
+% caption: Relationship between users and accounts.
+
 \subsection{Guest User storage}
 
 For storing guest user data, one could take one of two approaches:
@@ -47,16 +62,16 @@ the MS would become less susceptible to an attack where the attacker tries to us
 much space as possible in the MS's storage solution.
 However, this approach has one key downside, the MS would have to implement two storage
 solutions and the frontend would need to switch accordingly between them.
-This complexity would make it harder for developers to get an overview of the MS's
-codebase and it also makes it harder to use assistance features of IDEs like go to
-definition\footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_definition}}.
-The added complexity of storing guest user's data locally isn't worth the benefits, so we
-decided to store a guest user's data in the MS's database and create an entry for him in
-the Database like for all users, with the difference that a flag is set, to indicate that
-he is a guest.
-This way, all the same endpoints that authenticated users can call to interact with the MS
+The added complexity would make it harder for developers to get an overview of the MS's
+codebase and it also makes it harder to use coding assistance features of IDEs like Goto
+definition \footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/\#textDocument_definition}}.
+For this reason, storing guest user's data locally isn't worth the benefits.
+We decided to store a guest user's data in the MS's just like for an authenticated user,
+with the difference that a flag is set to indicate that he is a guest.
+This way, all the endpoints that authenticated users can call to interact with the MS
 can also be called by guest users.
-An important caveat is that now all relevant endpoints have to check whether the user 
+An important caveat is that, to enforce some of the feature restrictions, relevant
+endpoints have to check whether the user is a guest.
 
 \subsection{Development Users}
 
@@ -80,17 +95,179 @@ the MS during development.
 
 \section{Folders}
 
-Folders are nodes in a rooted tree structure with a name and a description.
-Folders can contain other folders and assets.
+Folders are intended to allow organizations to mirror their hierarchical structure and
+facilitate the organization of assets in general.
+Starting from a root folder, users should be able to store assets within folders and nest
+folders inside other folders, creating a flexible and intuitive structure. 
 At the moment writing, folders only support processes, but they could be extended to
 support other types of assets like the ones described in \ref{cha:relatedwork:proceed-assets}.
+
+\subsection{Folder Structure model}
+
+% TODO: say that because of the way the ms is built, the processes needs to be in a
+% sepparate table
+
+The folder structure is essentially just a rooted tree.
+The MS doesn't use a database management system, thus it doesn't use a relational
+language like SQL, still, the data is stored in a way that mimics a relational model.
+For this reason the rooted folder tree needs to be mapped to a relational model.
+% Methods mentioned in book
+%
+% Materialized path
+% Nested sets -> store leftmost and rightmost of set
+% Interval halving
+% Matrix encoding
+% Nested intervals
+There are mainly three ways to model trees in relational models as outlined by Joe Celko in
+\cite{celkoSQLTrees}: Adjacency List, Nested Set, and  Path Enumeration, more commonly known as Materialized Path.
+Each of these models stores a node as a single entry, but they differ in how they encode
+their position in the tree.
+
+% Categories
+% 1. finding direct descendandts / children
+% 2. finding nth descendandts
+% 3. finding ancestors / parent
+% 4. finding nth ancestors
+% 5. Adding
+% 6. removing
+% 7. Reorganization
+%
+\begin{itemize}
+  \item \textbf{Adjacency List model}: Each node has an identifier and a reference to its parent.
+    \begin{itemize}
+      \item Advantages
+        \begin{itemize}
+        \item Finding a node's children is trivial.
+        \item Finding a nodes' parent is trivial.
+        \item Adding a node to the tree is trivial and doesn't require. 
+        \item Moving nodes and their subtrees is trivial, since it only requires updating
+          the parent reference. However, a check has to be made to ensure that the node's
+            new parent isn't one of its descendants, thus creating a cycle.
+        \end{itemize}
+      \item Disadvantages
+        \begin{itemize}
+        \item Finding a node's descendants requires a recursive query, however,
+          this is bounded by the depth of the tree and the amount of nodes.
+        \item Finding a node's ancestors, i.e. all the nodes in the path from the root to
+          the node, requires a recursive query, however, this is bounded by the depth of
+            the tree and the amount of nodes.
+        \item Removing a node requires a recursive query to also delete its descendants,
+          however, this is bounded by the depth of
+            the tree and the amount of nodes.
+      \end{itemize}
+    \end{itemize}
+  %-----------------------------------------------------------------------------------------------------------
+  %-----------------------------------------------------------------------------------------------------------
+  \item \textbf{Nested Set model}: Each node has a left and right value, describing an
+    interval starting from the left value and ending at the right value.
+    Children nodes' intervals are contained within the parent's interval. Furthermore, the
+    intervals of siblings are disjoint.
+    \begin{itemize}
+      \item Advantages
+        \begin{itemize}
+        \item Finding the descendants of a node is trivial, the query has to select all
+          nodes, whose interval is contained within the node's interval.
+        \item Finding a node's ancestors is trivial, the query has to select the all the
+          nodes with a left boundary smaller than the node's left boundary. 
+        \item Finding a node's parent is trivial, the query has to select the node with
+          the smallest left boundary that is bigger than the node's left boundary.
+        \item Deleting a node and its subtree is trivial, the query is analogous to finding
+          the descendants of a node.
+        \end{itemize}
+      \item Disadvantages
+        \begin{itemize}
+            % No se si me creo esta explicacion
+        \item Finding a node's children requires a complex query, since it has to select
+          only the node's children without also including the descendants of the
+            children. This query can be inefficient because it has to apply additional filtering
+            to retrieve only the direct children. This adds complexity and can slow down
+            performance.
+        \item Adding nodes is non-trivial, since it requires knowledge of its siblings to
+          avoid overlapping intervals. Additionally depending on the implementation, it
+            might require updating intervals of other nodes.
+        \item Moving nodes and their subtrees is non-trivial, and inefficient, since it requires updating
+          the intervals of the moved node, all of its descendants and depending on the
+            implementation, the intervals of other nodes. 
+        \end{itemize}
+    \end{itemize}
+  %-----------------------------------------------------------------------------------------------------------
+  %-----------------------------------------------------------------------------------------------------------
+  \item \textbf{Materialized Path model}: Each node stores the path from the root to itself.
+    \begin{itemize}
+      \item Advantages
+        \begin{itemize}
+        \item Finding a node’s ancestors or its parent is trivial, since the path is explicitly stored,
+          the ancestors of a node can be retrieved simply by parsing the stored path.
+        \item Finding a node’s descendants is easy and efficient, they can be found by
+          querying for nodes whose paths start with the current node's path.
+        \item Adding nodes is trivial, as the node's path can be constructed by appending
+          the node's identifier to the parent's path.
+        \item Removing a node and its subtree is trivial, as the node's descendants can be
+          easily queried.
+      \end{itemize}
+      \item Disadvantages
+        \begin{itemize}
+          \item Finding a node's children is easy but, not as efficient as finding its
+            descendants, as you need to perform one additional check to ensure that nodes
+            are direct children.
+        \item Moving nodes and their subtrees is inefficient, since it requires updating
+          the path of every node in the subtree. 
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+% TODOFIG show simple examples for each model
+
+% It is worth noting, that for each of these models, we will have to sepparately delete all
+% processes that are stored in the folder
+\definecolor{darkgreen}{rgb}{0.0, 0.45, 0.0}
+\newcommand{\good}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\medium}[1]{\textcolor{orange}{#1}}
+\newcommand{\bad}[1]{\textcolor{red}{#1}}
+
+\begin{figure}[H]
+   \centering
+\begin{tabular}{ | m{7.45em} | m{7em} | m{7em} | m{7em} | }
+\hline
+  & Adjacency List & Nested Set & Materialized Path \\
+\hline
+% ------------------------------------------------------------------------------
+  find children & \good{Easy and efficient} & \bad{Complex and inefficient} & \medium{Easy, but somewhat inefficient} \\
+\hline
+% ------------------------------------------------------------------------------
+  find descendants & \medium{Easy, but somewhat inefficient} & \good{Easy and efficient} &
+  \good{Easy and efficient} \\
+\hline
+% ------------------------------------------------------------------------------
+  find parent & \good{Easy and efficient} & \bad{Complex and inefficient} &  \good{Easy and efficient} \\
+\hline
+% ------------------------------------------------------------------------------
+  find ancestors & \good{Easy and efficient}  & \good{Easy and efficient} & \good{Easy and efficient} \\
+\hline
+% ------------------------------------------------------------------------------
+  add nodes &  \good{Easy and efficient} & \medium{Complex and possibly inefficient} &\good{Easy and efficient} \\
+\hline
+% ------------------------------------------------------------------------------
+remove nodes & \medium{Easy, but somewhat inefficient}  & \medium{Complex and possibly
+  inefficient} & \medium{Moderately complex and somewhat inefficient} \\
+\hline
+% ------------------------------------------------------------------------------
+move node &  \good{Easy and efficient} & \bad{Complex and inefficient} & \bad{Moderately complex and inefficient}\\
+\hline
+% ------------------------------------------------------------------------------
+\end{tabular}
+\caption{Comparison between Adjacency List, Nested Set and Materialized Path models.}
+\label{fig:comparison-db-tree-models}
+\end{figure}
+
+
+Folders are nodes in a rooted tree structure with a name and a description.
+Folders can contain other folders and assets.
 
 Each environment will have a folder structure to store its processes.
 The root folder is created when the environment is created.
 Each root folder and all of its children are contained by one and only one environment \ref{cha:conceptanddesign:environments}.
 
-Folders are intended to allow users to mirror the hierarchical structure of their
-organization and of its projects.
 
 % Since the root folder belongs to only one environment, and all folders are stored below
 % one root folder, all folders belong to only one environment.
@@ -187,6 +364,9 @@ This allows users to navigate the folder structure until they reach the assets t
 allowed to view and manage.
 
 % TODOFIG: show how user can view path to his folder
+
+\subsection{Abilities}
+% TODO: roles send folder structure to user, is this bad? how could we mitigate it
 
 \subsection{Default roles}
 
