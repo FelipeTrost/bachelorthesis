@@ -14,19 +14,62 @@ All other components that will be introduced will help to manage and enforce the
 \label{cha:conceptanddesign:users}
 %NOTE: maybe change the sctructure of this paragraph a bit
 
-Users represent individual people utilizing PROCEED.
+Previously users in the MS represented a member of a single organization.
+In order for users to be part of multiple organizations, they can't be tied to a single
+organization.
+As a part of the implementation of environments, users are now independent of
+organizations,
+they now represent individual people utilizing PROCEED.
 A single person can have one or more users, but each user is intended for individual use.
-To facilitate the exploration of the MS, without creating an account, users
-can use the MS as guests.
-% NOTE: maybe shift this down
+
+To facilitate the exploration of the MS, without creating a user, we introduce the option
+to use the MS as a guest.
 Thus, we differentiate between authenticated users and guest users.
-Guest users have the ability to transition to authenticated users whilst retaining their assets.
+Guest users have a limited feature. 
+Guest users can transition to being an authenticated users whilst retaining their
+assets, to do this they will need to sign in with personal data.
 % Creating a Guest user doesn't require any data from the person creating it.
 
 All users have a personal environment \ref{cha:conceptanddesign:environments:personal}
 in which they can create and manage assets freely.
-Authenticated users can also be part of organization environments \ref{cha:conceptanddesign:environments:organization}
+Authenticated users can also be part of and create organization environments
+\ref{cha:conceptanddesign:environments:organization},
 where they can collaborate with other users.
+
+\subsection{Guest User storage}
+
+For storing guest user data, one could take one of two approaches:
+storing the data in the user's browser or storing it in the MS's database, alongside the
+data of authenticated users.
+Storing the data locally has two great benefits: 
+The MS doesn't have to store data of users who might never return and
+the MS would become less susceptible to an attack where the attacker tries to use up as
+much space as possible in the MS's storage solution.
+However, this approach has one key downside, the MS would have to implement two storage
+solutions and the frontend would need to switch accordingly between them.
+This complexity would make it harder for developers to get an overview of the MS's
+codebase and it also makes it harder to use assistance features of IDEs like go to
+definition\footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_definition}}.
+The added complexity of storing guest user's data locally isn't worth the benefits, so we
+decided to store a guest user's data in the MS's database and create an entry for him in
+the Database like for all users, with the difference that a flag is set, to indicate that
+he is a guest.
+This way, all the same endpoints that authenticated users can call to interact with the MS
+can also be called by guest users.
+An important caveat is that now all relevant endpoints have to check whether the user 
+
+\subsection{Development Users}
+
+When developing the MS, it is not common for the developer to have all the necessary keys
+configured in the environment variables, for the MS to be able to authenticate users with
+Oauth2 \ref{cha:relatedwork:oauth} or send sign-in emails.
+For this reason the MS implements two development users: johndoe and admin.
+When the MS is in development mode, i.e. the environment variable \lstinline{NODE_ENV} is
+set to \lstinline{development},
+the sign-in page shows a new input field where you can enter the developments user's username.
+Both users are stored as authenticated users in the MS's database and can be used to test
+the MS during development.
+
 
 %TODO: say what guests can do?
 
@@ -114,6 +157,11 @@ environments can be determined when deploying a MS instance.
 Organization environments can also have multiple Users that are part of it, these are
 called members.
 
+
+\subsection{Environment selection}
+
+% TODO: finish this
+Users will be able to 
 
 \section{Roles}
 

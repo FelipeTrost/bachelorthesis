@@ -70,7 +70,7 @@ Authenticated Users are users that sign in to the MS with personal information, 
 it an email or an Oauth2 account.
 For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest} set
 to false, to indicate that the user isn't a guest and personal information about the user.
-The schema for authenticated users is as follows:
+This is the schema for authenticated users:
 
 \begin{lstlisting}[
   language=JavaScript,
@@ -78,33 +78,60 @@ The schema for authenticated users is as follows:
   caption={Schema for authenticated users.},
 ]
 {
-id: string;
-isGuest: false;
-emailVerifiedOn: Date | undefined;
-                 firstName?: string | undefined;
-                 lastName?: string | undefined;
-                 username?: string | undefined;
-                 image?: string |  undefined;
-                 email?: string | undefined;
+    id: string;
+    isGuest: false;
+    emailVerifiedOn: Date | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
+    username?: string | undefined;
+    image?: string |  undefined;
+    email?: string | undefined;
 }
 \end{lstlisting}
 
 It is important to understand the difference between Users and Accounts.
 A user represent a person, while an accounts represents a method of signing in for a user.
 A user can have multiple accounts, but an account can only be linked to one user.
+To recognize an account we need to store the name of the provider and the account's
+id on the provider's platform.
+And to link the account to a User, we need to store the User's id on the MS.
+This is the schema for accounts:
 
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Schema for accounts.},
+]
+{
+    id: string;
+    type: "oauth";
+    userId: string;
+    provider: string;
+    providerAccountId: string;
+}
+\end{lstlisting}
 
-\subsubsection{Development Users}
+\subsection{Guest Users}
 
-When developing the MS, it is not common for the developer to have all the necessary keys
-configured in the environment variables, for the MS to be able to authenticate users with
-Oauth2 \ref{cha:relatedwork:oauth} or send sign-in emails.
-For this reason the MS implements two development users: johndoe and admin.
-When the MS is in development mode, i.e. the environment variable \lstinline{NODE_ENV} is
-set to \lstinline{development},
-the sign-in page shows a new input field where you can enter the developments user's username.
-Both users are stored as authenticated users in the MS's database and can be used to test
-the MS during development.
+Users that aren't signed in can choose to try the MS out as a guest, this doesn't require
+the user to input any personal information.
+
+For storing guest user data, one could take one of two approaches:
+storing the data in the user's browser or storing it in the MS's database, alongside the
+data of authenticated users.
+Storing the data locally has two great benefits: 
+The MS doesn't have to store data of users who might never return and
+the MS would become less susceptible to an attack where the attacker tries to use up as
+much space as possible in the MS's database.
+However, this approach has one key downside, the MS would have to implement two storage
+solutions and accordingly switch between them.
+The added complexity of storing guest user's data locally isn't worth the benefits, so we
+decided to store a guest user's data in the MS's database and create an entry for him in
+the Database like for all users, with the difference that a flag is set, to indicate that
+he is a guest.
+This way, all the same endpoints that authenticated users can call to interact with the MS
+can also be called by guest users.
+An important caveat is that now all relevant endpoints have to check whether the user 
 
 
 % TODO: finish
@@ -134,28 +161,6 @@ the MS during development.
 % }
 % \end{lstlisting}
 
-
-\subsection{Guest Users}
-
-Users that aren't signed in can choose to try the MS out as a guest, this doesn't require
-the user to input any personal information.
-
-For storing guest user data, one could take one of two approaches:
-storing the data in the user's browser or storing it in the MS's database, alongside the
-data of authenticated users.
-Storing the data locally has two great benefits: 
-The MS doesn't have to store data of users who might never return and
-the MS would become less susceptible to an attack where the attacker tries to use up as
-much space as possible in the MS's database.
-However, this approach has one key downside, the MS would have to implement two storage
-solutions and accordingly switch between them.
-The added complexity of storing guest user's data locally isn't worth the benefits, so we
-decided to store a guest user's data in the MS's database and create an entry for him in
-the Database like for all users, with the difference that a flag is set, to indicate that
-he is a guest.
-This way, all the same endpoints that authenticated users can call to interact with the MS
-can also be called by guest users.
-An important caveat is that now all relevant endpoints have to check whether the user 
 
 
 \section{Assets}
