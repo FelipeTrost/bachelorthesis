@@ -467,30 +467,64 @@ cost of longer URLs.
 \section{Roles}
 \label{cha:conceptanddesign:roles}
 
-Before the implementation of this thesis, roles in the MS
-\ref{cha:relatedwork:proceedroles} were global,
-meaning that their permissions applied to all assets in the MS.
-With the introduction of the folder structure in organization environments, this no longer makes sense.
+% Roles are used to determine what a user can do with an asset. 
+% Before the implementation of this thesis, roles in the MS
+% \ref{cha:relatedwork:proceedroles} were global,
+% meaning that their permissions applied to all assets in the MS.
+% With the introduction of environments and the folder structure, this no longer makes sense.
+% Roles will be modified to be associated with one organization environment, and they will only apply to
+% the assets in that organization environment.
+% In personal environments, there is only one user, and he can perform all actions on all of
+% his assets.
+Roles define what actions a user can perform on an asset. Prior to the changes introduced
+in this thesis, roles in MS \ref{cha:relatedwork:proceedroles} were global,
+meaning their permissions applied universally
+to all assets across the system.
+However, with the addition of environments and a folder structure, this approach is no longer practical.
+Roles will now be tied to a specific organization environment,
+restricting their permissions to assets within that particular environment.
+In personal environments, where there is only one user, the user will have
+full control and be able to perform all actions on his assets without restriction. 
+
 Folders allow organizations to mirror their hierarchical structure, but this wouldn't be
-entirely useful if roles were still global.
+entirely useful if roles applied to all assets inside the environment.
 For this reason, roles can now be associated to a folder.
-Roles that are associated with a folder cascade down the
+%
+A role can define permissions for many assets, of which not all can be stored in folders.
+If a role is associated with a folder, then, only the permissions that are for assets that
+can be stored in folders, will be affected by the association.
+% The permissions of the role that apply to assets that can be stored in folders, 
+% will only apply to the assets that are in the folder's subtree.
+%
+The permissions of roles that are associated with a folder cascade down the
 folder structure, i.e. a role associated to a folder will also apply to all of its children.
+In this thesis, the folder structure was only implemented for processes,
+this means that only the permissions for processes and folders will apply to the
+associated folder's subtree.
 Roles that aren't associated to a folder will continue to apply to all assets in the environment.
-As roles are meant to mirror a users position in an organization, they're only available
-for organization environments.
+% As roles are meant to mirror a users position in an organization, they're only available
+% for organization environments.
 
 % TODOFIG: show how roles cascade
 
 If a user's role allows him to view assets and is associated to a folder, then the user
-also has the permission to view all parent folders of the folder the role is associated to.
-But this is only restricted to the parent folders, not the contents of the parent folders.
+also has the permission to view all ancestors of the folder.
+But this permission is only restricted to the parent folders, not the contents of the parent folders.
 This allows users to navigate the folder structure until they reach the assets they're
 allowed to view and manage.
 
 % TODOFIG: show how user can view path to his folder
 
-\subsection{Abilities}
+\subsection{Enforcing Permissions Based on Folder Structure}
+
+In order to enforce permissions based on the folder structure, it is necessary to fetch
+the newest state of the folder structure every time a user wants to perform an action on an asset.
+Roles can't store a representation of the folder structure, as it might become outdated.
+Since permissions need to be verified, for many requests in the MS, and also in the user's browser, to
+adapt the UI, we decided to compute and cache a representation of the folder structure of
+every organization environment, from which an asset is requested.
+This representation is also sent to the user's browser.
+
 % TODO: roles send folder structure to user, is this bad? how could we mitigate it
 
 \subsection{Default roles}
