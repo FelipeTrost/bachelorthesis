@@ -548,6 +548,7 @@ needs to adapt to the user's permissions.
 Since both the MS and the browser need to know the folder structure often,
 we decided to compute and cache a representation of the folder structure of
 every organization environment, from which an asset is requested.
+The cache is invalidated whenever a folder is added, removed or moved.
 
 % TODO: Talk about how the cache works and how it is invalidated
 
