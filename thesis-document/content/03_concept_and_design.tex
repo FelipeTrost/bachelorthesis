@@ -396,6 +396,13 @@ called members.
 
 \subsection{Environment memberships}
 \label{cha:conceptanddesign:environments:memberships}
+% TODO: maybe merge this with the role stuff
+% to do that however, roles would have to be added to the environment section, and I dont
+% know if thats the right choice as it is a big topic
+
+To keep track of which users are part of an environment, a new management asset will be
+added: memberships.
+Memberships track which users are part of an environment.
 
 \subsection{Storing assets inside environments}
 \label{cha:conceptanddesign:environments:storing-assets}
@@ -429,9 +436,33 @@ This risk is mitigated by the fact, that the environment reference of assets is 
 
 
 \subsection{Environment selection}
+% TODO: maybe back this up with some research, altough this isnt that kind of thesis
 
-% TODO: finish this
-Users will be able to 
+Users will be a part of multiple environments, and they will need to be able to work on
+all of them.
+There are two ways of accomplishing this: the user can select one environment at a time,
+or he can work on multiple environments at the same time.
+As environments contain many features, it isn't feasible to show all of them at the same
+time, as this would clutter the interface, some level of selection is necessary.
+This selection could be granular, where the user selects per view which environment he
+wants to work on, however this could lead to confusion, where the user switches views and
+forgets that he's working on a different environment.
+For this reason, we chose to have a global environment selection, i.e. all the elements in
+the UI will show the assets and views of the selected environment.
+
+There are two methods of accomplishing environment selection: implicit and explicit.
+In the implicit method, the selected environment is managed internally and is not
+reflected to the user in the URL, this could be accomplished by storing the selected
+environment in the user's cookies or in the browser's local storage for example.
+In the explicit method, the environment is encoded in the URL,
+making the current environment clearly visible.
+Of course a combination of both methods is also possible, but in order to keep the
+implementation simple, we will only implement one.
+The implicit method has the advantage that the URLs will be shorter and easier to read,
+however it has the disadvantage, that some links can't be shared, as the implicitly
+selected environment of another user might not be the same. 
+For this reason, the explicit method was chosen as it allows users to share links with the
+cost of longer URLs.
 
 \section{Roles}
 \label{cha:conceptanddesign:roles}
