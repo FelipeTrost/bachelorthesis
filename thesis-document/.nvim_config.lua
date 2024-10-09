@@ -1,6 +1,6 @@
 vim.keymap.set({ 'n', 'v' }, '<leader>so', function()
   vim.cmd('wa')
-  local ok = pcall(vim.cmd, 'silent ! pdflatex main.tex')
+  local ok = pcall(vim.cmd, '! pdflatex -halt-on-error main.tex')
 
   if not ok then
     print('Error compiling LaTeX')

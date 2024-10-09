@@ -11,9 +11,9 @@ Altough Next.js' architecture is different from traditional server-side rendered
 applications and single-page applications,
 for the purposes of this thesis,
 it can be thought of as being split into a single-page frontend and a backend.
-The frontend is the JavaScript code that is executed in the user's browser, which is
+The frontend executes JavaScript code in the user's browser, and is
 responsible for rendering the UI, handling user input and making requests to the backend.
-The backend runs on a server, it is responsible for handling requests from the frontend,
+The backend runs on a server and is responsible for handling requests from the frontend,
 e.g. saving or querying data.
 
 \subsection{Data storage}
@@ -52,24 +52,42 @@ type User = {
 \end{lstlisting}
 
 % TODO: either finish this or remove it
-Additionally, the MS stores XML files for BPMN Assets.
+% Additionally, the MS stores XML files for BPMN Assets.
 
 \section{Users}
 
-We authenticate users by storing a JWT
-\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}} cookie in their browser.
-This cookie is then parsed by the MS backend and if the cookie is valid and it stores the
+User authentication is implemented by leveraging OpenID Connect
+\ref{cha:relatedwork:oauth:openid}, with the help of NextAuth.js \footnote{\url{https://next-auth.js.org/}}.
+NextAuth.js stores a JWT token \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.txt}}
+cookie \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}} in the user's browser,
+which is then parsed and verified by the MS' backend.
 % TODO: is "id" the correct word here
-id of an existing user, the user is considered authenticated.
+If the JWT token is validt the user is considered authenticated.
 If the user couldn't be authenticated, he is redirected to the sign-in page.
+NextAuth.js supports many OAuth2 providers, we only have to provide a client id and secret for each provider.
+Additionally, NextAuth.js implements different callbacks that can be used to customize the sign-in flow.
+
+%
+% \begin{lstlisting}[
+%   language=JavaScript,
+%   style=codestyle,
+%   caption={Example setup of NextAuth.js.},
+% ]
+% const handler = NextAuth(nextAuthOptions);
+% \end{lstlisting}
+
+\subsection{Sign in flows}
+
+% TODO: this section
+Should i talk about this?
 
 \subsection{Authenticated Users}
 
 Authenticated Users are users that sign in to the MS with personal information, be
 % NOTE: is Oauth2 account the correct term here?
 it an email or an Oauth2 account.
-For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest} set
-to false, to indicate that the user isn't a guest and personal information about the user.
+For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest}, set
+to false, to indicate that the user isn't a guest and personal information.
 This is the schema for authenticated users:
 
 \begin{lstlisting}[
@@ -88,6 +106,13 @@ This is the schema for authenticated users:
     email?: string | undefined;
 }
 \end{lstlisting}
+
+All the personal information is optional, because depending on how the user signs in, the
+information might not be available.
+For instance, because NextAuth.js' email sign in only requires the user to input an
+email, authenticated users are created without a first name, last name or username.
+A possible workaround would be to automatically generate these for 
+
 
 It is important to understand the difference between Users and Accounts.
 A user represent a person, while an accounts represents a method of signing in for a user.
