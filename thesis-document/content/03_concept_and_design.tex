@@ -10,6 +10,19 @@ What a user can do with an asset is determined by the roles that the user has in
 environment that the asset is stored in.
 All other components that will be introduced will help to manage and enforce these relationships.
 
+\section{Modifications to Assets and Resources}
+
+This thesis will modify the assets \ref{cha:relatedwork:proceed-assets} and the resources
+\ref{cha:relatedwork:proceedroles:ms-resources-actions} supported by the MS.
+Assets \ref{cha:conceptanddesign:environments:storing-assets} and 
+Resources \ref{cha:conceptanddesign:roles} will be modified to be contained inside environments.
+As will be explained in \ref{cha:conceptanddesign:users}, Users won't belong to an
+environment, for this reason, users will be removed from the
+MS's assets and resources.
+Furthermore, folders \ref{cha:conceptanddesign:folders} and  memberships
+\ref{cha:conceptanddesign:environments:memberships} will be added to the MS' assets and
+resources.
+
 \section{Users}
 \label{cha:conceptanddesign:users}
 %NOTE: maybe change the sctructure of this paragraph a bit
@@ -50,6 +63,17 @@ that the account is linked to.
 
 % TODOFIG: show relationship between users and accounts;
 % caption: Relationship between users and accounts.
+
+\subsection{Merging a guest user with an authenticated user}
+\label{cha:conceptanddesign:users:mergeguestuser}
+
+As previously stated, a guest user can transition to being an authenticated user by
+signing in with his personal data.
+It could be the case that his personal data already corresponds to an existing user.
+In this case, the user will be asked if he wants to merge his assets with the existing
+authenticated user.
+If he chooses to merge, all the assets in the guest user's personal environment will be
+transferred to the authenticated user's personal environment.
 
 \subsection{Guest User storage}
 
@@ -94,6 +118,7 @@ the MS during development.
 % Accounts represent a use's sign in method. 
 
 \section{Folders}
+\label{cha:conceptanddesign:folders}
 
 Folders are intended to allow organizations to mirror their hierarchical structure and
 facilitate the organization of assets in general.
@@ -149,8 +174,8 @@ their position in the tree.
         \item Finding a node's descendants requires a recursive query, however,
           this is bounded by the depth of the tree and the amount of nodes.
         \item Finding a node's ancestors, i.e. all the nodes in the path from the root to
-          the node, requires a recursive query, however, this is bounded by the depth of
-            the tree and the amount of nodes.
+          the node, requires a recursive query, however, this is bounded by the height of
+            the tree and should be efficient.
         \item Removing a node requires a recursive query to also delete its descendants,
           however, this is bounded by the depth of
             the tree and the amount of nodes.
@@ -221,52 +246,109 @@ their position in the tree.
 % It is worth noting, that for each of these models, we will have to sepparately delete all
 % processes that are stored in the folder
 \definecolor{darkgreen}{rgb}{0.0, 0.45, 0.0}
-\newcommand{\good}[1]{\textcolor{darkgreen}{#1}}
-\newcommand{\medium}[1]{\textcolor{orange}{#1}}
-\newcommand{\bad}[1]{\textcolor{red}{#1}}
+\newcommand{\goodcomplexity}[1]{\vspace{.4em}\textcolor{darkgreen}{\checkmark}\vspace{.4em}}
+\newcommand{\mediumcomplexity}[1]{\vspace{.4em}\textcolor{orange}{\textcircled{}}\vspace{.4em}}
+\newcommand{\badcomplexity}[1]{\vspace{.4em}\textcolor{red}{X}\vspace{.4em}}
+
+\newcommand{\goodefficency}[1]{\textcolor{darkgreen}{\checkmark}}
+\newcommand{\mediumefficency}[1]{\textcolor{orange}{\textcircled{}}}
+\newcommand{\badefficency}[1]{\textcolor{red}{X}}
 
 \begin{figure}[H]
    \centering
+
 \begin{tabular}{ | m{7.45em} | m{7em} | m{7em} | m{7em} | }
 \hline
   & Adjacency List & Nested Set & Materialized Path \\
 \hline
 % ------------------------------------------------------------------------------
-  find children & \good{Easy and efficient} & \bad{Complex and inefficient} & \medium{Easy, but somewhat inefficient} \\
+  find children & \goodcomplexity{Easy} \goodefficency{efficient} &
+  \badcomplexity{Complex} \badefficency{inefficient} & \goodcomplexity{Easy}
+  \mediumefficency{somewhat inefficient} \\
 \hline
 % ------------------------------------------------------------------------------
-  find descendants & \medium{Easy, but somewhat inefficient} & \good{Easy and efficient} &
-  \good{Easy and efficient} \\
+  find descendants & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient} &
+  \goodcomplexity{Easy} \goodefficency{efficient} &
+  \goodcomplexity{Easy} \goodefficency{efficient} \\
 \hline
 % ------------------------------------------------------------------------------
-  find parent & \good{Easy and efficient} & \bad{Complex and inefficient} &  \good{Easy and efficient} \\
+  find parent & \goodcomplexity{Easy} \goodefficency{efficient} & \badcomplexity{Complex}
+  \badefficency{inefficient} &  \goodcomplexity{Easy}  \goodefficency{efficient}\\
 \hline
 % ------------------------------------------------------------------------------
-  find ancestors & \good{Easy and efficient}  & \good{Easy and efficient} & \good{Easy and efficient} \\
+  find ancestors & \goodcomplexity{Easy} \goodefficency{efficient}  &
+  \goodcomplexity{Easy} \goodefficency{efficient} & \goodcomplexity{Easy}
+  \goodefficency{efficient} \\
 \hline
 % ------------------------------------------------------------------------------
-  add nodes &  \good{Easy and efficient} & \medium{Complex and possibly inefficient} &\good{Easy and efficient} \\
+  add nodes &  \goodcomplexity{Easy} \goodefficency{efficient} &
+  \badcomplexity{Complex} \mediumefficency{possibly inefficient} &\goodcomplexity{Easy
+  and} \goodefficency{efficient} \\
 \hline
 % ------------------------------------------------------------------------------
-remove nodes & \medium{Easy, but somewhat inefficient}  & \medium{Complex and possibly
-  inefficient} & \medium{Moderately complex and somewhat inefficient} \\
+remove nodes & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient}  &
+  \goodcomplexity{Easy} \mediumefficency{possibly inefficient} &
+  \goodcomplexity{Moderately complex} \goodcomplexity{somewhat inefficient} \\
 \hline
 % ------------------------------------------------------------------------------
-move node &  \good{Easy and efficient} & \bad{Complex and inefficient} & \bad{Moderately complex and inefficient}\\
+move node &  \goodcomplexity{Easy} \goodcomplexity{efficient} & \badcomplexity{Complex}
+  \badefficency{inefficient} & \mediumcomplexity{Moderately complex} \badcomplexity{inefficient}\\
 \hline
 % ------------------------------------------------------------------------------
 \end{tabular}
+
+\vspace{.5em}
+
+\begin{tabular}{r@{: }l r@{: }l r@{: }l}
+  \goodcomplexity{\textcircled{}}\vspace{-.8em} \_ & Easy query & \mediumcomplexity{}\vspace{-.8em} \_ &
+  Moderately complex query &  \badcomplexity{}\vspace{-.8em} \_ & Complex query \\
+
+  \_ \goodefficency{\textcircled{}} & Efficient & \_ \mediumefficency{} &
+  Moderately efficient &  \_ \badefficency{} & Inefficient \\
+\end{tabular}
+
+
 \caption{Comparison between Adjacency List, Nested Set and Materialized Path models.}
 \label{fig:comparison-db-tree-models}
 \end{figure}
 
+To choose the right model, we have to consider the requirements of the MS.
+Users need to be able to view, add, delete and remove folders.
+It becomes immediately clear, that the Nested Set model is not suitable for the MS, as
+adding, removing and moving nodes is inefficient.
+% The nested set model appears to be more useful for some analytical workloads.
+That leaves us with the adjacency list and materialized path models.
+The materialized path model has two small advantages, finding descendants is easier as it
+only requires a query with a simple string comparison, and the same goes for removing a
+folder and its subtree. 
+However, the adjacency list model isn't far behind on those two points, and is
+substantially more efficient when it comes to moving nodes.
+Furthermore, the adjacency list model is better at finding children, which is more
+valuable to the MS than finding descendants as the Process view will only show the
+children.
+For those reasons, the MS will use the adjacency list model to store the folder structure.
 
-Folders are nodes in a rooted tree structure with a name and a description.
-Folders can contain other folders and assets.
+\subsection{Storing Assets inside folders}
 
-Each environment will have a folder structure to store its processes.
-The root folder is created when the environment is created.
-Each root folder and all of its children are contained by one and only one environment \ref{cha:conceptanddesign:environments}.
+Once the folder structure is implemented, it still is necessary to store assets inside
+folders.
+This thesis only implemented this feature for processes
+\ref{cha:relatedwork:proceed-assets}, however, the same principle could be applied to
+other assets.
+A complete redesign of the process' data structures isn't feasible, as it would require
+rewriting a large part of the MS.
+For this reason a simple expansion to the data structure was chosen, where analogous to
+the adjacency list model, each process stores a reference to the folder it is stored in.
+This way, when moving a folder, it isn't required to update anything other than the
+folder.
+Moving an asset to another folder only requires updating the asset's reference.
+
+% Folders are nodes in a rooted tree structure with a name and a description.
+% Folders can contain other folders and assets.
+
+% Each environment will have a folder structure to store its processes.
+% The root folder is created when the environment is created.
+% Each root folder and all of its children are contained by one and only one environment \ref{cha:conceptanddesign:environments}.
 
 
 % Since the root folder belongs to only one environment, and all folders are stored below
@@ -276,38 +358,16 @@ Each root folder and all of its children are contained by one and only one envir
 % TODO: ask kai if I should explain rooted trees - would be nice to cookup a formal def
 
 
-\section{Assets}
-
-All assets within the MS \ref{cha:relatedwork:proceed-assets}
-will be modified, so that each asset instance establishes a clear association with a single environment.
-Processes will be contained within folders, explicitly indicating to what environment they
-belong.
-Other asset types will store a direct reference to their environment, without being
-contained in a folder structure, this can be seen as a flat folder structure.
-
-% The key principle is that every asset belongs to one and only one environment, and this
-% association can be easily identified.
-
-% All of the MS's assets will only change in one way, they will somehow linked to an
-% environment and only one.
-% For processes, they're contained in a folder, such that they clearly belong to one
-% environment. for other assets, they will store a reference to the environment they belong
-% to.
-% The important part is that each asset belongs to exactly one environment, and this
-% environment can be identified.
-
 \section{Environments}
 \label{cha:conceptanddesign:environments}
 
-Conceptually environments are the data structure in which everything, other than users, is
-stored.
-Users aren't stored in environments as they can be a part of multiple environments, 
-so they can't be contained in only one environment.
+Conceptually environments are where everything except users are stored.
+Users aren't stored in environments as they can be a part of multiple environments.
 Instead, the MS stores memberships that specify that a user is part of an environment.
-Everything else, assets and roles, belong to exactly one environment.
 
-We distinguish between two types of environments: personal environments and organization
-environments.
+There are two types of environments, personal and organization environments.
+Personal environments intended for personal use and organization environments are intended
+for organizations.
 
 \subsection{Personal Environments}
 \label{cha:conceptanddesign:environments:personal}
@@ -334,6 +394,39 @@ environments can be determined when deploying a MS instance.
 Organization environments can also have multiple Users that are part of it, these are
 called members.
 
+\subsection{Environment memberships}
+\label{cha:conceptanddesign:environments:memberships}
+
+\subsection{Storing assets inside environments}
+\label{cha:conceptanddesign:environments:storing-assets}
+
+All assets within the MS \ref{cha:relatedwork:proceed-assets}, including folders,
+will be modified, so that each asset instance establishes a clear association with a single environment.
+Every asset will store a reference to the environment it belongs to.
+This reference is immutable, the only exception is when transferring the assets of a guest
+user to an authenticated user \ref{cha:conceptanddesign:users:mergeguestuser}.
+
+Processes and folders will be contained within folders, this implies, that they belong to
+the environment that the root folder belongs to.
+This means that for these assets, we are storing the environment they belong to twice.
+Storing redundant information risky as it can lead to inconsistencies if updates aren't
+done correctly.
+For instance if a folder's environment reference is changed, but those of its children
+not, then the folder structure would span across two environments.
+This risk is mitigated by the fact, that the environment reference of assets is immutable.
+
+% The key principle is that every asset belongs to one and only one environment, and this
+% association can be easily identified.
+
+% All of the MS's assets will only change in one way, they will somehow linked to an
+% environment and only one.
+% For processes, they're contained in a folder, such that they clearly belong to one
+% environment. for other assets, they will store a reference to the environment they belong
+% to.
+% The important part is that each asset belongs to exactly one environment, and this
+% environment can be identified.
+
+
 
 \subsection{Environment selection}
 
@@ -341,6 +434,7 @@ called members.
 Users will be able to 
 
 \section{Roles}
+\label{cha:conceptanddesign:roles}
 
 Before the implementation of this thesis, roles in the MS
 \ref{cha:relatedwork:proceedroles} were global,

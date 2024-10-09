@@ -169,10 +169,11 @@ Assets are Objects that users can create and manage through the MS's interface.
 When referring to assets, we are only talking about the core features of the MS, not
 objects that aid in the usage of the MS, like Roles .e.g., which only helps with managing
 access to assets.
-Currently the MS supports the following assets:
+Currently, the MS supports the following assets:
 
 \begin{enumerate}
   \item Processes, Project and Templates: These objects store BPNN at their core.
+  % TODO: description for task
   \item Task:
   \item Machine: Object that represents a server running Distributed Process Engine. The
     machine is used to manage properties of the server.
@@ -180,16 +181,25 @@ Currently the MS supports the following assets:
   \item Execution: An execution represents a process that is being executed distributedly.
 \end{enumerate}
 
+Furthermore, the MS implements assets that are used to manage how users can use the MS,
+called management assets: 
+
+\begin{itemize}
+  \item Role\ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
+  \item{Rolemapping}: role mappings are used to assign roles to users.
+  \item User: represents a user's personal information, e.g. name, username and email.
+\end{itemize}
+
 
 \section{PROCEED's role system}
 \label{cha:relatedwork:proceedroles}
 
 The PROCEED MS uses a Role-Based Access Control %(RBAC) 
-system to mange user authorization to determine what actions a user can perform.
+system to manage user authorization and determine what actions a user can perform.
 Roles can be seen as bundles of permissions, which are granted to users.
 A user can have multiple roles and all the permissions of the roles are additively
 combined. That is, by adding a permission, a user can never do less than before.
-Typically roles are assigned to users based on their job function.
+Typically, roles are assigned to users based on their job function.
 %% Advantages 
 %% - One role serves multiple people
 %% - roles don't change ofte
@@ -204,7 +214,8 @@ The following terms are important to understand the role system in the PROCEED M
 
 \begin{itemize}
   \item Resource: A resource is any protected entity in the management system, that can be
-    accessed by users.
+    accessed by users. Resources can be assets \ref{cha:relatedwork:proceed-assets}, but
+    they don't have to be.
   \item Action: An action is a specific operation that can be performed on a resource.
   \item Permission: A permission is a tuple of resource type and action, which specifies that a
     user can perform the action on the resource instances. Optionally a permission can have
@@ -227,11 +238,7 @@ The following are the resource types that are used in the PROCEED MS:
   \lstinline{Role},
   \lstinline{User},
   \lstinline{Setting},
-  \lstinline{EnvConfig},
-  \lstinline{RoleMapping},
-  \lstinline{Share},
-  \lstinline{Folder}.
-
+  \lstinline{Rolemapping},
 
 These are the actions that can be performed on these resources:
   \lstinline{none},
