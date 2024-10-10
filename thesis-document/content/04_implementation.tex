@@ -284,10 +284,15 @@ Since there is no personal information stored, there is no way for the user to s
 his guest account from another device.
 This also means, that if the cookies are deleted, the user will lose access to his guest account.
 
-\subsection{Merge guest user data with an authenticated user's data}
+% TODO: subsection title :(
+\subsection{}
 \label{cha:ms-architecture:merge-guest-user-data}
 
-When a guest user decides to sign in with personal information, we have to merge the data
+Guest users can choose to sign in with their email or with an OAuth 2.0 provider.
+By doing so, their guest account is turned into an authenticated account.
+The \lstinline{isGuest} flag is set to false, and their sign-in method is stored.
+All their assets don't need to be transferred, as they are already stored in the MS, and
+the user
 
 \subsection{Development users}
 \label{cha:ms-architecture:users:development-users}
