@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  9 OCT 2024 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  10 OCT 2024 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1336,16 +1336,19 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 )
 [4
 
-] (main.toc)
+] (main.toc [5
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [5
-
-] [6
-
-
-] (content/01_introduction.tex
+<images/snet/snet_footer.png, id=132, 623.64026pt x 287.21095pt>
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 194.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+ [6 <./images/snet/snet_footer.png>]
+(content/01_introduction.tex
 chapter 1.
 
 Class scrbook Warning: \float@addtolists detected!
@@ -1362,7 +1365,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=52, 482.80376pt x 345.29pt>
+<images/basic-cloud-services.drawio.png, id=166, 482.80376pt x 345.29pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1374,13 +1377,15 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 39.
 [1
 
+
+
  <./images/basic-cloud-services.drawio.png>]
-<images/mt-cloud-services.png, id=64, 729.72626pt x 453.695pt>
+<images/mt-cloud-services.png, id=176, 729.72626pt x 453.695pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 72.
 (pdftex.def)             Requested size: 328.37378pt x 204.16086pt.
-<images/quick-ms-overview.drawio.png, id=65, 610.28pt x 382.42876pt>
+<images/quick-ms-overview.drawio.png, id=177, 610.28pt x 382.42876pt>
 File: images/quick-ms-overview.drawio.png Graphic file (type png)
 <use images/quick-ms-overview.drawio.png>
 Package pdftex.def Info: images/quick-ms-overview.drawio.png  used on input lin
@@ -1389,13 +1394,12 @@ e 97.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/snet/snet_footer.png, id=66, 623.64026pt x 287.21095pt>
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 103.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [2 <./images/mt-cloud-services.png> <./images/snet/snet_footer.png>]
-<images/proceed-workspaces-v2.drawio.png, id=75, 603.25375pt x 493.845pt>
+ [2 <./images/mt-cloud-services.png>]
+<images/proceed-workspaces-v2.drawio.png, id=184, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
@@ -1476,38 +1480,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [14
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
   [][][][]$\T1/pcr/m/n/9 https : / / microsoft . github . io / language -[] ser
 ver -[] protocol / specifications / lsp / 3 . 17 /
  []
 
 [15]
 
-LaTeX Warning: Citation `celkoSQLTrees' on page 16 undefined on input line 148.
+LaTeX Warning: Citation `celkoSQLTrees' on page 16 undefined on input line 149.
 
 
 
-Overfull \hbox (7.85982pt too wide) in paragraph at lines 178--180
+Overfull \hbox (7.85982pt too wide) in paragraph at lines 179--181
 []\T1/ppl/m/n/10.95 Finding a node's de-scen-dants re-quires a re-cur-sive quer
 y, how-ever, this is bounded
  []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 199.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 200.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 []|\T1/ppl/m/n/10.95 Materialized
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+ppl on input line 2
-71.
+73.
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 271.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 273.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1516,27 +1520,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 377.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 379.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [18]
 [19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 528.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 538.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [20]) (content/04_implementation.tex [21]
+ [20])
+(content/04_implementation.tex [21]
 chapter 6.
 [22
 
-] [23]
-Underfull \vbox (badness 6428) has occurred while \output is active []
+]
 
+LaTeX Warning: Reference `' on page 23 undefined on input line 96.
+
+[23]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 207.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 215.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [24])
-(content/05_evaluation.tex [25]
+ [24]) (content/05_evaluation.tex [25]
 chapter 7.
 ) (content/06_conclusion.tex [26
 
@@ -1608,18 +1616,7 @@ No file main.bbl.
 chapter without number
 ) [33
 
-]
-
-! LaTeX Error: \begin{itemize} on input line 163 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.230 \end{document}
-                    
-? 
-(main.aux)
+] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1630,33 +1627,29 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 163 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 34766 strings out of 476372
- 664972 string characters out of 5793694
+ 34816 strings out of 476372
+ 665905 string characters out of 5793694
  2137995 words of memory out of 5000000
- 55974 multiletter control sequences out of 15000+600000
+ 56003 multiletter control sequences out of 15000+600000
  607730 words of font info for 125 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 108i,17n,107p,10922b,2500s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/publ
-ic/amsfonts/latxfont/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/i
-nstall/fonts/type1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/ins
-tall/fonts/type1/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/insta
-ll/fonts/type1/urw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/instal
-l/fonts/type1/urw/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install
-/fonts/type1/urw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/
-fonts/type1/urw/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/f
-onts/type1/urw/palatino/uplr8a.pfb>
-Output written on main.pdf (40 pages, 529645 bytes).
+ 108i,17n,107p,10922b,2246s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/la
+txfont/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/t
+ype1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
+e1/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
+/urw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/
+urw/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
+rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
+w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
+/palatino/uplr8a.pfb>
+Output written on main.pdf (40 pages, 551842 bytes).
 PDF statistics:
- 692 PDF objects out of 1000 (max. 8388607)
- 231 named destinations out of 1000 (max. 500000)
- 475 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 789 PDF objects out of 1000 (max. 8388607)
+ 252 named destinations out of 1000 (max. 500000)
+ 483 words of extra memory for PDF output out of 10000 (max. 10000000)
 

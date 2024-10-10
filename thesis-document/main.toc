@@ -41,9 +41,10 @@
 \contentsline {subsection}{\numberline {6.1.1}Data storage}{22}{subsection.6.1.1}%
 \contentsline {section}{\numberline {6.2}Users}{23}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Sign in flows}{23}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Authenticated Users}{23}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Guest Users}{24}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Assets}{24}{section.6.3}%
+\contentsline {subsection}{\numberline {6.2.2}Authenticated Users}{24}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Guest Users}{25}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Merge guest user data with an authenticated user's data}{25}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Assets}{25}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Environments}{25}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Creation}{25}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Memberships}{25}{subsection.6.4.2}%

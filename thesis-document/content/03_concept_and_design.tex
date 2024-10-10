@@ -32,7 +32,8 @@ In order for users to be part of multiple organizations, they can't be tied to a
 organization.
 As a part of the implementation of environments, users are now independent of
 organizations,
-they now represent individual people utilizing PROCEED.
+they now represent individual people utilizing PROCEED and will be stored as entries in
+the MS's storage solution \ref{cha:ms-architecture:data-storage}.
 % A single person can have one or more users, but each user is intended for individual use.
 
 To facilitate the exploration of the MS, without creating a user, we introduce the option
@@ -218,6 +219,7 @@ their position in the tree.
           the intervals of the moved node and all of its descendants. 
         Depending on the implementation it may even be required to update the intervals of
             other nodes.
+      \end{itemize}
     \end{itemize}
   %-----------------------------------------------------------------------------------------------------------
   %-----------------------------------------------------------------------------------------------------------
@@ -482,7 +484,7 @@ implementation simple, we only chose one.
 The implicit method has the advantage that the URLs are shorter and easier to read,
 however it has the disadvantage, that some links can't be shared, since the implicitly
 selected environment of another user might not be the same. 
-For this reason, the explicit method was chosen, allowing users to share links at the
+For this reason, the explicit method was chosen as it allows users to share links with the
 cost of longer URLs.
 
 \section{Roles}
@@ -517,7 +519,7 @@ can be stored in folders, will be affected by the association.
 % The permissions of the role that apply to assets that can be stored in folders, 
 % will only apply to the assets that are in the folder's subtree.
 %
-The permissions of roles associated with a folder cascade down the
+The permissions of roles that are associated with a folder cascade down the
 folder structure, i.e. a role associated to a folder will also apply to all of its children.
 In this thesis, the folder structure was only implemented for processes,
 this means that only the permissions for processes and folders will apply to the
@@ -541,16 +543,10 @@ allowed to view and manage.
 In order to enforce permissions based on the folder structure, it is necessary to fetch
 the newest state of the folder structure every time a user wants to perform an action on an asset.
 Roles can't store a representation of the folder structure, as it might become outdated.
-
-Since permissions need to be verified, both in the MS and in the user's browser: the MS
-needs to know if a user is allowed to perform an action, and the UI on the user's browser
-needs to adapt to the user's permissions.
-Since both the MS and the browser need to know the folder structure often,
-we decided to compute and cache a representation of the folder structure of
+Since permissions need to be verified, for many requests in the MS, and also in the user's browser, to
+adapt the UI, we decided to compute and cache a representation of the folder structure of
 every organization environment, from which an asset is requested.
-The cache is invalidated whenever a folder is added, removed or moved.
-
-% TODO: Talk about how the cache works and how it is invalidated
+This representation is also sent to the user's browser.
 
 % TODO: roles send folder structure to user, is this bad? how could we mitigate it
 
@@ -563,7 +559,7 @@ cannot be associated to a folder:
   \item \lstinline{@admin}: This role has all permissions for all assets in the
     organization environment and it is first assigned to the user that creates the organization environment.
     Only users with the \lstinline{@admin} role can add new users to this role.
-  \item \lstinline{@everyone}: The permissions in this role apply to all the users
+  \item \lstinline{@everyone}: The permissions in this role apply to for all the users
     that are part of the organization environment. The permissions in this role start out
     empty, but can be modified.
 \end{itemize}
