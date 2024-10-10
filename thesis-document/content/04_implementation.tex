@@ -156,15 +156,20 @@ const handler = NextAuth(authOptions)
 \label{cha:ms-architecture:authenticated-users}
 
 Authenticated Users are users that sign in to the MS either with their email or with a
-OAuth 2.0 provider
+OAuth 2.0 provider.
+They're stored in the MS by NextAuth.js after they've successfully signed in.
 For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest}, set
-to false, to indicate that the user isn't a guest and personal information.
+to false, and personal information. 
 This is the schema for authenticated users:
+
+% NOTE: maybe explain that because of nextauths weirdness the email is just stored in the
+% user instead of the account
 
 \begin{lstlisting}[
   language=JavaScript,
   style=codestyle,
   caption={Schema for authenticated users.},
+  label={lst:authenticated-users-schema}
 ]
 {
     id: string;
@@ -176,22 +181,40 @@ This is the schema for authenticated users:
     image?: string |  undefined;
     email?: string | undefined;
 }
+
 \end{lstlisting}
 
 All the personal information is optional, because depending on how the user signs in, the
 information might not be available.
 For instance, because NextAuth.js' email sign in only requires the user to input an
 email, authenticated users are created without a first name, last name or username.
-A possible workaround would be to automatically generate these for 
+A possible workaround would be to automatically generate these, but we chose to leave them
+undefined, and prompt the user to fill them when he first signs in.
 
 
-It is important to understand the difference between Users and Accounts.
-A user represent a person, while an accounts represents a method of signing in for a user.
-A user can have multiple accounts, but an account can only be linked to one user.
-To recognize an account we need to store the name of the provider and the account's
-id on the provider's platform.
-And to link the account to a User, we need to store the User's id on the MS.
-This is the schema for accounts:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{images/fill-data-prompt.png}
+    \caption{Prompt to fill in personal information.}
+    \vspace{-1em} % Negative value to remove space
+    \label{fig:prompt-fill-personal-information}
+\end{figure}
+
+% TODO: cite paper or something to show that this can happen?? im sure theres going to be
+% smth
+The \lstinline{image} field is used to store a URL to a user's profile picture. This field
+can only be set if the user signed in with an OAuth 2.0, which supplied
+the URL.
+We don't accept custom URLs, as this allows for attackers to supply URLs to a server he
+controls, which can be used to track user's browsers.
+By only saving URLs provided directly by trusted OAuth 2.0 providers, we ensure that the
+source of the image is reliable.
+
+As stated before, we need Accounts, to store the sign-in methods of a user.
+To recognize a user's account we need to store the name of the provider and the account's.
+ID on the provider's platform.
+Additionally, to link the account to a user, we store the user's ID in the account.
+The schema for accounts is as follows:
 
 \begin{lstlisting}[
   language=JavaScript,
@@ -211,57 +234,63 @@ This is the schema for accounts:
 
 Users that aren't signed in can choose to try the MS out as a guest, this doesn't require
 the user to input any personal information.
+For users that choose to sign in as a guest, a new user is created and stored in the MS.
+To achieve this, we use a modified version of the authenticated user schema described in
+\ref{lst:authenticated-users-schema}, to only include the \lstinline{id} and the
+\lstinline{isGuest} flag set to true.
 
-For storing guest user data, one could take one of two approaches:
-storing the data in the user's browser or storing it in the MS's database, alongside the
-data of authenticated users.
-Storing the data locally has two great benefits: 
-The MS doesn't have to store data of users who might never return and
-the MS would become less susceptible to an attack where the attacker tries to use up as
-much space as possible in the MS's database.
-However, this approach has one key downside, the MS would have to implement two storage
-solutions and accordingly switch between them.
-The added complexity of storing guest user's data locally isn't worth the benefits, so we
-decided to store a guest user's data in the MS's database and create an entry for him in
-the Database like for all users, with the difference that a flag is set, to indicate that
-he is a guest.
-This way, all the same endpoints that authenticated users can call to interact with the MS
-can also be called by guest users.
-An important caveat is that now all relevant endpoints have to check whether the user 
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Schema for guest users.},
+]
+{
+    isGuest: true;
+    id: string;
+} 
+\end{lstlisting}
 
+This option must be made available to users during the sign-in process. 
+To accomplish this, NextAuth.js provides a built-in \lstinline{CredentialsProvider}, 
+which enables the implementation of custom sign-in methods. 
+We configured this provider to accept no credentials,
+allowing users to sign in without supplying personal information.
 
-% TODO: finish
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Custom sign-in method for guest users.},
+]
+import NextAuth from 'next-auth/next';
 
+const authOptions = {
+  providers: [
+    ...
+    CredentialsProvider({
+      name: 'Continue as Guest',
+      credentials: {},
+      async authorize() {
+        return addUser({ isGuest: true });
+      },
+    }),
+  ],
+}
 
-- user schema
-- accounts represent ways for a user sign in
-- user can have multiple accounts
-- account linking
-- sign in methods (+ dev sign in)
+const handler = NextAuth(authOptions)
+\end{lstlisting}
 
-
-% \begin{lstlisting}[
-%   style=codestyle,
-%   caption={},
-% ]
-% {
-%     isGuest: false;
-%     emailVerifiedOn: Date | null;
-%     firstName?: string | undefined;
-%     lastName?: string | undefined;
-%     username?: string | undefined;
-%     image?: string | null | undefined;
-%     favourites?: string[] | undefined;
-%     id?: string | undefined;
-%     email?: string | undefined;
-% }
-% \end{lstlisting}
+After a user signs in as a guest, a JWT token is stored in his cookies.
+Since there is no personal information stored, there is no way for the user to sign in to
+his guest account from another device.
+This also means, that if the cookies are deleted, the user will lose access to his guest account.
 
 \subsection{Merge guest user data with an authenticated user's data}
 \label{cha:ms-architecture:merge-guest-user-data}
 
 When a guest user decides to sign in with personal information, we have to merge the data
 
+\subsection{Development users}
+\label{cha:ms-architecture:users:development-users}
 
 \section{Assets}
 

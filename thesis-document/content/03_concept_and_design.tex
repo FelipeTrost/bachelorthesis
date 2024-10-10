@@ -94,11 +94,15 @@ definition \footnote{\url{https://microsoft.github.io/language-server-protocol/s
 For this reason, storing guest user's data locally isn't worth the benefits.
 So we decided to store a guest user's data in the MS the same way we do it for
 authenticated users,
-with the difference that a flag is set in the user entry to indicate that he is a guest.
+with the difference that a flag is set 
+% in the user entry to 
+indicate that he is a guest.
 This way, all the endpoints that authenticated users can call to interact with the MS
 can also be called by guest users.
 An important caveat is that, to enforce some of the feature restrictions, relevant
 endpoints have to check whether the user is a guest.
+Furthermore, the MS needs to clean up inactive guest users, to prevent the MS's storage
+solution from filling up with unused data.
 
 \subsection{Development Users}
 

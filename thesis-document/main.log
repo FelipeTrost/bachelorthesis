@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  10 OCT 2024 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  10 OCT 2024 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1487,31 +1487,31 @@ ver -[] protocol / specifications / lsp / 3 . 17 /
 
 [15]
 
-LaTeX Warning: Citation `celkoSQLTrees' on page 16 undefined on input line 149.
+LaTeX Warning: Citation `celkoSQLTrees' on page 16 undefined on input line 153.
 
 
 
-Overfull \hbox (7.85982pt too wide) in paragraph at lines 179--181
+Overfull \hbox (7.85982pt too wide) in paragraph at lines 183--185
 []\T1/ppl/m/n/10.95 Finding a node's de-scen-dants re-quires a re-cur-sive quer
 y, how-ever, this is bounded
  []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 200.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 204.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 []|\T1/ppl/m/n/10.95 Materialized
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+ppl on input line 2
-73.
+77.
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 273.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 277.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1520,7 +1520,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 379.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 383.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [18]
 [19]
@@ -1528,7 +1528,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 538.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 542.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [20])
 (content/04_implementation.tex [21]
@@ -1540,20 +1540,28 @@ chapter 6.
 LaTeX Warning: Reference `' on page 23 undefined on input line 96.
 
 [23]
+<images/fill-data-prompt.png, id=440, 532.99126pt x 398.48875pt>
+File: images/fill-data-prompt.png Graphic file (type png)
+<use images/fill-data-prompt.png>
+Package pdftex.def Info: images/fill-data-prompt.png  used on input line 197.
+(pdftex.def)             Requested size: 213.19272pt x 159.39267pt.
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 215.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 212.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [24]) (content/05_evaluation.tex [25]
+ [24 <./images/fill-data-prompt.png>] [25]) (content/05_evaluation.tex
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+
+[26]
 chapter 7.
-) (content/06_conclusion.tex [26
+) (content/06_conclusion.tex [27
 
 ]
 chapter 8.
-) [27
-
-] [28
-
+) [28
 
 ]
 chapter without number
@@ -1562,6 +1570,8 @@ chapter without number
 \openout7 = `main.lot'.
 
  [29
+
+
 
 ]
 chapter without number
@@ -1625,14 +1635,17 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34816 strings out of 476372
- 665905 string characters out of 5793694
+ 34856 strings out of 476372
+ 666707 string characters out of 5793694
  2137995 words of memory out of 5000000
- 56003 multiletter control sequences out of 15000+600000
+ 56019 multiletter control sequences out of 15000+600000
  607730 words of font info for 125 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  108i,17n,107p,10922b,2246s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1647,9 +1660,9 @@ urw/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
 rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
 w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
 /palatino/uplr8a.pfb>
-Output written on main.pdf (40 pages, 551842 bytes).
+Output written on main.pdf (40 pages, 568518 bytes).
 PDF statistics:
- 789 PDF objects out of 1000 (max. 8388607)
- 252 named destinations out of 1000 (max. 500000)
- 483 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 825 PDF objects out of 1000 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
+ 496 words of extra memory for PDF output out of 10000 (max. 10000000)
 
