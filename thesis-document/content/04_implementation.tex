@@ -20,6 +20,39 @@ responsible for rendering the UI, handling user input and making requests to the
 The backend runs on a server and is responsible for handling requests from the frontend,
 e.g. saving or querying data.
 
+\subsection{Endpoints}
+\label{cha:ms-architecture:endpoints}
+
+Next.js implements RPC (Remote Procedure Call), by allowing us to write functions that run
+in the server, which can be imported in the frontend and called with serializable arguments.
+All files that contain these functions need to use the "use server"
+directive\footnote{\url{https://react.dev/reference/rsc/use-server}}, either inside the
+function, or at the top of the file.
+These functions will be called endpoints from now on.
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Example of a Zod schema and the corresponding TypeScript type.},
+]
+  // server.js
+  function deleteProcess(environmentId, processId) {
+    "use server"
+
+    // delete process
+  }
+
+  // client.js
+  const button = document.getElementById('delete-process-button');
+  button.addEventLienvironmentId, processIdstener('click', (e) => {
+    const environmentId = e.target.dataset.environmentId
+    const processId e.target.dataset.processId
+    deleteProcess(environmentId, processId);
+  });
+\end{lstlisting}
+
+
+
 \subsection{Data storage}
 \label{cha:ms-architecture:data-storage}
 
@@ -238,6 +271,8 @@ For users that choose to sign in as a guest, a new user is created and stored in
 To achieve this, we use a modified version of the authenticated user schema described in
 \ref{lst:authenticated-users-schema}, to only include the \lstinline{id} and the
 \lstinline{isGuest} flag set to true.
+Additionally, we store a reference to an authenticated user, named
+\lstinline{signedInWithUserId}, the purpose of this is explained in \ref{cha:ms-architecture:merge-guest-user-data}.
 
 \begin{lstlisting}[
   language=JavaScript,
@@ -247,6 +282,7 @@ To achieve this, we use a modified version of the authenticated user schema desc
 {
     isGuest: true;
     id: string;
+    signedInWithUserId: string | undefined;
 } 
 \end{lstlisting}
 
@@ -292,10 +328,76 @@ Guest users can choose to sign in with their email or with an OAuth 2.0 provider
 By doing so, their guest account is turned into an authenticated account.
 The \lstinline{isGuest} flag is set to false, and their sign-in method is stored.
 All their assets don't need to be transferred, as they are already stored in the MS, and
-the user
+the user \lstinline{id} didn't change.
+This approach only works if the account that the user used to sign in, wasn't already
+linked to an authenticated user.
+For the case where the account was already linked to an authenticated user, we store a new
+value in the guest user's entry, named \lstinline{signedInWithUserId},
+that references the authenticated user that signed in.
+After signing in, the user is directed to a page, where he can choose to either transfer the
+guest user's assets to his personal environment, or discard them.
+This page uses the authenticated user's \lstinline{id} to see if there are any guest users
+that signed in with the user's \lstinline{id}.
+
+
+% TODO: this caption needs work
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Handle the transfer of processes from a guest user to an authenticated user.},
+]
+import NextAuth from 'next-auth/next';
+
+const authOptions = {
+  ...
+  callbacks: {
+    ...
+    signIn: async ({ account, user, email }) => {
+      // Get the user that was signed in when this sign in flow started
+      const session = await getServerSession(nextAuthOptions);
+      const sessionUser = session?.user;
+
+      // Check if the user is signing in
+      if (
+        sessionUser?.guest &&
+        account?.provider !== 'guest-signin' &&
+        !email?.verificationRequest
+      ) {
+        // Check if the user's cookie is correct
+        const sessionUserInDb = getUserById(sessionUser.id);
+        if (!sessionUserInDb || !sessionUserInDb.guest) throw new Error('User id in session is not valid');
+
+        const userSigningIn = getUserById(user.id);
+
+        if (userSigningIn) {
+          // If the user that is signing in exists, update the guest user
+          updateUser(sessionUser.id, { guest: true, signedInWithUserId: userSigningIn.id });
+        } else {
+          // If the user that is signing in is a new user, update the guest user
+          updateUser(sessionUser.id, {
+            firstName: user.firstName ?? undefined,
+            lastName: user.lastName ?? undefined,
+            username: user.username ?? undefined,
+            image: user.image ?? undefined,
+            email: user.email ?? undefined,
+            isGuest: false,
+          });
+        }
+      }
+
+      return true;
+    },
+  }
+}
+
+const handler = NextAuth(authOptions)
+\end{lstlisting}
+
 
 \subsection{Development users}
 \label{cha:ms-architecture:users:development-users}
+
+I'm not even sure If this belongs in this thesis
 
 \section{Assets}
 
@@ -305,21 +407,296 @@ the user
 
 \section{Environments}
 
-- environments are entry in db
+% TODO: work on this introduciton
+
+This section will cover the implementation details of environments.
+In its essence, an environment is just an entry in the MS' storage, where assets point to.
+To store these environments a new file was added to the MS storage solution
+\ref{cha:ms-architecture:data-storage} that stores every environment.
+Every environment has an \lstinline{id} and a flag named \lstinline{organization} that
+indicates what type of environment it is.
+If an environment is an organization environment, it also stores information about the
+organization,
+whereas personal environments store a reference to the user that owns the environment in
+\lstinline{ownerId}.
+%NOTE: maybe mention that a personal environments id is the same as its owners id, but
+%maybe not, because that would be storing the same thing twice
+%now that I think about it its primary key should've been a foreign key or smth
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Schemas for organization and personal environments.},
+  label={lst:environments-schemas}
+]
+// Schema for organization environments
+{
+    id: string;
+    name: string;
+    description: string;
+    contactPhoneNumber: string;
+    organization: true;
+}
+
+// Schema for personal environments
+{
+    id: string;
+    organization: false;
+    ownerId: string;
+}
+\end{lstlisting}
+
+\subsection{Creation of personal environments}
+
+  % if (newEnvironment.organization) {
+  %   const adminRole = addRole({
+  %     environmentId: id,
+  %     name: '@admin',
+  %     default: true,
+  %     permissions: { All: adminPermissions },
+  %   });
+  %   addRole({
+  %     environmentId: id,
+  %     name: '@everyone',
+  %     default: true,
+  %     permissions: {},
+  %   });
+  %
+  %   if (newEnvironment.active) {
+  %     addMember(id, newEnvironment.ownerId);
+  %
+  %     addRoleMappings([
+  %       {
+  %         environmentId: id,
+  %         roleId: adminRole.id,
+  %         userId: newEnvironment.ownerId,
+  %       },
+  %     ]);
+  %   }
+  % }
+
+Personal environments are created when an entry for a user is created, this ensures that
+every user has a personal environment.
+Alongside the environment, a new root folder is created for the environment, where the
+user can store Processes, and other folders.
+The environment's \lstinline{ownerId} references the user that created the environment,
+no more information is necessary, as personal environments are only accessible by one
+user.
+
+\subsection{Creation of organization environments}
+
+Organization environments can be created by signed-in users.
+In addition to creating the environment itself, two default roles, 
+\lstinline{@everyone} and \lstinline{@admin}, are generated.
+A membership entry is also added to indicate that the creator is part of the environment,
+and a role mapping is created to assign the creator to the \lstinline{@admin} role.
+And a root folder is created for the environment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{images/create-organization-ui.png}
+    \caption{Form for creating an organization environment.}
+    \vspace{-1em} % Negative value to remove space
+    \label{fig:prompt-fill-personal-information}
+\end{figure}
+
+\subsection{Adding users to an environment}
+
+Adding users to an environment is simply done by creating a membership entry, with the
+organization environment's \lstinline{id} and the user's \lstinline{id}.
+However, the inviter typically doesn't know the invitee's internal \lstinline{id},
+so they can use the invitee's email address instead.
+The MS then sends an email to the invitee, with an invitation link that contains a token.
+The link directs to a user to the MS, where the token is verified and the user is added to
+the organization environment.
+Additionally, if the inviter has the permissions for it, he can select roles for the new member.
+
+% NOTE: mention that jwts have the drawback that they can't be revoked?'
+The token in the invitation link is a JWT token, this way there is no need to store it.
+The token contains the id's of the roles for
+the invitees, the id of the environment, and a reference to the invitee.
+If the email the inviter provided is associated with a user, then the reference to the
+invitee stores the user's \lstinline{id}, otherwise there is the risk, that the invitee
+changes his email address, and the invitation link is no longer valid for him.
+If the invitee's email address is not associated with a user, the token just stores his
+email address.
+In this case, when the invitee clicks on the link, he is first directed to the sign-in
+page, and after he signs in he is redirected back to the invitation link.
+
+% TODOFIG: show different options for inviting users
+
+\subsection{Environment selection}
+
+% NOTE: maybe add footnote for url path
+
+The selected environment is encoded in the URL's path like this:
+\lstinline{https://staging.proceed-labs.org/<environment id>/...}.
+Every view accessed by a user, where URL's path starts with an environment's id, will be
+only related to that environment.
+Each view can get this environment id and fetch the appropriate assets.
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Example of a view processes based on the environment id.},
+]
+function ProcessesPage(props){
+  const environmentId = props.params.environmentId; 
+
+  const processes = getProcesses(environmentId);
+
+  // render processes
+}
+\end{lstlisting}
+% return (
+%   <div>
+%     {processes.map((process) => (
+%       <ProcessCard process={process} />
+%     ))}
+%   </div>
+
+Users can switch between environments by selecting them from a dropdown menu, that is
+placed on the navigation bar.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{images/select-environment.png}
+    \caption{Selection of environments in the MS's navigation bar.}
+    \vspace{-1em} % Negative value to remove space
+\end{figure}
+
+How everything was changed to support environmenst
+
 - memberships
-- environment format entry
 - verification (when envs are created by not signed in users)
-- creation
 - deletion - managing the env
 - section for folders
 - decide how to divide 
+- selection of envs
+- 
 
 Environments are stored as an entry in the MS table
 
-
-\subsection{Creation}
 \subsection{Memberships}
 
 \section{Roles}
 
+% TODO: work on the intro 
+Each role is now directly associated with an environment by storing an
+\lstinline{environmentId} and its permissions only apply to in that environment.
+Additionally, roles can now be associated to a folder, with the new field \lstinline{folderId}. 
 
+
+% TODO: decide where to put the role schema
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Example of a view processes based on the environment id.},
+]
+type Role = {
+  environmentId: string;
+  name: string;
+  permissions: {
+    Process?: number | undefined;
+    Project?: number | undefined;
+    Template?: number | undefined;
+    Task?: number | undefined;
+    Machine?: number | undefined;
+    Execution?: number | undefined;
+    Role?: number | undefined;
+    User?: number | undefined;
+    Setting?: number | undefined;
+    EnvConfig?: number | undefined;
+    RoleMapping?: number | undefined;
+    Share?: number | undefined;
+    Environment?: number | undefined;
+    Folder?: number | undefined;
+    MachineConfig?: number | undefined;
+    All?: number | undefined;
+  };
+  description?: string | null | undefined;
+  note?: string | null | undefined;
+  expiration?: Date | null | undefined;
+  }
+\end{lstlisting}
+
+\subsection{New resources}
+
+\subsection{Enforcing roles in the MS}
+
+Every action that a user can perform in an environment, is tied with a permission.
+For this reason, every endpoint in the MS has to check permissions, fortunately, roles
+where already implemented in the MS and every endpoint was already using abilities
+\ref{cha:relatedwork:proceedroles:casl} to check permissions.
+Abilities are built with the permissions stored in roles that a user has.
+The only thing that was changed is that every endpoint receives the environment as an
+argument, and uses the roles the user has in the environment for building his ability.
+
+The function \lstinline{getCurrentEnvironment} was implemented in order to facilitate
+getting a user's ability for an environment, it takes an environment id and uses
+functionality provided by NextAuth.js to know which user is calling the endpoint.
+
+% NOTE: maybe remove the userError as if its not explained it might be confusing
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Example of an endpoint using an ability.},
+]
+async function(processValues, environmentId) {
+  const { ability } = await getCurrentEnvironment(spaceId);
+
+  if (!ability.can('create', toCaslResource('Process', newProcess))) {
+    return userError('Not allowed to create this process');
+  }
+
+  ...
+}
+\end{lstlisting}
+
+\subsection{Checking permissions associated to a folder}
+
+The process of building abilities was modified to enable them to check a folder structure.
+Abilities in the MS are built with a conditions matcher
+\footnote{\url{https://casl.js.org/v6/en/advanced/customize-ability\#custom-conditions-matcher-implementation}},
+which is a function that receives a conditions object and returns a function that checks
+resource instances.
+The conditions object is defined by each rule, which in turn are derived by the
+permissions of roles as described in \ref{cha:relatedwork:proceedroles}.
+If a rule allows an action on a resource instance and includes a conditions object, the
+rule will only apply if the function returned by the conditions matcher evaluates to
+\lstinline{true} when provided with the resource instance.
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Simple example of a conditions matcher in CASL.},
+]
+import { PureAbility, AbilityBuilder } from '@casl/ability';
+
+function conditionsMatcher(conditions){
+  if (conditions.hasToBeAdult){
+    return (resourceInstance) => resource.age >= 18;
+  }
+
+  return (resourceInstance) => true;
+}
+
+function buildAbility(){
+  const builder = new AbilityBuilder(PureAbility);
+
+  builder.can('read', 'Post', { hasToBeAdult: true });
+
+  return builder.build({ conditionsMatcher });
+}
+
+const ability = buildAbility();
+
+ability.can('read', 'Post', { age: 17 }); // false
+\end{lstlisting}
+
+Since the conditions matcher only receives a conditions object, it can't take
+The conditions matcher was wrapped in a function that receives a representation of an
+environments folder structure.
+This function in turn returns a conditions matcher, which al

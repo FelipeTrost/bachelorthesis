@@ -16,6 +16,7 @@ This thesis will modify the assets \ref{cha:relatedwork:proceed-assets} and the 
 \ref{cha:relatedwork:proceedroles:ms-resources-actions} supported by the MS.
 Assets \ref{cha:conceptanddesign:environments:storing-assets} and 
 Resources \ref{cha:conceptanddesign:roles} will be modified to be contained inside environments.
+Additionally, Environments will be added to the MS' assets and resources.
 As will be explained in \ref{cha:conceptanddesign:users}, Users won't belong to a single
 environment, they can instead be members of multiple environments, for this reason, 
 users will be removed from the MS's assets and resources.
@@ -247,6 +248,8 @@ their position in the tree.
             are direct children.
         \item Moving nodes and their subtrees is inefficient, since it requires updating
           the path of every node in the subtree. 
+        \item Each node stores a string with its path, which can be inefficient in terms of
+          storage space.
         \end{itemize}
     \end{itemize}
 \end{itemize}
