@@ -13,11 +13,11 @@
 % Nowadays cloud applications have become very popular in professional settings.
 % Cloud applications are those, which are served and accessed over the internet, they offer many benefits:
 
-In today's digital age, businesses heavily rely on cloud applications, software tools that
-are accessed and run entirely over the internet.
+In today's digital age, businesses heavily rely on cloud applications, 
+software tools that are accessed and run entirely over the internet.
 These tools represent a paradigm shift from traditional software applications,
 where the majority of the workload happened on the user's device.
-Shifting some of the workload to the cloud offers many advantages:
+Shifting part of the workload to a cloud application offers many advantages:
 
 \begin{itemize}
     \item Accessibility: They can be accessed anywhere from anywhere with an internet connection.
@@ -33,12 +33,12 @@ Shifting some of the workload to the cloud offers many advantages:
     \item No IT overhead: users don't have to setup the application on their own, which would require technical knowledge.
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{images/basic-cloud-services.drawio.png}
-    \caption{Users can access cloud applications from any device with an internet connection.}
-    \label{fig:cloud-applications}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.35]{images/basic-cloud-services.drawio.png}
+%     \caption{Users can access cloud applications from any device with an internet connection.}
+%     \label{fig:cloud-applications}
+% \end{figure}
 
 % A key selling point of these, is that companies don't have to do any technical work setting the software up, they can pay for a subscription and start using the tool right away, either through a browser or by installing an executable on their computer.
 % A very important technical aspect for such tools, that enables the ease of use, is the ability to support multiple companies using them at once.
@@ -48,8 +48,8 @@ Shifting some of the workload to the cloud offers many advantages:
 % This is called multi-tenancy, and it is implemented by most popular cloud applications, e.g. by Teams, Slack, Asana, and many more.
 % A tenant can be seen as an entity that uses the application, which can be either a single user or an organization made up of many users.
 
-One very common feature that makes these benefits possible is called "multi-tenancy".
-Multi-tenancy is a software architecture in which one single instance of an application
+One very common feature that makes these benefits possible is called \textit{multi tenancy}.
+\textit{Multi tenancy} is a software architecture in which one single instance of an application
 can be used by many different users or organizations at the same time. 
 Without multi-tenancy, each user or organization would need to run the application on
 their own servers or computers, 
@@ -190,7 +190,7 @@ assets.
 
 
 % Research questions
-\chapter{Research Questions}
+\section{Research Questions}
 \label{cha:researchquestions}
 
 \begin{enumerate}
@@ -233,7 +233,7 @@ environment-specific permissions?
 
 % Task List
 
-\chapter{Task List}
+\section{Task List}
 \label{cha:tasklist}
 
 % private environment
@@ -250,83 +250,81 @@ environment-specific permissions?
 % TODO: 
 % \item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
 
-\begin{myEnumerate}
-  \item Functional
-    \begin{myEnumerate}
-      \item The MS has to support two types of environments: personal and organization environments.
-        \begin{myEnumerate}
-          \item Every asset in the MS must be stored in one and only one environment.
+\begin{enumerate}
+  \item The MS has to support users 
 
-          \item Assets stored in one environment can only be accessed by members of that
-            environment.
+  \item The MS has to support two types of environments: personal and organization environments.
+    \begin{enumerate}
+      \item Every asset in the MS must be stored in one and only one environment.
 
-          \item Every user has to have a personal environment, of which only he can be a member.
+      \item Assets stored in one environment can only be accessed by members of that
+        environment.
 
-            %NOTE: im talking about roles here, maybe should go somewhere else
-          \item Organization environments must be able to have multiple members and roles that control what each member can do.
+      \item Every user has to have a personal environment, of which only he can be a member.
 
-          \item Environments must have a folder system to store assets.
-            \begin{myEnumerate}
-              \item Find a suitable abstraction to represent folders in a database.
+        %NOTE: im talking about roles here, maybe should go somewhere else
+      \item Organization environments must be able to have multiple members and roles that control what each member can do.
 
-              \item Ensure privacy between environments.
+      \item Environments must have a folder system to store assets.
+        \begin{enumerate}
+          \item Find a suitable abstraction to represent folders in a database.
 
-                % escribir aca ya que tiene que haber herencia
-                % reescribir should be modified no es tan fuerte/
-                % likely redundant
+          \item Ensure privacy between environments.
 
-              \item The MS's preexisting role system must be adapted to fit environments:
-                The PROCEED Management System already has a role system in place to manage user's access to resources, these roles need to be modified for them to work with environments.
-                \begin{myEnumerate}
-                  \item Find a suitable inheritance model for roles based on the folder
-                    structure of an environment (e.g. a user with a role in a parent
-                    folder, can perform actions in all subfolders).
-                  \item Ensure roles are always enforced in the backend.
-                  \item The frontend UI must adapt to a user's roles, by only showing options that the user has permission to do.
-                \end{myEnumerate}
-                % depending on the folder the asset is in.
-            \end{myEnumerate}
+            % escribir aca ya que tiene que haber herencia
+            % reescribir should be modified no es tan fuerte/
+            % likely redundant
 
-        \end{myEnumerate}
+          \item The MS's preexisting role system must be adapted to fit environments:
+            The PROCEED Management System already has a role system in place to manage user's access to resources, these roles need to be modified for them to work with environments.
+            \begin{enumerate}
+              \item Find a suitable inheritance model for roles based on the folder
+                structure of an environment (e.g. a user with a role in a parent
+                folder, can perform actions in all subfolders).
+              \item Ensure roles are always enforced in the backend.
+              \item The frontend UI must adapt to a user's roles, by only showing options that the user has permission to do.
+            \end{enumerate}
+            % depending on the folder the asset is in.
+        \end{enumerate}
 
-        % NOTE: replace concurrently with eaesier word
-      \item The MS must be able to hold multiple environments and let users access them concurrently.
+    \end{enumerate}
 
-        %NOTE: maybe carry out actions no the best frasing
-      \item Users must be able to be members of multiple environments and carry out actions in each one of them.
+    % NOTE: replace concurrently with eaesier word
+  \item The MS must be able to hold multiple environments and let users access them concurrently.
+
+    %NOTE: maybe carry out actions no the best frasing
+  \item Users must be able to be members of multiple environments and carry out actions in each one of them.
 
 
-    \end{myEnumerate}
+\end{enumerate}
 
-  \item Non functional
-    \begin{myEnumerate}
-      \item keep changes to the existing codebase to a minimum.
+\begin{enumerate}
+  \item keep changes to the existing codebase to a minimum.
 
-      \item The same data structure should be used for both personal and organization environments.
+  \item The same data structure should be used for both personal and organization environments.
 
-        % \item The implentation shoudln't be repetitive, the same functional components should be used for both personal and organization environments.
+    % \item The implentation shoudln't be repetitive, the same functional components should be used for both personal and organization environments.
 
-      \item The user interface for navigating and managing folders and environments should
-        be intuitive and easy to use.
+  \item The user interface for navigating and managing folders and environments should
+    be intuitive and easy to use.
 
-      \item Prioritize developer experience by creating clear abstractions and APIs.
-        \begin{myEnumerate}
-          \item Create simple abstractions for the backend code of the MS, that allow to acknowledge a user's environment with minimal effort.
-          \item Create a simple abstraction for the frontend, that facilitates adapting
-            the Interface for each.
-        \end{myEnumerate}
+  \item Prioritize developer experience by creating clear abstractions and APIs.
+    \begin{enumerate}
+      \item Create simple abstractions for the backend code of the MS, that allow to acknowledge a user's environment with minimal effort.
+      \item Create a simple abstraction for the frontend, that facilitates adapting
+        the Interface for each.
+    \end{enumerate}
 
-      % \item Environments should be easy to create, manage and delete.
-      %   \begin{myEnumerate}
-      %     \item The frontend should provide intuitive interfaces for creating and deleting organization environments.
-      %       // not functional
-      %     \item Provide well documented APIs to create, manage and delete environments both for the frontend and the backend.
-      %       needs more description. ldap
-      %     \item Environments should provide the option to import an existing user database.
-      %   \end{myEnumerate}
-    \end{myEnumerate}
+  % \item Environments should be easy to create, manage and delete.
+  %   \begin{enumerate}
+  %     \item The frontend should provide intuitive interfaces for creating and deleting organization environments.
+  %       // not functional
+  %     \item Provide well documented APIs to create, manage and delete environments both for the frontend and the backend.
+  %       needs more description. ldap
+  %     \item Environments should provide the option to import an existing user database.
+  %   \end{enumerate}
+\end{enumerate}
 
-\end{myEnumerate}
 
 
 %---------------- 
