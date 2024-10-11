@@ -128,12 +128,13 @@ the MS during development.
 \section{Folders}
 \label{cha:conceptanddesign:folders}
 
-Folders are intended to allow organizations to mirror their hierarchical structure and
+Folders will be added to the MS's assets,
+they are intended to allow organizations to mirror their hierarchical structure and
 facilitate the organization of assets in general.
 Starting from a root folder, users should be able to store assets within folders and nest
 folders inside other folders, creating a flexible and intuitive structure. 
 In this thesis, folders where only implemented to support processes, but they could be extended to
-support other types of assets like the ones described in \ref{cha:relatedwork:proceed-assets}.
+support more of the assets that where described in \ref{cha:relatedwork:proceed-assets}.
 
 \subsection{Folder structure model}
 
@@ -544,6 +545,47 @@ This allows users to navigate the folder structure until they reach the assets t
 allowed to view and manage.
 
 % TODOFIG: show how user can view path to his folder
+
+\subsection{New resources}
+
+% TODO: mention that each role comes with an action
+With the introduction of environments, all the previously available resources still hold
+the same meaning, with the difference that they are now associated with an environment.
+Additionally, two new Resources where introduced, for which roles can specify permissions:
+
+\begin{itemize}
+  \item \textbf{Folder}: Folders are used to organize assets in an environment.
+    If a role is associated to a folder, then the permissions for the folder apply to that
+    folder and all folders 
+  \begin{itemize}
+    \item \lstinline{view}: Allows the user to view the folder, its name and description.
+      This doesn't necessarily mean that the user can view the assets inside the folder,
+      as he still needs the \lstinline{view} permission for each children, which would be
+      the case, if the role is associated to a folder.
+    \item \lstinline{create}: The user can create new folders inside the folder he has this
+      permission for.
+    \item \lstinline{update}: The user can update the folder's name and description, as
+      well as move the folder, to another folder where he has the \lstinline{create}
+      permission.
+
+      % TODO: deleting a folder deletes the processes inside of it
+      % maybe this needs to be checked
+    \item \lstinline{delete}: The user can delete the folder.
+  \end{itemize}
+  \item \textbf{Environment}: Folders are used to organize assets in an environment.
+  \begin{itemize}
+      % TODO: members cannot actually see the environments name and description 
+    \item \lstinline{view}, \lstinline{create}: These actions are not implemented for
+      environments.
+      Each member can view the name and description of the environment.
+      \lstinline{create} can't exist as it implies that the environment doesn't exist
+      yet, and therefore a role that contains it cannot exist.
+    \item \lstinline{update}: The user can update the environment's name, description
+      and contact number.
+    \item \lstinline{delete}: Allows the user to delete the environment with all its
+      assets, this is only possible for organization environments,
+  \end{itemize}
+\end{itemize}
 
 \subsection{Enforcing Permissions Based on Folder Structure}
 

@@ -434,7 +434,6 @@ whereas personal environments store a reference to the user that owns the enviro
     id: string;
     name: string;
     description: string;
-    contactPhoneNumber: string;
     organization: true;
 }
 
@@ -624,6 +623,24 @@ type Role = {
 
 \subsection{New resources}
 
+Folders and environments where added to the MS's resource list, and to the schema of
+Roles, to allow for permissions to be set for them.
+This way abilities can perform checks on these resources and enforce permissions like
+% TODO: maybe instead of ref, write in the next chapter
+described in \ref{cha:relatedwork:proceedroles}.
+
+These resources, where also added to the MS's role management UI:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{images/role-permissions-view.png}
+    \caption{Prompt to fill in personal information.}
+    \vspace{-1em} % Negative value to remove space
+    \label{fig:prompt-fill-personal-information}
+\end{figure}
+
+
+
 \subsection{Enforcing roles in the MS}
 
 Every action that a user can perform in an environment, is tied with a permission.
@@ -686,7 +703,7 @@ function conditionsMatcher(conditions){
 function buildAbility(){
   const builder = new AbilityBuilder(PureAbility);
 
-  builder.can('read', 'Post', { hasToBeAdult: true });
+  builder.can('view', 'Process', { hasToBeAdult: true });
 
   return builder.build({ conditionsMatcher });
 }
@@ -694,9 +711,84 @@ function buildAbility(){
 const ability = buildAbility();
 
 ability.can('read', 'Post', { age: 17 }); // false
+ability.can('read', 'Post', { age: 23 }); // true
 \end{lstlisting}
 
-Since the conditions matcher only receives a conditions object, it can't take
-The conditions matcher was wrapped in a function that receives a representation of an
-environments folder structure.
-This function in turn returns a conditions matcher, which al
+% Since the conditions matcher only receives a conditions object, it can't take
+% The conditions matcher was wrapped in a function that receives a representation of an
+% environments folder structure.
+% This function in turn returns a conditions matcher, which al
+
+A simple representation of a folder structure is computed in the MS
+and stored in a JSON serializable object.
+Each key is a folder id, and its value is its parent's id.
+Only the root folder's id isn't contained in the object, as it has no parent.
+This structure is used by the conditions matcher to check if a process or folder is a
+descendant or ancestor of a folder.
+These conditions can be set in the conditions object with the keys
+\lstinline{$property_has_to_be_child_of} and \lstinline{$property_has_to_be_parent_of}.
+% NOTE: turning is not the right word I think
+These new conditions are used when turning role's permissions into rules.
+The conditions matcher also includes a list of seen folders, in the case that the folder
+structure is has an error and is circular.
+\ref{lst:conditions-matcher-child-of} shows a simplified version of the implementation of
+\lstinline{$property_has_to_be_child_of}, this implementation doesn't take into account
+that the conditions object can have multiple conditions.
+
+\begin{lstlisting}[
+  language=JavaScript,
+  style=codestyle,
+  caption={Simplified implementation of \lstinline{$property_has_to_be_child_of} in the conditions matcher.},
+  label={lst:conditions-matcher-child-of}
+]
+
+function conditionsMatcherFactory(folderStructure){
+  function conditionsMatcher(conditions){
+    if("$property_has_to_be_child_of" in conditions){
+      return (resource: any) => {
+        // Folder permissions are also applied to the folder itself
+        if (
+          (resource.__caslSubjectType__ as ResourceType) === 'Folder' &&
+          resource.id === valueInCondition
+        )
+          return true;
+
+        let currentFolder = resource.parentId;
+        const seen = new Set<string>();
+        while (currentFolder) {
+          if (currentFolder === valueInCondition) return true;
+
+          if (seen.has(currentFolder)) throw new Error('Circular reference in folder tree');
+          seen.add(currentFolder);
+
+          // Go up the folder structure
+          currentFolder = folderStructure[currentFolder];
+        }
+
+        return false;
+      };
+    }
+  }
+}
+
+function buildAbility(folderStructure, rootFolderId){
+  const builder = new AbilityBuilder(PureAbility);
+
+  builder.can('view', 'Process', {$property_has_to_be_child_of : rootFolderId });
+
+  return builder.build({
+    conditionsMatcher: conditionsMatcherFactory(folderStructure) 
+  });
+}
+\end{lstlisting}
+
+When a role is being used to build an ability, each permission for each asset is turned into a
+rule.
+When the role is associated to a folder, the rules for processes and folders, use
+\lstinline{$property_has_to_be_child_of} in their conditions object, so that the
+permissions cascade down the folder structure.
+Additionally, if the role allows a user to view, either a folder or a process, a rule is
+added, that allows the user to view all ancestors of the asset with
+\lstinline{$property_has_to_be_child_of}.
+
+
