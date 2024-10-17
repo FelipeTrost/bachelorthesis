@@ -1,25 +1,25 @@
-\chapter{Related Work}
+\chapter{Foundations}
 \label{cha:relatedwork}
 
 \section{OAuth 2.0 and OpenID Connect}
 \label{cha:relatedwork:oauth}
 %TODO: fix citing
 
-Oauth is an open standard for access delegation, 
+Oauth is an open standard for access delegation,
 commonly used as a way for users to grant client applications access to their information on other applications.
 Oauth was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
 Plaintext credential sharing, as outlined in \cite{rfcOauth2} has many security risks:
 
 \begin{enumerate}
-  \item Applications are forced to implement password authentication, to support the sharing of plaintext credentials.
-  \item Third party applications gain overly broad access to the user's account.
-  \item Users cannot revoke access to specific third party applications.
-  \item If any of the third party applications are compromised, the user's account is at risk.
+	\item Applications are forced to implement password authentication, to support the sharing of plaintext credentials.
+	\item Third party applications gain overly broad access to the user's account.
+	\item Users cannot revoke access to specific third party applications.
+	\item If any of the third party applications are compromised, the user's account is at risk.
 \end{enumerate}
 
-Oauth adresses these issues by decoupling the client application from the role of the resource owner,
+Oauth addresses these issues by decoupling the client application from the role of the resource owner,
 meaning that the client application will not get a full set of permissions to the user's account.
-Insetead of handing his crendentials to the third party application,
+Instead of handing his credentials to the third party application,
 the resource owner signs in, in the application's website which then issues an access token to the client application.
 This method avoids the user having to share his credentials with third party applications.
 
@@ -29,12 +29,12 @@ Oauth 2.0 defines four roles for participants in the protocol flow:
 
 %TODO: rewrite this, it is looking too much like the original spec
 \begin{enumerate}
-  \item Resource owner: The entity that can grant access to a protected resource, typically this would be an end user of a web application.
-  \item Resource server: The server hosting the protected resources.
-  \item Client: The application requesting access to the protected resources. 
-    OAuth 2.0 distinguishes between two types of clients: confidential and public clients.
-    Confidential clients are capable of keeping their credentials confidential, while public clients, like browser-based applications, cannot.
-  \item Authorization server: The server that issues access tokens to the client after the resource owner has been succesfully authenticated.
+	\item Resource owner: The entity that can grant access to a protected resource, typically this would be an end user of a web application.
+	\item Resource server: The server hosting the protected resources.
+	\item Client: The application requesting access to the protected resources.
+	      OAuth 2.0 distinguishes between two types of clients: confidential and public clients.
+	      Confidential clients are capable of keeping their credentials confidential, while public clients, like browser-based applications, cannot.
+	\item Authorization server: The server that issues access tokens to the client after the resource owner has been successfully authenticated.
 \end{enumerate}
 
 The resource server and the authorization server can be the same entity, but they are not required to be.
@@ -62,7 +62,7 @@ this is done so with a HTTP redirect, where the access token is embedded in the 
 this way the client can extract the access token from the URL.
 % The access token gets embedded in the redirect URL, after the resource owner was authenticated, which is then sent to the client.
 
-In this flow the resource owner only authenticates with the authorization server, 
+In this flow the resource owner only authenticates with the authorization server,
 thus never having to share his credentials with the client.
 
 Implicit grants have many security risks, as the access token is exposed in the URL and can be intercepted by a malicious attacker.
@@ -82,7 +82,7 @@ these are only used for one request and don't have to be stored.
 \label{cha:relatedwork:oauth:cleintcredentials}
 
 The client credentials grant is used when the client is the resource owner.
-Clients are typycally issued crendentials, which they can use to authenticate themselves.
+Clients are typycally issued credentials, which they can use to authenticate themselves.
 Clients send these credentials to the authorization server and are issued an access token.
 
 \subsubsection{Authorization Code}
@@ -98,10 +98,10 @@ As the client needs confidential credentials, this flow is only suitable for con
 The exact steps are shown in figure \ref{fig:oauth:authcodeflow}.
 
 \begin{figure}[H]
-    \centering"
-    \includegraphics[scale=0.4]{images/basic-cloud-services.drawio.png}
-    \caption{Cloud Application.}
-    \label{fig:oauth:authcodeflow}
+	\centering"
+	\includegraphics[scale=0.4]{images/basic-cloud-services.drawio.png}
+	\caption{Cloud Application.}
+	\label{fig:oauth:authcodeflow}
 \end{figure}
 
 \subsection{OpenID Connect}
@@ -122,7 +122,7 @@ it introduces a new type of token called an ID Token.
 This ID Token is a JSON Web Token (JWT) that contains minimal information about the authenticated
 user
 Most importantly, the Id Token carries a Subject identifier, which is a unique identifier
-for the user in the <- finish here 
+for the user in the <- finish here
 The Id Token is sent alongside the Access token to the client, on which step this happens
 depends on weather the Authorization Code flow or the Implicit flow is used.
 
@@ -138,7 +138,7 @@ depends on weather the Authorization Code flow or the Implicit flow is used.
 % Client validates the ID token and retrieves the End-User's Subject Identifier.
 % When using the implicit flow, the Id Token and, if requested, the Access Token
 % are sent to the client after the user authenticated himself.
-% After this the client could also use the Access Token to accsess 
+% After this the client could also use the Access Token to access 
 
 In the OIDC flow, after the client obtains the Authorization Code,
 it exchanges it for both an Access Token (as in OAuth 2.0) and an ID Token.
@@ -172,22 +172,22 @@ access to assets.
 Currently, the MS supports the following assets:
 
 \begin{enumerate}
-  \item Processes, Project and Templates: These objects store BPNN at their core.
-  % TODO: description for task
-  \item Task:
-  \item Machine: Object that represents a server running Distributed Process Engine. The
-    machine is used to manage properties of the server.
-    % NOTE  maybe remove execution
-  \item Execution: An execution represents a process that is being executed distributedly.
+	\item Processes, Project and Templates: These objects store BPNN at their core.
+	      % TODO: description for task
+	\item Task:
+	\item Machine: Object that represents a server running Distributed Process Engine. The
+	      machine is used to manage properties of the server.
+	      % NOTE  maybe remove execution
+	\item Execution: An execution represents a process that is being executed distributedly.
 \end{enumerate}
 
 Furthermore, the MS implements assets that are used to manage how users can use the MS,
-called management assets: 
+called management assets:
 
 \begin{itemize}
-  \item Role\ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
-  \item{Rolemapping}: role mappings are used to assign roles to users.
-  \item User: represents a user's personal information, e.g. name, username and email.
+	\item Role\ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
+	\item{Rolemapping}: role mappings are used to assign roles to users.
+	\item User: represents a user's personal information, e.g. name, username and email.
 \end{itemize}
 
 
@@ -204,7 +204,7 @@ Typically, roles are assigned to users based on their job function.
 %% - One role serves multiple people
 %% - roles don't change ofte
 %% - roles are easier to manage than individual permissions
-RBAC can be advantageous since they can be assigned to multiple users and 
+RBAC can be advantageous since they can be assigned to multiple users and
 don't change often, making them easier to manage than individual permissions.
 
 \subsection{MS's Role System Terminology}
@@ -213,39 +213,39 @@ don't change often, making them easier to manage than individual permissions.
 The following terms are important to understand the role system in the PROCEED MS:
 
 \begin{itemize}
-  \item Resource: A resource is any protected entity in the management system, that can be
-    accessed by users. Resources can be assets \ref{cha:relatedwork:proceed-assets}, but
-    they don't have to be.
-  \item Action: An action is a specific operation that can be performed on a resource.
-  \item Permission: A permission is a tuple of resource type and action, which specifies that a
-    user can perform the action on the resource instances. Optionally a permission can have
-    conditions that have to be met the by resource instances, for the user to be able to perform the action.
-  \item Role: A role is a set of permissions. Roles can be assigned to users, which then
-    inherit the role's permissions. Roles can have expiration dates, after which all
-    permissions are revoked.
+	\item Resource: A resource is any protected entity in the management system, that can be
+	      accessed by users. Resources can be assets \ref{cha:relatedwork:proceed-assets}, but
+	      they don't have to be.
+	\item Action: An action is a specific operation that can be performed on a resource.
+	\item Permission: A permission is a tuple of resource type and action, which specifies that a
+	      user can perform the action on the resource instances. Optionally a permission can have
+	      conditions that have to be met the by resource instances, for the user to be able to perform the action.
+	\item Role: A role is a set of permissions. Roles can be assigned to users, which then
+	      inherit the role's permissions. Roles can have expiration dates, after which all
+	      permissions are revoked.
 \end{itemize}
 
 \subsection{MS's resources and actions}
 \label{cha:relatedwork:proceedroles:ms-resources-actions}
 
 The following are the resource types that are used in the PROCEED MS:
-  \lstinline{Process}, 
-  \lstinline{Project},
-  \lstinline{Template},
-  \lstinline{Task},
-  \lstinline{Machine},
-  \lstinline{Execution},
-  \lstinline{Role},
-  \lstinline{User},
-  \lstinline{Setting},
-  \lstinline{Rolemapping},
+\lstinline{Process},
+\lstinline{Project},
+\lstinline{Template},
+\lstinline{Task},
+\lstinline{Machine},
+\lstinline{Execution},
+\lstinline{Role},
+\lstinline{User},
+\lstinline{Setting},
+\lstinline{Rolemapping},
 
 These are the actions that can be performed on these resources:
-  \lstinline{none},
-  \lstinline{view},
-  \lstinline{update},
-  \lstinline{create},
-  \lstinline{delete}.
+\lstinline{none},
+\lstinline{view},
+\lstinline{update},
+\lstinline{create},
+\lstinline{delete}.
 
 \subsection{Role mappings}
 \label{cha:relatedwork:proceedroles:role-mappings}
@@ -263,9 +263,9 @@ Abilities expose functions to check weather a user can perform an action on a re
 Abilities are defined by four parameters: user action, subject, fields, conditions.
 User actions and subjects are analogous to actions and resources \ref{cha:relatedwork:proceedroles:terminology}.
 
-CASL differentiates between subject type and subject instance. 
+CASL differentiates between subject type and subject instance.
 A subject instance is a specific instance of a subject type, e.g. a specific process
-users are working on, is an instance of the resource type "Process". 
+users are working on, is an instance of the resource type "Process".
 
 Fields are used to specify which fields of a resource instance an action can be performed
 on, e.g. a user can update a process's name, but not its id, or creation date.

@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Research Questions}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Task List}{4}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Related Work}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Foundations}{6}{chapter.2}%
 \contentsline {section}{\numberline {2.1}OAuth 2.0 and OpenID Connect}{6}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}OAuth 2.0 Roles}{6}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Authorization Grants}{7}{subsection.2.1.2}%
