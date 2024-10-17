@@ -14,11 +14,11 @@ All other components that will be introduced will help to manage and enforce the
 
 This thesis will modify the assets \ref{cha:relatedwork:proceed-assets} and the resources
 \ref{cha:relatedwork:proceedroles:ms-resources-actions} supported by the MS.
-Assets \ref{cha:conceptanddesign:environments:storing-assets} and 
+Assets \ref{cha:conceptanddesign:environments:storing-assets} and
 Resources \ref{cha:conceptanddesign:roles} will be modified to be contained inside environments.
 Additionally, Environments will be added to the MS' assets and resources.
 As will be explained in \ref{cha:conceptanddesign:users}, Users won't belong to a single
-environment, they can instead be members of multiple environments, for this reason, 
+environment, they can instead be members of multiple environments, for this reason,
 users will be removed from the MS's assets and resources.
 Furthermore, folders \ref{cha:conceptanddesign:folders} and  memberships
 \ref{cha:conceptanddesign:environments:memberships} will be added to the MS' assets and
@@ -40,7 +40,7 @@ the MS's storage solution \ref{cha:ms-architecture:data-storage}.
 To facilitate the exploration of the MS, without creating a user, we introduce the option
 to use the MS as a guest.
 Thus, we differentiate between authenticated users and guest users.
-Guest users have a limited feature. 
+Guest users have a limited feature.
 Guest users can transition to being an authenticated users whilst retaining their
 assets, to do this they will need to sign in with personal data.
 % Creating a Guest user doesn't require any data from the person creating it.
@@ -59,14 +59,14 @@ Facebook or Discord, we store a separate record, called account, for each of the
 % NOTE: should one to many be explained?
 This means, that the relationship between users and accounts is one-to-many,
 a user can have multiple accounts, but an account can only be linked to one user.
-This way, when a user is signing in with credentials from an Oauth2 provider, 
+This way, when a user is signing in with credentials from an Oauth2 provider,
 the MS can look up the corresponding account to the credentials, and then find the user
 that the account is linked to.
 
 % TODOFIG: show relationship between users and accounts;
 % caption: Relationship between users and accounts.
 
-\subsection{Merging a guest user with an authenticated user}
+\subsection{Merging a Guest User with an Authenticated User}
 \label{cha:conceptanddesign:users:mergeguestuser}
 
 As previously stated, a guest user can transition to being an authenticated user by
@@ -78,12 +78,12 @@ If he chooses to merge, all the assets in the guest user's personal environment 
 transferred to the authenticated user's personal environment.
 Otherwise, all the assets created by the guest user will be deleted.
 
-\subsection{Guest User storage}
+\subsection{Guest User Storage}
 
 For storing guest user data, one could take one of two approaches:
 storing the data in the user's browser or storing it in the MS's database, alongside the
 data of authenticated users.
-Storing the data locally has two great benefits: 
+Storing the data locally has two great benefits:
 The MS doesn't have to store data of users who might never return and
 the MS would become less susceptible to an attack where the attacker tries to use up as
 much space as possible in the MS's storage solution.
@@ -95,7 +95,7 @@ definition \footnote{\url{https://microsoft.github.io/language-server-protocol/s
 For this reason, storing guest user's data locally isn't worth the benefits.
 So we decided to store a guest user's data in the MS the same way we do it for
 authenticated users,
-with the difference that a flag is set 
+with the difference that a flag is set
 % in the user entry to 
 indicate that he is a guest.
 This way, all the endpoints that authenticated users can call to interact with the MS
@@ -132,11 +132,11 @@ Folders will be added to the MS's assets,
 they are intended to allow organizations to mirror their hierarchical structure and
 facilitate the organization of assets in general.
 Starting from a root folder, users should be able to store assets within folders and nest
-folders inside other folders, creating a flexible and intuitive structure. 
+folders inside other folders, creating a flexible and intuitive structure.
 In this thesis, folders where only implemented to support processes, but they could be extended to
 support more of the assets that where described in \ref{cha:relatedwork:proceed-assets}.
 
-\subsection{Folder structure model}
+\subsection{Folder Structure Model}
 
 % TODO: say that because of the way the ms is built, the processes needs to be in a
 % sepparate table
@@ -168,91 +168,91 @@ their position in the tree.
 % 7. Reorganization
 %
 \begin{itemize}
-  \item \textbf{Adjacency List model}: Each node has an identifier and a reference to its parent.
-    \begin{itemize}
-      \item Advantages
-        \begin{itemize}
-        \item Finding a node's children is trivial.
-        \item Finding a nodes' parent is trivial.
-        \item Adding a node to the tree is trivial and doesn't require updating other
-          nodes. 
-        \item Moving nodes and their subtrees is trivial, since it only requires updating
-          the parent reference. However, a check has to be made to ensure that the node's
-            new parent isn't one of its descendants, thus creating a cycle.
-        \end{itemize}
-      \item Disadvantages
-        \begin{itemize}
-        \item Finding a node's descendants requires a recursive query, however,
-          this is bounded by the depth of the tree and the amount of nodes.
-        \item Finding a node's ancestors, i.e. all the nodes in the path from the root to
-          the node, requires a recursive query, however, this is bounded by the height of
-            the tree and should be efficient.
-        \item Removing a node requires a recursive query to also delete its descendants,
-          however, this is bounded by the depth of
-            the tree and the amount of nodes.
-      \end{itemize}
-    \end{itemize}
-  %-----------------------------------------------------------------------------------------------------------
-  %-----------------------------------------------------------------------------------------------------------
-  \item \textbf{Nested Set model}: Each node has a left and right value, describing an
-    interval starting from the left value and ending at the right value.
-    Children nodes' intervals are contained within the parent's interval. Furthermore, the
-    intervals of siblings are disjoint.
-    \begin{itemize}
-      \item Advantages
-        \begin{itemize}
-        \item Finding the descendants of a node is trivial, the query has to select all
-          nodes, whose interval is contained within the node's interval.
-        \item Finding a node's ancestors is trivial, the query has to select the all the
-          nodes with a left boundary smaller than the node's left boundary. 
-        \item Finding a node's parent is trivial, the query has to select the node with
-          the smallest left boundary that is bigger than the node's left boundary.
-        \item Deleting a node and its subtree is trivial, the query is analogous to finding
-          the descendants of a node.
-        \end{itemize}
-      \item Disadvantages
-        \begin{itemize}
-            % No se si me creo esta explicacion
-        \item Finding a node's children requires a complex query, since it has to select
-          only the node's children without also including the descendants of the
-            children. This query can be inefficient because it has to apply additional filtering
-            to retrieve only the direct children. This adds complexity and can slow down
-            performance.
-        \item Adding nodes is non-trivial, since it requires knowledge of its siblings to
-          avoid overlapping intervals. Additionally depending on the implementation, it
-            might require updating intervals of other nodes.
-        \item Moving nodes and their subtrees is non-trivial, and inefficient, since it requires updating
-          the intervals of the moved node and all of its descendants. 
-        Depending on the implementation it may even be required to update the intervals of
-            other nodes.
-      \end{itemize}
-    \end{itemize}
-  %-----------------------------------------------------------------------------------------------------------
-  %-----------------------------------------------------------------------------------------------------------
-  \item \textbf{Materialized Path model}: Each node stores the path from the root to itself.
-    \begin{itemize}
-      \item Advantages
-        \begin{itemize}
-        \item Finding a node’s ancestors or its parent is trivial, since the path is explicitly stored,
-          the ancestors of a node can be retrieved simply by parsing the stored path.
-        \item Finding a node’s descendants is easy and efficient, they can be found by
-          querying for nodes whose paths start with the current node's path.
-        \item Adding nodes is trivial, as the node's path can be constructed by appending
-          the node's identifier to the parent's path.
-        \item Removing a node and its subtree is trivial, as the node's descendants can be
-          easily queried.
-      \end{itemize}
-      \item Disadvantages
-        \begin{itemize}
-          \item Finding a node's children is easy but, not as efficient as finding its
-            descendants, as you need to perform one additional check to ensure that nodes
-            are direct children.
-        \item Moving nodes and their subtrees is inefficient, since it requires updating
-          the path of every node in the subtree. 
-        \item Each node stores a string with its path, which can be inefficient in terms of
-          storage space.
-        \end{itemize}
-    \end{itemize}
+	\item \textbf{Adjacency List model}: Each node has an identifier and a reference to its parent.
+	      \begin{itemize}
+		      \item Advantages
+		            \begin{itemize}
+			            \item Finding a node's children is trivial.
+			            \item Finding a nodes' parent is trivial.
+			            \item Adding a node to the tree is trivial and doesn't require updating other
+			                  nodes.
+			            \item Moving nodes and their subtrees is trivial, since it only requires updating
+			                  the parent reference. However, a check has to be made to ensure that the node's
+			                  new parent isn't one of its descendants, thus creating a cycle.
+		            \end{itemize}
+		      \item Disadvantages
+		            \begin{itemize}
+			            \item Finding a node's descendants requires a recursive query, however,
+			                  this is bounded by the depth of the tree and the amount of nodes.
+			            \item Finding a node's ancestors, i.e. all the nodes in the path from the root to
+			                  the node, requires a recursive query, however, this is bounded by the height of
+			                  the tree and should be efficient.
+			            \item Removing a node requires a recursive query to also delete its descendants,
+			                  however, this is bounded by the depth of
+			                  the tree and the amount of nodes.
+		            \end{itemize}
+	      \end{itemize}
+	      %-----------------------------------------------------------------------------------------------------------
+	      %-----------------------------------------------------------------------------------------------------------
+	\item \textbf{Nested Set model}: Each node has a left and right value, describing an
+	      interval starting from the left value and ending at the right value.
+	      Children nodes' intervals are contained within the parent's interval. Furthermore, the
+	      intervals of siblings are disjoint.
+	      \begin{itemize}
+		      \item Advantages
+		            \begin{itemize}
+			            \item Finding the descendants of a node is trivial, the query has to select all
+			                  nodes, whose interval is contained within the node's interval.
+			            \item Finding a node's ancestors is trivial, the query has to select the all the
+			                  nodes with a left boundary smaller than the node's left boundary.
+			            \item Finding a node's parent is trivial, the query has to select the node with
+			                  the smallest left boundary that is bigger than the node's left boundary.
+			            \item Deleting a node and its subtree is trivial, the query is analogous to finding
+			                  the descendants of a node.
+		            \end{itemize}
+		      \item Disadvantages
+		            \begin{itemize}
+			            % No se si me creo esta explicacion
+			            \item Finding a node's children requires a complex query, since it has to select
+			                  only the node's children without also including the descendants of the
+			                  children. This query can be inefficient because it has to apply additional filtering
+			                  to retrieve only the direct children. This adds complexity and can slow down
+			                  performance.
+			            \item Adding nodes is non-trivial, since it requires knowledge of its siblings to
+			                  avoid overlapping intervals. Additionally depending on the implementation, it
+			                  might require updating intervals of other nodes.
+			            \item Moving nodes and their subtrees is non-trivial, and inefficient, since it requires updating
+			                  the intervals of the moved node and all of its descendants.
+			                  Depending on the implementation it may even be required to update the intervals of
+			                  other nodes.
+		            \end{itemize}
+	      \end{itemize}
+	      %-----------------------------------------------------------------------------------------------------------
+	      %-----------------------------------------------------------------------------------------------------------
+	\item \textbf{Materialized Path model}: Each node stores the path from the root to itself.
+	      \begin{itemize}
+		      \item Advantages
+		            \begin{itemize}
+			            \item Finding a node’s ancestors or its parent is trivial, since the path is explicitly stored,
+			                  the ancestors of a node can be retrieved simply by parsing the stored path.
+			            \item Finding a node’s descendants is easy and efficient, they can be found by
+			                  querying for nodes whose paths start with the current node's path.
+			            \item Adding nodes is trivial, as the node's path can be constructed by appending
+			                  the node's identifier to the parent's path.
+			            \item Removing a node and its subtree is trivial, as the node's descendants can be
+			                  easily queried.
+		            \end{itemize}
+		      \item Disadvantages
+		            \begin{itemize}
+			            \item Finding a node's children is easy but, not as efficient as finding its
+			                  descendants, as you need to perform one additional check to ensure that nodes
+			                  are direct children.
+			            \item Moving nodes and their subtrees is inefficient, since it requires updating
+			                  the path of every node in the subtree.
+			            \item Each node stores a string with its path, which can be inefficient in terms of
+			                  storage space.
+		            \end{itemize}
+	      \end{itemize}
 \end{itemize}
 
 % TODOFIG show simple examples for each model
@@ -269,61 +269,61 @@ their position in the tree.
 \newcommand{\badefficency}[1]{\textcolor{red}{X}}
 
 \begin{figure}[H]
-   \centering
+	\centering
 
-\begin{tabular}{ | m{7.45em} | m{7em} | m{7em} | m{7em} | }
-\hline
-  & Adjacency List & Nested Set & Materialized Path \\
-\hline
-% ------------------------------------------------------------------------------
-  find children & \goodcomplexity{Easy} \goodefficency{efficient} &
-  \badcomplexity{Complex} \badefficency{inefficient} & \goodcomplexity{Easy}
-  \mediumefficency{somewhat inefficient} \\
-\hline
-% ------------------------------------------------------------------------------
-  find descendants & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient} &
-  \goodcomplexity{Easy} \goodefficency{efficient} &
-  \goodcomplexity{Easy} \goodefficency{efficient} \\
-\hline
-% ------------------------------------------------------------------------------
-  find parent & \goodcomplexity{Easy} \goodefficency{efficient} & \badcomplexity{Complex}
-  \badefficency{inefficient} &  \goodcomplexity{Easy}  \goodefficency{efficient}\\
-\hline
-% ------------------------------------------------------------------------------
-  find ancestors & \goodcomplexity{Easy} \goodefficency{efficient}  &
-  \goodcomplexity{Easy} \goodefficency{efficient} & \goodcomplexity{Easy}
-  \goodefficency{efficient} \\
-\hline
-% ------------------------------------------------------------------------------
-  add nodes &  \goodcomplexity{Easy} \goodefficency{efficient} &
-  \badcomplexity{Complex} \mediumefficency{possibly inefficient} &\goodcomplexity{Easy
-  and} \goodefficency{efficient} \\
-\hline
-% ------------------------------------------------------------------------------
-remove nodes & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient}  &
-  \goodcomplexity{Easy} \mediumefficency{possibly inefficient} &
-  \goodcomplexity{Moderately complex} \goodcomplexity{somewhat inefficient} \\
-\hline
-% ------------------------------------------------------------------------------
-move node &  \goodcomplexity{Easy} \goodcomplexity{efficient} & \badcomplexity{Complex}
-  \badefficency{inefficient} & \mediumcomplexity{Moderately complex} \badcomplexity{inefficient}\\
-\hline
-% ------------------------------------------------------------------------------
-\end{tabular}
+	\begin{tabular}{ | m{7.45em} | m{7em} | m{7em} | m{7em} | }
+		\hline
+		                                                               & Adjacency List                                                    & Nested Set              & Materialized Path \\
+		\hline
+		% ------------------------------------------------------------------------------
+		find children                                                  & \goodcomplexity{Easy} \goodefficency{efficient}                   &
+		\badcomplexity{Complex} \badefficency{inefficient}             & \goodcomplexity{Easy}
+		\mediumefficency{somewhat inefficient}                                                                                                                                           \\
+		\hline
+		% ------------------------------------------------------------------------------
+		find descendants                                               & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient}      &
+		\goodcomplexity{Easy} \goodefficency{efficient}                &
+		\goodcomplexity{Easy} \goodefficency{efficient}                                                                                                                                  \\
+		\hline
+		% ------------------------------------------------------------------------------
+		find parent                                                    & \goodcomplexity{Easy} \goodefficency{efficient}                   & \badcomplexity{Complex}
+		\badefficency{inefficient}                                     & \goodcomplexity{Easy}  \goodefficency{efficient}                                                                \\
+		\hline
+		% ------------------------------------------------------------------------------
+		find ancestors                                                 & \goodcomplexity{Easy} \goodefficency{efficient}                   &
+		\goodcomplexity{Easy} \goodefficency{efficient}                & \goodcomplexity{Easy}
+		\goodefficency{efficient}                                                                                                                                                        \\
+		\hline
+		% ------------------------------------------------------------------------------
+		add nodes                                                      & \goodcomplexity{Easy} \goodefficency{efficient}                   &
+		\badcomplexity{Complex} \mediumefficency{possibly inefficient} & \goodcomplexity{Easy
+		and} \goodefficency{efficient}                                                                                                                                                   \\
+		\hline
+		% ------------------------------------------------------------------------------
+		remove nodes                                                   & \goodcomplexity{Easy} \mediumefficency{somewhat inefficient}      &
+		\goodcomplexity{Easy} \mediumefficency{possibly inefficient}   &
+		\goodcomplexity{Moderately complex} \goodcomplexity{somewhat inefficient}                                                                                                        \\
+		\hline
+		% ------------------------------------------------------------------------------
+		move node                                                      & \goodcomplexity{Easy} \goodcomplexity{efficient}                  & \badcomplexity{Complex}
+		\badefficency{inefficient}                                     & \mediumcomplexity{Moderately complex} \badcomplexity{inefficient}                                               \\
+		\hline
+		% ------------------------------------------------------------------------------
+	\end{tabular}
 
-\vspace{.5em}
+	\vspace{.5em}
 
-\begin{tabular}{r@{: }l r@{: }l r@{: }l}
-  \goodcomplexity{\textcircled{}}\vspace{-.8em} \_ & Easy query & \mediumcomplexity{}\vspace{-.8em} \_ &
-  Moderately complex query &  \badcomplexity{}\vspace{-.8em} \_ & Complex query \\
+	\begin{tabular}{r@{: }l r@{: }l r@{: }l}
+		\goodcomplexity{\textcircled{}}\vspace{-.8em} \_ & Easy query                        & \mediumcomplexity{}\vspace{-.8em} \_ &
+		Moderately complex query                         & \badcomplexity{}\vspace{-.8em} \_ & Complex query                          \\
 
-  \_ \goodefficency{\textcircled{}} & Efficient & \_ \mediumefficency{} &
-  Moderately efficient &  \_ \badefficency{} & Inefficient \\
-\end{tabular}
+		\_ \goodefficency{\textcircled{}}                & Efficient                         & \_ \mediumefficency{}                &
+		Moderately efficient                             & \_ \badefficency{}                & Inefficient                            \\
+	\end{tabular}
 
 
-\caption{Comparison between Adjacency List, Nested Set and Materialized Path models.}
-\label{fig:comparison-db-tree-models}
+	\caption{Comparison between Adjacency List, Nested Set and Materialized Path models.}
+	\label{fig:comparison-db-tree-models}
 \end{figure}
 
 To choose the right model, we have to consider the requirements of the MS.
@@ -334,7 +334,7 @@ adding, removing and moving nodes is inefficient.
 That leaves us with the adjacency list and materialized path models.
 %
 The materialized path model has two small advantages: finding descendants and removing a
-folder together with its subtree is easier. 
+folder together with its subtree is easier.
 Both queries only require a simple string comparison.
 %
 % The materialized path model has two small advantages, finding descendants is easier as it
@@ -348,7 +348,7 @@ valuable to the MS than finding descendants, as the Process view will only show 
 children.
 For those reasons, the MS will use the adjacency list model to store the folder structure.
 
-\subsection{Storing assets inside folders}
+\subsection{Storing Assets Inside Folders}
 
 Once the folder structure is implemented, it still is necessary to store assets inside
 folders.
@@ -392,7 +392,7 @@ for organizations.
 \subsection{Personal Environments}
 \label{cha:conceptanddesign:environments:personal}
 
-Personal environments are assigned to each user once they sign in. 
+Personal environments are assigned to each user once they sign in.
 %NOTE: remove the part with owner
 The user for which the environment is created is the only member of this
 environment, and is therefore called the owner.
@@ -417,18 +417,18 @@ an organization environment.
 Organization environments can also have multiple Users that are part of it, these are
 called members.
 
-\subsection{Environment memberships}
+\subsection{Environment Memberships}
 \label{cha:conceptanddesign:environments:memberships}
 % TODO: maybe merge this with the role stuff
 % to do that however, roles would have to be added to the environment section, and I dont
-% know if thats the right choice as it is a big topic
+% know if that's the right choice as it is a big topic
 
 To keep track of which users are part of an environment, a new management asset will be
 added: memberships.
 Each membership links one user to one environment, specifying that the user is part of
 that environment.
 
-\subsection{Storing assets inside environments}
+\subsection{Storing Assets inside Environments}
 \label{cha:conceptanddesign:environments:storing-assets}
 
 All assets within the MS \ref{cha:relatedwork:proceed-assets}, including folders,
@@ -459,8 +459,8 @@ This risk is mitigated by the fact, that the environment reference of assets is 
 
 
 
-\subsection{Environment selection}
-% TODO: maybe back this up with some research, altough this isnt that kind of thesis
+\subsection{Environment Selection}
+% TODO: maybe back this up with some research, although this isn't that kind of thesis
 
 Users will be a part of multiple environments, and they will need to be able to work on
 all of them.
@@ -491,7 +491,7 @@ Of course a combination of both methods is also possible, but in order to keep t
 implementation simple, we only chose one.
 The implicit method has the advantage that the URLs are shorter and easier to read,
 however it has the disadvantage, that some links can't be shared, since the implicitly
-selected environment of another user might not be the same. 
+selected environment of another user might not be the same.
 For this reason, the explicit method was chosen as it allows users to share links with the
 cost of longer URLs.
 
@@ -515,7 +515,7 @@ However, with the addition of environments and a folder structure, this approach
 Roles will now be tied to a specific organization environment,
 restricting their permissions to assets within that particular environment.
 In personal environments, where there is only one user, the user will have
-full control and be able to perform all actions on his assets without restriction. 
+full control and be able to perform all actions on his assets without restriction.
 
 Folders allow organizations to mirror their hierarchical structure, but this wouldn't be
 entirely useful if roles applied to all assets inside the environment.
@@ -546,7 +546,7 @@ allowed to view and manage.
 
 % TODOFIG: show how user can view path to his folder
 
-\subsection{New resources}
+\subsection{New Resources}
 
 % TODO: mention that each role comes with an action
 With the introduction of environments, all the previously available resources still hold
@@ -554,37 +554,37 @@ the same meaning, with the difference that they are now associated with an envir
 Additionally, two new Resources where introduced, for which roles can specify permissions:
 
 \begin{itemize}
-  \item \textbf{Folder}: Folders are used to organize assets in an environment.
-    If a role is associated to a folder, then the permissions for the folder apply to that
-    folder and all folders 
-  \begin{itemize}
-    \item \lstinline{view}: Allows the user to view the folder, its name and description.
-      This doesn't necessarily mean that the user can view the assets inside the folder,
-      as he still needs the \lstinline{view} permission for each children, which would be
-      the case, if the role is associated to a folder.
-    \item \lstinline{create}: The user can create new folders inside the folder he has this
-      permission for.
-    \item \lstinline{update}: The user can update the folder's name and description, as
-      well as move the folder, to another folder where he has the \lstinline{create}
-      permission.
+	\item \textbf{Folder}: Folders are used to organize assets in an environment.
+	      If a role is associated to a folder, then the permissions for the folder apply to that
+	      folder and all folders
+	      \begin{itemize}
+		      \item \lstinline{view}: Allows the user to view the folder, its name and description.
+		            This doesn't necessarily mean that the user can view the assets inside the folder,
+		            as he still needs the \lstinline{view} permission for each children, which would be
+		            the case, if the role is associated to a folder.
+		      \item \lstinline{create}: The user can create new folders inside the folder he has this
+		            permission for.
+		      \item \lstinline{update}: The user can update the folder's name and description, as
+		            well as move the folder, to another folder where he has the \lstinline{create}
+		            permission.
 
-      % TODO: deleting a folder deletes the processes inside of it
-      % maybe this needs to be checked
-    \item \lstinline{delete}: The user can delete the folder.
-  \end{itemize}
-  \item \textbf{Environment}: Folders are used to organize assets in an environment.
-  \begin{itemize}
-      % TODO: members cannot actually see the environments name and description 
-    \item \lstinline{view}, \lstinline{create}: These actions are not implemented for
-      environments.
-      Each member can view the name and description of the environment.
-      \lstinline{create} can't exist as it implies that the environment doesn't exist
-      yet, and therefore a role that contains it cannot exist.
-    \item \lstinline{update}: The user can update the environment's name, description
-      and contact number.
-    \item \lstinline{delete}: Allows the user to delete the environment with all its
-      assets, this is only possible for organization environments,
-  \end{itemize}
+		            % TODO: deleting a folder deletes the processes inside of it
+		            % maybe this needs to be checked
+		      \item \lstinline{delete}: The user can delete the folder.
+	      \end{itemize}
+	\item \textbf{Environment}: Folders are used to organize assets in an environment.
+	      \begin{itemize}
+		      % TODO: members cannot actually see the environments name and description 
+		      \item \lstinline{view}, \lstinline{create}: These actions are not implemented for
+		            environments.
+		            Each member can view the name and description of the environment.
+		            \lstinline{create} can't exist as it implies that the environment doesn't exist
+		            yet, and therefore a role that contains it cannot exist.
+		      \item \lstinline{update}: The user can update the environment's name, description
+		            and contact number.
+		      \item \lstinline{delete}: Allows the user to delete the environment with all its
+		            assets, this is only possible for organization environments,
+	      \end{itemize}
 \end{itemize}
 
 \subsection{Enforcing Permissions Based on Folder Structure}
@@ -599,17 +599,16 @@ This representation is also sent to the user's browser.
 
 % TODO: roles send folder structure to user, is this bad? how could we mitigate it
 
-\subsection{Default roles}
+\subsection{Default Roles}
 
 For each organization environment two roles will be created, which cannot be deleted and
 cannot be associated to a folder:
 
 \begin{itemize}
-  \item \lstinline{@admin}: This role has all permissions for all assets in the
-    organization environment and it is first assigned to the user that creates the organization environment.
-    Only users with the \lstinline{@admin} role can add new users to this role.
-  \item \lstinline{@everyone}: The permissions in this role apply to for all the users
-    that are part of the organization environment. The permissions in this role start out
-    empty, but can be modified.
+	\item \lstinline{@admin}: This role has all permissions for all assets in the
+	      organization environment and it is first assigned to the user that creates the organization environment.
+	      Only users with the \lstinline{@admin} role can add new users to this role.
+	\item \lstinline{@everyone}: The permissions in this role apply to for all the users
+	      that are part of the organization environment. The permissions in this role start out
+	      empty, but can be modified.
 \end{itemize}
-

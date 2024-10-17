@@ -11,7 +11,7 @@ Before diving into the implementation details of environments, it is important t
 understand the architecture of the MS.
 The MS is built using Next.js \footnote{\url{https://nextjs.org/}}, a React \footnote{\url{https://reactjs.org/}}
 framework that allows for server-side rendering.
-Altough Next.js' architecture is different from traditional server-side rendered
+Although Next.js' architecture is different from traditional server-side rendered
 applications and single-page applications,
 for the purposes of this thesis,
 it can be thought of as being split into a single-page frontend and a backend.
@@ -60,7 +60,7 @@ These functions will be called endpoints from now on.
 
 The MS doesn't use a database management system, instead it stores all data in JSON files.
 Each file can be seen as a table in a traditional relational database.
-Even though this approach allows for unstructured data, the MS uses 
+Even though this approach allows for unstructured data, the MS uses
 Zod \footnote{\url{https://zod.dev/}} schemas to enforce a structure on
 data that is stored.
 Zod is a schema declaration and validation library, it allows the MS to define the shape
@@ -105,7 +105,7 @@ type User = {
 % \end{lstlisting}
 
 % TODO: this section
-\subsection{Sign in flows}
+\subsection{Sign In Flows}
 
 User authentication is implemented by leveraging OpenID Connect\ref{cha:relatedwork:oauth:openid},
 with the help of NextAuth.js\footnote{\url{https://next-auth.js.org/}}.
@@ -192,7 +192,7 @@ Authenticated Users are users that sign in to the MS either with their email or 
 OAuth 2.0 provider.
 They're stored in the MS by NextAuth.js after they've successfully signed in.
 For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest}, set
-to false, and personal information. 
+to false, and personal information.
 This is the schema for authenticated users:
 
 % NOTE: maybe explain that because of nextauths weirdness the email is just stored in the
@@ -226,14 +226,14 @@ undefined, and prompt the user to fill them when he first signs in.
 
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{images/fill-data-prompt.png}
-    \caption{Prompt to fill in personal information.}
-    \vspace{-1em} % Negative value to remove space
-    \label{fig:prompt-fill-personal-information}
+	\centering
+	\includegraphics[scale=0.4]{images/fill-data-prompt.png}
+	\caption{Prompt to fill in personal information.}
+	\vspace{-1em} % Negative value to remove space
+	\label{fig:prompt-fill-personal-information}
 \end{figure}
 
-% TODO: cite paper or something to show that this can happen?? im sure theres going to be
+% TODO: cite paper or something to show that this can happen?? im sure there's going to be
 % smth
 The \lstinline{image} field is used to store a URL to a user's profile picture. This field
 can only be set if the user signed in with an OAuth 2.0, which supplied
@@ -286,9 +286,9 @@ Additionally, we store a reference to an authenticated user, named
 } 
 \end{lstlisting}
 
-This option must be made available to users during the sign-in process. 
-To accomplish this, NextAuth.js provides a built-in \lstinline{CredentialsProvider}, 
-which enables the implementation of custom sign-in methods. 
+This option must be made available to users during the sign-in process.
+To accomplish this, NextAuth.js provides a built-in \lstinline{CredentialsProvider},
+which enables the implementation of custom sign-in methods.
 We configured this provider to accept no credentials,
 allowing users to sign in without supplying personal information.
 
@@ -394,7 +394,7 @@ const handler = NextAuth(authOptions)
 \end{lstlisting}
 
 
-\subsection{Development users}
+\subsection{Development Users}
 \label{cha:ms-architecture:users:development-users}
 
 I'm not even sure If this belongs in this thesis
@@ -403,7 +403,7 @@ I'm not even sure If this belongs in this thesis
 
 - environmentId stored on each thing to improve querying
 - talk about data normalization
-- talk about breaking normalization for perfomance gains -> reference a paper or smth
+- talk about breaking normalization for performance gains -> reference a paper or smth
 
 \section{Environments}
 
@@ -445,34 +445,34 @@ whereas personal environments store a reference to the user that owns the enviro
 }
 \end{lstlisting}
 
-\subsection{Creation of personal environments}
+\subsection{Creation of Personal Environments}
 
-  % if (newEnvironment.organization) {
-  %   const adminRole = addRole({
-  %     environmentId: id,
-  %     name: '@admin',
-  %     default: true,
-  %     permissions: { All: adminPermissions },
-  %   });
-  %   addRole({
-  %     environmentId: id,
-  %     name: '@everyone',
-  %     default: true,
-  %     permissions: {},
-  %   });
-  %
-  %   if (newEnvironment.active) {
-  %     addMember(id, newEnvironment.ownerId);
-  %
-  %     addRoleMappings([
-  %       {
-  %         environmentId: id,
-  %         roleId: adminRole.id,
-  %         userId: newEnvironment.ownerId,
-  %       },
-  %     ]);
-  %   }
-  % }
+% if (newEnvironment.organization) {
+%   const adminRole = addRole({
+%     environmentId: id,
+%     name: '@admin',
+%     default: true,
+%     permissions: { All: adminPermissions },
+%   });
+%   addRole({
+%     environmentId: id,
+%     name: '@everyone',
+%     default: true,
+%     permissions: {},
+%   });
+%
+%   if (newEnvironment.active) {
+%     addMember(id, newEnvironment.ownerId);
+%
+%     addRoleMappings([
+%       {
+%         environmentId: id,
+%         roleId: adminRole.id,
+%         userId: newEnvironment.ownerId,
+%       },
+%     ]);
+%   }
+% }
 
 Personal environments are created when an entry for a user is created, this ensures that
 every user has a personal environment.
@@ -482,24 +482,24 @@ The environment's \lstinline{ownerId} references the user that created the envir
 no more information is necessary, as personal environments are only accessible by one
 user.
 
-\subsection{Creation of organization environments}
+\subsection{Creation of Organization Environments}
 
 Organization environments can be created by signed-in users.
-In addition to creating the environment itself, two default roles, 
+In addition to creating the environment itself, two default roles,
 \lstinline{@everyone} and \lstinline{@admin}, are generated.
 A membership entry is also added to indicate that the creator is part of the environment,
 and a role mapping is created to assign the creator to the \lstinline{@admin} role.
 And a root folder is created for the environment.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/create-organization-ui.png}
-    \caption{Form for creating an organization environment.}
-    \vspace{-1em} % Negative value to remove space
-    \label{fig:prompt-fill-personal-information}
+	\centering
+	\includegraphics[scale=0.3]{images/create-organization-ui.png}
+	\caption{Form for creating an organization environment.}
+	\vspace{-1em} % Negative value to remove space
+	\label{fig:prompt-fill-personal-information}
 \end{figure}
 
-\subsection{Adding users to an environment}
+\subsection{Adding Users to an Environment}
 
 Adding users to an environment is simply done by creating a membership entry, with the
 organization environment's \lstinline{id} and the user's \lstinline{id}.
@@ -524,7 +524,7 @@ page, and after he signs in he is redirected back to the invitation link.
 
 % TODOFIG: show different options for inviting users
 
-\subsection{Environment selection}
+\subsection{Environment Selection}
 
 % NOTE: maybe add footnote for url path
 
@@ -559,10 +559,10 @@ placed on the navigation bar.
 
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/select-environment.png}
-    \caption{Selection of environments in the MS's navigation bar.}
-    \vspace{-1em} % Negative value to remove space
+	\centering
+	\includegraphics[scale=0.3]{images/select-environment.png}
+	\caption{Selection of environments in the MS's navigation bar.}
+	\vspace{-1em} % Negative value to remove space
 \end{figure}
 
 How everything was changed to support environmenst
@@ -571,9 +571,9 @@ How everything was changed to support environmenst
 - verification (when envs are created by not signed in users)
 - deletion - managing the env
 - section for folders
-- decide how to divide 
+- decide how to divide
 - selection of envs
-- 
+-
 
 Environments are stored as an entry in the MS table
 
@@ -584,7 +584,7 @@ Environments are stored as an entry in the MS table
 % TODO: work on the intro 
 Each role is now directly associated with an environment by storing an
 \lstinline{environmentId} and its permissions only apply to in that environment.
-Additionally, roles can now be associated to a folder, with the new field \lstinline{folderId}. 
+Additionally, roles can now be associated to a folder, with the new field \lstinline{folderId}.
 
 
 % TODO: decide where to put the role schema
@@ -621,7 +621,7 @@ type Role = {
   }
 \end{lstlisting}
 
-\subsection{New resources}
+\subsection{New Resources}
 
 Folders and environments where added to the MS's resource list, and to the schema of
 Roles, to allow for permissions to be set for them.
@@ -632,16 +632,16 @@ described in \ref{cha:relatedwork:proceedroles}.
 These resources, where also added to the MS's role management UI:
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{images/role-permissions-view.png}
-    \caption{Prompt to fill in personal information.}
-    \vspace{-1em} % Negative value to remove space
-    \label{fig:prompt-fill-personal-information}
+	\centering
+	\includegraphics[scale=0.2]{images/role-permissions-view.png}
+	\caption{Prompt to fill in personal information.}
+	\vspace{-1em} % Negative value to remove space
+	\label{fig:prompt-fill-personal-information}
 \end{figure}
 
 
 
-\subsection{Enforcing roles in the MS}
+\subsection{Enforcing Roles in the MS}
 
 Every action that a user can perform in an environment, is tied with a permission.
 For this reason, every endpoint in the MS has to check permissions, fortunately, roles
@@ -672,7 +672,7 @@ async function(processValues, environmentId) {
 }
 \end{lstlisting}
 
-\subsection{Checking permissions associated to a folder}
+\subsection{Checking Permissions associated to a Folder}
 
 The process of building abilities was modified to enable them to check a folder structure.
 Abilities in the MS are built with a conditions matcher
@@ -790,5 +790,4 @@ permissions cascade down the folder structure.
 Additionally, if the role allows a user to view, either a folder or a process, a rule is
 added, that allows the user to view all ancestors of the asset with
 \lstinline{$property_has_to_be_child_of}.
-
 

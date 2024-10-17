@@ -12,46 +12,35 @@
 % Nowadays cloud applications have become very popular in professional settings.
 % Cloud applications are those, which are served and accessed over the internet, they offer many benefits:
 
-In today's digital age it is almost unthinkable to run a business without computers and
-applications
-, businesses heavily rely on cloud applications,
+In today's digital age, businesses heavily rely on cloud applications
 to work on their assets, e.g. documents, spreadsheets, and presentations.
-software tools that are accessed and run entirely over the internet.
-Typically, an instance of the application is running on a server in a data center,
+Cloud applications are software tools that are accessed and run entirely over the internet.
+Typically, an instance of the application runs on a computer in a data center,
 and users access it through a web browser or a dedicated application.
 These tools represent a paradigm shift from traditional software applications,
 where the majority of the work was done on the user's device.
 Shifting a part, or even all the workload to a cloud application offers many advantages:
 
-% In today's digital age, businesses heavily rely on cloud applications,
-% software tools that are accessed and run entirely over the internet.
-% Typically, an instance of the application is running on a server in a data center,
-% and users access it through a web browser or a dedicated application.
-% These tools represent a paradigm shift from traditional software applications,
-% where the majority of the work was done on the user's device.
-% Shifting a part, or even all the workload to a cloud application offers many advantages:
-
-
 \begin{itemize}
 	\item Accessibility: They can be accessed anywhere from anywhere with an internet connection.
 	\item Cost-Efficient: Most cloud applications implement a payment structure, where
-	      users pay based on how much they use the application.
+	      users pay based on how much they use.
 	\item Data safety: All files are stored by the application in the cloud, and they don't
 	      have to be stored in the user's device, which could be lost, stolen or damaged.
 	      % users don't have to implement their own data storage solutions,
 	      % which may be insecure.
 	\item Collaboration: Typically, collaboration is easier since everything can be found
 	      in one place, instead of having to send files back and forth.
-	\item Device-agnostic: many cloud applications can be accessed through different device types.
-	\item No IT overhead: users don't have to set up the application on their own, which would require technical knowledge.
+	\item Device-agnostic: Many cloud applications can be accessed through different device types.
+	\item No IT overhead: Users don't have to set up the application on their own, which would require technical knowledge.
 \end{itemize}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[scale=0.35]{images/basic-cloud-services.drawio.png}
-%     \caption{Users can access cloud applications from any device with an internet connection.}
-%     \label{fig:cloud-applications}
-% \end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{images/basic-cloud-services.drawio.png}
+	\caption{Users can access cloud applications from any device with an internet connection.}
+	\label{fig:cloud-applications}
+\end{figure}
 
 % A key selling point of these, is that companies don't have to do any technical work setting the software up, they can pay for a subscription and start using the tool right away, either through a browser or by installing an executable on their computer.
 % A very important technical aspect for such tools, that enables the ease of use, is the ability to support multiple companies using them at once.
@@ -63,10 +52,10 @@ Shifting a part, or even all the workload to a cloud application offers many adv
 
 One very common feature that makes these benefits possible is called \textit{multi tenancy}.
 \textit{multi tenancy} is a software architecture in which one single instance of an application
-can be used by many different users or organizations at the same time.
+can be used by multiple users or organizations at the same time.
 Without \textit{multi tenancy}, each user or organization would need to run the application on
 their own computers,
-mostly negating all benefits listed earlier.
+negating most of the benefits listed earlier.
 
 % means that many different users or organizations can use the same cloud application at the same
 % time, even though it looks like they each have their own private version.
@@ -82,18 +71,18 @@ Many popular cloud applications use this approach. For example, when you use Mic
 Slack, or Asana, you're sharing the application with many other companies, but you only
 see and interact with your own team.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.45]{images/mt-cloud-services.png}
-	\caption{Multi tenancy in cloud applications: the same instance of the cloud
-		application, can be used by different tenants, with different structures, without them knowing about each other.}
-	\vspace{-1em} % Negative value to remove space
-	\label{fig:multi-tenant=cloud-applications}
-\end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[scale=0.45]{images/mt-cloud-services.png}
+% 	\caption{Multi tenancy in cloud applications: the same instance of the cloud
+% 		application, can be used by different tenants, with different structures, without them knowing about each other.}
+% 	\vspace{-1em} % Negative value to remove space
+% 	\label{fig:multi-tenant=cloud-applications}
+% \end{figure}
 
-PROCEED%(short for PROCess EnginE in a Distributed environment)% is a cloud application,
-is a Business Process Management System.
-PROCEED uses BPMN at its core to model and execute business processes.
+PROCEED %(short for PROCess EnginE in a Distributed environment)% is a cloud application,
+is a Business Process Management System,
+it uses BPMN at its core to model and execute business processes.
 %For readers unfamiliar with BPMN, 
 %it can be thought of as a powerful flowchart that can be used to describe any conceivable process.
 BPMN (Business Process Model and Notation) is a standardized graphical notation used for documenting business processes.
@@ -196,12 +185,12 @@ assets.
 %No separation between companies is a hindrance to privacy and each company having to spin up an instance of PROCEED is a big barrier to entry.
 %This makes it very hard to scale PROCEED to be able to be comfortably used by multiple companies.
 %
-%\begin{figure}[H]
+% \begin{figure}[H]
 %    \centering
-%    \includegraphics[scale=0.5]{images/PROCEED-no-Environments.drawio.png}
+%    \includegraphics[scale=0.5]{./images/proceed-no-workspaces.drawio.png}
 %    \caption{PROCEED Management System with no multi-tenant support.}
 %    \label{fig:PROCEED-no-Environments}
-%\end{figure}
+% \end{figure}
 
 
 % Research questions

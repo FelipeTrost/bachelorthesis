@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  17 OCT 2024 16:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  17 OCT 2024 17:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1375,112 +1375,99 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              deprecated \float@addtolist interface.
 
 
-Overfull \hbox (3.55571pt too wide) in paragraph at lines 15--22
-\T1/ppl/m/n/10.95 on a server in a data center, and users access it through a w
-eb browser or a dedicated application.
- []
-
-
-Overfull \hbox (5.21953pt too wide) in paragraph at lines 15--22
-\T1/ppl/m/n/10.95 These tools represent a paradigm shift from traditional softw
-are applications, where the majority
- []
-
-
-Overfull \hbox (1.13565pt too wide) in paragraph at lines 24--25
+Overfull \hbox (1.13565pt too wide) in paragraph at lines 25--26
 []\T1/ppl/m/n/10.95 Accessibility: They can be accessed anywhere from anywhere 
 with an internet connection. 
  []
 
-<images/mt-cloud-services.png, id=184, 729.72626pt x 453.695pt>
-File: images/mt-cloud-services.png Graphic file (type png)
-<use images/mt-cloud-services.png>
-Package pdftex.def Info: images/mt-cloud-services.png  used on input line 75.
-(pdftex.def)             Requested size: 328.37378pt x 204.16086pt.
+<images/basic-cloud-services.drawio.png, id=184, 482.80376pt x 345.29pt>
+File: images/basic-cloud-services.drawio.png Graphic file (type png)
+<use images/basic-cloud-services.drawio.png>
+Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
+line 40.
+(pdftex.def)             Requested size: 168.98384pt x 120.8533pt.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 77.
+(Font)              scaled to size 9.49997pt on input line 41.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 77.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              scaled to size 9.49997pt on input line 41.
 
 
 [1
 
 
 
-]
-<images/quick-ms-overview.drawio.png, id=191, 610.28pt x 382.42876pt>
+ <./images/basic-cloud-services.drawio.png>]
+<images/quick-ms-overview.drawio.png, id=195, 610.28pt x 382.42876pt>
 File: images/quick-ms-overview.drawio.png Graphic file (type png)
 <use images/quick-ms-overview.drawio.png>
 Package pdftex.def Info: images/quick-ms-overview.drawio.png  used on input lin
-e 100.
+e 101.
 (pdftex.def)             Requested size: 274.62346pt x 172.09134pt.
 
-Overfull \hbox (23.22101pt too wide) in paragraph at lines 119--139
+Overfull \hbox (23.22101pt too wide) in paragraph at lines 120--140
 \T1/ppl/m/n/10.95 doesn't fully support organizations. For organizations to be 
 supported, members of the organization
+ []
+
+
+Overfull \hbox (23.34201pt too wide) in paragraph at lines 141--153
+\T1/ppl/m/n/10.95 environments, where tenants can work on their assets. Each us
+er, who signs in, should automatically
+ []
+
+
+Overfull \hbox (5.00018pt too wide) in paragraph at lines 141--153
+\T1/ppl/m/n/10.95 should be able to create environments where multiple members 
+can work together. Additionally,
  []
 
 
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 139.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 153.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[2 <./images/mt-cloud-services.png> <./images/quick-ms-overview.drawio.png>]
-Overfull \hbox (23.34201pt too wide) in paragraph at lines 140--152
-\T1/ppl/m/n/10.95 environments, where tenants can work on their assets. Each us
-er, who signs in, should automatically
- []
-
-
-Overfull \hbox (5.00018pt too wide) in paragraph at lines 140--152
-\T1/ppl/m/n/10.95 should be able to create environments where multiple members 
-can work together. Additionally,
- []
-
+[2 <./images/quick-ms-overview.drawio.png>]
 <images/proceed-workspaces-v2.drawio.png, id=202, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
- line 155.
+ line 156.
 (pdftex.def)             Requested size: 271.46167pt x 222.22818pt.
 
-Overfull \hbox (18.36009pt too wide) in paragraph at lines 213--215
+Overfull \hbox (18.36009pt too wide) in paragraph at lines 214--216
 []\T1/ppl/m/n/10.95 Asset-Environment association: find a schema that associate
 s assets with their respective
  []
 
 
-
-[3 <./images/proceed-workspaces-v2.drawio.png>]
-Overfull \hbox (26.16716pt too wide) in paragraph at lines 218--219
+Overfull \hbox (26.16716pt too wide) in paragraph at lines 219--220
 []\T1/ppl/m/n/10.95 How do users have to be managed to best allow them to be me
 mbers of multiple environments? 
  []
 
 
-Overfull \hbox (6.27185pt too wide) in paragraph at lines 231--233
+Overfull \hbox (6.27185pt too wide) in paragraph at lines 232--234
 []\T1/ppl/m/n/10.95 How can the Management System allow users to manage assets 
 on different environments? 
  []
 
 
-Overfull \hbox (16.23607pt too wide) in paragraph at lines 269--271
+
+[3 <./images/proceed-workspaces-v2.drawio.png>]
+Overfull \hbox (16.23607pt too wide) in paragraph at lines 270--272
 []\T1/ppl/m/n/10.95 Assets stored in one environment can only be accessed by me
 mbers of that environment. 
  []
 
 
-Overfull \hbox (29.19957pt too wide) in paragraph at lines 287--288
+Overfull \hbox (29.19957pt too wide) in paragraph at lines 288--289
 []\T1/ppl/m/n/10.95 The MS must be able to hold multiple environments and let u
 sers access them concurrently. 
  []
 
 
-Overfull \hbox (15.5895pt too wide) in paragraph at lines 318--323
+Overfull \hbox (15.5895pt too wide) in paragraph at lines 319--324
 []\T1/ppl/m/n/10.95 The MS's user management has to be adapted to fit environme
 nts: before the implementation
  []
@@ -1492,50 +1479,44 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 327.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 335.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [4]
-Overfull \hbox (4.65106pt too wide) in paragraph at lines 351--356
+Overfull \hbox (4.65106pt too wide) in paragraph at lines 352--357
 \T1/ppl/m/n/10.95 now, with the same role, he will be able to modify all proces
 ses inside the organization
  []
 
 
-Overfull \hbox (0.14008pt too wide) in paragraph at lines 356--359
+Overfull \hbox (0.14008pt too wide) in paragraph at lines 357--360
 \T1/ppl/m/n/10.95 of an environment (e.g. a user with a role in a parent folder
 , has the same permissions
  []
 
 
-Overfull \hbox (20.58339pt too wide) in paragraph at lines 381--384
+Overfull \hbox (20.58339pt too wide) in paragraph at lines 382--385
 []\T1/ppl/m/n/10.95 The same data structure and functions should be used for bo
 th personal and organization
  []
 
 
-Overfull \hbox (13.65184pt too wide) in paragraph at lines 381--384
+Overfull \hbox (13.65184pt too wide) in paragraph at lines 382--385
 \T1/ppl/m/n/10.95 personal environment should be used to create a folder in an 
 organization environment. 
  []
 
 
-Overfull \hbox (1.57413pt too wide) in paragraph at lines 388--390
+Overfull \hbox (1.57413pt too wide) in paragraph at lines 389--391
 []\T1/ppl/m/n/10.95 Create simple abstractions for the backend code of the MS, 
 that allow to acknowledge
  []
 
+) (content/02_related_work.tex
 
-
-[5]) (content/02_related_work.tex
-
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[6]
+[5]
 chapter 2.
 
-LaTeX Warning: Citation `rfcOauth2' on page 7 undefined on input line 11.
+LaTeX Warning: Citation `rfcOauth2' on page 6 undefined on input line 11.
 
 
 Overfull \hbox (10.48569pt too wide) in paragraph at lines 8--12
@@ -1557,11 +1538,11 @@ resources. OAuth 2.0 distinguishes
 
 
 
-[7
+[6
 
 ]
 
-LaTeX Warning: Citation `rfcPkce' on page 8 undefined on input line 69.
+LaTeX Warning: Citation `rfcPkce' on page 7 undefined on input line 69.
 
 
 Overfull \hbox (2.13129pt too wide) in paragraph at lines 84--87
@@ -1577,12 +1558,7 @@ re the resource owner authenticates
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 99.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[8]
-<images/basic-cloud-services.drawio.png, id=285, 482.80376pt x 345.29pt>
+[7]
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1590,7 +1566,11 @@ line 102.
 (pdftex.def)             Requested size: 193.11807pt x 138.11354pt.
 
 
-[9 <./images/basic-cloud-services.drawio.png>]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 177.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[8]
 Overfull \hbox (3.93878pt too wide) in paragraph at lines 178--181
 []\T1/ppl/m/n/10.95 Machine: Object that represents a server running Distribute
 d Process Engine. The machine
@@ -1598,11 +1578,7 @@ d Process Engine. The machine
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 256.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[10]
+[9]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 9.37807pt on input line 259.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
@@ -1623,20 +1599,20 @@ ave to be met by a resource instance,
 
 
 
-[11]) (content/03_concept_and_design.tex
-
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 311.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[12]
+[10]) (content/03_concept_and_design.tex
+
+[11]
 chapter 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[13
+[12
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 94--94
@@ -1646,18 +1622,14 @@ ver -[] protocol / specifications / lsp / 3 . 17 /
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 119.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[14]
+[13]
 Overfull \hbox (3.43419pt too wide) in paragraph at lines 131--138
 \T1/ppl/m/n/10.95 folders, creating a flexible and intuitive structure. In this
  thesis, folders where only implemented
  []
 
 
-LaTeX Warning: Citation `celkoSQLTrees' on page 15 undefined on input line 155.
+LaTeX Warning: Citation `celkoSQLTrees' on page 14 undefined on input line 155.
 
 
 
@@ -1674,7 +1646,11 @@ ts descendants, however,
 
 
 
-[15]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 204.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[14]
 Overfull \hbox (2.98721pt too wide) in paragraph at lines 238--240
 []\T1/ppl/m/n/10.95 Finding a node's descendants is easy and efficient, they ca
 n be found by querying
@@ -1697,11 +1673,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 328.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[16]
+[15]
 Overfull \hbox (25.39964pt too wide) in paragraph at lines 384--387
 \T1/ppl/m/n/10.95 in environments as they can be a part of multiple environment
 s. Instead, the MS stores memberships,
@@ -1712,13 +1684,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[17]
-
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 476.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 387.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[18]
+[16]
+
+[17]
 Overfull \hbox (3.90906pt too wide) in paragraph at lines 520--538
 []\T1/ppl/m/n/10.95 Folders allow organizations to mirror their hierarchical st
 ructure, but this wouldn't be entirely
@@ -1729,7 +1701,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[19]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 546.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[18]
 Overfull \hbox (8.51422pt too wide) in paragraph at lines 561--565
 \T1/ppl/m/n/10.95 the [][][][][] permission for each children, which would be t
 he case, if the role is associated
@@ -1743,11 +1719,7 @@ cription and contact number.
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 611.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[20]
+[19]
 Overfull \hbox (10.89174pt too wide) in paragraph at lines 611--614
 \T1/ppl/m/n/10.95 organization environment. The permissions in this role start 
 out empty, but can be modified. 
@@ -1755,11 +1727,15 @@ out empty, but can be modified.
 
 ) (content/04_implementation.tex
 
-[21]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[20]
 chapter 4.
 
 
-[22
+[21
 
 ]
 Overfull \hbox (36.4909pt too wide) in paragraph at lines 110--118
@@ -1769,18 +1745,18 @@ ct[]2.1.3[], with the help of NextAuth.js[][][].
 
 
 
-[23]
-
-LaTeX Warning: Reference `' on page 24 undefined on input line 129.
-
-
-
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 218.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 126.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[24]
-<images/fill-data-prompt.png, id=517, 532.99126pt x 398.48875pt>
+[22]
+
+LaTeX Warning: Reference `' on page 23 undefined on input line 129.
+
+
+
+[23]
+<images/fill-data-prompt.png, id=510, 532.99126pt x 398.48875pt>
 File: images/fill-data-prompt.png Graphic file (type png)
 <use images/fill-data-prompt.png>
 Package pdftex.def Info: images/fill-data-prompt.png  used on input line 230.
@@ -1796,18 +1772,22 @@ Underfull \vbox (badness 4859) has occurred while \output is active []
 
 
 
-[25 <./images/fill-data-prompt.png>]
-
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 341.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 276.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[26]
+[24 <./images/fill-data-prompt.png>]
+
+[25]
 Underfull \vbox (badness 1454) has occurred while \output is active []
 
 
 
-[27]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 394.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[26]
 Overfull \hbox (11.53706pt too wide) in paragraph at lines 412--425
 \T1/ppl/m/n/10.95 This section will cover the implementation details of environ
 ments. In its essence, an environment
@@ -1821,12 +1801,8 @@ oot folder is created for the environment.
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 493.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[28]
-<images/create-organization-ui.png, id=633, 993.7125pt x 587.19376pt>
+[27]
+<images/create-organization-ui.png, id=627, 993.7125pt x 587.19376pt>
 File: images/create-organization-ui.png Graphic file (type png)
 <use images/create-organization-ui.png>
 Package pdftex.def Info: images/create-organization-ui.png  used on input line 
@@ -1840,8 +1816,12 @@ is: [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 
 
-[29 <./images/create-organization-ui.png>]
-<images/select-environment.png, id=640, 993.7125pt x 167.62625pt>
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 542.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[28 <./images/create-organization-ui.png>]
+<images/select-environment.png, id=634, 993.7125pt x 167.62625pt>
 File: images/select-environment.png Graphic file (type png)
 <use images/select-environment.png>
 Package pdftex.def Info: images/select-environment.png  used on input line 563.
@@ -1849,12 +1829,8 @@ Package pdftex.def Info: images/select-environment.png  used on input line 563.
 (pdftex.def)             Requested size: 298.11604pt x 50.28825pt.
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 616.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[30 <./images/select-environment.png>]
-<images/role-permissions-view.png, id=675, 1242.6425pt x 1079.03125pt>
+[29 <./images/select-environment.png>]
+<images/role-permissions-view.png, id=668, 1242.6425pt x 1079.03125pt>
 File: images/role-permissions-view.png Graphic file (type png)
 <use images/role-permissions-view.png>
 Package pdftex.def Info: images/role-permissions-view.png  used on input line 6
@@ -1874,7 +1850,11 @@ ate getting a user's
 
 
 
-[31 <./images/role-permissions-view.png>]
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 663.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[30 <./images/role-permissions-view.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 679--679
   [][][][]$\T1/pcr/m/n/9 https : / / casl . js . org / v6 / en / advanced / cus
 tomize -[] ability # custom -[] conditions -[] matcher -[]
@@ -1882,11 +1862,7 @@ tomize -[] ability # custom -[] conditions -[] matcher -[]
 
 
 
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 737.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[32]
+[31]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 10.42007pt on input line 783.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
@@ -1909,23 +1885,28 @@ own the folder structure. Additionally,
 
 
 
-[33]) (content/05_evaluation.tex
-
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 793.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[34]
+[32]) (content/05_evaluation.tex
+
+[33]
 chapter 5.
 ) (content/06_conclusion.tex
 
-[35
+[34
 
 ]
 chapter 6.
 )
 
+[35
+
+]
+
 [36
+
 
 ]
 chapter without number
@@ -1937,17 +1918,9 @@ chapter without number
 
 [37
 
-
-
 ]
 chapter without number
-(main.lof
-Overfull \hbox (1.40973pt too wide) in paragraph at lines 4--4
- \T1/ppl/m/n/10.95 can be used by different tenants, with different structures,
- without them knowing 
- []
-
-)
+(main.lof)
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
@@ -2022,10 +1995,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35305 strings out of 475834
- 675032 string characters out of 5777779
- 1621994 words of memory out of 5000000
- 56798 multiletter control sequences out of 15000+600000
+ 35298 strings out of 475834
+ 674775 string characters out of 5777779
+ 1622994 words of memory out of 5000000
+ 56791 multiletter control sequences out of 15000+600000
  613879 words of font info for 141 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
  108i,17n,107p,10922b,2246s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2041,9 +2014,9 @@ rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
 w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
 /palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on main.pdf (48 pages, 827053 bytes).
+Output written on main.pdf (48 pages, 799510 bytes).
 PDF statistics:
- 1174 PDF objects out of 1200 (max. 8388607)
+ 1170 PDF objects out of 1200 (max. 8388607)
  496 named destinations out of 1000 (max. 500000)
- 575 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 570 words of extra memory for PDF output out of 10000 (max. 10000000)
 
