@@ -12,24 +12,38 @@
 % Nowadays cloud applications have become very popular in professional settings.
 % Cloud applications are those, which are served and accessed over the internet, they offer many benefits:
 
-In today's digital age, businesses heavily rely on cloud applications,
+In today's digital age it is almost unthinkable to run a business without computers and
+applications
+, businesses heavily rely on cloud applications,
+to work on their assets, e.g. documents, spreadsheets, and presentations.
 software tools that are accessed and run entirely over the internet.
+Typically, an instance of the application is running on a server in a data center,
+and users access it through a web browser or a dedicated application.
 These tools represent a paradigm shift from traditional software applications,
-where the majority of the workload happened on the user's device.
-Shifting part of the workload to a cloud application offers many advantages:
+where the majority of the work was done on the user's device.
+Shifting a part, or even all the workload to a cloud application offers many advantages:
+
+% In today's digital age, businesses heavily rely on cloud applications,
+% software tools that are accessed and run entirely over the internet.
+% Typically, an instance of the application is running on a server in a data center,
+% and users access it through a web browser or a dedicated application.
+% These tools represent a paradigm shift from traditional software applications,
+% where the majority of the work was done on the user's device.
+% Shifting a part, or even all the workload to a cloud application offers many advantages:
+
 
 \begin{itemize}
 	\item Accessibility: They can be accessed anywhere from anywhere with an internet connection.
 	\item Cost-Efficient: Most cloud applications implement a payment structure, where
 	      users pay based on how much they use the application.
-	\item Collaboration: Typically, collaboration is easier since everything can be found
-	      in one place, instead of having to send files back and forth.
 	\item Data safety: All files are stored by the application in the cloud, and they don't
 	      have to be stored in the user's device, which could be lost, stolen or damaged.
 	      % users don't have to implement their own data storage solutions,
 	      % which may be insecure.
-	\item Device agnostic: many cloud applications can be accessed through different device types.
-	\item No IT overhead: users don't have to setup the application on their own, which would require technical knowledge.
+	\item Collaboration: Typically, collaboration is easier since everything can be found
+	      in one place, instead of having to send files back and forth.
+	\item Device-agnostic: many cloud applications can be accessed through different device types.
+	\item No IT overhead: users don't have to set up the application on their own, which would require technical knowledge.
 \end{itemize}
 
 % \begin{figure}[H]
@@ -48,19 +62,21 @@ Shifting part of the workload to a cloud application offers many advantages:
 % A tenant can be seen as an entity that uses the application, which can be either a single user or an organization made up of many users.
 
 One very common feature that makes these benefits possible is called \textit{multi tenancy}.
-\textit{Multi tenancy} is a software architecture in which one single instance of an application
+\textit{multi tenancy} is a software architecture in which one single instance of an application
 can be used by many different users or organizations at the same time.
-Without multi-tenancy, each user or organization would need to run the application on
-their own servers or computers,
-largely negating the numerous benefits listed earlier.
+Without \textit{multi tenancy}, each user or organization would need to run the application on
+their own computers,
+mostly negating all benefits listed earlier.
 
 % means that many different users or organizations can use the same cloud application at the same
 % time, even though it looks like they each have their own private version.
 
 % NOTE: maybe take this out
-Think of it like a big apartment building. Each tenant (user or organization) has their
-own private space (their assets), but they're all using the same building (the
-cloud application).
+Think of an application that supports \textit{multi tenancy} like a big apartment building.
+Each tenant (user or organization) has their
+own private apartment (their space), where they store their belongings (their assets).
+Every tenant is living in the same building (cloud application), but each tenant has their
+own private space.
 
 Many popular cloud applications use this approach. For example, when you use Microsoft Teams,
 Slack, or Asana, you're sharing the application with many other companies, but you only
@@ -138,7 +154,7 @@ The MS should be able to hold multiple isolated environments, where tenants can 
 % Each tenant should be able to work in their own isolated environment, which lives in a central instance of the Management System. 
 Each user, who signs in, should automatically have their own Environment, this allows users to work on
 personal projects.
-Organizations will be able to create environments where multiple members can work together.
+Organizations should be able to create environments where multiple members can work together.
 Additionally, environments should include a folder structure to improve the organization of
 assets.
 % Currently the MS only provides labels for organizing assets.
@@ -192,25 +208,35 @@ assets.
 \section{Research Questions}
 \label{cha:researchquestions}
 
+For environments to be successfully integrated into the PROCEED Management System,
+a few important questions need to be addressed.
+These questions will help ensure that environments work smoothly with the existing database structure,
+role system, and user management. By answering them, we can ensure the implementation is effective and doesn’t
+disrupt the current system.
+
+
 \begin{enumerate}
 	% Data Modeling and Architecture
 
-	\item Environment Representation: How can we model environments within the existing
-	      PROCEED database schema to ensure the following:
+	\item Environment representation: How can we model environments and their hierarchical
+	      folder structure within the MS's storage solution to ensure the following:
 	      \begin{itemize}
 		      \item Data integrity: find a schema that facilitates data consistency after updates.
-		      \item Asset-Environment Association: find a schema that associates assets with their
+		      \item Asset-Environment association: find a schema that associates assets with their
 		            respective environments while maintaining a clear and consistent data model.
-		      \item Efficient: find a schema that allows to efficiently query the database.
+		      \item Efficiency: find a schema that allows to efficiently query the database.
 	      \end{itemize}
 
-	      % Roles and Permissions
+	\item How do users have to be managed to best allow them to be members of multiple environments?
 
-	\item How can we extend the existing PROCEED role system to incorporate
-	      environment-specific permissions?
-
-	\item How can organizations model their hierarchical role structures within environments
+	\item How can organizations model their hierarchical structures within environments
 	      to allow members of the organization to have different levels of access to assets?
+	      % \item How can we extend the existing PROCEED role system to incorporate
+	      %   environment-specific permissions?
+
+	      % Roles and Permissions
+	\item How can users work on personal Projects outside an organization.
+
 
 	      % \item What mechanisms are needed to ensure that role-based access control is consistently enforced?
 
@@ -221,7 +247,7 @@ assets.
 
 	      % \item What user interface elements and interaction patterns are most effective for navigating and managing folders and environments?
 
-	\item How can we minimize the impact on existing code while ensuring seamless integration?
+	      % \item How can we minimize the impact on existing code while ensuring seamless integration?
 
 	      % Additional Considerations
 
@@ -235,17 +261,14 @@ assets.
 \section{Task List}
 \label{cha:tasklist}
 
+The following task list outlines the concrete steps necessary to address the research
+questions and ensure a successful implementation of environments.
+Each task is designed to tackle specific aspects of the MS's
+architecture, user management, and role assignments.
+
 % private environment
 % Functional / non functional
 % can / must / should 
-
-\newlist{myEnumerate}{enumerate}{5}
-\setlist[myEnumerate,1]{label=\arabic*}
-\setlist[myEnumerate,2]{label=\Roman*}
-\setlist[myEnumerate,3]{label=\Alpha*}
-\setlist[myEnumerate,4]{label=\roman*}
-\setlist[myEnumerate,5]{label=\alph*}
-
 % TODO: 
 % \item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
 
@@ -260,7 +283,8 @@ assets.
 
 		      \item Environments must have a hierarchical folder system to store assets.
 		            \begin{enumerate}
-			            \item Find a suitable abstraction to represent folders in a database.
+			            \item Find a suitable abstraction to represent folders in a database
+			                  that facilitates consistency after updates and is fast to query.
 
 			            \item Ensure privacy between environments.
 
@@ -279,9 +303,9 @@ assets.
 	      % ---------------------------------------------------------------------------------------
 
 	      %write about how there are personal and organization environments
-	\item Implement personal and organization environments. Whie both are environments
+	\item Implement personal and organization environments. While both are environments
 	      and share common functionality as described in
-	      \ref{cha:tasklist:item-environments}, they must have behave differently in some
+	      \ref{cha:tasklist:item-environments}, they must behave differently in some
 	      situations.
 	      \begin{enumerate}
 		      \item Personal environments can only have one member.
@@ -357,9 +381,7 @@ the future.
 This means that where possible, simple solutions should be favored over complex ones.
 
 \begin{enumerate}
-	\item keep changes to the existing codebase to a minimum.
-
-	\item The same data structure should be used for both personal and organization environments.
+	\item Keep changes to the MS to a minimum.
 
 	      % \item The implementation shouldn't be repetitive, the same functional components should be used for both personal and organization environments.
 
@@ -368,7 +390,16 @@ This means that where possible, simple solutions should be favored over complex 
 
 	\item Prioritize developer experience by creating clear abstractions and APIs.
 	      \begin{enumerate}
-		      \item Create simple abstractions for the backend code of the MS, that allow to acknowledge a user's environment with minimal effort.
+		      \item The same data structure and functions should be used for both personal and organization
+		            environments where possible. E.g. the same function that creates a folder in a
+		            personal environment should be used to create a folder in an organization environment.
+
+		      \item Choose a simple data structure for the folder system, with straightforward
+		            functions for modification.
+
+		      \item Create simple abstractions for the backend code of the MS, that allow to
+		            acknowledge a user's environment with minimal effort.
+
 		      \item Create a simple abstraction for the frontend, that facilitates adapting
 		            the Interface for each.
 	      \end{enumerate}
