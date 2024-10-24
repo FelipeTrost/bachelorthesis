@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  24 OCT 2024 13:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  24 OCT 2024 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1375,7 +1375,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              deprecated \float@addtolist interface.
 
 
-Overfull \hbox (1.13565pt too wide) in paragraph at lines 27--28
+Overfull \hbox (1.13565pt too wide) in paragraph at lines 27--30
 []\T1/ppl/m/n/10.95 Accessibility: They can be accessed anywhere from anywhere 
 with an internet connection. 
  []
@@ -2039,7 +2039,7 @@ rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
 w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
 /palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on main.pdf (48 pages, 851367 bytes).
+Output written on main.pdf (48 pages, 851285 bytes).
 PDF statistics:
  1180 PDF objects out of 1200 (max. 8388607)
  500 named destinations out of 1000 (max. 500000)
