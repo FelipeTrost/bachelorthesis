@@ -15,11 +15,13 @@
 In today's digital age, businesses heavily rely on cloud applications
 to work on their assets, e.g. documents, spreadsheets, and presentations.
 Cloud applications are software tools that are accessed and run entirely over the internet.
-Typically, an instance of the application runs on a computer in a data center,
-and users access it through a web browser or a dedicated application.
+Typically, a copy of the application runs on a computer in a data center, this copy is called an instance.
+Users access it through a web browser or a dedicated application.
 These tools represent a paradigm shift from traditional software applications,
 where the majority of the work was done on the user's device.
 Shifting a part, or even all the workload to a cloud application offers many advantages:
+
+\vspace{-1em} % Negative value to remove space
 
 \begin{itemize}
 	\item Accessibility: They can be accessed anywhere from anywhere with an internet connection.
@@ -31,16 +33,21 @@ Shifting a part, or even all the workload to a cloud application offers many adv
 	      % which may be insecure.
 	\item Collaboration: Typically, collaboration is easier since everything can be found
 	      in one place, instead of having to send files back and forth.
-	\item Device-agnostic: Many cloud applications can be accessed through different device types.
-	\item No IT overhead: Users don't have to set up the application on their own, which would require technical knowledge.
+	\item Device-agnostic: Many cloud applications can be accessed from various devices because most
+	      of the functionality runs on a server and isn't dependent on the device, unlike
+	      traditional software, which often requires a large part of the application to be
+	      specifically programmed for each device.
+	\item Low IT overhead: Users don't have to set up the application on their own, which
+	      would require technical knowledge. And in the case of cloud applications that are
+	      accessed through a browser, users don't have to install anything.
 \end{itemize}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{images/basic-cloud-services.drawio.png}
-	\caption{Users can access cloud applications from any device with an internet connection.}
+	\caption{Users can access cloud applications from a variety of devices, such as laptops, smartphones, or tablets, as long as they have an internet connection.}
 	\label{fig:cloud-applications}
-  \vspace{-1em} % Negative  oalue to remove space
+	\vspace{-1em} % Negative  oalue to remove space
 \end{figure}
 
 % A key selling point of these, is that companies don't have to do any technical work setting the software up, they can pay for a subscription and start using the tool right away, either through a browser or by installing an executable on their computer.
@@ -52,7 +59,7 @@ Shifting a part, or even all the workload to a cloud application offers many adv
 % A tenant can be seen as an entity that uses the application, which can be either a single user or an organization made up of many users.
 
 One very common feature that makes these benefits possible is called \textit{multi tenancy}.
-\textit{multi tenancy} is a software architecture in which one single instance of an application
+\textit{Multi tenancy} is a software architecture in which one single instance of an application
 can be used by multiple users or organizations at the same time.
 Without \textit{multi tenancy}, each user or organization would need to run the application on
 their own computers,
@@ -79,32 +86,46 @@ see and interact with your own team.
 		application, can be used by different tenants, with different structures, without them knowing about each other.}
 	\vspace{-1em} % Negative value to remove space
 	\label{fig:multi-tenant=cloud-applications}
+	\vspace{-1em} % Negative value to remove space
 \end{figure}
 
-PROCEED %(short for PROCess EnginE in a Distributed environment)% is a cloud application,
-is a Business Process Management System,
-it uses BPMN at its core to model and execute business processes.
+%(short for PROCess EnginE in a Distributed environment)% is a cloud application,
+The PROCEED Management System (MS for short)
+is a cloud application to manage business processes,
+% that currently lacks \textit{multi tenancy} support.
+% It is a Business Process Management System
+% that uses BPMN at its core to model and execute business processes.
 %For readers unfamiliar with BPMN, 
 %it can be thought of as a powerful flowchart that can be used to describe any conceivable process.
-BPMN (Business Process Model and Notation) is a standardized graphical notation used for documenting business processes.
-BPMN is typically used inside of organizations to illustrate sequences of tasks,
-decision points, and interactions within various business processes, providing a standardized visual representation.
+it uses BPMN (Business Process Model and Notation) \footnote{\url{https://www.bpmn.org/}},
+a standardized graphical notation,
+to describe sequences of tasks and decision points to achieve a business goal.
+Additionally PROCEED offers a Process Engine, which interprets and executes BPMN processes.
 
-PROCEED offers two products:
-\begin{itemize}
-	\item Distributed Process Engine (DPE for short): the DPEs execute BPMN processes.
-	\item Management System (MS for short): the MS is a cloud application that gives users
-	      a graphical interface to work on their BPMN processes and deploy these to the DPEs.
-\end{itemize}
+% PROCEED offers two products:
+% \begin{itemize}
+% 	\item Management System (MS for short): the MS is a cloud application that gives users
+% 	      a graphical interface to work on their BPMN processes and deploy these to the
+% 	      Process Engines.
+% 	\item Process Engine: the Process Engine interpret and execute BPMN processes.
+% \end{itemize}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{images/quick-ms-overview.png}
-	\caption{Overview of PROCEED: users interact with the Management System, to create and
-		manage BPMN models. The Management System has the ability to deploy these models to the Distributed Process Engines.}
-	\label{fig:proceed-overview}
+	\includegraphics[scale=0.4]{images/proceed-ms-modeling.png}
+	\caption{Example of process modeling in PROCEED.}
 	\vspace{-1em} % Negative value to remove space
 \end{figure}
+
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[scale=0.45]{images/quick-ms-overview.png}
+% 	\caption{Overview of PROCEED: users interact with the Management System, to create and
+% 		manage BPMN models. The Management System has the ability to deploy these models to the Distributed Process Engines.}
+% 	\label{fig:proceed-overview}
+% 	\vspace{-1em} % Negative value to remove space
+% \end{figure}
 
 %Throughout this thesis we'll refer to any information that a user can access as an asset.
 %Also all actions that a user can perform in the PROCEED Management System, are viewed as an action performed on an asset.
@@ -118,16 +139,25 @@ PROCEED offers two products:
 
 % TODO !!
 
-Currently the MS lacks full multi-tenancy support, it only supports individual users and
-doesn't fully support organizations.
+Currently, the MS lacks full \textit{multi tenancy} support.
+It only supports individual users and doesn't fully support organizations.
 For organizations to be supported, members of the organization need to be able to have a
 shared workspace, where they can work on the same assets.
 % This could technically achieved if members of the organization shared all assets with
 % each other.
-However, PROCEED only supports universal sharing, meaning that all users would be able to
-see the shared assets.
-Furthermore, even if it was possible to share assets only to a group of users, it would be
-very cumbersome and error-prone.
+However, the MS currently stores all assets in central place,
+and access to these assets is restricted through a permission system that allows users to see
+their own assets, or all assets if they possess the admin role.
+This means that users, regardless of if they are part of an organization or not,
+can either only see their own assets,  or they can see all assets.
+% NOTE: maybe further explanation here that says that that's the reason why the ms doesnt
+% support organizations
+
+
+% However, the MS only supports universal sharing, meaning that all users would be able to
+% see the shared assets.
+% Furthermore, even if it was possible to share assets only to a group of users, it would be
+% very cumbersome and error-prone.
 % This means that organizations, where multiple people work together are not supported by the
 % MS.
 % For this reason, it presents many difficulties for organizations, as there is no convenient way for multiple members of the organization to work together on assets in the MS.
@@ -139,14 +169,19 @@ very cumbersome and error-prone.
 %This is because all assets are stored in a central database without a good way to isolate them from other tenants.
 %The only information that BPMN related assets are stored with, that helps towards isolating them from other tenants is the owner and a set of labels.
 
-For this reason, this thesis implements multi-tenant functionality into the PROCEED MS by introducing the concept of Environments.
-The MS should be able to hold multiple isolated environments, where tenants can work on their assets.
+For this reason, this thesis will implement \textit{multi tenant} functionality into the PROCEED MS by introducing the concept of environments.
+Conceptually, environments are spaces where one or more users can work on shared assets.
+The MS will be able to hold multiple isolated environments.
+This way, an organization can have its own environment, where all members of the
+organization can work on shared assets.
 % Each tenant should be able to work in their own isolated environment, which lives in a central instance of the Management System. 
-Each user, who signs in, should automatically have their own Environment, this allows users to work on
-personal projects.
-Organizations should be able to create environments where multiple members can work together.
-Additionally, environments should include a folder structure to improve the organization of
-assets.
+% Each user, who signs in, should automatically have their own Environment, this will allow users to work on
+% personal projects.
+% Tenants should be able to create environments that meet their needs.
+% Organizations should be able to create environments where multiple members can work together.
+% Additionally, environments will include a folder structure to improve the organization of
+% assets.
+
 % Currently the MS only provides labels for organizing assets.
 % Assets can be labeled with one or more labels, which can be used to filter assets. 
 % Users cannot add, delete nor modify these labels.
@@ -155,7 +190,7 @@ assets.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.45]{images/proceed-workspaces-v2.drawio.png}
-	\caption{Goal of this thesis: tenants can work in their own isolated environments in
+	\caption{Goal of this thesis: tenants with different structures, can work on assets in their own isolated environments in
 		the PROCEED Management System.}
 	\label{fig:proceed-envitonments-overview}
 \end{figure}
@@ -201,23 +236,28 @@ assets.
 For environments to be successfully integrated into the PROCEED Management System,
 a few important questions need to be addressed.
 These questions will help ensure that environments work smoothly with the existing database structure,
-role system, and user management. By answering them, we can ensure the implementation is effective and doesn’t
-disrupt the current system.
+permission system, and user management.
+By answering them, we can ensure the implementation is effective
 
+
+% TODO: add to research questions
 
 \begin{enumerate}
 	% Data Modeling and Architecture
 
-	\item Environment representation: How can we model environments and their hierarchical
+	\item Environment representation: How can we integrate environments and their hierarchical
 	      folder structure within the MS's storage solution to ensure the following:
 	      \begin{itemize}
 		      \item Data integrity: find a schema that facilitates data consistency after updates.
 		      \item Asset-Environment association: find a schema that associates assets with their
-		            respective environments while maintaining a clear and consistent data model.
+		            respective environments while maintaining a clear separation between
+		            multiple environments.
 		      \item Efficiency: find a schema that allows to efficiently query the database.
 	      \end{itemize}
 
-	\item How do users have to be managed to best allow them to be members of multiple environments?
+	      % \item How do users have to be managed to best allow them to be members of multiple environments?
+	\item How does PROCEED and its user storage have to be structured to allow users to be
+	      members of multiple environments?
 
 	\item How can organizations model their hierarchical structures within environments
 	      to allow members of the organization to have different levels of access to assets?
@@ -225,13 +265,17 @@ disrupt the current system.
 	      %   environment-specific permissions?
 
 	      % Roles and Permissions
-	\item How can users work on personal Projects outside an organization.
+	\item Users may want to create and manage their own projects independently of an
+	      organization: How can users work on personal Projects outside an organization?
+
+	\item How can environments be implemented in a way that doesn't disrupt existing
+	      functionality and data structures?
 
 
 	      % \item What mechanisms are needed to ensure that role-based access control is consistently enforced?
 
-	\item How can the Management System allow users to manage assets on different
-	      environments?
+	      % \item How can the Management System allow users to manage assets on different
+	      %       environments?
 
 	      % Usability and Developer Experience
 
@@ -263,12 +307,12 @@ architecture, user management, and role assignments.
 % \item What software abstractions (e.g., classes, interfaces, functions) can we create to simplify the process of identifying and managing a user's environment in the backend code? 
 
 \begin{enumerate}
-	\item The MS has to support environments, isolated spaces where users can work on their
+	\item The MS has to support environments, which should be isolated spaces where users can work on
 	      assets. \label{cha:tasklist:item-environments}
 	      \begin{enumerate}
-		      \item Every asset in the MS \ref{cha:relatedwork:proceed-assets} must be stored in only one environment.
+		      \item Every asset in the MS must be stored in only one environment.
 
-		      \item Assets stored in one environment can only be accessed by members of that
+		      \item Assets stored in one environment should only be accessed by members of that
 		            environment.
 
 		      \item Environments must have a hierarchical folder system to store assets.
@@ -276,7 +320,9 @@ architecture, user management, and role assignments.
 			            \item Find a suitable abstraction to represent folders in a database
 			                  that facilitates consistency after updates and is fast to query.
 
-			            \item Ensure privacy between environments.
+			            \item Ensure privacy between environments: folders must only belong to
+			                  one environment and should only store assets from that environment.
+			                  Access to folders must be restricted to members of the environment.
 
 			                  % escribir aca ya que tiene que haber herencia
 			                  % reescribir should be modified no es tan fuerte/
@@ -286,11 +332,14 @@ architecture, user management, and role assignments.
 		            \end{enumerate}
 
 		            % NOTE: replace concurrently with eaesier word
-		      \item The MS must be able to hold multiple environments and let users access them concurrently.
 
 	      \end{enumerate}
 	      % ---------------------------------------------------------------------------------------
 	      % ---------------------------------------------------------------------------------------
+
+	\item The MS must be able to hold multiple environments and their assets.
+
+	\item The MS must allow different users to access different environments concurrently.
 
 	      %write about how there are personal and organization environments
 	\item Implement personal and organization environments. While both are environments
@@ -298,16 +347,23 @@ architecture, user management, and role assignments.
 	      \ref{cha:tasklist:item-environments}, they must behave differently in some
 	      situations.
 	      \begin{enumerate}
-		      \item Personal environments can only have one member.
+		      % Personal environments 
+		      % -----------------------------------
+		      \item Personal environments must only have one member.
 
-		      \item Personal environments can only store Processes and Folders.
+		      \item Personal environments should only store Processes and Folders.
+
+		            % Organization environments
+		            % ----------------------------------
+		      \item Organization environments should have a name and description.
 
 		      \item Organization environments support all assets described in \ref{cha:relatedwork:proceed-assets}.
 
-		      \item Organization environments can have a name and description.
+		      \item Organization environments must support multiple members
+		            % , i.e. multiple users can work on the assets stored inside of it.
 
-		      \item Organization environments must support multiple members, i.e. multiple users can
-		            work on the assets stored inside of it.
+		      \item Users must be able to create organization environments and invite new
+		            members.
 
 		      \item Organization environments must have a role system, where roles can be assigned to
 		            users, to manage their access to assets.
@@ -324,23 +380,26 @@ architecture, user management, and role assignments.
 	      \begin{enumerate}
 		      \item Users have to be global, meaning that they don't belong to any environment.
 
-		      \item Implement Guest users.
-		            \begin{enumerate}
-			            \item Allow users to try the MS without signing in with their personal
-			                  information.
-			            \item Guest users can sign in with their personal information and become a normal
-			                  user.
-			            \item Guest users can transfer their assets to a normal user.
-
-			            \item Guest users can not create or be part of organization environments.
-		            \end{enumerate}
-
 		            % TODO: does this belong here?
 		      \item Every user has to have a personal environment.
 
 		            % TODO: does this belong here?
 		      \item Personal environments must be tightly coupled with users, i.e. when a user is
 		            deleted so is his personal environment.
+
+		      \item Implement Guest users.
+		            \begin{enumerate}
+			            \item The MS must support guest users, which are users that don't sign in with their personal
+			                  information.
+
+			            \item The MS should offer a restricted set of functionalities to guest
+			                  users.
+
+			            \item Guest users must have the ability to transfer their assets to a normal user.
+
+			            \item Guest users can must not be able to create or be part of organization environments.
+		            \end{enumerate}
+
 	      \end{enumerate}
 
 
@@ -358,8 +417,12 @@ architecture, user management, and role assignments.
 		      \item Find a suitable permission inheritance model for roles based on the folder
 		            structure of an environment (e.g. a user with a role in a parent
 		            folder, has the same permissions in all subfolders).
-		      \item Ensure roles are always enforced in the backend.
-		      \item The frontend UI must adapt to a user's roles, by only showing options that the user has permission to do.
+
+		      \item Roles must always be enforced in the backend, to ensure privacy within
+		            organization environments.
+
+		      \item The frontend UI must adapt to a user's roles, by only showing him options that
+		            are allowed by his roles.
 	      \end{enumerate}
 \end{enumerate}
 
@@ -387,11 +450,11 @@ This means that where possible, simple solutions should be favored over complex 
 		      \item Choose a simple data structure for the folder system, with straightforward
 		            functions for modification.
 
-		      \item Create simple abstractions for the backend code of the MS, that allow to
-		            acknowledge a user's environment with minimal effort.
+		      \item Create simple helper functions for the backend of the MS to easily
+		            identify a user's environment and verify their permissions.
 
-		      \item Create a simple abstraction for the frontend, that facilitates adapting
-		            the Interface for each.
+		      \item Create simple helper functions for the frontend of the MS, to easily adapt
+		            the interface to a user's permissions within an environment.
 	      \end{enumerate}
 
 	      % \item Environments should be easy to create, manage and delete.
