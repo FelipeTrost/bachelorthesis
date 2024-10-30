@@ -15,14 +15,12 @@
 In today's digital age, businesses heavily rely on cloud applications
 to work on their assets, e.g. documents, spreadsheets, and presentations.
 Cloud applications are software tools that are accessed and run entirely over the internet.
-Typically, a copy of the application runs on a remote computer in a data center, this copy is called an instance.
+Typically, a copy of the application runs on a remote computer in a data center. %, this copy is called an instance.
 Users access it through a web browser or a dedicated application.
 These tools represent a paradigm shift from traditional software applications,
 where the majority of the work was done on the user's device.
 Shifting a part, or even all the workload to a remote computer offers many advantages
 for both the users and the developers of applications:
-
-\vspace{-1em} % Negative value to remove space
 
 \begin{itemize}
 	\item Accessibility: Cloud applications can be accessed anywhere from anywhere with an internet connection.
@@ -52,26 +50,28 @@ for both the users and the developers of applications:
 	      accessed through a browser, users don't have to install anything.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
-	\includegraphics[scale=0.5]{images/basic-cloud-services.drawio.png}
+	\includegraphics[scale=0.45]{images/basic-cloud-services.drawio.png}
 	\caption{Users can access cloud applications from different geographical locations and from a variety of devices, such as laptops, smartphones, or tablets, as long as they have an internet connection.}
 	\label{fig:cloud-applications}
-	\vspace{-1em} % Negative  oalue to remove space
+	\vspace{-2em} % Negative  oalue to remove space
 \end{figure}
-
+\FloatBarrier
 % A key selling point of these, is that companies don't have to do any technical work setting the software up, they can pay for a subscription and start using the tool right away, either through a browser or by installing an executable on their computer.
 % A very important technical aspect for such tools, that enables the ease of use, is the ability to support multiple companies using them at once.
-
+%
 % Most of these benefits only apply if all users interact with the same cloud application.
 % This means that the users interact with what appears to them to be a single application
 % This is called multi-tenancy, and it is implemented by most popular cloud applications, e.g. by Teams, Slack, Asana, and many more.
 % A tenant can be seen as an entity that uses the application, which can be either a single user or an organization made up of many users.
 
-One very common feature that makes these benefits possible is called \textit{multi tenancy}.
-\textit{Multi tenancy} is a software architecture in which one single instance of an application
+One very common feature that makes these benefits possible is called \textit{multi-tenancy}.
+\textit{Multi-tenancy} is a software architecture in which an application
 can be used by multiple users or organizations at the same time.
-Without \textit{multi tenancy}, each user or organization would need to run the application on
+This has to be achieved without a new execution
+of the application, also referred to as an \textit{instance}, for each user or organization.
+Without \textit{multi-tenancy}, each user or organization would need to run the application on
 their own computers,
 negating most of the benefits listed earlier.
 
@@ -79,7 +79,7 @@ negating most of the benefits listed earlier.
 % time, even though it looks like they each have their own private version.
 
 % NOTE: maybe take this out
-Think of an application that supports \textit{multi tenancy} like a big apartment building.
+Think of an application that supports \textit{multi-tenancy} like a big apartment building.
 Each tenant (user or organization) has their
 own private apartment (their space), where they store their belongings (their assets).
 Every tenant is living in the same building (cloud application), but each tenant has their
@@ -92,15 +92,15 @@ see and interact with your own team.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.45]{images/mt-cloud-services.png}
-	\caption{Multi tenancy in cloud applications: the same instance of the cloud
+	\caption{\textit{Multi-tenancy} in cloud applications: the same instance of the cloud
 		application, can be used by different tenants, with different structures, without them knowing about each other.}
-	\vspace{-1em} % Negative value to remove space
 	\label{fig:multi-tenant=cloud-applications}
-	\vspace{-1em} % Negative value to remove space
 \end{figure}
+\FloatBarrier
 
 The PROCEED Management System (MS for short) is a cloud application for managing business
-processes, which are sequences of tasks and decision points designed to achieve a specific
+processes.
+Business processes are sequences of tasks and decision points designed to achieve a specific
 business goal.
 PROCEED uses BPMN (Business Process Model and Notation), a standardized
 graphical notation, to represent these processes visually.
@@ -108,7 +108,7 @@ graphical notation, to represent these processes visually.
 %(short for PROCess EnginE in a Distributed environment)% is a cloud application,
 % The PROCEED Management System (MS for short)
 % is a cloud application to manage business processes,
-% that currently lacks \textit{multi tenancy} support.
+% that currently lacks \textit{multi-tenancy} support.
 % It is a Business Process Management System
 % that uses BPMN at its core to model and execute business processes.
 %For readers unfamiliar with BPMN, 
@@ -126,13 +126,13 @@ graphical notation, to represent these processes visually.
 % 	\item Process Engine: the Process Engine interpret and execute BPMN processes.
 % \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.4]{images/proceed-ms-modeling.png}
 	\caption{Example of process modeling in PROCEED.}
-	\vspace{-1em} % Negative value to remove space
+	% \vspace{-1em} % Negative value to remove space
 \end{figure}
-
+\FloatBarrier
 
 % \begin{figure}[H]
 % 	\centering
@@ -155,7 +155,7 @@ graphical notation, to represent these processes visually.
 
 % TODO !!
 
-Currently, the MS lacks full \textit{multi tenancy} support.
+Currently, the MS lacks full \textit{multi-tenancy} support.
 It only supports individual users and doesn't fully support organizations.
 For organizations to be supported, members of the organization need to be able to have a
 shared workspace, where they can work on the same assets.
@@ -185,7 +185,7 @@ can either only see their own assets,  or they can see all assets.
 %This is because all assets are stored in a central database without a good way to isolate them from other tenants.
 %The only information that BPMN related assets are stored with, that helps towards isolating them from other tenants is the owner and a set of labels.
 
-For this reason, this thesis will implement \textit{multi tenant} functionality into the PROCEED MS by introducing the concept of environments.
+For this reason, this thesis will implement \textit{multi-tenant} functionality into the PROCEED MS by introducing the concept of environments.
 Conceptually, environments are spaces where one or more users can work on shared assets.
 The MS will be able to hold multiple isolated environments.
 This way, an organization can have its own environment, where all members of the
@@ -203,13 +203,14 @@ organization can work on shared assets.
 % Users cannot add, delete nor modify these labels.
 % Folders will provide more flexibility than labels.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.45]{images/proceed-workspaces-v2.drawio.png}
 	\caption{Goal of this thesis: tenants with different structures, can work on assets in their own isolated environments in
 		the PROCEED Management System.}
-	\label{fig:proceed-envitonments-overview}
+	% \label{fig:proceed-envitonments-overview}
 \end{figure}
+\FloatBarrier
 
 % These labels symbolize, what department the process belongs to. 
 
