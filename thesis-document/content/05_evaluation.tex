@@ -1,4 +1,238 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
 
-The evaluation of the thesis should be described in this chapter
+In this chapter we will evaluate the implementation of environments in the PROCEED MS,
+for this we will go through the requirements defined in \ref{cha:tasklist}.
+The primary goals of this thesis were to introduce environments as isolated workspaces for personal and organizational use,
+enable efficient asset management through a hierarchical folder structure,
+and adapt the MS's a role-based access control system to fit environments.
+The following \ref{fig:quick-evaluation} table shows a quick rundown of the evaluation.
+
+
+\begin{figure}[H]
+	\centering
+
+	\begin{tabular}{ | m{20em} | m{17em}| }
+		\hline
+		 Task & Status \\
+     \hline
+      1. Implement environments &  Partially implemented: folders only work for processes. \\
+     \hline
+      2. Personal and organization Environments &  Implemented \\
+     \hline
+      3. Adapt the MS' user management system to fit environments &  Implemented \\
+     \hline
+      4. Adapt the MS' role system to fit environments &  Implemented \\
+     \hline
+  %    1.a & x \\
+		%  1.b &  \\
+		%  1.c &  \\
+		%  1.d &  \\
+		%
+		%  2.a &  \\
+		%  2.b &  \\
+		%  2.c &  \\
+		%  2.d &  \\
+		%  2.e &  \\
+		%  2.f &  \\
+		%  2.g &  \\
+		%  3.a & \\
+		%
+		%  3.b.i &  \\
+		%
+		%  3.b.ii &  \\
+		%  3.b.iii &  \\
+		%  3.b.iv &  \\
+		%  3.c &  \\
+		%  3.d &  \\
+		%
+		%  4.a &  \\
+		%  4.b &  \\
+		%  4.c &  \\
+		%  4.d &  \\
+		%  4.e &  \\
+		% ------------------------------------------------------------------------------
+	\end{tabular}
+
+	\caption{Evaluation of Task List.}
+	\label{fig:quick-evaluation}
+\end{figure}
+
+According to \textbf{task 1} Environments are stored as entries in the MS's storage
+solution with a unique id.
+Every asset in the MS explicitly stores the id of the environment it belongs to.
+Memberships to environments are stored in a separate table, where each entry has a user id
+and an environment id,
+later on we will explain how the access to assets is managed.
+Furthermore, each environment has a root folder, which contains more folders and
+processes.
+Apart from root folders, both process and folders store the id of the folder they belong
+to.
+
+According to \textbf{task 2} environments store a flag to determine whether they are a
+personal or an organization environment.
+Personal environments are created when a user is created and organization environments can
+be created by signed-in users.
+Personal environments have a restricted feature-set, this is enforced by the permissions
+system (task 4).
+
+According to \textbf{task 3}, the user management was redesigned to accommodate
+multi-tenancy,
+users are now stored independently of the environments they belong to.
+This allows for them to be part of multiple environments.
+Users also have the option to sign in as a guest, which allows them to try the MS inside
+a personal environment, without having to sign up, however they can not create of be part
+of organization environments.
+
+According to \textbf{task 4}, the MS's role system was adapted to fit environments and
+folders. In its essence, roles work as they do before with two key differences:
+Each role belongs to an environment and is only applied for assets inside that
+environment, and roles can be scoped to folders, meaning that its permissions apply on all
+descendants of the folder.
+The role system was also leveraged to restrict the feature set of personal environments:
+while personal environments don't have roles, the MS still uses the role system to manage
+access to assets inside personal environments, it gives the owner of the environment all
+permissions for the allowed features and restricts the rest.
+
+\begin{enumerate}
+	\item The MS has to support environments, isolated spaces where users can work on their
+	      assets. \label{cha:tasklist:item-environments}
+	      \begin{enumerate}
+		      \item Every asset in the MS \ref{cha:relatedwork:proceed-assets} must be stored in only one environment.
+
+		      \item Assets stored in one environment can only be accessed by members of that
+		            environment.
+
+		      \item Environments must have a hierarchical folder system to store assets.
+		            \begin{enumerate}
+			            \item Find a suitable abstraction to represent folders in a database
+			                  that facilitates consistency after updates and is fast to query.
+
+			            \item Ensure privacy between environments.
+
+			                  % escribir aca ya que tiene que haber herencia
+			                  % reescribir should be modified no es tan fuerte/
+			                  % likely redundant
+
+			                  % depending on the folder the asset is in.
+		            \end{enumerate}
+
+		            % NOTE: replace concurrently with eaesier word
+		      \item The MS must be able to hold multiple environments and let users access them concurrently.
+
+	      \end{enumerate}
+	      % ---------------------------------------------------------------------------------------
+	      % ---------------------------------------------------------------------------------------
+
+	      %write about how there are personal and organization environments
+	\item Implement personal and organization environments. While both are environments
+	      and share common functionality as described in
+	      \ref{cha:tasklist:item-environments}, they must behave differently in some
+	      situations.
+	      \begin{enumerate}
+		      \item Personal environments can only have one member.
+
+		      \item Personal environments can only store Processes and Folders.
+
+		      \item Organization environments support all assets described in \ref{cha:relatedwork:proceed-assets}.
+
+		      \item Organization environments can have a name and description.
+
+		      \item Organization environments must support multiple members, i.e. multiple users can
+		            work on the assets stored inside of it.
+
+		      \item Organization environments must have a role system, where roles can be assigned to
+		            users, to manage their access to assets.
+
+		      \item Users of organization environments that have right permissions must be able to invite users
+		            to the organization environment.
+	      \end{enumerate}
+
+
+	\item The MS's user management has to be adapted to fit environments: before the
+	      implementation of this thesis, users where strictly tied to one instance of the MS,
+	      meaning each time a new instance of the MS was created, a new user storage had to be
+	      configured.
+	      \begin{enumerate}
+		      \item Users have to be global, meaning that they don't belong to any environment.
+
+		      \item Implement Guest users.
+		            \begin{enumerate}
+			            \item Allow users to try the MS without signing in with their personal
+			                  information.
+			            \item Guest users can sign in with their personal information and become a normal
+			                  user.
+			            \item Guest users can transfer their assets to a normal user.
+
+			            \item Guest users can not create or be part of organization environments.
+		            \end{enumerate}
+
+		            % TODO: does this belong here?
+		      \item Every user has to have a personal environment.
+
+		            % TODO: does this belong here?
+		      \item Personal environments must be tightly coupled with users, i.e. when a user is
+		            deleted so is his personal environment.
+	      \end{enumerate}
+
+
+	\item The MS's preexisting role system must be adapted to fit organization environments
+	      and their folder structure:
+	      The MS already has a role system in place to manage users' access to resources,
+	      this has to be adapted to work with organization environments.
+	      \begin{enumerate}
+		      \item Roles must belong to only one organization environment.
+		      \item The role system must be replicated for each environment, i.e. it works the
+		            same as before, with the difference that it is now specific to an environment.
+		            E.g. if a role allowed a user to manage all processes before the implementation of
+		            environments, now, with the same role, he will be able to modify all processes
+		            inside the organization environment the role belongs to.
+		      \item Find a suitable permission inheritance model for roles based on the folder
+		            structure of an environment (e.g. a user with a role in a parent
+		            folder, has the same permissions in all subfolders).
+		      \item Ensure roles are always enforced in the backend.
+		      \item The frontend UI must adapt to a user's roles, by only showing options that the user has permission to do.
+	      \end{enumerate}
+\end{enumerate}
+
+The following are non-functional requirements that have to be met for the implementation
+of environments in the MS.
+The goal of these is to ensure that the implementation is user-friendly and most
+importantly developer-friendly, as many developers will have to work with the codebase in
+the future.
+This means that where possible, simple solutions should be favored over complex ones.
+
+\begin{enumerate}
+	\item Keep changes to the MS to a minimum.
+
+	      % \item The implementation shouldn't be repetitive, the same functional components should be used for both personal and organization environments.
+
+	\item The user interface for navigating and managing folders and environments should
+	      be intuitive and easy to use.
+
+	\item Prioritize developer experience by creating clear abstractions and APIs.
+	      \begin{enumerate}
+		      \item The same data structure and functions should be used for both personal and organization
+		            environments where possible. E.g. the same function that creates a folder in a
+		            personal environment should be used to create a folder in an organization environment.
+
+		      \item Choose a simple data structure for the folder system, with straightforward
+		            functions for modification.
+
+		      \item Create simple abstractions for the backend code of the MS, that allow to
+		            acknowledge a user's environment with minimal effort.
+
+		      \item Create a simple abstraction for the frontend, that facilitates adapting
+		            the Interface for each.
+	      \end{enumerate}
+
+	      % \item Environments should be easy to create, manage and delete.
+	      %   \begin{enumerate}
+	      %     \item The frontend should provide intuitive interfaces for creating and deleting organization environments.
+	      %       // not functional
+	      %     \item Provide well documented APIs to create, manage and delete environments both for the frontend and the backend.
+	      %       needs more description. ldap
+	      %     \item Environments should provide the option to import an existing user database.
+	      %   \end{enumerate}
+\end{enumerate}
+

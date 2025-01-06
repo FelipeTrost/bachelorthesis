@@ -59,9 +59,9 @@
 \contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{31}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{32}{subsection.4.5.3}%
 \contentsline {chapter}{\numberline {5}Evaluation}{35}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{36}{chapter.6}%
-\contentsline {chapter}{\nonumberline List of Tables}{37}{chapter*.15}%
-\contentsline {chapter}{\nonumberline List of Figures}{38}{chapter*.16}%
-\contentsline {chapter}{Appendices}{39}{section*.17}%
-\contentsline {chapter}{\nonumberline Appendix 1}{41}{chapter*.18}%
+\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
+\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.16}%
+\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.17}%
+\contentsline {chapter}{Appendices}{41}{section*.18}%
+\contentsline {chapter}{\nonumberline Appendix 1}{43}{chapter*.19}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
