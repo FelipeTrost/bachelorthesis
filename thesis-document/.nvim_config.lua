@@ -19,15 +19,15 @@ vim.cmd("set spell spelllang=en_us");
 vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
 vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
 
--- require("auto-save").setup({
---   enabled = true,
---   write_all_buffers = true,
---   debounce_delay = 1000,
---   execution_message = {
---     message = function()
---       return ""
---     end,
---   },
--- })
---
--- vim.o.autowriteall = true
+require("auto-save").setup({
+  enabled = true,
+  write_all_buffers = true,
+  debounce_delay = 1000 * 60 * 5,
+  execution_message = {
+    message = function()
+      return ""
+    end,
+  },
+})
+
+vim.o.autowriteall = true

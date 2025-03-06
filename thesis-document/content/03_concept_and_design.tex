@@ -528,10 +528,11 @@ can be stored in folders, will be affected by the association.
 % will only apply to the assets that are in the folder's subtree.
 %
 The permissions of roles that are associated with a folder cascade down the
-folder structure, i.e. a role associated to a folder will also apply to all of its children.
+folder structure, i.e. a role associated to a folder will also apply to all of its
+descendants.
 In this thesis, the folder structure was only implemented for processes,
 this means that only the permissions for processes and folders will apply to the
-associated folder's subtree.
+associated folder's descendants.
 Roles that aren't associated to a folder will continue to apply to all assets in the environment.
 % As roles are meant to mirror a users position in an organization, they're only available
 % for organization environments.
