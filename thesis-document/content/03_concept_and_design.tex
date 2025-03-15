@@ -63,7 +63,12 @@ This way, when a user is signing in with credentials from an Oauth2 provider,
 the MS can look up the corresponding account to the credentials, and then find the user
 that the account is linked to.
 
-% TODOFIG: show relationship between users and accounts;
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{images/users-accounts-relation.drawio.png}
+	\caption{Relation between users and accounts.}
+	\vspace{-1em} % Negative value to remove space
+\end{figure}
 % caption: Relationship between users and accounts.
 
 \subsection{Merging a Guest User with an Authenticated User}
@@ -255,7 +260,12 @@ their position in the tree.
 	      \end{itemize}
 \end{itemize}
 
-% TODOFIG show simple examples for each model
+% TODO: figure out spacing
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{./images/tree-map.drawio.png}
+	\caption{Comparison of the Adjacency List, Nested Set, and Materialized Path models.}
+\end{figure}
 
 % It is worth noting, that for each of these models, we will have to sepparately delete all
 % processes that are stored in the folder
@@ -537,7 +547,11 @@ Roles that aren't associated to a folder will continue to apply to all assets in
 % As roles are meant to mirror a users position in an organization, they're only available
 % for organization environments.
 
-% TODOFIG: show how roles cascade
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{./images/tree-roles.drawio.png}
+	\caption{Permissions of roles cascade down the folder structure.}
+\end{figure}
 
 If a user's role allows him to view assets and is associated to a folder, then the user
 also has the permission to view all ancestors of the folder.

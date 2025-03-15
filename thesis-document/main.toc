@@ -24,45 +24,44 @@
 \contentsline {subsection}{\numberline {3.2.1}Authenticated Users and Accounts}{15}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Merging a Guest User with an Authenticated User}{15}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Guest User Storage}{15}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Development Users}{15}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.4}Development Users}{16}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}Folders}{16}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Folder Structure Model}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Storing Assets Inside Folders}{18}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Environments}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Personal Environments}{19}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Organization Environments}{19}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Environment Memberships}{19}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Storing Assets inside Environments}{19}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Environment Selection}{20}{subsection.3.4.5}%
-\contentsline {section}{\numberline {3.5}Roles}{20}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}New Resources}{21}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Enforcing Permissions Based on Folder Structure}{21}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Default Roles}{21}{subsection.3.5.3}%
-\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}%
-\contentsline {section}{\numberline {4.1}MS Architecture}{23}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Endpoints}{23}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Data storage}{24}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Users}{24}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Sign In Flows}{24}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Authenticated Users}{25}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Guest Users}{27}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.5}Development Users}{29}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Assets}{29}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Environments}{29}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Creation of Personal Environments}{29}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Creation of Organization Environments}{30}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Adding Users to an Environment}{30}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Environment Selection}{30}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Memberships}{31}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Roles}{31}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}New Resources}{32}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{32}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{33}{subsection.4.5.3}%
-\contentsline {chapter}{\numberline {5}Evaluation}{36}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Outlook}{38}{section.6.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.16}%
-\contentsline {chapter}{\nonumberline List of Figures}{42}{chapter*.17}%
-\contentsline {chapter}{Appendices}{43}{section*.18}%
-\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.19}%
+\contentsline {subsection}{\numberline {3.3.2}Storing Assets Inside Folders}{19}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Environments}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Personal Environments}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Organization Environments}{20}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Environment Memberships}{20}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Storing Assets inside Environments}{20}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Environment Selection}{21}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Roles}{21}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}New Resources}{22}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Enforcing Permissions Based on Folder Structure}{23}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Default Roles}{23}{subsection.3.5.3}%
+\contentsline {chapter}{\numberline {4}Implementation}{24}{chapter.4}%
+\contentsline {section}{\numberline {4.1}MS Architecture}{24}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Endpoints}{24}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Data storage}{25}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Users}{25}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Sign In Flows}{25}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Authenticated Users}{26}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Guest Users}{28}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.5}Development Users}{30}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Assets}{30}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Environments}{30}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Creation of Personal Environments}{30}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Creation of Organization Environments}{31}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Adding Users to an Environment}{31}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Environment Selection}{31}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Memberships}{32}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Roles}{32}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}New Resources}{33}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{33}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{34}{subsection.4.5.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{38}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Outlook}{38}{section.5.1}%
+\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.19}%
+\contentsline {chapter}{\nonumberline List of Figures}{42}{chapter*.20}%
+\contentsline {chapter}{Appendices}{43}{section*.21}%
+\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.22}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

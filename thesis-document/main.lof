@@ -8,14 +8,16 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Cloud Application.}}{10}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison between Adjacency List, Nested Set and Materialized Path models.}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Relation between users and accounts.}}{15}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparison of the Adjacency List, Nested Set, and Materialized Path models.}}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comparison between Adjacency List, Nested Set and Materialized Path models.}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Permissions of roles cascade down the folder structure.}}{22}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Prompt to fill in personal information.}}{26}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Form for creating an organization environment.}}{30}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Selection of environments in the MS's navigation bar.}}{31}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt to fill in personal information.}}{32}{figure.caption.14}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Evaluation of Task List.}}{36}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Prompt to fill in personal information.}}{27}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Form for creating an organization environment.}}{31}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Selection of environments in the MS's navigation bar.}}{32}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt to fill in personal information.}}{33}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Evaluation of Task List.}}{36}{figure.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
