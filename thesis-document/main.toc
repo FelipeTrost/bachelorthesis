@@ -58,10 +58,11 @@
 \contentsline {subsection}{\numberline {4.5.1}New Resources}{33}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{33}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{34}{subsection.4.5.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Outlook}{38}{section.5.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.19}%
-\contentsline {chapter}{\nonumberline List of Figures}{42}{chapter*.20}%
-\contentsline {chapter}{Appendices}{43}{section*.21}%
-\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.22}%
+\contentsline {chapter}{\numberline {5}Evaluation}{37}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Outlook}{41}{section.6.1}%
+\contentsline {chapter}{\nonumberline List of Tables}{43}{chapter*.24}%
+\contentsline {chapter}{\nonumberline List of Figures}{44}{chapter*.25}%
+\contentsline {chapter}{Appendices}{47}{section*.26}%
+\contentsline {chapter}{\nonumberline Appendix 1}{49}{chapter*.27}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

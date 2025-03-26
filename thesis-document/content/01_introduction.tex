@@ -443,7 +443,7 @@ architecture, user management, and role assignments.
 	      \end{enumerate}
 \end{enumerate}
 
-The following are non-functional requirements that have to be met for the implementation
+The following are non-functional tasks that have to be achieved with the implementation
 of environments in the MS.
 The goal of these is to ensure that the implementation is user-friendly and most
 importantly developer-friendly, as many developers will have to work with the codebase in
@@ -467,11 +467,14 @@ This means that where possible, simple solutions should be favored over complex 
 		      \item Choose a simple data structure for the folder system, with straightforward
 		            functions for modification.
 
-		      \item Create simple helper functions for the backend of the MS to easily
-		            identify a user's environment and verify their permissions.
+		      \item Streamline environment identification and permissions check in the
+                backend.
+                % Create simple helper functions for the backend of the MS to easily
+                % identify a user's environment and verify their permissions.
 
-		      \item Create simple helper functions for the frontend of the MS, to easily adapt
-		            the interface to a user's permissions within an environment.
+		      \item Create simpler helper functions for the frontend of the MS, to adapt
+		            the interface to a user's permissions within an environment, than the
+                existing functions for current role system.
 	      \end{enumerate}
 
 	      % \item Environments should be easy to create, manage and delete.

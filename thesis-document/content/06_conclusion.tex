@@ -1,32 +1,66 @@
 \chapter{Conclusion}
 \label{cha:conclusion}
 
+% Building an application structure that supports multi-tenancy presents many challenges,
+%
+% This thesis addressed the challenge of implementing multi-tenancy in the PROCEED
+% Management System (MS).
+%
+% by introducing the concept of environments. These environments
+% offer isolated workspaces for users, supporting both personal and organizational use cases
+% while maintaining the flexibility and security required for cloud-based applications.
+%
+%
+% The shift to multi-tenancy required rethinking how assets and users are stored. 
+% We introduced personal environments, where a single user can manage assets privately, and
+% organization environments, where multiple users can collaborate on shared folders and
+% processes. 
+% Along with the environment concept, we adapted the existing role system so that
+% permissions now respect both the folder hierarchy and environment boundaries, ensuring
+% that users only interact with assets they are supposed to.
+%
+% A major focus was to keep the underlying code changes minimal and 
+% to make the new abstraction straightforward to use from a developer perspective.
+% Enforcing access rules in the backend through CASL and providing helper functions for the
+% frontend were crucial steps to maintain security and consistency across the MS.
+% We also paid careful attention to the handling of guest users, giving them the option to merge
+% their data with fully authenticated accounts without losing the assets they created.
+%
+% Overall, the work presented here lays the foundation for a robust multi-tenant experience in the PROCEED MS. It strikes a balance between introducing an entirely new concept—environments—and preserving the existing structure of the system so that both end users and developers can comfortably adapt to the new features.
+%
+
+
+% NOTE: maybe mention this??
+% Nowadays software is so advanced in multi tenant platforms, companies have come to expect
+% a lot of features from such software.
+% Other than the role system this thesis implements the bare minimum to provide such an
+% experience.
+
 Building an application structure that supports multi-tenancy presents many challenges,
+as demonstrated throughout this thesis.
+In addressing these challenges within the PROCEED Management System (MS),
+we introduced the concept of environments, isolated workspaces that
+support both individual and collaborative use cases.
 
-This thesis addressed the challenge of implementing multi-tenancy in the PROCEED
-Management System (MS).
+Significant architectural adjustments were required, particularly in restructuring how assets are managed.
+Assets were adapted to explicitly associate them with specific environments, ensuring clear ownership and secure isolation.
+To enhance organization and reflect user hierarchies more accurately, a flexible folder structure was implemented.
+The preexisting role system was adapted to respect environment boundaries and folder
+structures, ensuring isolation and further enhancing the ability to represent an organization's hierarchy.
 
-by introducing the concept of environments. These environments
-offer isolated workspaces for users, supporting both personal and organizational use cases
-while maintaining the flexibility and security required for cloud-based applications.
+Key challenges included restructuring the MS without disrupting existing functionality,
+ensuring robust privacy and isolation between environments,
+and adapting the role system to account for both folder and environment-specific permissions.
+Moreover, the introduction of guest users added complexity to the authentication flows.
 
+% We developed solutions that are closely aligned with the MS’s existing architecture.
+% Leveraging CASL for backend permission enforcement and crafting simple, effective abstractions facilitated seamless frontend integration.
 
-The shift to multi-tenancy required rethinking how assets and users are stored. 
-We introduced personal environments, where a single user can manage assets privately, and
-organization environments, where multiple users can collaborate on shared folders and
-processes. 
-Along with the environment concept, we adapted the existing role system so that
-permissions now respect both the folder hierarchy and environment boundaries, ensuring
-that users only interact with assets they are supposed to.
-
-A major focus was to keep the underlying code changes minimal and 
-to make the new abstraction straightforward to use from a developer perspective.
-Enforcing access rules in the backend through CASL and providing helper functions for the
-frontend were crucial steps to maintain security and consistency across the MS.
-We also paid careful attention to the handling of guest users, giving them the option to merge
-their data with fully authenticated accounts without losing the assets they created.
-
-Overall, the work presented here lays the foundation for a robust multi-tenant experience in the PROCEED MS. It strikes a balance between introducing an entirely new concept—environments—and preserving the existing structure of the system so that both end users and developers can comfortably adapt to the new features.
+% While most outlined objectives were successfully achieved,
+% there remain opportunities for future work.
+% such as extending the folder structure to support additional asset types. 
+% Nevertheless, this thesis establishes a robust foundation for multi-tenancy in the PROCEED
+% MS.
 
 
 
@@ -37,14 +71,21 @@ Overall, the work presented here lays the foundation for a robust multi-tenant e
 \section{Outlook}
 \label{cha:outlook}
 
-Nowadays software is so advanced in multi tenant platforms, companies have come to expect
-a lot of features from such software.
-Other than the role system this thesis implements the bare minimum to provide such an
-experience.
-There are still many features that could be implemented to improve the expierience.
+% There are still many features that could be implemented to improve the expierience.
+%
+% - sharing documents to members that arent part of the organization
+% - Support for user directives -> everyone doesn't have to create an account manually
+%   - here it could be also possible that an organization is created and all accounts from
+%     the user directive are automatically added 
+% -
 
-- sharing documents to members that arent part of the organization
-- Support for user directives -> everyone doesn't have to create an account manually
-  - here it could be also possible that an organization is created and all accounts from
-    the user directive are automatically added 
--
+While most outlined objectives were successfully achieved,
+there remain opportunities for future work,
+such as extending the folder structure to support additional asset types.
+
+Nevertheless, this thesis establishes a robust foundation for multi-tenancy in the PROCEED
+MS allowing numerous additional features to be explored to further enhance user experience and productivity.
+For example enabling real-time collaboration on assets such as processes.
+
+Additionally, introducing user directives would significantly simplify user and organization management by enabling automated account creation and streamlined onboarding processes. 
+
