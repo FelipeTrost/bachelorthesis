@@ -63,6 +63,7 @@
 \contentsline {section}{\numberline {6.1}Outlook}{41}{section.6.1}%
 \contentsline {chapter}{\nonumberline List of Tables}{43}{chapter*.24}%
 \contentsline {chapter}{\nonumberline List of Figures}{44}{chapter*.25}%
-\contentsline {chapter}{Appendices}{47}{section*.26}%
-\contentsline {chapter}{\nonumberline Appendix 1}{49}{chapter*.27}%
+\contentsline {chapter}{\nonumberline Bibliography}{46}{chapter*.26}%
+\contentsline {chapter}{Appendices}{47}{section*.27}%
+\contentsline {chapter}{\nonumberline Appendix 1}{49}{chapter*.28}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
