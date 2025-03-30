@@ -1,4 +1,21 @@
 \chapter*{Abstract}
 \label{cha:abstract}
 
-In this thesis, we show that lorem ipsum dolor sit amet.
+This thesis explores the integration of multi-tenancy functionality into cloud
+applications, on the example of the PROCEED Management System (MS).
+Currently, the PROCEED MS lacks comprehensive multi-tenancy support, restricting collaborative workflows primarily to individual users.
+To address this limitation, isolated environments were introduced, enabling multiple users
+or organizations to collaboratively manage their assets within distinct, secure
+workspaces.
+
+%Roles where adapted and Folder structure created to mirror organizational structures and enhance asset management.
+A hierarchical folder structure was designed to mirror organizational structures and enhance asset management.
+The existing Role-Based Access Control (RBAC) system within PROCEED was also extended to incorporate environment-specific and folder-specific permissions.
+
+Key aspects of the implementation included restructuring asset and user management,
+% integrating OAuth 2.0 and OpenID Connect for robust user authentication,
+and establishing clear, efficient database schemas for environments and their related assets.
+The developed solution supports personal and organizational environments, allowing users to seamlessly transition between independent projects and collaborative tasks.
+
+The evaluation confirms the successful fulfillment of the outlined functional and
+non-functional requirements.
