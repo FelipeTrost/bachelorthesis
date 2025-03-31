@@ -5,7 +5,7 @@
 % for this we will go through the requirements defined in \ref{cha:tasklist}.
 % The primary goals of this thesis were to introduce environments as isolated workspaces for personal and organizational use,
 % enable efficient asset management through a hierarchical folder structure,
-% and adapt the MS's a role-based access control system to fit environments.
+% and adapt the MS' a role-based access control system to fit environments.
 % The following \ref{fig:task-list-functional-quick-evaluation} table shows a quick rundown of the evaluation.
 In this chapter, we evaluate the implementation of environments in the PROCEED MS by
 reviewing the requirements defined in section \ref{cha:tasklist}.
@@ -63,7 +63,7 @@ Table \ref{fig:task-list-functional-quick-evaluation} provides an overview of th
 	\label{fig:task-list-functional-quick-evaluation}
 \end{figure}
 
-According to \textbf{task 1} Environments are stored as entries in the MS's storage
+According to \textbf{task 1} Environments are stored as entries in the MS' storage
 solution with a unique id.
 Every asset in the MS explicitly stores the id of the environment it belongs to.
 Memberships to environments are stored in a separate table, where each entry has a user id
@@ -80,7 +80,7 @@ Personal environments are created when a user is created and organization enviro
 be created by signed-in users.
 Personal environments have a restricted feature-set, this is enforced by the role
 system, this will be explained in more detail when we address task 4.
-Users in organization environments can potentially use all the MS's features, this is
+Users in organization environments can potentially use all the MS' features, this is
 determined by the roles they have inside that environment.
 The user that creates an organization environment is assigned the role of admin inside
 that environment.
@@ -92,14 +92,14 @@ members with the right permissions.
 
 According to \textbf{task 3}, the user management was redesigned to accommodate
 multi-tenancy,
-users are now stored as records in the MS's storage solution independently of the environments they belong to.
+users are now stored as records in the MS' storage solution independently of the environments they belong to.
 This allows for them to be part of multiple environments.
 Users also have the option to sign in as a guest, which allows them to try the MS inside
 a personal environment without having to sign up.
 Guest users are stored as other users, but with a flag that indicates that they are a
 guest.
 
-According to \textbf{task 4}, the MS's role system was adapted to fit environments and
+According to \textbf{task 4}, the MS' role system was adapted to fit environments and
 folders. In its essence, roles work as they do before with two key differences:
 Each role belongs to an environment and is only applied for assets inside that
 environment, and roles can be scoped to folders, meaning that its permissions apply on all

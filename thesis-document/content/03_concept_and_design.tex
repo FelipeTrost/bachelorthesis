@@ -13,28 +13,26 @@ All other components that will be introduced will help to manage and enforce the
 \section{Modifications to Assets and Resources}
 
 This thesis will modify the assets \ref{cha:relatedwork:proceed-assets} and the resources
-\ref{cha:relatedwork:proceedroles:ms-resources-actions} supported by the MS.
-Assets \ref{cha:conceptanddesign:environments:storing-assets} and
-Resources \ref{cha:conceptanddesign:roles} will be modified to be contained inside environments.
-Additionally, Environments will be added to the MS' assets and resources.
+\ref{cha:relatedwork:proceedroles:ms-resources-actions} that supported by the MS,
+these will be modified to be contained inside environments.
+Additionally, environments will be added to the MS' assets and resources.
 As will be explained in \ref{cha:conceptanddesign:users}, Users won't belong to a single
 environment, they can instead be members of multiple environments, for this reason,
-users will be removed from the MS's assets and resources.
-Furthermore, folders \ref{cha:conceptanddesign:folders} and  memberships
-\ref{cha:conceptanddesign:environments:memberships} will be added to the MS' assets and
+users will be removed from the MS' assets and resources.
+Furthermore, folders and  memberships will be added to the MS' assets and
 resources.
 
 \section{Users}
 \label{cha:conceptanddesign:users}
 %NOTE: maybe change the sctructure of this paragraph a bit
 
-Previously users in the MS represented a member of a single organization.
+Previously all users in the MS were members of a single organization.
 In order for users to be part of multiple organizations, they can't be tied to a single
 organization.
 As a part of the implementation of environments, users are now independent of
 organizations,
-they now represent individual people utilizing PROCEED and will be stored as entries in
-the MS's storage solution \ref{cha:ms-architecture:data-storage}.
+they represent individual people utilizing PROCEED and will be stored as entries in
+the MS' storage solution \ref{cha:ms-architecture:data-storage}.
 % A single person can have one or more users, but each user is intended for individual use.
 
 To facilitate the exploration of the MS, without creating a user, we introduce the option
@@ -86,15 +84,15 @@ Otherwise, all the assets created by the guest user will be deleted.
 \subsection{Guest User Storage}
 
 For storing guest user data, one could take one of two approaches:
-storing the data in the user's browser or storing it in the MS's database, alongside the
+storing the data in the user's browser or storing it in the MS' database, alongside the
 data of authenticated users.
 Storing the data locally has two great benefits:
 The MS doesn't have to store data of users who might never return and
 the MS would become less susceptible to an attack where the attacker tries to use up as
-much space as possible in the MS's storage solution.
+much space as possible in the MS' storage solution.
 However, this approach has one key downside, the MS would have to implement two storage
 solutions and the frontend would need to switch accordingly between them.
-The added complexity would make it harder for developers to get an overview of the MS's
+The added complexity would make it harder for developers to get an overview of the MS'
 codebase and it also makes it harder to use coding assistance features of IDEs like Goto
 definition \footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/\#textDocument_definition}}.
 For this reason, storing guest user's data locally isn't worth the benefits.
@@ -107,7 +105,7 @@ This way, all the endpoints that authenticated users can call to interact with t
 can also be called by guest users.
 An important caveat is that, to enforce some of the feature restrictions, relevant
 endpoints have to check whether the user is a guest.
-Furthermore, the MS needs to clean up inactive guest users, to prevent the MS's storage
+Furthermore, the MS needs to clean up inactive guest users, to prevent the MS' storage
 solution from filling up with unused data.
 
 \subsection{Development Users}
@@ -119,7 +117,7 @@ For this reason the MS implements two development users: johndoe and admin.
 When the MS is in development mode, i.e. the environment variable \lstinline{NODE_ENV} is
 set to \lstinline{development},
 the sign-in page shows a new input field where you can enter the developments user's username.
-Both users are stored as authenticated users in the MS's database and can be used to test
+Both users are stored as authenticated users in the MS' database and can be used to test
 the MS during development.
 
 
@@ -133,7 +131,7 @@ the MS during development.
 \section{Folders}
 \label{cha:conceptanddesign:folders}
 
-Folders will be added to the MS's assets,
+Folders will be added to the MS' assets,
 they are intended to allow organizations to mirror their hierarchical structure and
 facilitate the organization of assets in general.
 Starting from a root folder, users should be able to store assets within folders and nest
@@ -459,7 +457,7 @@ This risk is mitigated by the fact, that the environment reference of assets is 
 % The key principle is that every asset belongs to one and only one environment, and this
 % association can be easily identified.
 
-% All of the MS's assets will only change in one way, they will somehow linked to an
+% All of the MS' assets will only change in one way, they will somehow linked to an
 % environment and only one.
 % For processes, they're contained in a folder, such that they clearly belong to one
 % environment. for other assets, they will store a reference to the environment they belong

@@ -1,93 +1,10 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-In this chapter, we will
-\footnote{\url{https://github.com/PROCEED-Labs/proceed}}
+In this chapter, we will discuss the most important aspects of the implementation of
+environments.
+% \footnote{\url{https://github.com/PROCEED-Labs/proceed}}
 
-\section {MS Architecture}
-\label{cha:ms-architecture}
-
-Before diving into the implementation details of environments, it is important to
-understand the architecture of the MS.
-The MS is built using Next.js \footnote{\url{https://nextjs.org/}}, a React \footnote{\url{https://reactjs.org/}}
-framework that allows for server-side rendering.
-Although Next.js' architecture is different from traditional server-side rendered
-applications and single-page applications,
-for the purposes of this thesis,
-it can be thought of as being split into a single-page frontend and a backend.
-The frontend executes JavaScript code in the user's browser, and is
-responsible for rendering the UI, handling user input and making requests to the backend.
-The backend runs on a server and is responsible for handling requests from the frontend,
-e.g. saving or querying data.
-
-\subsection{Endpoints}
-\label{cha:ms-architecture:endpoints}
-
-Next.js implements RPC (Remote Procedure Call), by allowing us to write functions that run
-in the server, which can be imported in the frontend and called with serializable arguments.
-All files that contain these functions need to use the "use server"
-directive\footnote{\url{https://react.dev/reference/rsc/use-server}}, either inside the
-function, or at the top of the file.
-These functions will be called endpoints from now on.
-
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Example of a Zod schema and the corresponding TypeScript type.},
-]
-  // server.js
-  function deleteProcess(environmentId, processId) {
-    "use server"
-
-    // delete process
-  }
-
-  // client.js
-  const button = document.getElementById('delete-process-button');
-  button.addEventLienvironmentId, processIdstener('click', (e) => {
-    const environmentId = e.target.dataset.environmentId
-    const processId e.target.dataset.processId
-    deleteProcess(environmentId, processId);
-  });
-\end{lstlisting}
-
-
-
-\subsection{Data storage}
-\label{cha:ms-architecture:data-storage}
-
-% TODO: footnote or something for json
-
-The MS doesn't use a database management system, instead it stores all data in JSON files.
-Each file can be seen as a table in a traditional relational database.
-Even though this approach allows for unstructured data, the MS uses
-Zod \footnote{\url{https://zod.dev/}} schemas to enforce a structure on
-data that is stored.
-Zod is a schema declaration and validation library, it allows the MS to define the shape
-of JSON serializable data.
-For purposes of simplicity, when we talk about a schema, instead of showing the code that
-describes the Schema, we will show the typescript type that satisfies the schema.
-
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Example of a Zod schema and the corresponding TypeScript type.},
-]
-import { z } from 'zod';
-
-const UserSchema = z.object({
-  id: z.string(),
-  username: z.string(),
-  image: z.string().optional(),
-})
-
-// TypeScript type that satisfies the UserSchema
-type User = {
-    id: string;
-    username: string;
-    image?: string | undefined;
-}
-\end{lstlisting}
 
 % TODO: either finish this or remove it
 % Additionally, the MS stores XML files for BPMN Assets.
@@ -108,8 +25,8 @@ type User = {
 \subsection{Sign In Flows}
 
 User authentication is implemented by leveraging OpenID Connect\ref{cha:relatedwork:oauth:openid},
-with the help of NextAuth.js\footnote{\url{https://next-auth.js.org/}}.
-A JWT token \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.txt}}
+with the help of the NextAuth.js\footnote{\url{https://next-auth.js.org/}} library.
+A JWT token\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.txt}}
 is stored in the user's browser cookies\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}},
 which is then parsed and verified by the MS' backend.
 % TODO: is "id" the correct word here
@@ -561,7 +478,7 @@ placed on the navigation bar.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{images/select-environment.png}
-	\caption{Selection of environments in the MS's navigation bar.}
+	\caption{Selection of environments in the MS' navigation bar.}
 	\vspace{-1em} % Negative value to remove space
 \end{figure}
 
@@ -623,13 +540,13 @@ type Role = {
 
 \subsection{New Resources}
 
-Folders and environments where added to the MS's resource list, and to the schema of
+Folders and environments where added to the MS' resource list, and to the schema of
 Roles, to allow for permissions to be set for them.
 This way abilities can perform checks on these resources and enforce permissions like
 % TODO: maybe instead of ref, write in the next chapter
 described in \ref{cha:relatedwork:proceedroles}.
 
-These resources, where also added to the MS's role management UI:
+These resources, where also added to the MS' role management UI:
 
 \begin{figure}[H]
 	\centering
