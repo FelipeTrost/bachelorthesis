@@ -354,19 +354,21 @@ RoleMappings store a user identifier ID and a role ID.
 \subsection{MS' Roles in CASL}
 \label{cha:relatedwork:proceedroles:casl}
 
-The PROCEED MS uses \footnote{https://casl.js.org/v6/en/}{CASL} to implement Rules. CASL
-is an isomorphic authorization JavaScript library.
-To enforce authorization CASL has abilities, which are assigned to users.
+The PROCEED MS uses CASL \footnote{https://casl.js.org/v6/en/} to implement Roles. 
+CASL is an isomorphic authorization JavaScript library.
+To enforce authorization CASL has \textit{abilities}, which are assigned to users.
 Abilities expose functions to check weather a user can perform an action on a resource.
-Abilities are defined by four parameters: user action, subject, fields, conditions.
+Abilities are made up of rules, which are defined by four parameters: user action, subject,
+% fields,
+conditions.
 User actions and subjects are analogous to actions and resources \ref{cha:relatedwork:proceedroles:terminology}.
 
 CASL differentiates between subject type and subject instance.
 A subject instance is a specific instance of a subject type, e.g. a specific process
 users are working on, is an instance of the resource type "Process".
 
-Fields are used to specify which fields of a resource instance an action can be performed
-on, e.g. a user can update a process's name, but not its id, or creation date.
+% Fields are used to specify which fields of a resource instance an action can be performed
+% on, e.g. a user can update a process's name, but not its id, or creation date.
 
 Conditions are used to specify additional conditions that have to be met by a resource
 instance, for a user to be able to perform an action on it. E.g. a user can only update a
@@ -419,7 +421,8 @@ user2Ability.can('update', 'Process'); // true
 user2Ability.can('update', user1Process); //false
 \end{lstlisting}
 
-If there exist any possible resource instance, where the user has permission to perform an action,
+If there exist any possible resource instance, where a user has permission to perform an action,
 then the user has permission to perform the action on the resource type.
-E.g if a user has permission to view some process in the MS, then he has permission to view .
+E.g if a user has permission to view some process in the MS, then he has permission to
+view the resource type "Process".
 

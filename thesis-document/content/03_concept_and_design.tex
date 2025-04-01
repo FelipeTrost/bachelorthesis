@@ -6,14 +6,14 @@ The core components are users, environments, roles, and assets.
 In essence the concept can be summarized as follows: users can be part of multiple
 environments, which hold Assets.
 Users that are part of an environment can work on the assets that are stored in it.
-Each environment has a set of permissions that determine what their users can do with its
+Each environment has a set of Roles that determine what their users can do with its
 assets.
 All other components that will be introduced will help to manage and enforce these relationships.
 
 \section{Modifications to Assets and Resources}
 
-This thesis will modify the assets \ref{cha:relatedwork:proceed-assets} and the resources
-\ref{cha:relatedwork:proceedroles:ms-resources-actions} that supported by the MS,
+This thesis will modify all assets and management assets \ref{cha:relatedwork:proceed-assets}
+that are supported by the MS,
 these will be modified to be contained inside environments.
 Additionally, environments will be added to the MS' assets and resources.
 As will be explained in \ref{cha:conceptanddesign:users}, Users won't belong to a single
@@ -21,6 +21,26 @@ environment, they can instead be members of multiple environments, for this reas
 users will be removed from the MS' assets and resources.
 Furthermore, folders and  memberships will be added to the MS' assets and
 resources.
+
+\section{Security}
+
+As outlined in \cite[3.3]{multi-tenant-dream-or-nightmare}, data leaks between tenants are
+very dangerous. For this reason isolation between tenants is crucial.
+
+\subsection{Data Storage Model}
+
+The first step to ensure isolation is to choose a good data storage model.
+There are mainly three models to choose from as Shinu Pushpan explains in
+\cite[4.1]{Pushpan2024MultiTenantArchitecture}
+
+\begin{itemize}
+  \item \textbf{Separate databases}: Each tenant has a dedicated database instance, offering complete physical isolation. This model is best suited for scenarios requiring strict compliance, security, and tenant-specific customizations, though it involves higher operational overhead.
+
+\item \textbf{Shared database, separate schemas}: All tenants share the same database server, but each has a distinct schema. This approach balances isolation and resource efficiency, allowing for moderate customization with less complexity than fully separate databases.
+
+\item \textbf{Shared database, shared schema}: All tenants use the same database and schema, with tenant data identified by a tenant ID. This model maximizes resource efficiency but requires robust access control and query isolation mechanisms to ensure tenant boundaries are respected.
+\end{itemize}
+
 
 \section{Users}
 \label{cha:conceptanddesign:users}

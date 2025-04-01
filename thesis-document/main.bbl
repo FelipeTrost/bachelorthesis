@@ -34,6 +34,25 @@ N.~Sakimura, J.~Bradley, and N.~Agarwal, ``{Proof Key for Code Exchange by
   \url{https://www.rfc-editor.org/info/rfc7636}
 \BIBentrySTDinterwordspacing
 
+\bibitem{multi-tenant-dream-or-nightmare}
+\BIBentryALTinterwordspacing
+C.-P. Bezemer and A.~Zaidman, ``Multi-tenant saas applications: maintenance
+  dream or nightmare?'' in \emph{Proceedings of the Joint ERCIM Workshop on
+  Software Evolution (EVOL) and International Workshop on Principles of
+  Software Evolution (IWPSE)}, ser. IWPSE-EVOL '10.\hskip 1em plus 0.5em minus
+  0.4em\relax New York, NY, USA: Association for Computing Machinery, 2010, p.
+  88–92. [Online]. Available: \url{https://doi.org/10.1145/1862372.1862393}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pushpan2024MultiTenantArchitecture}
+\BIBentryALTinterwordspacing
+S.~Pushpan, ``Multi-tenant architecture: A comprehensive framework for building
+  scalable saas applications,'' \emph{International Journal of Scientific
+  Research in Computer Science, Engineering and Information Technology},
+  vol.~10, no.~6, pp. 1117--1126, 2024. [Online]. Available:
+  \url{https://ijsrcseit.com/index.php/home/article/view/CSEIT241061151/CSEIT241061151}
+\BIBentrySTDinterwordspacing
+
 \bibitem{celkoSQLTrees}
 \BIBentryALTinterwordspacing
 J.~Celko, \emph{Joe Celko's Trees and Hierarchies in SQL for Smarties, (The
