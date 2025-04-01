@@ -121,9 +121,9 @@ OIDC uses as its base either the Authorization Code flow
 it introduces a new type of token called an ID Token.
 This ID Token is a JSON Web Token (JWT) that contains minimal information about the authenticated
 user
-Most importantly, the Id Token carries a Subject identifier, which is a unique identifier
+Most importantly, the ID Token carries a Subject identifier, which is a unique identifier
 for the user in the <- finish here
-The Id Token is sent alongside the Access token to the client, on which step this happens
+The ID Token is sent alongside the Access token to the client, on which step this happens
 depends on weather the Authorization Code flow or the Implicit flow is used.
 
 
@@ -210,7 +210,7 @@ e.g. saving or querying data.
 %   });
 % \end{lstlisting}
 
-\section{PROCEED MS' Storage Solution}
+\subsection{PROCEED MS' Storage Solution}
 \label{cha:relatedwork:proceed-storage}
 
 The PROCEED MS doesn't use a database management system (DBMS) like MySQL or PostgreSQL to store its data.
@@ -259,21 +259,21 @@ Each object will be called an entry from now on.
 % \end{lstlisting}
 
 % TODO !!
-\section{PROCEED's Assets}
+\subsection{PROCEED's Assets}
 \label{cha:relatedwork:proceed-assets}
 
 Assets are Objects that users can create and manage through the MS' interface.
 When referring to assets, we are only talking about the core features of the MS, not
-objects that aid in the usage of the MS, like Roles .e.g., which only helps with managing
+objects that aid in the usage of the MS, like Roles .e.g., which only help with managing
 access to assets.
 Currently, the MS supports the following assets:
 
 \begin{enumerate}
-	\item Processes, Project and Templates: These objects store BPNN at their core.
-	      % TODO: description for task
-	\item Task:
-	\item Machine: Object that represents a server running Distributed Process Engine. The
-	      machine is used to manage properties of the server.
+	\item Processes, Project and Templates: These assets store BPNN at their core.
+	%       % TODO: description for task
+	% \item Task:
+	\item Machine: Asset that represents a server running Distributed Process Engine. 
+    % The machine is used to manage properties of the server.
 	      % NOTE  maybe remove execution
 	\item Execution: An execution represents a process that is being executed distributedly.
 \end{enumerate}
@@ -282,8 +282,8 @@ Furthermore, the MS implements assets that are used to manage how users can use 
 called management assets:
 
 \begin{itemize}
-	\item Role\ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
-	\item{Rolemapping}: role mappings are used to assign roles to users.
+	\item Role \ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
+	\item{RoleMapping}: role mappings are used to assign roles to users.
 	\item User: represents a user's personal information, e.g. name, username and email.
 \end{itemize}
 
@@ -301,22 +301,23 @@ Typically, roles are assigned to users based on their job function.
 %% - One role serves multiple people
 %% - roles don't change ofte
 %% - roles are easier to manage than individual permissions
-RBAC can be advantageous since they can be assigned to multiple users and
+RBAC can be advantageous since roles can be assigned to multiple users and
 don't change often, making them easier to manage than individual permissions.
 
 \subsection{MS' Role System Terminology}
 \label{cha:relatedwork:proceedroles:terminology}
 
-The following terms are important to understand the role system in the PROCEED MS:
+The following terms are important to understand the role system in the MS:
 
 \begin{itemize}
 	\item Resource: A resource is any protected entity in the management system, that can be
-	      accessed by users. Resources can be assets \ref{cha:relatedwork:proceed-assets}, but
-	      they don't have to be.
-	\item Action: An action is a specific operation that can be performed on a resource.
-	\item Permission: A permission is a tuple of resource type and action, which specifies that a
-	      user can perform the action on the resource instances. Optionally a permission can have
-	      conditions that have to be met the by resource instances, for the user to be able to perform the action.
+	      accessed by users. Resources can be either assets or management assets.
+        % assets \ref{cha:relatedwork:proceed-assets}, but they don't have to be.
+	\item Action: An action is a specific operation that can be performed on a resource, e.g. view, update, create, delete.
+	\item Permission: A permission is a tuple consisting of resource type and a list of
+        actions, which specifies that a user can perform the actions on the resource instances.
+        Optionally a permission can have conditions that have to be met the by resource instances,
+        for the user to be able to perform the actions.
 	\item Role: A role is a set of permissions. Roles can be assigned to users, which then
 	      inherit the role's permissions. Roles can have expiration dates, after which all
 	      permissions are revoked.
@@ -329,26 +330,26 @@ The following are the resource types that are used in the PROCEED MS:
 \lstinline{Process},
 \lstinline{Project},
 \lstinline{Template},
-\lstinline{Task},
+% \lstinline{Task},
 \lstinline{Machine},
 \lstinline{Execution},
 \lstinline{Role},
 \lstinline{User},
-\lstinline{Setting},
-\lstinline{Rolemapping},
+% \lstinline{Setting},
+\lstinline{RoleMapping}.
 
 These are the actions that can be performed on these resources:
 \lstinline{none},
 \lstinline{view},
 \lstinline{update},
 \lstinline{create},
-\lstinline{delete}.
+\lstinline[keywords={}]{delete}.
 
 \subsection{Role Mappings}
 \label{cha:relatedwork:proceedroles:role-mappings}
 
 RoleMappings are a management asset, that is used to assign roles to users.
-RoleMappings simply store a user ID and a role ID.
+RoleMappings store a user identifier ID and a role ID.
 
 \subsection{MS' Roles in CASL}
 \label{cha:relatedwork:proceedroles:casl}

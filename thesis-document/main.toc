@@ -13,13 +13,13 @@
 \contentsline {subsubsection}{\numberline {2.1.2.4}Authorization Code}{9}{subsubsection.2.1.2.4}%
 \contentsline {subsection}{\numberline {2.1.3}OpenID Connect}{10}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2.2}MS Architecture}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}PROCEED MS' Storage Solution}{11}{section.2.3}%
-\contentsline {section}{\numberline {2.4}PROCEED's Assets}{11}{section.2.4}%
-\contentsline {section}{\numberline {2.5}PROCEED's Role System}{11}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}MS' Role System Terminology}{12}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}MS' Resources and Actions}{12}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Role Mappings}{12}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}MS' Roles in CASL}{12}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.2.1}PROCEED MS' Storage Solution}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}PROCEED's Assets}{11}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}PROCEED's Role System}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}MS' Role System Terminology}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}MS' Resources and Actions}{12}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Role Mappings}{12}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{12}{subsection.2.3.4}%
 \contentsline {chapter}{\numberline {3}Concept and Design}{14}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Modifications to Assets and Resources}{14}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Users}{14}{section.3.2}%

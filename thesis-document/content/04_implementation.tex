@@ -1,8 +1,7 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-In this chapter, we will discuss the most important aspects of the implementation of
-environments.
+In this chapter, we will discuss the details 
 % \footnote{\url{https://github.com/PROCEED-Labs/proceed}}
 
 
@@ -38,7 +37,7 @@ For email-sign in, NextAuth.js sends an email with a link that the user has to c
 sign in.
 We have to provide a way to store and query the tokens, that are encoded in the link and a
 function that sends the email.
-For OAuth2 providers, we only have to provide a client id and secret.
+For OAuth2 providers, we only have to provide a client ID and secret.
 
 To store and look up users and accounts, NextAuth.js requires a database adapter,
 which is a set of functions that interact with the database.
@@ -282,7 +281,7 @@ const authOptions = {
       ) {
         // Check if the user's cookie is correct
         const sessionUserInDb = getUserById(sessionUser.id);
-        if (!sessionUserInDb || !sessionUserInDb.guest) throw new Error('User id in session is not valid');
+        if (!sessionUserInDb || !sessionUserInDb.guest) throw new Error('User ID in session is not valid');
 
         const userSigningIn = getUserById(user.id);
 
@@ -430,7 +429,7 @@ Additionally, if the inviter has the permissions for it, he can select roles for
 % NOTE: mention that jwts have the drawback that they can't be revoked?'
 The token in the invitation link is a JWT token, this way there is no need to store it.
 The token contains the id's of the roles for
-the invitees, the id of the environment, and a reference to the invitee.
+the invitees, the ID of the environment, and a reference to the invitee.
 If the email the inviter provided is associated with a user, then the reference to the
 invitee stores the user's \lstinline{id}, otherwise there is the risk, that the invitee
 changes his email address, and the invitation link is no longer valid for him.
@@ -449,7 +448,7 @@ The selected environment is encoded in the URL's path like this:
 \lstinline{https://staging.proceed-labs.org/<environment id>/...}.
 Every view accessed by a user, where URL's path starts with an environment's id, will be
 only related to that environment.
-Each view can get this environment id and fetch the appropriate assets.
+Each view can get this environment ID and fetch the appropriate assets.
 
 \begin{lstlisting}[
   language=JavaScript,
@@ -569,7 +568,7 @@ The only thing that was changed is that every endpoint receives the environment 
 argument, and uses the roles the user has in the environment for building his ability.
 
 The function \lstinline{getCurrentEnvironment} was implemented in order to facilitate
-getting a user's ability for an environment, it takes an environment id and uses
+getting a user's ability for an environment, it takes an environment ID and uses
 functionality provided by NextAuth.js to know which user is calling the endpoint.
 
 % NOTE: maybe remove the userError as if its not explained it might be confusing
@@ -639,7 +638,7 @@ ability.can('read', 'Post', { age: 23 }); // true
 A simple representation of a folder structure is computed in the MS
 and stored in a JSON serializable object.
 Each key is a folder id, and its value is its parent's id.
-Only the root folder's id isn't contained in the object, as it has no parent.
+Only the root folder's ID isn't contained in the object, as it has no parent.
 This structure is used by the conditions matcher to check if a process or folder is a
 descendant or ancestor of a folder.
 These conditions can be set in the conditions object with the keys
