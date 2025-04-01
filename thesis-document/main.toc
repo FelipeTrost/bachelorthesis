@@ -22,8 +22,7 @@
 \contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{12}{subsection.2.3.4}%
 \contentsline {chapter}{\numberline {3}Concept and Design}{14}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Modifications to Assets and Resources}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Security}{14}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Data Storage Model}{14}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.2}Data Storage Model}{14}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Users}{15}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Authenticated Users and Accounts}{15}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Merging a Guest User with an Authenticated User}{15}{subsection.3.3.2}%

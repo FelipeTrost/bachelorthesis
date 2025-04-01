@@ -22,24 +22,33 @@ users will be removed from the MS' assets and resources.
 Furthermore, folders and  memberships will be added to the MS' assets and
 resources.
 
-\section{Security}
+\section{Data Storage Model}
 
-As outlined in \cite[3.3]{multi-tenant-dream-or-nightmare}, data leaks between tenants are
-very dangerous. For this reason isolation between tenants is crucial.
-
-\subsection{Data Storage Model}
-
+As outlined in \cite[3.3]{multi-tenant-dream-or-nightmare},
+data leaks between tenants are very dangerous.
+For this reason isolation between tenants is crucial.
 The first step to ensure isolation is to choose a good data storage model.
-There are mainly three models to choose from as Shinu Pushpan explains in
-\cite[4.1]{Pushpan2024MultiTenantArchitecture}
+There are mainly three models to choose from as described in
+\cite[4.1]{Pushpan2024MultiTenantArchitecture}:
 
 \begin{itemize}
-  \item \textbf{Separate databases}: Each tenant has a dedicated database instance, offering complete physical isolation. This model is best suited for scenarios requiring strict compliance, security, and tenant-specific customizations, though it involves higher operational overhead.
+  \item \textbf{Separate databases}: Each tenant has a dedicated database instance,
+    offering complete physical isolation.
+    This model offers a high isolation level,
+    however it is resource-intensive and it involves a high operational overhead.
 
-\item \textbf{Shared database, separate schemas}: All tenants share the same database server, but each has a distinct schema. This approach balances isolation and resource efficiency, allowing for moderate customization with less complexity than fully separate databases.
+  \item \textbf{Shared database, separate schemas}: All tenants share the same database, but each has a distinct schema. 
+      This approach balances isolation and resource efficiency, with less complexity than fully separate databases.
 
-\item \textbf{Shared database, shared schema}: All tenants use the same database and schema, with tenant data identified by a tenant ID. This model maximizes resource efficiency but requires robust access control and query isolation mechanisms to ensure tenant boundaries are respected.
+  \item \textbf{Shared database, shared schema}: All tenants use the same database and schema, with tenant data identified by a tenant ID. This model maximizes resource efficiency but requires robust access control and query isolation mechanisms to ensure tenant boundaries are respected.
 \end{itemize}
+
+Since the first two models are resource-intensive and introduce operational
+overhead, we chose the third model: \textbf{Shared database, shared schema}.
+The trade-off is a lower level of data isolation compared to the other two approaches.
+To mitigate this, every asset in the system explicitly stores an \lstinline{environmentId},
+which is always validated during data access and modification operations.
+This strict enforcement ensures tenant boundaries are always respected.
 
 
 \section{Users}

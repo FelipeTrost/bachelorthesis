@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  1 APR 2025 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  1 APR 2025 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1488,21 +1488,30 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 384.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [12]) (content/03_concept_and_design.tex [13]
 chapter 3.
-[14
+
+Overfull \hbox (2.41618pt too wide) in paragraph at lines 35--39
+\T1/ppl/m/n/10.95 phys-i-cal iso-la-tion. This model of-fers a high iso-la-tion
+ level, how-ever it is resource-intensive
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14
 
 ]
 
 LaTeX Warning: Reference `cha:ms-architecture:data-storage' on page 15 undefine
-d on input line 55.
+d on input line 64.
 
 <images/users-accounts-relation.drawio.png, id=392, 372.39125pt x 91.34125pt>
 File: images/users-accounts-relation.drawio.png Graphic file (type png)
 <use images/users-accounts-relation.drawio.png>
 Package pdftex.def Info: images/users-accounts-relation.drawio.png  used on inp
-ut line 86.
+ut line 95.
 (pdftex.def)             Requested size: 223.43646pt x 54.80516pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
   [][][][]$\T1/pcr/m/n/9 https : / / microsoft . github . io / language -[] ser
 ver -[] protocol / specifications / lsp / 3 . 17 /
  []
@@ -1510,10 +1519,10 @@ ver -[] protocol / specifications / lsp / 3 . 17 /
 [15 <./images/users-accounts-relation.drawio.png>]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 183.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 192.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [16]
-Overfull \hbox (7.85982pt too wide) in paragraph at lines 208--210
+Overfull \hbox (7.85982pt too wide) in paragraph at lines 217--219
 []\T1/ppl/m/n/10.95 Finding a node's de-scen-dants re-quires a re-cur-sive quer
 y, how-ever, this is bounded
  []
@@ -1525,37 +1534,37 @@ Underfull \vbox (badness 1019) has occurred while \output is active []
 <./images/tree-map.drawio.png, id=415, 734.745pt x 524.96124pt>
 File: ./images/tree-map.drawio.png Graphic file (type png)
 <use ./images/tree-map.drawio.png>
-Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 284.
+Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 293.
 (pdftex.def)             Requested size: 440.85039pt x 314.97917pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 287.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 296.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [18]
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 []|\T1/ppl/m/n/10.95 Materialized
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+ppl on input line 3
-09.
+18.
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 309.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 318.
  [19 <./images/tree-map.drawio.png>]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 445.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 454.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [20] [21]
 <./images/tree-roles.drawio.png, id=442, 2111.89pt x 887.315pt>
 File: ./images/tree-roles.drawio.png Graphic file (type png)
 <use ./images/tree-roles.drawio.png>
-Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 570
+Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 579
 .
 (pdftex.def)             Requested size: 422.37051pt x 177.45985pt.
 
@@ -1563,7 +1572,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 588.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 597.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [22 <./images/tree-roles.drawio.png>] [23]) (content/04_implementation.tex
 File: images/snet/snet_footer.png Graphic file (type png)
@@ -1809,29 +1818,33 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35233 strings out of 476372
- 675272 string characters out of 5793694
+ 35232 strings out of 476372
+ 675266 string characters out of 5793694
  2316995 words of memory out of 5000000
- 56177 multiletter control sequences out of 15000+600000
+ 56176 multiletter control sequences out of 15000+600000
  616596 words of font info for 142 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  108i,17n,107p,10922b,2246s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/la
-txfont/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/t
-ype1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
-e1/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
-/urw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/
-urw/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
-rw/helvetic/uhvro8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
-rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
-w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
-/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
-palatino/uplri8a.pfb>
-Output written on main.pdf (54 pages, 989743 bytes).
+
+pdfTeX warning (dest): name{subsection.3.2.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/latx
+font/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/
+amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
+e1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
+/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
+rw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
+w/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
+/helvetic/uhvro8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
+/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
+palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/p
+alatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/pa
+latino/uplri8a.pfb>
+Output written on main.pdf (54 pages, 989665 bytes).
 PDF statistics:
- 1242 PDF objects out of 1440 (max. 8388607)
+ 1239 PDF objects out of 1440 (max. 8388607)
  489 named destinations out of 1000 (max. 500000)
- 639 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 631 words of extra memory for PDF output out of 10000 (max. 10000000)
 
