@@ -60,16 +60,16 @@ In order for users to be part of multiple organizations, they can't be tied to a
 organization.
 As a part of the implementation of environments, users are now independent of
 organizations,
-they represent individual people utilizing PROCEED and will be stored as entries in
-the MS' storage solution \ref{cha:ms-architecture:data-storage}.
+they represent individual people utilizing PROCEED and are stored as entries in
+the MS' storage solution.
 % A single person can have one or more users, but each user is intended for individual use.
 
-To facilitate the exploration of the MS, without creating a user, we introduce the option
+To facilitate the exploration of the MS, without creating a user, we introduced the option
 to use the MS as a guest.
 Thus, we differentiate between authenticated users and guest users.
-Guest users have a limited feature.
-Guest users can transition to being an authenticated users whilst retaining their
-assets, to do this they will need to sign in with personal data.
+Guest users can only use a subset of the MS' features.
+Guest users can transition to being authenticated users whilst retaining their
+assets, to do this they will need to sign in with their personal data.
 % Creating a Guest user doesn't require any data from the person creating it.
 
 All users have a personal environment \ref{cha:conceptanddesign:environments:personal}
@@ -81,14 +81,17 @@ where they can collaborate with other users.
 \subsection{Authenticated Users and Accounts}
 
 % NOTE: is Oauth2 account the correct term here?
-To allow the same user to be able to sign in with different Oauth2 providers, e.g. with Google,
-Facebook or Discord, we store a separate record, called account, for each of the user's sign-in methods.
-% NOTE: should one to many be explained?
+To allow the same user to be able to sign in with different Oauth 2.0 providers, e.g. with
+Google or Facebook,
+we store a separate record, called \textit{account}, for each of the user's sign-in methods.
 This means, that the relationship between users and accounts is one-to-many,
 a user can have multiple accounts, but an account can only be linked to one user.
-This way, when a user is signing in with credentials from an Oauth2 provider,
-the MS can look up the corresponding account to the credentials, and then find the user
-that the account is linked to.
+When a user signs in with a Oauth 2.0 provider, the provider returns a user ID, 
+then the MS searches for an account with the same user ID.
+From that account the MS can find the user.
+% This way, when a user is signing in with credentials from a Oauth 2.0 provider,
+% the MS can look up the corresponding account to the account returned by the provider, and then find the user
+% that the account is linked to.
 
 \begin{figure}[H]
 	\centering
@@ -106,7 +109,7 @@ signing in with his personal data.
 It could be the case that his personal data already corresponds to an existing user.
 In this case, the user will be asked if he wants to merge his assets with the existing
 authenticated user.
-If he chooses to merge, all the assets in the guest user's personal environment will be
+If he chooses to do so, all the assets in the guest user's personal environment will be
 transferred to the authenticated user's personal environment.
 Otherwise, all the assets created by the guest user will be deleted.
 
@@ -115,21 +118,21 @@ Otherwise, all the assets created by the guest user will be deleted.
 For storing guest user data, one could take one of two approaches:
 storing the data in the user's browser or storing it in the MS' database, alongside the
 data of authenticated users.
-Storing the data locally has two great benefits:
+Storing the data locally has two benefits:
 The MS doesn't have to store data of users who might never return and
 the MS would become less susceptible to an attack where the attacker tries to use up as
 much space as possible in the MS' storage solution.
 However, this approach has one key downside, the MS would have to implement two storage
 solutions and the frontend would need to switch accordingly between them.
 The added complexity would make it harder for developers to get an overview of the MS'
-codebase and it also makes it harder to use coding assistance features of IDEs like Goto
-definition \footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/\#textDocument_definition}}.
-For this reason, storing guest user's data locally isn't worth the benefits.
-So we decided to store a guest user's data in the MS the same way we do it for
+codebase and it would mean that any future changes will have to be implemented twice.
+% and it also makes it harder to use coding assistance features of IDEs like Goto
+% definition \footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/\#textDocument_definition}}.
+For this reason, we determined that storing guest user's data locally isn't worth the benefits.
+We decided to store guest users data in the MS the same way we do it for
 authenticated users,
 with the difference that a flag is set
-% in the user entry to 
-indicate that he is a guest.
+in the user entry to indicate that they are a guest.
 This way, all the endpoints that authenticated users can call to interact with the MS
 can also be called by guest users.
 An important caveat is that, to enforce some of the feature restrictions, relevant
@@ -139,16 +142,12 @@ solution from filling up with unused data.
 
 \subsection{Development Users}
 
-When developing the MS, it is not common for the developer to have all the necessary keys
-configured in the environment variables, for the MS to be able to authenticate users with
-Oauth2 \ref{cha:relatedwork:oauth} or send sign-in emails.
-For this reason the MS implements two development users: johndoe and admin.
-When the MS is in development mode, i.e. the environment variable \lstinline{NODE_ENV} is
-set to \lstinline{development},
-the sign-in page shows a new input field where you can enter the developments user's username.
-Both users are stored as authenticated users in the MS' database and can be used to test
-the MS during development.
+During development, it is often inconvenient or impractical for developers to configure all the necessary environment variables required for full authentication functionality.
+For instance, integrating OAuth 2.0 authentication (see Section \ref{cha:relatedwork:oauth}) or enabling email-based sign-in requires valid credentials, secrets, and sometimes external services that may not be accessible in a local development environment.
 
+To streamline testing and development without depending on such services,
+the Management System (MS) implements two predefined development users: \textit{johndoe} and \textit{admin}.
+These users are only available when the MS is running in a development environment.
 
 %TODO: say what guests can do?
 
@@ -162,13 +161,13 @@ the MS during development.
 
 Folders will be added to the MS' assets,
 they are intended to allow organizations to mirror their hierarchical structure and
-facilitate the organization of assets in general.
-Starting from a root folder, users should be able to store assets within folders and nest
+to facilitate the organization of assets in general.
+Starting from a root folder, users are able to store assets within folders and nest
 folders inside other folders, creating a flexible and intuitive structure.
-In this thesis, folders where only implemented to support processes, but they could be extended to
+In this thesis, folders were only implemented to support processes, but they could be extended to
 support more of the assets that where described in \ref{cha:relatedwork:proceed-assets}.
 
-\subsection{Folder Structure Model}
+\subsection{Folder Structure Storage Model}
 
 % TODO: say that because of the way the ms is built, the processes needs to be in a
 % sepparate table
@@ -184,7 +183,7 @@ For this reason the rooted folder tree needs to be mapped to a relational model.
 % Interval halving
 % Matrix encoding
 % Nested intervals
-As outlined by Joe Celko in \cite{celkoSQLTrees}, there are mainly three ways to model
+As outlined by Joe Celko in \cite[28]{celkoSQLTrees}, there are mainly three ways to model
 trees in relational model:
 Adjacency List, Nested Set, and  Path Enumeration, more commonly known as Materialized Path.
 Each of these models stores a node as a single entry, but they differ in how they encode

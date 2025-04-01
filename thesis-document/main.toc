@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Guest User Storage}{16}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Development Users}{16}{subsection.3.3.4}%
 \contentsline {section}{\numberline {3.4}Folders}{16}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Folder Structure Model}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}Folder Structure Storage Model}{16}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Storing Assets Inside Folders}{20}{subsection.3.4.2}%
 \contentsline {section}{\numberline {3.5}Environments}{20}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Personal Environments}{20}{subsection.3.5.1}%
