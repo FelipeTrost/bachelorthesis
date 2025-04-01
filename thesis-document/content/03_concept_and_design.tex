@@ -187,7 +187,7 @@ As outlined by Joe Celko in \cite[28]{celkoSQLTrees}, there are mainly three way
 trees in relational model:
 Adjacency List, Nested Set, and  Path Enumeration, more commonly known as Materialized Path.
 Each of these models stores a node as a single entry, but they differ in how they encode
-their position in the tree.
+their position in the tree:
 
 % Categories
 % 1. finding direct descendandts / children
@@ -197,9 +197,9 @@ their position in the tree.
 % 5. Adding
 % 6. removing
 % 7. Reorganization
-%
-\begin{itemize}
-	\item \textbf{Adjacency List model}: Each node has an identifier and a reference to its parent.
+
+\begin{itemize}[nolistsep]
+	\item \textbf{Adjacency List model}: Each node stores an identifier and a reference to its parent.
 	      \begin{itemize}
 		      \item Advantages
 		            \begin{itemize}
@@ -217,7 +217,7 @@ their position in the tree.
 			                  this is bounded by the depth of the tree and the amount of nodes.
 			            \item Finding a node's ancestors, i.e. all the nodes in the path from the root to
 			                  the node, requires a recursive query, however, this is bounded by the height of
-			                  the tree and should be efficient.
+			                  the tree and should be fairly efficient.
 			            \item Removing a node requires a recursive query to also delete its descendants,
 			                  however, this is bounded by the depth of
 			                  the tree and the amount of nodes.
@@ -237,7 +237,7 @@ their position in the tree.
 			            \item Finding a node's ancestors is trivial, the query has to select the all the
 			                  nodes with a left boundary smaller than the node's left boundary.
 			            \item Finding a node's parent is trivial, the query has to select the node with
-			                  the smallest left boundary that is bigger than the node's left boundary.
+			                  the smallest left boundary that is smaller than the node's left boundary.
 			            \item Deleting a node and its subtree is trivial, the query is analogous to finding
 			                  the descendants of a node.
 		            \end{itemize}
@@ -252,7 +252,7 @@ their position in the tree.
 			            \item Adding nodes is non-trivial, since it requires knowledge of its siblings to
 			                  avoid overlapping intervals. Additionally depending on the implementation, it
 			                  might require updating intervals of other nodes.
-			            \item Moving nodes and their subtrees is non-trivial, and inefficient, since it requires updating
+			            \item Moving nodes and their subtrees is non-trivial and inefficient, since it requires updating
 			                  the intervals of the moved node and all of its descendants.
 			                  Depending on the implementation it may even be required to update the intervals of
 			                  other nodes.
@@ -266,8 +266,9 @@ their position in the tree.
 		            \begin{itemize}
 			            \item Finding a node’s ancestors or its parent is trivial, since the path is explicitly stored,
 			                  the ancestors of a node can be retrieved simply by parsing the stored path.
-			            \item Finding a node’s descendants is easy and efficient, they can be found by
+			            \item Finding a node’s descendants is trivial, they can be found by
 			                  querying for nodes whose paths start with the current node's path.
+                        However, depending on the implementation, checking each node's path can be inefficient.
 			            \item Adding nodes is trivial, as the node's path can be constructed by appending
 			                  the node's identifier to the parent's path.
 			            \item Removing a node and its subtree is trivial, as the node's descendants can be
@@ -275,20 +276,24 @@ their position in the tree.
 		            \end{itemize}
 		      \item Disadvantages
 		            \begin{itemize}
-			            \item Finding a node's children is easy but, not as efficient as finding its
-			                  descendants, as you need to perform one additional check to ensure that nodes
-			                  are direct children.
+			            % \item Finding a node's children is easy but, not as efficient as finding its
+			            %       descendants, as you need to perform one additional check to ensure that nodes
+			            %       are direct children.
 			            \item Moving nodes and their subtrees is inefficient, since it requires updating
 			                  the path of every node in the subtree.
 			            \item Each node stores a string with its path, which can be inefficient in terms of
-			                  storage space.
+			                  storage space, especially for trees with a large depth.
 		            \end{itemize}
 	      \end{itemize}
 \end{itemize}
 
+For an example of the three models, see Figure \ref{fig:comparison-db-tree-models-pic}.
+A simple comparison of these models is presented in Figure \ref{fig:comparison-db-tree-models}.
+
 % TODO: figure out spacing
 \begin{figure}[H]
 	\centering
+	\label{fig:comparison-db-tree-models-pic}
 	\includegraphics[scale=0.6]{./images/tree-map.drawio.png}
 	\caption{Comparison of the Adjacency List, Nested Set, and Materialized Path models.}
 \end{figure}
@@ -365,13 +370,14 @@ their position in the tree.
 To choose the right model, we have to consider the requirements of the MS.
 Users need to be able to view, add, delete and remove folders.
 It becomes immediately clear, that the Nested Set model is not suitable for the MS, as
-adding, removing and moving nodes is inefficient.
+adding, removing and moving nodes is inefficient, this model is more suited for read-heavy
+workloads.
 % The nested set model appears to be more useful for some analytical workloads.
 That leaves us with the adjacency list and materialized path models.
 %
 The materialized path model has two small advantages: finding descendants and removing a
 folder together with its subtree is easier.
-Both queries only require a simple string comparison.
+Both queries only require simple string comparisons.
 %
 % The materialized path model has two small advantages, finding descendants is easier as it
 % only requires a query with a simple string comparison, and the same goes for removing a
@@ -382,22 +388,23 @@ substantially more efficient when it comes to moving nodes.
 Furthermore, the adjacency list model is better at finding children, which is more
 valuable to the MS than finding descendants, as the Process view will only show the
 children.
-For those reasons, the MS will use the adjacency list model to store the folder structure.
+Additionally, the adjacency list model is more space-efficient, as it doesn't store its
+path, this can be important for trees with a large depth.
+For these reasons, the MS will use the adjacency list model to store the folder structure.
 
 \subsection{Storing Assets Inside Folders}
 
-Once the folder structure is implemented, it still is necessary to store assets inside
+After the folder structure is implemented, it is necessary to store assets inside
 folders.
-This thesis only implemented this feature for processes
-\ref{cha:relatedwork:proceed-assets}, however, the same principle could be applied to
-other assets.
+This thesis only implemented this feature for processes, however, the same principle could
+be applied for other assets.
 A complete redesign of the process' data structures isn't feasible, as it would require
 rewriting a large part of the MS.
 For this reason a simple expansion to the data structure was chosen, where analogous to
 the adjacency list model, each process stores a reference to the folder it is stored in.
-This way, when moving a folder, it isn't required to update anything other than the
-folder.
-Moving an asset to another folder only requires updating the asset's reference.
+This approach allows a folder to be moved without requiring updates to its descendants.
+Additionally, moving an asset to another folder only requires updating the asset's
+reference to its folder.
 
 % Folders are nodes in a rooted tree structure with a name and a description.
 % Folders can contain other folders and assets.
@@ -429,11 +436,10 @@ for organizations.
 \label{cha:conceptanddesign:environments:personal}
 
 Personal environments are assigned to each user once they sign in.
-%NOTE: remove the part with owner
+%NOTE: remove the part with owner?
 The user for which the environment is created is the only member of this
 environment, and is therefore called the owner.
-No other users be a part of this environment.
-%TODO: forward ref to folders
+No other users can be a part of this environment.
 Personal environment only allow users to create and manage processes and folders,
 while other features offered by the MS can only be used in organization environments
 \ref{cha:conceptanddesign:environments:organization}.
@@ -467,7 +473,7 @@ that environment.
 \subsection{Storing Assets inside Environments}
 \label{cha:conceptanddesign:environments:storing-assets}
 
-All assets within the MS \ref{cha:relatedwork:proceed-assets}, including folders,
+As previously stated, all assets within the MS \ref{cha:relatedwork:proceed-assets}, including folders,
 will be modified, so that each asset instance establishes a clear association with a single environment.
 Every asset will store a reference to the environment it belongs to.
 This reference is immutable, with the only exception being when assets are transferred
@@ -475,12 +481,18 @@ from a guest user to an authenticated user \ref{cha:conceptanddesign:users:merge
 
 Processes and folders will be contained within folders, which implies that they belong to
 the same environment as their root folder.
-This means that for these assets, we are storing the environment they belong to twice.
+This means that for these assets, we are storing the environment they belong too twice.
 Storing redundant information is risky as it can lead to inconsistencies if updates aren't
 done correctly.
 For instance if a folder's environment reference is changed, but those of its children
 are not, then the folder structure would span across two environments.
-This risk is mitigated by the fact, that the environment reference of assets is immutable.
+However, this is not a practical issue in our implementation for two reasons.
+First, an asset's environment reference is
+never changed after creation, so there’s no risk of an update causing an in inconsistent
+state.
+Second, the only exception to this, is when the reference is modified is during the transition from a
+guest user to an authenticated one, which involves transferring all the user's assets.
+Outside this specific case, the remains constant, ensuring structural consistency.
 
 % The key principle is that every asset belongs to one and only one environment, and this
 % association can be easily identified.
@@ -498,10 +510,9 @@ This risk is mitigated by the fact, that the environment reference of assets is 
 \subsection{Environment Selection}
 % TODO: maybe back this up with some research, although this isn't that kind of thesis
 
-Users will be a part of multiple environments, and they will need to be able to work on
-all of them.
-There are two ways of accomplishing this: the user can select one environment at a time,
-or he can work on multiple environments at the same time.
+Users can be members of multiple environments and must be able to work within each of them.
+There are two ways of accomplishing this: users can select one environment at a time,
+or they can work on multiple environments at the same time.
 %
 % As environments contain many features, it isn't feasible to show all of them at the same
 % time, as this would clutter the interface, some level of selection is necessary.
@@ -515,21 +526,21 @@ This selection could be granular, where the user selects per view which environm
 wants to work on, however this could lead to confusion, if the user switches views and
 forgets that he's working on a different environment.
 For this reason, we chose to have a global environment selection, i.e. all the elements in
-the UI will show the assets and views of the selected environment.
+the UI will show the assets and views of one environment.
 
-There are two methods of accomplishing environment selection: implicit and explicit.
-In the implicit method, the selected environment is managed internally and is not
+The environment selection can be either implicit or explicit.
+In the implicit method, the selected environment is not
 reflected to the user in the URL, this could be accomplished by storing the selected
 environment in the user's cookies or in the browser's local storage for example.
 In the explicit method, the environment is encoded in the URL,
 making the current environment clearly visible.
 Of course a combination of both methods is also possible, but in order to keep the
-implementation simple, we only chose one.
+implementation simple, we will only choose one.
 The implicit method has the advantage that the URLs are shorter and easier to read,
-however it has the disadvantage, that some links can't be shared, since the implicitly
+however it has the disadvantage, that some URLs can't be shared, since the implicitly
 selected environment of another user might not be the same.
 For this reason, the explicit method was chosen as it allows users to share links with the
-cost of longer URLs.
+cost of longer URLs and because it's more transparent to the user.
 
 \section{Roles}
 \label{cha:conceptanddesign:roles}
