@@ -22,7 +22,7 @@ users will be removed from the MS' assets and resources.
 Furthermore, folders and  memberships will be added to the MS' assets and
 resources.
 
-\section{Data Storage Model}
+\section{Data Storage Approaches for Isolated Environment Data}
 
 As outlined in \cite[3.3]{multi-tenant-dream-or-nightmare},
 data leaks between tenants are very dangerous.
@@ -43,6 +43,12 @@ There are mainly three models to choose from as described in
   \item \textbf{Shared database, shared schema}: All tenants use the same database and schema, with tenant data identified by a tenant ID. This model maximizes resource efficiency but requires robust access control and query isolation mechanisms to ensure tenant boundaries are respected.
 \end{itemize}
 
+% Since the MS currently uses JSON files as its storage system,
+% separate databases and separate schemas would come down to storing each environment's data
+% in different files.
+% I kinda think multiple files would be good, like for cache layers, where a table leads
+% to another, too bad :/ 
+% TODO: kai wants a better explanation of why I chose the third model
 Since the first two models are resource-intensive and introduce operational
 overhead, we chose the third model: \textbf{Shared database, shared schema}.
 The trade-off is a lower level of data isolation compared to the other two approaches.
@@ -165,7 +171,7 @@ to facilitate the organization of assets in general.
 Starting from a root folder, users are able to store assets within folders and nest
 folders inside other folders, creating a flexible and intuitive structure.
 In this thesis, folders were only implemented to support processes, but they could be extended to
-support more of the assets that where described in \ref{cha:relatedwork:proceed-assets}.
+support more of the assets that were described in \ref{cha:relatedwork:proceed-assets}.
 
 \subsection{Folder Structure Storage Model}
 
@@ -400,7 +406,7 @@ This thesis only implemented this feature for processes, however, the same princ
 be applied for other assets.
 A complete redesign of the process' data structures isn't feasible, as it would require
 rewriting a large part of the MS.
-For this reason a simple expansion to the data structure was chosen, where analogous to
+For this reason a simple expansion to the data structure was chosen, were analogous to
 the adjacency list model, each process stores a reference to the folder it is stored in.
 This approach allows a folder to be moved without requiring updates to its descendants.
 Additionally, moving an asset to another folder only requires updating the asset's
@@ -554,33 +560,35 @@ cost of longer URLs and because it's more transparent to the user.
 % the assets in that organization environment.
 % In personal environments, there is only one user, and he can perform all actions on all of
 % his assets.
-Roles define what actions a user can perform on an asset. Prior to the changes introduced
-in this thesis, roles in MS \ref{cha:relatedwork:proceedroles} were global,
-meaning their permissions applied universally
-to all assets across the system.
-However, with the addition of environments and a folder structure, this approach is no longer practical.
+Roles define what actions a user can perform on assets.
+Prior to the changes introduced in this thesis,
+roles in the MS \ref{cha:relatedwork:proceedroles} were global,
+meaning their permissions applied universally to all assets across the system.
+However, with the addition of environments and a folder structure, this approach is no
+longer practical.
 Roles will now be tied to a specific organization environment,
 restricting their permissions to assets within that particular environment.
 In personal environments, where there is only one user, the user will have
-full control and be able to perform all actions on his assets without restriction.
+full control and be able to perform all actions on his assets without restrictions,
+this is done internally by giving the user a role that has all permissions.
 
 Folders allow organizations to mirror their hierarchical structure, but this wouldn't be
-entirely useful if roles applied to all assets inside the environment.
+entirely useful if roles were applied to all assets inside the environment.
 For this reason, roles can now be associated to a folder.
 %
 A role can define permissions for many assets, of which not all can be stored in folders.
 If a role is associated with a folder, then, only the permissions that are for assets that
-can be stored in folders, will be affected by the association.
+can be stored in folders, will be affected by this association.
 % The permissions of the role that apply to assets that can be stored in folders, 
 % will only apply to the assets that are in the folder's subtree.
 %
 The permissions of roles that are associated with a folder cascade down the
-folder structure, i.e. a role associated to a folder will also apply to all of its
-descendants.
+folder structure, i.e. the permissions of a role associated to a folder will 
+apply to all the descendants of that folder.
 In this thesis, the folder structure was only implemented for processes,
-this means that only the permissions for processes and folders will apply to the
-associated folder's descendants.
-Roles that aren't associated to a folder will continue to apply to all assets in the environment.
+this means that only the permissions for processes and folders will 
+cascade down the folder structure.
+Roles that aren't associated to a folder will be applied to all assets in the environment.
 % As roles are meant to mirror a users position in an organization, they're only available
 % for organization environments.
 
@@ -592,7 +600,8 @@ Roles that aren't associated to a folder will continue to apply to all assets in
 
 If a user's role allows him to view assets and is associated to a folder, then the user
 also has the permission to view all ancestors of the folder.
-But this permission is only restricted to the parent folders, not the contents of the parent folders.
+But this permission is only restricted to the parent folders themselves,
+not their contents.
 This allows users to navigate the folder structure until they reach the assets they're
 allowed to view and manage.
 
@@ -603,7 +612,7 @@ allowed to view and manage.
 % TODO: mention that each role comes with an action
 With the introduction of environments, all the previously available resources still hold
 the same meaning, with the difference that they are now associated with an environment.
-Additionally, two new Resources where introduced, for which roles can specify permissions:
+Additionally, two new Resources were introduced, for which roles can specify permissions:
 
 \begin{itemize}
 	\item \textbf{Folder}: Folders are used to organize assets in an environment.
@@ -612,8 +621,7 @@ Additionally, two new Resources where introduced, for which roles can specify pe
 	      \begin{itemize}
 		      \item \lstinline{view}: Allows the user to view the folder, its name and description.
 		            This doesn't necessarily mean that the user can view the assets inside the folder,
-		            as he still needs the \lstinline{view} permission for each children, which would be
-		            the case, if the role is associated to a folder.
+		            as he still needs the \lstinline{view} permission for each child.
 		      \item \lstinline{create}: The user can create new folders inside the folder he has this
 		            permission for.
 		      \item \lstinline{update}: The user can update the folder's name and description, as
@@ -622,10 +630,10 @@ Additionally, two new Resources where introduced, for which roles can specify pe
 
 		            % TODO: deleting a folder deletes the processes inside of it
 		            % maybe this needs to be checked
-		      \item \lstinline{delete}: The user can delete the folder.
+		      \item \lstinline[keywords={}]{delete}: The user can delete the folder.
 	      \end{itemize}
-	\item \textbf{Environment}: Folders are used to organize assets in an environment.
-	      \begin{itemize}
+	\item \textbf{Environment}: Environments are isolated workspaces inside the MS.
+    \begin{itemize}
 		      % TODO: members cannot actually see the environments name and description 
 		      \item \lstinline{view}, \lstinline{create}: These actions are not implemented for
 		            environments.
@@ -634,12 +642,13 @@ Additionally, two new Resources where introduced, for which roles can specify pe
 		            yet, and therefore a role that contains it cannot exist.
 		      \item \lstinline{update}: The user can update the environment's name, description
 		            and contact number.
-		      \item \lstinline{delete}: Allows the user to delete the environment with all its
-		            assets, this is only possible for organization environments,
+            \item \lstinline[keywords={}]{delete}: Allows the user to delete the environment with all its
+		            assets, this is only possible for organization environments.
 	      \end{itemize}
 \end{itemize}
 
-\subsection{Enforcing Permissions Based on Folder Structure}
+% Markeeer
+\subsection{Enforcing Permissions Based on the Folder Structure}
 
 In order to enforce permissions based on the folder structure, it is necessary to fetch
 the newest state of the folder structure every time a user wants to perform an action on an asset.

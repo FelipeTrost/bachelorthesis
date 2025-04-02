@@ -1,13 +1,21 @@
 \chapter{Foundations}
 \label{cha:relatedwork}
 
+To understand the further chapters,
+it is essential to first establish a foundational understanding of 
+external technologies, and the core architectural elements of the MS.
+% the key technologies
+% and architectural elements in the PROCEED Management System (MS).
+This chapter briefly introduces the OAuth 2.0 standard,
+then describes the MS' architecture and its role-based access control (RBAC) system.
+
 \section{OAuth 2.0 and OpenID Connect}
 \label{cha:relatedwork:oauth}
 %TODO: fix citing
 
-Oauth is an open standard for access delegation,
+Oauth 2.0 is an open standard for access delegation,
 commonly used as a way for users to grant client applications access to their information on other applications.
-Oauth was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
+Oauth 2.0 was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
 Plaintext credential sharing, as outlined in \cite{rfcOauth2} has many security risks:
 
 \begin{enumerate}
@@ -17,7 +25,7 @@ Plaintext credential sharing, as outlined in \cite{rfcOauth2} has many security 
 	\item If any of the third party applications are compromised, the user's account is at risk.
 \end{enumerate}
 
-Oauth addresses these issues by decoupling the client application from the role of the resource owner,
+Oauth 2.0 addresses these issues by decoupling the client application from the role of the resource owner,
 meaning that the client application will not get a full set of permissions to the user's account.
 Instead of handing his credentials to the third party application,
 the resource owner signs in, in the application's website which then issues an access token to the client application.
@@ -56,7 +64,8 @@ Oauth 2.0 defines four authorization grants with different flows.
 % The implicit grant is a simplified version of the Authorization Code grant.
 The implicit grant is very helpful for public clients, as it doesn't require confidential client credentials.
 This is very helpful for browser-based clients, as they can't store confidential credentials securely.
-In the implicit grant users are redirected to the authorization server, where they authenticate thmeselves and authorize the client.
+In the implicit grant users are redirected to the authorization server, where they
+authenticate themselves and authorize the client.
 Afterwhich the authorization server issues an access token directly to the client,
 this is done so with a HTTP redirect, where the access token is embedded in the redirect URL,
 this way the client can extract the access token from the URL.
@@ -262,7 +271,10 @@ Each object will be called an entry from now on.
 \subsection{PROCEED's Assets}
 \label{cha:relatedwork:proceed-assets}
 
-Assets are Objects that users can create and manage through the MS' interface.
+Assets are objects that users can create and manage through the MS' interface.
+They are the core "product" that PROCEED offers, i.e. the focal point of its value
+proposition,
+unlike management assets, which regulate how a user can use the MS.
 When referring to assets, we are only talking about the core features of the MS, not
 objects that aid in the usage of the MS, like Roles .e.g., which only help with managing
 access to assets.
@@ -278,8 +290,9 @@ Currently, the MS supports the following assets:
 	\item Execution: An execution represents a process that is being executed distributedly.
 \end{enumerate}
 
-Furthermore, the MS implements assets that are used to manage how users can use the MS,
-called management assets:
+Furthermore, the MS implements management assets, which are used to control how users interact with the MS.
+These are considered assets because users can directly manage them.
+Currently, the MS includes the following management assets:
 
 \begin{itemize}
 	\item Role \ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
@@ -421,7 +434,7 @@ user2Ability.can('update', 'Process'); // true
 user2Ability.can('update', user1Process); //false
 \end{lstlisting}
 
-If there exist any possible resource instance, where a user has permission to perform an action,
+If there exist any possible resource instance, for which a user has permission to perform an action,
 then the user has permission to perform the action on the resource type.
 E.g if a user has permission to view some process in the MS, then he has permission to
 view the resource type "Process".
