@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  1 APR 2025 16:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  2 APR 2025 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1254,10 +1254,12 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 \BKM@id=\count372
 ))
 (content/00_frontpages/00_frontpage.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 <images/snet/titlepage.pdf, id=6, 932.73468pt x 1320.43312pt>
 File: images/snet/titlepage.pdf Graphic file (type pdf)
 <use images/snet/titlepage.pdf>
-Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 43.
+Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 40.
 (pdftex.def)             Requested size: 597.5317pt x 845.07433pt.
  [1
 
@@ -1267,8 +1269,55 @@ Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 43.
 
 {/home/felipetrost/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/felip
 etrost/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc} <./images/snet/title
-page.pdf>] [2])
-(content/00_frontpages/01_declaration.tex
+page.pdf>]
+<images/snet/snet_footer.png, id=22, 623.64026pt x 287.21095pt>
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 44.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 4
+4.
+ (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
+44.
+
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
+44.
+
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
+44.
+
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
+44.
+
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 44.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 44.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 44.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 44.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 44.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 44.
+ [2 <./images/snet/snet_footer.png>] [3]) (content/00_frontpages/01_declaration
+.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 1.
 
 
@@ -1281,12 +1330,12 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.40245pt on input line 1.
 )
 (content/00_frontpages/03_abstract.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
- been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
+s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
-            *{Abstract} [2
+            *{Abstract} [3
 
 ]) (content/00_frontpages/04_zusammenfassung.tex
 Overfull \hbox (11.57391pt too wide) in paragraph at lines 20--1
@@ -1294,7 +1343,7 @@ Overfull \hbox (11.57391pt too wide) in paragraph at lines 20--1
 of the out-lined func-tional and non-functional
  []
 
-[3
+[4
 
 ]
 Overfull \hbox (18.27092pt too wide) in paragraph at lines 4--11
@@ -1302,67 +1351,22 @@ Overfull \hbox (18.27092pt too wide) in paragraph at lines 4--11
 cy-Funktionalität in Cloud-Anwendungen
  []
 
-) [4
+) [5
 
 ] (main.toc
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 4
-.
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1ppl.fd
-File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
-)
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-4.
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omlzplm.fd
-File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-4.
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omszplm.fd
-File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-4.
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omxzplm.fd
-File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-4.
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1zplm.fd
-File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-)
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 4.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 4.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 4.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 4.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 4.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 4.
-
 Underfull \vbox (badness 1019) has occurred while \output is active []
 
- [5
+ [6
 
 ])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-<images/snet/snet_footer.png, id=143, 623.64026pt x 287.21095pt>
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 194.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 
-[6 <./images/snet/snet_footer.png>] (content/01_introduction.tex
+[7] [8
+
+
+] (content/01_introduction.tex
 chapter 1.
 
 Class scrbook Warning: \float@addtolists detected!
@@ -1379,7 +1383,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=187, 437.635pt x 303.1325pt>
+<images/basic-cloud-services.drawio.png, id=195, 437.635pt x 303.1325pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1391,10 +1395,8 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 56.
 [1
 
-
-
 ]
-<images/mt-cloud-services.png, id=193, 729.72626pt x 465.74pt>
+<images/mt-cloud-services.png, id=201, 729.72626pt x 465.74pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 94.
@@ -1412,7 +1414,7 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 107.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [2 <./images/basic-cloud-services.drawio.png> <./images/mt-cloud-services.png>
 ]
-<images/proceed-ms-modeling.png, id=205, 1148.29pt x 898.35625pt>
+<images/proceed-ms-modeling.png, id=213, 1148.29pt x 898.35625pt>
 File: images/proceed-ms-modeling.png Graphic file (type png)
 <use images/proceed-ms-modeling.png>
 Package pdftex.def Info: images/proceed-ms-modeling.png  used on input line 131
@@ -1423,7 +1425,7 @@ Overfull \hbox (4.06375pt too wide) in paragraph at lines 131--132
  [][] 
  []
 
-<images/proceed-workspaces-v2.drawio.png, id=206, 603.25375pt x 493.845pt>
+<images/proceed-workspaces-v2.drawio.png, id=214, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
@@ -1503,7 +1505,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [14
 
 ]
-<images/users-accounts-relation.drawio.png, id=390, 372.39125pt x 91.34125pt>
+<images/users-accounts-relation.drawio.png, id=398, 372.39125pt x 91.34125pt>
 File: images/users-accounts-relation.drawio.png Graphic file (type png)
 <use images/users-accounts-relation.drawio.png>
 Package pdftex.def Info: images/users-accounts-relation.drawio.png  used on inp
@@ -1530,7 +1532,7 @@ See the caption package documentation for explanation.
 LaTeX Warning: Reference `fig:comparison-db-tree-models-pic' on page 18 undefin
 ed on input line 290.
 
-<./images/tree-map.drawio.png, id=411, 734.745pt x 524.96124pt>
+<./images/tree-map.drawio.png, id=420, 734.745pt x 524.96124pt>
 File: ./images/tree-map.drawio.png Graphic file (type png)
 <use ./images/tree-map.drawio.png>
 Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 297.
@@ -1561,7 +1563,7 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 496.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 
 [20] [21]
-<./images/tree-roles.drawio.png, id=437, 2111.89pt x 887.315pt>
+<./images/tree-roles.drawio.png, id=445, 2111.89pt x 887.315pt>
 File: ./images/tree-roles.drawio.png Graphic file (type png)
 <use ./images/tree-roles.drawio.png>
 Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 589
@@ -1579,7 +1581,7 @@ LaTeX Warning: Reference `' on page 24 undefined on input line 45.
 [24
 
 ]
-<images/fill-data-prompt.png, id=470, 532.99126pt x 398.48875pt>
+<images/fill-data-prompt.png, id=478, 532.99126pt x 398.48875pt>
 File: images/fill-data-prompt.png Graphic file (type png)
 <use images/fill-data-prompt.png>
 Package pdftex.def Info: images/fill-data-prompt.png  used on input line 146.
@@ -1603,7 +1605,7 @@ File: images/snet/snet_footer.png Graphic file (type png)
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 341.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [28]
-<images/create-organization-ui.png, id=594, 993.7125pt x 587.19376pt>
+<images/create-organization-ui.png, id=603, 993.7125pt x 587.19376pt>
 File: images/create-organization-ui.png Graphic file (type png)
 <use images/create-organization-ui.png>
 Package pdftex.def Info: images/create-organization-ui.png  used on input line 
@@ -1624,14 +1626,14 @@ File: images/snet/snet_footer.png Graphic file (type png)
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 465.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [30 <./images/create-organization-ui.png>]
-<images/select-environment.png, id=629, 993.7125pt x 167.62625pt>
+<images/select-environment.png, id=637, 993.7125pt x 167.62625pt>
 File: images/select-environment.png Graphic file (type png)
 <use images/select-environment.png>
 Package pdftex.def Info: images/select-environment.png  used on input line 479.
 
 (pdftex.def)             Requested size: 298.11604pt x 50.28825pt.
  [31 <./images/select-environment.png>]
-<images/role-permissions-view.png, id=663, 1242.6425pt x 1079.03125pt>
+<images/role-permissions-view.png, id=671, 1242.6425pt x 1079.03125pt>
 File: images/role-permissions-view.png Graphic file (type png)
 <use images/role-permissions-view.png>
 Package pdftex.def Info: images/role-permissions-view.png  used on input line 5
@@ -1678,7 +1680,7 @@ chapter 5.
 [35
 
 ]
-<images/../../figures/survey/1-changes-ms.png, id=767, 734.745pt x 240.9pt>
+<images/../../figures/survey/1-changes-ms.png, id=776, 734.745pt x 240.9pt>
 File: images/../../figures/survey/1-changes-ms.png Graphic file (type png)
 <use images/../../figures/survey/1-changes-ms.png>
 Package pdftex.def Info: images/../../figures/survey/1-changes-ms.png  used on 
@@ -1689,13 +1691,13 @@ File: images/snet/snet_footer.png Graphic file (type png)
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 191.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [36 <./images/../../figures/survey/1-changes-ms.png>]
-<images/../../figures/survey/2-ui.png, id=776, 734.745pt x 240.9pt>
+<images/../../figures/survey/2-ui.png, id=784, 734.745pt x 240.9pt>
 File: images/../../figures/survey/2-ui.png Graphic file (type png)
 <use images/../../figures/survey/2-ui.png>
 Package pdftex.def Info: images/../../figures/survey/2-ui.png  used on input li
 ne 194.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.2-folder-structures.png, id=778, 734.745pt x 240
+<images/../../figures/survey/3.2-folder-structures.png, id=786, 734.745pt x 240
 .9pt>
 File: images/../../figures/survey/3.2-folder-structures.png Graphic file (type 
 png)
@@ -1705,7 +1707,7 @@ Package pdftex.def Info: images/../../figures/survey/3.2-folder-structures.png
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
  [37 <./images/../../figures/survey/2-ui.png> <./images/../../figures/survey/3.
 2-folder-structures.png>]
-<images/../../figures/survey/3.3-backend-permissions.png, id=788, 734.745pt x 2
+<images/../../figures/survey/3.3-backend-permissions.png, id=796, 734.745pt x 2
 40.9pt>
 File: images/../../figures/survey/3.3-backend-permissions.png Graphic file (typ
 e png)
@@ -1713,7 +1715,7 @@ e png)
 Package pdftex.def Info: images/../../figures/survey/3.3-backend-permissions.pn
 g  used on input line 249.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.4-frontend-permissions.png, id=790, 734.745pt x 
+<images/../../figures/survey/3.4-frontend-permissions.png, id=798, 734.745pt x 
 240.9pt>
 File: images/../../figures/survey/3.4-frontend-permissions.png Graphic file (ty
 pe png)
@@ -1817,8 +1819,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35230 strings out of 476372
- 675277 string characters out of 5793694
+ 35232 strings out of 476372
+ 675294 string characters out of 5793694
  2316995 words of memory out of 5000000
  56176 multiletter control sequences out of 15000+600000
  616596 words of font info for 142 fonts, out of 8000000 for 9000
@@ -1837,9 +1839,9 @@ rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
 w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
 /palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on main.pdf (54 pages, 989176 bytes).
+Output written on main.pdf (56 pages, 990641 bytes).
 PDF statistics:
- 1234 PDF objects out of 1440 (max. 8388607)
- 487 named destinations out of 1000 (max. 500000)
+ 1243 PDF objects out of 1440 (max. 8388607)
+ 489 named destinations out of 1000 (max. 500000)
  631 words of extra memory for PDF output out of 10000 (max. 10000000)
 
