@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  2 APR 2025 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  3 APR 2025 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1353,17 +1353,13 @@ cy-Funktionalität in Cloud-Anwendungen
 
 ) [5
 
-] (main.toc
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
- [6
+] (main.toc [6
 
 ])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-
-[7] [8
+ [7] [8
 
 
 ] (content/01_introduction.tex
@@ -1383,7 +1379,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=195, 437.635pt x 303.1325pt>
+<images/basic-cloud-services.drawio.png, id=201, 437.635pt x 303.1325pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1396,7 +1392,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 [1
 
 ]
-<images/mt-cloud-services.png, id=201, 729.72626pt x 465.74pt>
+<images/mt-cloud-services.png, id=207, 729.72626pt x 465.74pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 94.
@@ -1414,7 +1410,7 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 107.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [2 <./images/basic-cloud-services.drawio.png> <./images/mt-cloud-services.png>
 ]
-<images/proceed-ms-modeling.png, id=213, 1148.29pt x 898.35625pt>
+<images/proceed-ms-modeling.png, id=219, 1148.29pt x 898.35625pt>
 File: images/proceed-ms-modeling.png Graphic file (type png)
 <use images/proceed-ms-modeling.png>
 Package pdftex.def Info: images/proceed-ms-modeling.png  used on input line 131
@@ -1425,7 +1421,7 @@ Overfull \hbox (4.06375pt too wide) in paragraph at lines 131--132
  [][] 
  []
 
-<images/proceed-workspaces-v2.drawio.png, id=214, 603.25375pt x 493.845pt>
+<images/proceed-workspaces-v2.drawio.png, id=220, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
@@ -1486,15 +1482,15 @@ File: images/snet/snet_footer.png Graphic file (type png)
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 189.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
  [10]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 244.
+
 [11]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 378.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 337.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [12]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 394.
- [13]) (content/03_concept_and_design.tex
+ [12] [13]) (content/03_concept_and_design.tex
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
@@ -1510,7 +1506,7 @@ Overfull \hbox (2.41618pt too wide) in paragraph at lines 35--39
 [15
 
 ]
-<images/users-accounts-relation.drawio.png, id=402, 372.39125pt x 91.34125pt>
+<images/users-accounts-relation.drawio.png, id=427, 372.39125pt x 91.34125pt>
 File: images/users-accounts-relation.drawio.png Graphic file (type png)
 <use images/users-accounts-relation.drawio.png>
 Package pdftex.def Info: images/users-accounts-relation.drawio.png  used on inp
@@ -1542,7 +1538,7 @@ See the caption package documentation for explanation.
 LaTeX Warning: Reference `fig:comparison-db-tree-models-pic' on page 19 undefin
 ed on input line 296.
 
-<./images/tree-map.drawio.png, id=424, 734.745pt x 524.96124pt>
+<./images/tree-map.drawio.png, id=449, 734.745pt x 524.96124pt>
 File: ./images/tree-map.drawio.png Graphic file (type png)
 <use ./images/tree-map.drawio.png>
 Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 303.
@@ -1576,7 +1572,7 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 550.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 
 [22]
-<./images/tree-roles.drawio.png, id=450, 2111.89pt x 887.315pt>
+<./images/tree-roles.drawio.png, id=475, 2111.89pt x 887.315pt>
 File: ./images/tree-roles.drawio.png Graphic file (type png)
 <use ./images/tree-roles.drawio.png>
 Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 597
@@ -1593,47 +1589,28 @@ Package pdftex.def Info: images/snet/snet_footer.png  used on input line 647.
 
 [24 <./images/tree-roles.drawio.png>]) (content/04_implementation.tex [25]
 chapter 4.
-
-LaTeX Warning: Reference `' on page 26 undefined on input line 45.
-
 [26
 
 ]
-<images/fill-data-prompt.png, id=485, 532.99126pt x 398.48875pt>
+<images/fill-data-prompt.png, id=504, 532.99126pt x 398.48875pt>
 File: images/fill-data-prompt.png Graphic file (type png)
 <use images/fill-data-prompt.png>
-Package pdftex.def Info: images/fill-data-prompt.png  used on input line 146.
+Package pdftex.def Info: images/fill-data-prompt.png  used on input line 156.
 (pdftex.def)             Requested size: 213.19272pt x 159.39267pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
+ [27 <./images/fill-data-prompt.png>]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 203.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 343.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-
-[28 <./images/fill-data-prompt.png>] [29]
-
-LaTeX Warning: Reference `cha:ms-architecture:data-storage' on page 30 undefine
-d on input line 331.
-
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 341.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[30]
-<images/create-organization-ui.png, id=610, 993.7125pt x 587.19376pt>
+ [28] [29]
+<images/create-organization-ui.png, id=561, 993.7125pt x 587.19376pt>
 File: images/create-organization-ui.png Graphic file (type png)
 <use images/create-organization-ui.png>
 Package pdftex.def Info: images/create-organization-ui.png  used on input line 
-412.
+437.
 (pdftex.def)             Requested size: 298.11604pt x 176.15948pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Overfull \hbox (127.24222pt too wide) in paragraph at lines 447--452
+Overfull \hbox (127.24222pt too wide) in paragraph at lines 472--477
 \T1/ppl/m/n/10.95 The se-lected en-vi-ron-ment is en-coded in the URL's path li
 ke this: [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 []
@@ -1641,49 +1618,49 @@ ke this: [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 465.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 488.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[32 <./images/create-organization-ui.png>]
-<images/select-environment.png, id=644, 993.7125pt x 167.62625pt>
+[30 <./images/create-organization-ui.png>]
+<images/select-environment.png, id=573, 993.7125pt x 167.62625pt>
 File: images/select-environment.png Graphic file (type png)
 <use images/select-environment.png>
-Package pdftex.def Info: images/select-environment.png  used on input line 479.
+Package pdftex.def Info: images/select-environment.png  used on input line 504.
 
 (pdftex.def)             Requested size: 298.11604pt x 50.28825pt.
- [33 <./images/select-environment.png>]
-<images/role-permissions-view.png, id=678, 1242.6425pt x 1079.03125pt>
+ [31 <./images/select-environment.png>]
+<images/role-permissions-view.png, id=607, 1242.6425pt x 1079.03125pt>
 File: images/role-permissions-view.png Graphic file (type png)
 <use images/role-permissions-view.png>
 Package pdftex.def Info: images/role-permissions-view.png  used on input line 5
-52.
+77.
 (pdftex.def)             Requested size: 248.5241pt x 215.80243pt.
 
-Overfull \hbox (3.63542pt too wide) in paragraph at lines 570--573
+Overfull \hbox (3.63542pt too wide) in paragraph at lines 595--598
 []\T1/ppl/m/n/10.95 The func-tion [][][][][] was im-ple-mented in or-der to fa-
 cil-i-tate get-ting a user's
  []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 587.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 609.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[34 <./images/role-permissions-view.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 595--595
+[32 <./images/role-permissions-view.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 620--620
   [][][][]$\T1/pcr/m/n/9 https : / / casl . js . org / v6 / en / advanced / cus
 tomize -[] ability # custom -[] conditions -[] matcher -[]
  []
 
-[35]
+[33]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 699.
+(Font)              scaled to size 10.42007pt on input line 724.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 699.
+(Font)              scaled to size 7.91925pt on input line 724.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 699.
+(Font)              scaled to size 10.42007pt on input line 724.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 699.
+(Font)              scaled to size 7.91925pt on input line 724.
 
-Overfull \hbox (106.1959pt too wide) in paragraph at lines 701--709
+Overfull \hbox (106.1959pt too wide) in paragraph at lines 726--734
 \T1/ppl/m/n/10.95 rule. When the role is as-so-ci-ated to a folder, the rules f
 or pro-cesses and fold-ers, use [][][][][]
  []
@@ -1693,12 +1670,12 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [36]
+ [34]
 chapter 5.
-[37
+[35
 
 ]
-<images/../../figures/survey/1-changes-ms.png, id=784, 734.745pt x 240.9pt>
+<images/../../figures/survey/1-changes-ms.png, id=716, 734.745pt x 240.9pt>
 File: images/../../figures/survey/1-changes-ms.png Graphic file (type png)
 <use images/../../figures/survey/1-changes-ms.png>
 Package pdftex.def Info: images/../../figures/survey/1-changes-ms.png  used on 
@@ -1708,14 +1685,14 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 191.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [38 <./images/../../figures/survey/1-changes-ms.png>]
-<images/../../figures/survey/2-ui.png, id=792, 734.745pt x 240.9pt>
+ [36 <./images/../../figures/survey/1-changes-ms.png>]
+<images/../../figures/survey/2-ui.png, id=724, 734.745pt x 240.9pt>
 File: images/../../figures/survey/2-ui.png Graphic file (type png)
 <use images/../../figures/survey/2-ui.png>
 Package pdftex.def Info: images/../../figures/survey/2-ui.png  used on input li
 ne 194.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.2-folder-structures.png, id=794, 734.745pt x 240
+<images/../../figures/survey/3.2-folder-structures.png, id=726, 734.745pt x 240
 .9pt>
 File: images/../../figures/survey/3.2-folder-structures.png Graphic file (type 
 png)
@@ -1723,9 +1700,9 @@ png)
 Package pdftex.def Info: images/../../figures/survey/3.2-folder-structures.png 
  used on input line 228.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
- [39 <./images/../../figures/survey/2-ui.png> <./images/../../figures/survey/3.
+ [37 <./images/../../figures/survey/2-ui.png> <./images/../../figures/survey/3.
 2-folder-structures.png>]
-<images/../../figures/survey/3.3-backend-permissions.png, id=804, 734.745pt x 2
+<images/../../figures/survey/3.3-backend-permissions.png, id=736, 734.745pt x 2
 40.9pt>
 File: images/../../figures/survey/3.3-backend-permissions.png Graphic file (typ
 e png)
@@ -1733,7 +1710,7 @@ e png)
 Package pdftex.def Info: images/../../figures/survey/3.3-backend-permissions.pn
 g  used on input line 249.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.4-frontend-permissions.png, id=806, 734.745pt x 
+<images/../../figures/survey/3.4-frontend-permissions.png, id=738, 734.745pt x 
 240.9pt>
 File: images/../../figures/survey/3.4-frontend-permissions.png Graphic file (ty
 pe png)
@@ -1746,12 +1723,12 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [40 <./images/../../figures/survey/3.3-backend-permissions.png> <./images/../.
+ [38 <./images/../../figures/survey/3.3-backend-permissions.png> <./images/../.
 ./figures/survey/3.4-frontend-permissions.png>]
 chapter 6.
-) [41
+) [39
 
-] [42
+] [40
 
 
 ]
@@ -1760,21 +1737,21 @@ chapter without number
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [43
+ [41
 
 ]
 chapter without number
 (main.lof
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44
+ [42
 
 ])
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
 
-[45]
+[43]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1809,17 +1786,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  (main.bbl
 chapter without number
-) [46
+) [44
 
 
-] [47
+] [45
 
 
 
 
-] [48] (content/99_appendices/a01_listings.tex
+] [46] (content/99_appendices/a01_listings.tex
 chapter without number
-) [49
+) [47
 
 ] (main.aux)
  ***********
@@ -1837,29 +1814,33 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35234 strings out of 476372
- 675308 string characters out of 5793694
- 2316995 words of memory out of 5000000
- 56176 multiletter control sequences out of 15000+600000
+ 35143 strings out of 476372
+ 673773 string characters out of 5793694
+ 2208995 words of memory out of 5000000
+ 56151 multiletter control sequences out of 15000+600000
  616596 words of font info for 142 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  108i,17n,107p,10922b,2244s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/la
-txfont/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/t
-ype1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
-e1/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
-/urw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/
-urw/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
-rw/helvetic/uhvro8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
-rw/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
-w/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
-/palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
-palatino/uplri8a.pfb>
-Output written on main.pdf (58 pages, 992882 bytes).
+
+pdfTeX warning (dest): name{subsection.4.1.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/latx
+font/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/
+amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
+e1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
+/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
+rw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
+w/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
+/helvetic/uhvro8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
+/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
+palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/p
+alatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/pa
+latino/uplri8a.pfb>
+Output written on main.pdf (56 pages, 981427 bytes).
 PDF statistics:
- 1251 PDF objects out of 1440 (max. 8388607)
- 491 named destinations out of 1000 (max. 500000)
- 631 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1175 PDF objects out of 1200 (max. 8388607)
+ 425 named destinations out of 1000 (max. 500000)
+ 647 words of extra memory for PDF output out of 10000 (max. 10000000)
 

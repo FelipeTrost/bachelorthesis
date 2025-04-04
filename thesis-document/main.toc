@@ -14,12 +14,13 @@
 \contentsline {subsection}{\numberline {2.1.3}OpenID Connect}{10}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2.2}MS Architecture}{11}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}PROCEED MS' Storage Solution}{11}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}PROCEED's Assets}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Data storage}{12}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}PROCEED's Assets}{12}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}PROCEED's Role System}{12}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}MS' Role System Terminology}{12}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}MS' Resources and Actions}{12}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Role Mappings}{12}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{12}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.2}MS' Resources and Actions}{13}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Role Mappings}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{13}{subsection.2.3.4}%
 \contentsline {chapter}{\numberline {3}Concept and Design}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Modifications to Assets and Resources}{15}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Data Storage Approaches for Isolated Environment Data}{15}{section.3.2}%
@@ -46,24 +47,25 @@
 \contentsline {subsection}{\numberline {4.1.1}Sign In Flows}{26}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Authenticated Users}{27}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}Guest Users}{28}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.5}Development Users}{30}{subsection.4.1.5}%
-\contentsline {section}{\numberline {4.2}Assets}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Environments}{31}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Creation of Personal Environments}{31}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Creation of Organization Environments}{31}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Adding Users to an Environment}{32}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Environment Selection}{32}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Memberships}{33}{subsection.4.3.5}%
-\contentsline {section}{\numberline {4.4}Roles}{33}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}New Resources}{34}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Enforcing Roles in the MS}{34}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Checking Permissions associated to a Folder}{35}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Evaluation}{37}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Outlook}{41}{section.6.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{43}{chapter*.24}%
-\contentsline {chapter}{\nonumberline List of Figures}{44}{chapter*.25}%
-\contentsline {chapter}{\nonumberline Bibliography}{46}{chapter*.26}%
-\contentsline {chapter}{Appendices}{47}{section*.27}%
-\contentsline {chapter}{\nonumberline Appendix 1}{49}{chapter*.28}%
+\contentsline {subsection}{\numberline {4.1.4}Enforcement of limits for guest users}{28}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Merging Guest User's Data with an Authenticated User's Data}{28}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Assets}{29}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Environments}{29}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Creation of Personal Environments}{29}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Creation of Organization Environments}{29}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Adding Users to an Environment}{30}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Environment Selection}{30}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Memberships}{31}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Roles}{31}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}New Resources}{32}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Enforcing Roles in the MS}{32}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Checking Permissions associated to a Folder}{33}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Evaluation}{35}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Outlook}{39}{section.6.1}%
+\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.24}%
+\contentsline {chapter}{\nonumberline List of Figures}{42}{chapter*.25}%
+\contentsline {chapter}{\nonumberline Bibliography}{44}{chapter*.26}%
+\contentsline {chapter}{Appendices}{45}{section*.27}%
+\contentsline {chapter}{\nonumberline Appendix 1}{47}{chapter*.28}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

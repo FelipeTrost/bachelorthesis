@@ -112,14 +112,18 @@ From that account the MS can find the user.
 
 As previously stated, a guest user can transition to being an authenticated user by
 signing in with his personal data.
-It could be the case that his personal data already corresponds to an existing user.
+Afterward the user will be marked as authenticated and will be able to use the MS freely.
+However, it could be the case that his personal data already corresponds to an existing user.
 In this case, the user will be asked if he wants to merge his assets with the existing
 authenticated user.
 If he chooses to do so, all the assets in the guest user's personal environment will be
 transferred to the authenticated user's personal environment.
 Otherwise, all the assets created by the guest user will be deleted.
 
+%TODOFIG: make flow clear
+
 \subsection{Guest User Storage}
+\label{cha:conceptanddesign:users:guestuserstorage}
 
 For storing guest user data, one could take one of two approaches:
 storing the data in the user's browser or storing it in the MS' database, alongside the
@@ -647,7 +651,6 @@ Additionally, two new Resources were introduced, for which roles can specify per
 	      \end{itemize}
 \end{itemize}
 
-% Markeeer
 \subsection{Enforcing Permissions Based on the Folder Structure}
 
 In order to enforce permissions based on the folder structure, it is necessary to fetch
@@ -656,7 +659,8 @@ Roles can't store a representation of the folder structure, as it might become o
 Since permissions need to be verified, for many requests in the MS, and also in the user's browser, to
 adapt the UI, we decided to compute and cache a representation of the folder structure of
 every organization environment, from which an asset is requested.
-This representation is also sent to the user's browser.
+This representation is also sent to the user's browser, for the UI to be able to adapt
+based on the user's permissions.
 
 % TODO: roles send folder structure to user, is this bad? how could we mitigate it
 

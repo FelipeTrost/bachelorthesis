@@ -230,42 +230,42 @@ objects per file.
 The objects found in each file have the same structure, 
 making each file comparable to a table in a relational database.
 Each object will be called an entry from now on.
+The MS uses Zod \footnote{\url{https://zod.dev/}} to enforce that the data that is being
+stored follows a specific structure. 
+Zod is a schema declaration and validation library, it allows the MS to define the shape
+of JSON serializable data.
+For purposes of simplicity, when we talk about a schema, instead of showing the code that
+describes the Schema, we will show the typescript type that is inferred from the schema.
 
-% \subsection{Data storage}
-% \label{cha:ms-architecture:data-storage}
-%
+ \begin{lstlisting}[
+   language=JavaScript,
+   style=codestyle,
+   caption={Example of a Zod schema and the corresponding TypeScript type.},
+ ]
+ import { z } from 'zod';
+
+ const UserSchema = z.object({
+   id: z.string(),
+   username: z.string(),
+   image: z.string().optional(),
+ })
+
+ // TypeScript type that satisfies the UserSchema
+ type User = {
+     id: string;
+     username: string;
+     image?: string | undefined;
+ }
+ \end{lstlisting}
+
+ \subsection{Data storage}
+ \label{cha:ms-architecture:data-storage}
+
 % % TODO: footnote or something for json
 %
 % The MS doesn't use a database management system, instead it stores all data in JSON files.
 % Each file can be seen as a table in a traditional relational database.
 % Even though this approach allows for unstructured data, the MS uses
-% Zod \footnote{\url{https://zod.dev/}} schemas to enforce a structure on
-% data that is stored.
-% Zod is a schema declaration and validation library, it allows the MS to define the shape
-% of JSON serializable data.
-% For purposes of simplicity, when we talk about a schema, instead of showing the code that
-% describes the Schema, we will show the typescript type that satisfies the schema.
-%
-% \begin{lstlisting}[
-%   language=JavaScript,
-%   style=codestyle,
-%   caption={Example of a Zod schema and the corresponding TypeScript type.},
-% ]
-% import { z } from 'zod';
-%
-% const UserSchema = z.object({
-%   id: z.string(),
-%   username: z.string(),
-%   image: z.string().optional(),
-% })
-%
-% // TypeScript type that satisfies the UserSchema
-% type User = {
-%     id: string;
-%     username: string;
-%     image?: string | undefined;
-% }
-% \end{lstlisting}
 
 % TODO !!
 \subsection{PROCEED's Assets}

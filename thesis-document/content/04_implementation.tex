@@ -1,15 +1,25 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-In this chapter, we will discuss the details 
-% \footnote{\url{https://github.com/PROCEED-Labs/proceed}}
-
+This chapter describes how the concepts outlined previously were translated into practical solutions within the MS.
+It details the key technical details involved in integrating environments,
+folder structures,
+user management,
+and the enhancements made to the role-based access control system.
+The implementation ensures robust isolation between environments and 
+aims to achieve high maintainability and simplicity to support ongoing development.
 
 % TODO: either finish this or remove it
 % Additionally, the MS stores XML files for BPMN Assets.
 
 \section{Users}
 
+The user management in the MS was completely reworked to support the new 
+environments design structure.
+Users are now stored in a separate file in the MS' storage solution and are independent of
+any environment.
+Additionally, guest users were added to the MS to allow users to try the MS without
+signing in with their personal information.
 
 %
 % \begin{lstlisting}[
@@ -28,60 +38,62 @@ with the help of the NextAuth.js\footnote{\url{https://next-auth.js.org/}} libra
 A JWT token\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.txt}}
 is stored in the user's browser cookies\footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}},
 which is then parsed and verified by the MS' backend.
+This token contains the user's ID.
 % TODO: is "id" the correct word here
-If the JWT token is valid the user is considered authenticated.
-If the user couldn't be authenticated, he is redirected to the sign-in page.
+If a user makes a request to the backend,
+with a valid JWT token the user is considered authenticated.
+If a user couldn't be authenticated, they're redirected to the sign-in page.
 
 NextAuth.js has many sign-in methods built-in, which can be set up with little configuration.
-For email-sign in, NextAuth.js sends an email with a link that the user has to click to
-sign in.
-We have to provide a way to store and query the tokens, that are encoded in the link and a
-function that sends the email.
-For OAuth2 providers, we only have to provide a client ID and secret.
+For email-sign in, NextAuth.js sends an email with a link to the MS' backend with a token. 
+When the backend receives this token, the user's cookies are set, and they're authenticated.
+% We have to provide a way to store and query the tokens, that are encoded in the link and a
+% function that sends the email.
+% For OAuth2 providers, we only have to provide a client ID and secret.
 
-To store and look up users and accounts, NextAuth.js requires a database adapter,
-which is a set of functions that interact with the database.
-% TODO: add ref
-The structure of the data that will be stored described in \ref{}.
+%To store and look up users and accounts, NextAuth.js requires a database adapter,
+%which is a set of functions that interact with the database.
+%% TODO: add ref
+%The structure of the data that will be stored described in \ref{}.
 
 NextAuth.js provides hooks that allow us to customize the sign-in flow, the most important
 one for this thesis is the \lstinline{signIn} hook.
 This hook is called when a user tries to sign in, this can be a new user or a returning
 one.
-As arguments, it receives the user's data, and the account that the user is trying to sign
-in, if the user doesn't exist the user data may be empty.
+As arguments, the \lstinline{signIn} hook receives the user's data,
+and the account that the user is trying to sign in with,
+if the user doesn't exist the user data may be empty.
 If the hook returns true, the sign-in flow continues, if it returns a string or false,
 then the sign-in flow is stopped, and the user is redirected to an error page.
-Inside this hook, we can also check if the user was previously signed-in as a guest user
-and is now signing in with personal information, so that we can merge the data of the two,
-we will elaborate on this in \ref{cha:ms-architecture:merge-guest-user-data}.
+% Inside this hook, we can also check if the user was previously signed-in as a guest user
+% and is now signing in with personal information, so that we can merge the data of the two,
+% we will elaborate on this in \ref{cha:ms-architecture:merge-guest-user-data}.
 
 % TODO: decicde if we need a setup example for nextauth.js
-
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Schema for authenticated users.},
-]
-import NextAuth from 'next-auth/next';
-import GoogleProvider from 'next-auth/providers/google';
-
-const authOptions = {
-  providers: [
-    EmailProvider({
-      sendVerificationRequest({ url }) {
-        // send email
-      },
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
-}
-
-const handler = NextAuth(authOptions)
-\end{lstlisting}
+%\begin{lstlisting}[
+%  language=JavaScript,
+%  style=codestyle,
+%  caption={Setup example for NextAuth.js.},
+%]
+%import NextAuth from 'next-auth/next';
+%import GoogleProvider from 'next-auth/providers/google';
+%
+%const authOptions = {
+%  providers: [
+%    EmailProvider({
+%      sendVerificationRequest({ url }) {
+%        // send email
+%      },
+%    }),
+%    GoogleProvider({
+%      clientId: process.env.GOOGLE_CLIENT_ID,
+%      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+%    }),
+%  ],
+%}
+%
+%const handler = NextAuth(authOptions)
+% \end{lstlisting}
 
 
 % (property) signIn?: ((params: {
@@ -106,9 +118,9 @@ const handler = NextAuth(authOptions)
 
 Authenticated Users are users that sign in to the MS either with their email or with a
 OAuth 2.0 provider.
-They're stored in the MS by NextAuth.js after they've successfully signed in.
-For authenticated users we store an \lstinline{id}, a flag named \lstinline{isGuest}, set
-to false, and personal information.
+They're stored in the MS after they have successfully signed in.
+For authenticated users we store an ID, a flag named \lstinline{isGuest}, set
+to false, and their personal information.
 This is the schema for authenticated users:
 
 % NOTE: maybe explain that because of nextauths weirdness the email is just stored in the
@@ -123,23 +135,21 @@ This is the schema for authenticated users:
 {
     id: string;
     isGuest: false;
-    emailVerifiedOn: Date | undefined;
     firstName?: string | undefined;
     lastName?: string | undefined;
     username?: string | undefined;
     image?: string |  undefined;
     email?: string | undefined;
 }
-
 \end{lstlisting}
 
 All the personal information is optional, because depending on how the user signs in, the
-information might not be available.
-For instance, because NextAuth.js' email sign in only requires the user to input an
-email, authenticated users are created without a first name, last name or username.
-A possible workaround would be to automatically generate these, but we chose to leave them
-undefined, and prompt the user to fill them when he first signs in.
-
+information might not be available, when the user is created.
+% For instance, because NextAuth.js' email sign in only requires the user to input an
+% email, authenticated users are created without a first name, last name or username.
+% A possible workaround would be to automatically generate these, but we chose to leave them
+% undefined, and prompt the user to fill them when he first signs in.
+After the user is created, if he has missing information, we prompt him to fill it in.
 
 \begin{figure}[H]
 	\centering
@@ -151,24 +161,28 @@ undefined, and prompt the user to fill them when he first signs in.
 
 % TODO: cite paper or something to show that this can happen?? im sure there's going to be
 % smth
-The \lstinline{image} field is used to store a URL to a user's profile picture. This field
-can only be set if the user signed in with an OAuth 2.0, which supplied
-the URL.
-We don't accept custom URLs, as this allows for attackers to supply URLs to a server he
-controls, which can be used to track user's browsers.
-By only saving URLs provided directly by trusted OAuth 2.0 providers, we ensure that the
+The \lstinline{image} field is used to store a URL to a user's profile picture. 
+This field can only be set if the user signed in with an OAuth 2.0 provider,
+that provided a profile picture URL.
+We don't accept custom URLs,
+as this allows for attackers to supply URLs to a server they control,
+which can be used to track other user's browsers.
+By only saving URLs provided by trusted OAuth 2.0 providers, we ensure that the
 source of the image is reliable.
 
-As stated before, we need Accounts, to store the sign-in methods of a user.
-To recognize a user's account we need to store the name of the provider and the account's.
-ID on the provider's platform.
-Additionally, to link the account to a user, we store the user's ID in the account.
+As stated before, Accounts are used to link sign-in data provided by OAuth 2.0 providers
+after someone signs in, to a user in the MS.
+Oauth 2.0 providers provide a unique ID for the user that signed in,
+to recognize a user's account we need to store this ID and
+the name of the provider.
+Additionally, to link the account to a user, we store the user's ID in the MS.
 The schema for accounts is as follows:
 
 \begin{lstlisting}[
   language=JavaScript,
   style=codestyle,
   caption={Schema for accounts.},
+  keywords={string}
 ]
 {
     id: string;
@@ -181,14 +195,15 @@ The schema for accounts is as follows:
 
 \subsection{Guest Users}
 
-Users that aren't signed in can choose to try the MS out as a guest, this doesn't require
+Users that aren't signed in can choose to use the MS as a guest, this doesn't require
 the user to input any personal information.
-For users that choose to sign in as a guest, a new user is created and stored in the MS.
-To achieve this, we use a modified version of the authenticated user schema described in
-\ref{lst:authenticated-users-schema}, to only include the \lstinline{id} and the
-\lstinline{isGuest} flag set to true.
-Additionally, we store a reference to an authenticated user, named
-\lstinline{signedInWithUserId}, the purpose of this is explained in \ref{cha:ms-architecture:merge-guest-user-data}.
+For these users, a new user is created and stored in the MS.
+These users only store a unique ID and a flag named \lstinline{isGuest}, set to true.
+% To achieve this, we use a modified version of the authenticated user schema described in
+% \ref{lst:authenticated-users-schema}, to only include the \lstinline{id} and the
+% \lstinline{isGuest} flag set to true.
+% Additionally, guest users can store a reference to an authenticated user, named
+% \lstinline{signedInWithUserId}, the purpose of this is explained in \ref{cha:ms-architecture:merge-guest-user-data}.
 
 \begin{lstlisting}[
   language=JavaScript,
@@ -198,56 +213,83 @@ Additionally, we store a reference to an authenticated user, named
 {
     isGuest: true;
     id: string;
-    signedInWithUserId: string | undefined;
 } 
 \end{lstlisting}
 
-This option must be made available to users during the sign-in process.
-To accomplish this, NextAuth.js provides a built-in \lstinline{CredentialsProvider},
-which enables the implementation of custom sign-in methods.
-We configured this provider to accept no credentials,
-allowing users to sign in without supplying personal information.
+% This option must be made available to users during the sign-in process.
+% To accomplish this, NextAuth.js provides a built-in \lstinline{CredentialsProvider},
+% which enables the implementation of custom sign-in methods.
+% We configured this provider to accept no credentials,
+% allowing users to sign in without supplying personal information.
+%
+% \begin{lstlisting}[
+%   language=JavaScript,
+%   style=codestyle,
+%   caption={Custom sign-in method for guest users.},
+% ]
+% import NextAuth from 'next-auth/next';
+%
+% const authOptions = {
+%   providers: [
+%     ...
+%     CredentialsProvider({
+%       name: 'Continue as Guest',
+%       credentials: {},
+%       async authorize() {
+%         return addUser({ isGuest: true });
+%       },
+%     }),
+%   ],
+% }
+%
+% const handler = NextAuth(authOptions)
+% \end{lstlisting}
 
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Custom sign-in method for guest users.},
-]
-import NextAuth from 'next-auth/next';
-
-const authOptions = {
-  providers: [
-    ...
-    CredentialsProvider({
-      name: 'Continue as Guest',
-      credentials: {},
-      async authorize() {
-        return addUser({ isGuest: true });
-      },
-    }),
-  ],
-}
-
-const handler = NextAuth(authOptions)
-\end{lstlisting}
-
-After a user signs in as a guest, a JWT token is stored in his cookies.
+After a user signs in as a guest, a JWT token pointing to a real user is stored in his
+cookies, so he can use the MS like an authenticated user.
 Since there is no personal information stored, there is no way for the user to sign in to
-his guest account from another device.
-This also means, that if the cookies are deleted, the user will lose access to his guest account.
+his guest user from another device.
+This also means, that if the JWT cookie is deleted, the user will lose access to his guest
+user.
+
+\subsection{Enforcement of limits for guest users}
+
+Guests can have their own personal space for their assets, but they aren't allowed to create or join organization environments.
+The system specifically prevents these actions in the corresponding endpoints, by checking
+the \lstinline{isGuest} flag.
+Consequently, any features inside an organization environment are inaccessible to guest users.
+
 
 % TODO: subsection title :(
-\subsection{}
+\subsection{Merging Guest User's Data with an Authenticated User's Data}
 \label{cha:ms-architecture:merge-guest-user-data}
 
+As explained in \ref{cha:conceptanddesign:users:guestuserstorage}, a guest user can sign in with an email or an OAuth 2.0 provider.
+Once signed in, the \lstinline{isGuest} flag is set to false, and the user’s sign-in method is stored.
+Since the user ID doesn't change, there’s no need to transfer existing assets.
+If the chosen account is already linked to another user in the MS,
+then the user is redirected to a page where he can choose to either transfer the guest user's assets to his 
+already existing account or discard them.
+This page takes a JWT token as a query parameter, which is generated after the user signs
+in.
+In the case of an Email sign-in, the token is generated by the MS when the user requests
+the sign-in link, and added to the sign-in link as a URL that will be called after
+authenticating the user.
+
+we store a \lstinline{signedInWithUserId} value to reference that user.
+This reference is needed, for the case that a user tries to sign in with an email, a
+This flag is needed to prevent the attack shown in ????? where a user could hijack a guest
+account's data through manipulating the
+Afterward, the user can decide whether to transfer the guest’s assets to their personal environment or discard them.
+
 Guest users can choose to sign in with their email or with an OAuth 2.0 provider.
-By doing so, their guest account is turned into an authenticated account.
+By doing so, their guest user is turned into an authenticated user.
 The \lstinline{isGuest} flag is set to false, and their sign-in method is stored.
 All their assets don't need to be transferred, as they are already stored in the MS, and
-the user \lstinline{id} didn't change.
+the user ID wasn't changed.
 This approach only works if the account that the user used to sign in, wasn't already
 linked to an authenticated user.
-For the case where the account was already linked to an authenticated user, we store a new
+If the account is already linked to an authenticated user, we store a new
 value in the guest user's entry, named \lstinline{signedInWithUserId},
 that references the authenticated user that signed in.
 After signing in, the user is directed to a page, where he can choose to either transfer the
@@ -257,63 +299,63 @@ that signed in with the user's \lstinline{id}.
 
 
 % TODO: this caption needs work
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Handle the transfer of processes from a guest user to an authenticated user.},
-]
-import NextAuth from 'next-auth/next';
+% \begin{lstlisting}[
+%   language=JavaScript,
+%   style=codestyle,
+%   caption={Handle the transfer of processes from a guest user to an authenticated user.},
+% ]
+% import NextAuth from 'next-auth/next';
+%
+% const authOptions = {
+%   ...
+%   callbacks: {
+%     ...
+%     signIn: async ({ account, user, email }) => {
+%       // Get the user that was signed in when this sign in flow started
+%       const session = await getServerSession(nextAuthOptions);
+%       const sessionUser = session?.user;
+%
+%       // Check if the user is signing in
+%       if (
+%         sessionUser?.guest &&
+%         account?.provider !== 'guest-signin' &&
+%         !email?.verificationRequest
+%       ) {
+%         // Check if the user's cookie is correct
+%         const sessionUserInDb = getUserById(sessionUser.id);
+%         if (!sessionUserInDb || !sessionUserInDb.guest) throw new Error('User ID in session is not valid');
+%
+%         const userSigningIn = getUserById(user.id);
+%
+%         if (userSigningIn) {
+%           // If the user that is signing in exists, update the guest user
+%           updateUser(sessionUser.id, { guest: true, signedInWithUserId: userSigningIn.id });
+%         } else {
+%           // If the user that is signing in is a new user, update the guest user
+%           updateUser(sessionUser.id, {
+%             firstName: user.firstName ?? undefined,
+%             lastName: user.lastName ?? undefined,
+%             username: user.username ?? undefined,
+%             image: user.image ?? undefined,
+%             email: user.email ?? undefined,
+%             isGuest: false,
+%           });
+%         }
+%       }
+%
+%       return true;
+%     },
+%   }
+% }
+%
+% const handler = NextAuth(authOptions)
+% \end{lstlisting}
 
-const authOptions = {
-  ...
-  callbacks: {
-    ...
-    signIn: async ({ account, user, email }) => {
-      // Get the user that was signed in when this sign in flow started
-      const session = await getServerSession(nextAuthOptions);
-      const sessionUser = session?.user;
 
-      // Check if the user is signing in
-      if (
-        sessionUser?.guest &&
-        account?.provider !== 'guest-signin' &&
-        !email?.verificationRequest
-      ) {
-        // Check if the user's cookie is correct
-        const sessionUserInDb = getUserById(sessionUser.id);
-        if (!sessionUserInDb || !sessionUserInDb.guest) throw new Error('User ID in session is not valid');
-
-        const userSigningIn = getUserById(user.id);
-
-        if (userSigningIn) {
-          // If the user that is signing in exists, update the guest user
-          updateUser(sessionUser.id, { guest: true, signedInWithUserId: userSigningIn.id });
-        } else {
-          // If the user that is signing in is a new user, update the guest user
-          updateUser(sessionUser.id, {
-            firstName: user.firstName ?? undefined,
-            lastName: user.lastName ?? undefined,
-            username: user.username ?? undefined,
-            image: user.image ?? undefined,
-            email: user.email ?? undefined,
-            isGuest: false,
-          });
-        }
-      }
-
-      return true;
-    },
-  }
-}
-
-const handler = NextAuth(authOptions)
-\end{lstlisting}
-
-
-\subsection{Development Users}
-\label{cha:ms-architecture:users:development-users}
-
-I'm not even sure If this belongs in this thesis
+% \subsection{Development Users}
+% \label{cha:ms-architecture:users:development-users}
+%
+% I'm not even sure If this belongs in this thesis
 
 \section{Assets}
 

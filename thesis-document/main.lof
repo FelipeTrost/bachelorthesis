@@ -13,17 +13,17 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Comparison between Adjacency List, Nested Set and Materialized Path models.}}{20}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Permissions of roles cascade down the folder structure.}}{24}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Prompt to fill in personal information.}}{28}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Form for creating an organization environment.}}{32}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Selection of environments in the MS' navigation bar.}}{33}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt to fill in personal information.}}{34}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Prompt to fill in personal information.}}{27}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Form for creating an organization environment.}}{30}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Selection of environments in the MS' navigation bar.}}{31}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Prompt to fill in personal information.}}{32}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Evaluation of Task List.}}{37}{figure.caption.18}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (very minimal) to 5 (extensive), how significantly do you feel the codebase had to change to support multi-tenant environments?"}}{38}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (not intuitive at all) to 5 (extremely intuitive), how would you rate the ease of navigating and managing folders/environments in the new UI?"}}{39}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (very simple) to 5 (overly complex), how would you rate the complexity of the folder system’s data model and its related functions?"}}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (not at all effective) to 5 (extremely effective), how effective are the new backend helper functions in streamlining environment identification and permission checks?"}}{40}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (no change in complexity) to 5 (drastically simpler), how much do the new frontend helper functions simplify adapting UI elements based on each user’s permissions?"}}{40}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Evaluation of Task List.}}{35}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (very minimal) to 5 (extensive), how significantly do you feel the codebase had to change to support multi-tenant environments?"}}{36}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (not intuitive at all) to 5 (extremely intuitive), how would you rate the ease of navigating and managing folders/environments in the new UI?"}}{37}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (very simple) to 5 (overly complex), how would you rate the complexity of the folder system’s data model and its related functions?"}}{37}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (not at all effective) to 5 (extremely effective), how effective are the new backend helper functions in streamlining environment identification and permission checks?"}}{38}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Histogram of answers to the question: "On a scale of 1 (no change in complexity) to 5 (drastically simpler), how much do the new frontend helper functions simplify adapting UI elements based on each user’s permissions?"}}{38}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
