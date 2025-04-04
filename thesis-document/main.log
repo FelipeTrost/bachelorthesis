@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  3 APR 2025 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.6)  4 APR 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -11,11 +11,9 @@ Document Class: scrbook 2023/07/07 v3.41 KOMA-Script document class (book)
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/scrkbase.sty
 Package: scrkbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/scrbase.sty
 Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/scrlfile.sty
 Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
 
@@ -23,7 +21,7 @@ Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
 ty
 Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
 
- (/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/scrlogo.sty
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/scrlogo.sty
 Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
 ))) (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
@@ -32,8 +30,7 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
 Already applied: [0000/00/00] Usage of raw or classic option list on input line
  368.
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/tocbasic.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/koma-script/tocbasic.sty
 Package: tocbasic 2023/07/07 v3.41 KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip48
 \scr@dte@tocline@numbox=\box51
@@ -143,41 +140,34 @@ Class scrbook Info: Redefining `\numberline' on input line 7430.
 LaTeX Warning: \include should only be used after \begin{document} on input lin
 e 34.
 
-(style/style.tex
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/a4wide/a4wide.sty
+(style/style.tex (/home/felipetrost/.miktex/texmfs/install/tex/latex/a4wide/a4w
+ide.sty
 Package: a4wide 1994/08/30
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/ntgclass/a4.sty
 Package: a4 2023/01/10 v1.2g A4 based page layout
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/verbatim.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks18
 \verbatim@line=\toks19
 \verbatim@in@stream=\read2
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/appendix/appendix.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count198
 \c@@ppsavesec=\count199
 \c@@ppsaveapp=\count266
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/acronym/acronym.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/acronym/acronym.sty
 Package: acronym 2020/04/17 v1.47 Support for acronyms (Tobias Oetiker)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/bigfoot/suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/xstring/xstring.sty
-(/home/felipetrost/.miktex/texmfs/install/tex/generic/xstring/xstring.tex
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/xstring/xstring.sty (/hom
+e/felipetrost/.miktex/texmfs/install/tex/generic/xstring/xstring.tex
 \xs_counta=\count267
 \xs_countb=\count268
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 )
 \AC@clearlist=\toks20
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/amscls/amsthm.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks21
 \thm@bodyfont=\toks22
@@ -188,9 +178,8 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip66
 \thm@headsep=\skip67
 \dth@everypar=\toks26
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/xpatch/xpatch.sty
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/xpatch/xpatch.sty (/home/
+felipetrost/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-02-13 L3 programming layer (loader) 
 
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.
@@ -209,19 +198,15 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count270
 ))
 Class scrbook Info: amsthm's \deferred@thm@head patched.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx)
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -231,13 +216,10 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
@@ -253,34 +235,26 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layouthoffset=\dimen147
 \Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks27
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
-(style/noindent.sty)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/url/url.sty
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg)) (st
+yle/noindent.sty) (/home/felipetrost/.miktex/texmfs/install/tex/latex/url/url.s
+ty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/hyphenat/hyphenat.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyphenat/hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
 \langwohyphens=\language2
 LaTeX Info: Redefining \_ on input line 43.
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/mathpazo.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/mathpazo.sty
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/helvet.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/courier.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/base/textcomp.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/tabularx.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen149
@@ -298,8 +272,7 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@delta=\dimen155
 \TX@cols=\count274
 \TX@ftn=\toks29
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen156
 \lightrulewidth=\dimen157
@@ -318,15 +291,13 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count277
 \@lastruleclass=\count278
 \@thisrulewidth=\dimen168
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/multirow/multirow.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip70
 \multirow@cntb=\count279
 \multirow@dima=\skip71
 \bigstrutjot=\dimen169
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/longtable.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/longtable.sty
 Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LTleft=\skip72
 \LTright=\skip73
@@ -346,25 +317,20 @@ Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LT@p@ftn=\toks30
 )
 Class scrbook Info: longtable captions redefined on input line 149.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip76
-
 For additional information on amsmath, use the `?' option.
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks31
 \ex@=\dimen171
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen172
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count285
@@ -414,10 +380,8 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks35
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup5
@@ -425,28 +389,23 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/setspace/setspace.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/generic/babel/babel.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/generic/babel/babel.sty
 Package: babel 2024/02/07 v24.2 The Babel package
 \babel@savecnt=\count297
 \U@D=\dimen180
 \l@unhyphenated=\language3
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
 \bbl@dirlevel=\count298
-
 *************************************
 * Local config file bblopts.cfg used
 *
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/arabi/bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/babel-english/english.ldf
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'british' set to \l@english
 (babel)             (\language0). Reported on input line 82.
@@ -467,16 +426,13 @@ Package babel Info: Importing font and identification data for english
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 11
 2.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks36
 \inpenc@posthook=\toks37
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/csquotes/csquotes.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count299
 \csq@gtype=\count300
@@ -485,13 +441,11 @@ Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@maxlvl=\count303
 \csq@tshold=\count304
 \csq@ltx@everypar=\toks38
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 )
@@ -499,20 +453,16 @@ Package csquotes Info: Option 'babel' depreciated.
 (csquotes)             Using 'autostyle'.
 Package csquotes Info: Enabling multilingual quotes.
 Package csquotes Info: Redefining alias 'english' -> 'english/american'.
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/units/units.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/units/units.sty
 Package: units 1998/08/04 v0.9b Typesetting units
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/units/nicefrac.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseDisplaystyle=\skip79
 \L@UnitsRaiseTextstyle=\skip80
 \L@UnitsRaiseScriptstyle=\skip81
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/listings/listings.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/listings/listings.sty
 \lst@mode=\count305
 \lst@gtempboxa=\box63
 \lst@token=\toks39
@@ -525,18 +475,15 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \lst@newlines=\count309
 \lst@lineno=\count310
 \lst@maxwidth=\dimen184
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count311
 \lst@skipnumbers=\count312
 \lst@framebox=\box64
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/listings/listings.cfg
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip82
@@ -545,17 +492,13 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box65
 \enit@count@id=\count313
 \enitdp@description=\count314
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
@@ -566,15 +509,13 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdima=\dimen188
 \ESO@tempdimb=\dimen189
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/changepage/chngpage.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/changepage/chngpage.sty
 Package: chngpage 2009/10/20 v1.2b change page layout
 \c@cp@cnt=\count315
 \c@cp@tempcnt=\count316
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/frontendlayer/tikz.st
+y (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty (/
+home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-com
 mon.tex
 \pgfutil@everybye=\toks41
@@ -591,8 +532,7 @@ ex.def
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
-
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty 
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.co
 de.tex
@@ -627,7 +567,6 @@ aryfiltered.code.tex
 \t@pgf@tokb=\toks46
 \t@pgf@tokc=\toks47
 \pgf@sys@id@count=\count321
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -691,9 +630,8 @@ de.tex
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfloat.cod
 e.tex
 \c@pgfmathroundto@lastzeros=\count325
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/math/pgfint.code.tex)
-
+)) (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/math/pgfint.code.t
+ex)
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepoi
 nts.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -811,12 +749,11 @@ Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-v
 ersion-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.cod
-e.tex))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/math/pgfmath.sty
+e.tex)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/pgf/math/pgfmath.st
+y
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
 ))
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/utilities/pgffor.code
@@ -866,10 +803,8 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/li
 braries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/caption/caption.sty
+))) (/home/felipetrost/.miktex/texmfs/install/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen296
@@ -881,7 +816,6 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@parindent=\dimen302
 \caption@hangindent=\dimen303
 Package caption Info: KOMA-Script document class detected.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/caption/caption-koma.sto
 File: caption-koma.sto 2023/09/08 v2.0e Adaption of the caption package to the 
 KOMA-Script document classes (AR)
@@ -890,26 +824,22 @@ KOMA-Script document classes (AR)
 \c@continuedfloat=\count339
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: KOMA-Script scrextend package detected.
 \caption@addmargin@hsize=\dimen304
 \caption@addmargin@linewidth=\dimen305
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/float/float.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count340
 \float@exts=\toks53
 \float@box=\box77
 \@float@everytoks=\toks54
 \@floatcapt=\box78
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/placeins/placeins.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/subfigure/subfigure.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip83
 \subfigcapskip=\skip84
@@ -921,15 +851,13 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \c@lofdepth=\count342
 \c@subtable=\count343
 \c@lotdepth=\count344
-
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip87
 \subfig@bottom=\skip88
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/calc.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count345
 \calc@Bcount=\count346
@@ -968,13 +896,10 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@erf=\skip98
 \f@nch@O@olf=\skip99
 \f@nch@O@orf=\skip100
-))
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/tcolorbox/tcolorbox.sty
+)) (/home/felipetrost/.miktex/texmfs/install/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
@@ -999,20 +924,16 @@ Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 \c@FancyVerbLine=\count352
 \FV@StepNumber=\count353
 \FV@OutFile=\write4
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys
 .sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
@@ -1027,20 +948,16 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )) (/home/felipetrost/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/auxhook/auxhook.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlest
 ring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
@@ -1049,17 +966,14 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen311
 \Hy@linkcounter=\count355
 \Hy@pagecounter=\count356
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-)
-(/home/felipetrost/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
+) (/home/felipetrost/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count357
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1076,7 +990,6 @@ Package hyperref Info: Bookmarks ON on input line 4446.
 \c@Hy@tempcnt=\count358
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen312
-
 (/home/felipetrost/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
@@ -1094,7 +1007,7 @@ Package hyperref Info: backreferencing OFF on input line 6078.
 Package hyperref Info: Link coloring OFF on input line 6083.
 Package hyperref Info: Link coloring with OCG OFF on input line 6088.
 Package hyperref Info: PDF/A mode OFF on input line 6093.
- (/home/felipetrost/.miktex/texmfs/install/tex/latex/base/atbegshi-ltx.sty
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -1103,10 +1016,8 @@ package with kernel methods
 \c@Hfootnote=\count362
 )
 Package hyperref Info: Driver: hpdftex.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
@@ -1130,14 +1041,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (main.aux
-
-LaTeX Warning: Label `fig:prompt-fill-personal-information' multiply defined.
-
-
-LaTeX Warning: Label `fig:prompt-fill-personal-information' multiply defined.
-
-)
+(main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
@@ -1168,7 +1072,7 @@ Package scrbase Info: activating english \listfigurename on input line 176.
 Package scrbase Info: activating english \listtablename on input line 176.
 Package scrbase Info: activating english \bibname on input line 176.
 Package scrbase Info: activating english \indexname on input line 176.
- (/home/felipetrost/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+(/home/felipetrost/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count365
 \scratchdimen=\dimen315
@@ -1187,7 +1091,6 @@ sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
@@ -1232,7 +1135,6 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 176.
-(main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1244,16 +1146,13 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
 (scrbook)           before \begin{document} on input line 176.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
 \BKM@id=\count372
-))
-(content/00_frontpages/00_frontpage.tex
+)) (content/00_frontpages/00_frontpage.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 <images/snet/titlepage.pdf, id=6, 932.73468pt x 1320.43312pt>
@@ -1261,46 +1160,41 @@ File: images/snet/titlepage.pdf Graphic file (type pdf)
 <use images/snet/titlepage.pdf>
 Package pdftex.def Info: images/snet/titlepage.pdf  used on input line 40.
 (pdftex.def)             Requested size: 597.5317pt x 845.07433pt.
- [1
+[1
 
 
 
 
 
 {/home/felipetrost/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/felip
-etrost/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc} <./images/snet/title
-page.pdf>]
-<images/snet/snet_footer.png, id=22, 623.64026pt x 287.21095pt>
+etrost/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}]
+<images/snet/snet_footer.png, id=15, 623.64026pt x 287.21095pt>
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 44.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 4
 4.
- (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1ppl.fd
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
 44.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
 44.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
 44.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
 44.
-
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
@@ -1316,10 +1210,8 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 8.33606pt on input line 44.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 44.
- [2 <./images/snet/snet_footer.png>] [3]) (content/00_frontpages/01_declaration
-.tex
+[2] [3]) (content/00_frontpages/01_declaration.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 1.
-
 
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
@@ -1328,8 +1220,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.40245pt on input line 1.
-)
-(content/00_frontpages/03_abstract.tex
+) (content/00_frontpages/03_abstract.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
 s been already used, duplicate ignored
 <to be read again> 
@@ -1359,7 +1250,7 @@ cy-Funktionalität in Cloud-Anwendungen
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [7] [8
+[7] [8
 
 
 ] (content/01_introduction.tex
@@ -1379,7 +1270,7 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-<images/basic-cloud-services.drawio.png, id=201, 437.635pt x 303.1325pt>
+<images/basic-cloud-services.drawio.png, id=191, 437.635pt x 303.1325pt>
 File: images/basic-cloud-services.drawio.png Graphic file (type png)
 <use images/basic-cloud-services.drawio.png>
 Package pdftex.def Info: images/basic-cloud-services.drawio.png  used on input 
@@ -1392,7 +1283,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 [1
 
 ]
-<images/mt-cloud-services.png, id=207, 729.72626pt x 465.74pt>
+<images/mt-cloud-services.png, id=197, 729.72626pt x 465.74pt>
 File: images/mt-cloud-services.png Graphic file (type png)
 <use images/mt-cloud-services.png>
 Package pdftex.def Info: images/mt-cloud-services.png  used on input line 94.
@@ -1408,9 +1299,8 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 107.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [2 <./images/basic-cloud-services.drawio.png> <./images/mt-cloud-services.png>
-]
-<images/proceed-ms-modeling.png, id=219, 1148.29pt x 898.35625pt>
+[2]
+<images/proceed-ms-modeling.png, id=207, 1148.29pt x 898.35625pt>
 File: images/proceed-ms-modeling.png Graphic file (type png)
 <use images/proceed-ms-modeling.png>
 Package pdftex.def Info: images/proceed-ms-modeling.png  used on input line 131
@@ -1421,7 +1311,7 @@ Overfull \hbox (4.06375pt too wide) in paragraph at lines 131--132
  [][] 
  []
 
-<images/proceed-workspaces-v2.drawio.png, id=220, 603.25375pt x 493.845pt>
+<images/proceed-workspaces-v2.drawio.png, id=208, 603.25375pt x 493.845pt>
 File: images/proceed-workspaces-v2.drawio.png Graphic file (type png)
 <use images/proceed-workspaces-v2.drawio.png>
 Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
@@ -1430,25 +1320,24 @@ Package pdftex.def Info: images/proceed-workspaces-v2.drawio.png  used on input
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./images/proceed-ms-modeling.png>]
+[3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 319.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [4 <./images/proceed-workspaces-v2.drawio.png>]
+[4]
 Underfull \vbox (badness 2922) has occurred while \output is active []
 
- [5]
+[5]
 Underfull \vbox (badness 3557) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 478.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [6])
-(content/02_related_work.tex [7]
+[6]) (content/02_related_work.tex [7]
 chapter 2.
 [8
 
@@ -1472,7 +1361,7 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 179.
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 17
 9.
- (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
+(/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1481,21 +1370,20 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 189.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [10]
+[10]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 244.
-
 [11]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 337.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [12] [13]) (content/03_concept_and_design.tex
+[12] [13]) (content/03_concept_and_design.tex
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [14]
+[14]
 chapter 3.
 
 Overfull \hbox (2.41618pt too wide) in paragraph at lines 35--39
@@ -1506,7 +1394,7 @@ Overfull \hbox (2.41618pt too wide) in paragraph at lines 35--39
 [15
 
 ]
-<images/users-accounts-relation.drawio.png, id=427, 372.39125pt x 91.34125pt>
+<images/users-accounts-relation.drawio.png, id=413, 372.39125pt x 91.34125pt>
 File: images/users-accounts-relation.drawio.png Graphic file (type png)
 <use images/users-accounts-relation.drawio.png>
 Package pdftex.def Info: images/users-accounts-relation.drawio.png  used on inp
@@ -1516,183 +1404,151 @@ File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
 Package pdftex.def Info: images/snet/snet_footer.png  used on input line 122.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [16 <./images/users-accounts-relation.drawio.png>]
+[16]
 Underfull \vbox (badness 5787) has occurred while \output is active []
 
- [17]
-Overfull \hbox (7.85982pt too wide) in paragraph at lines 222--224
+[17]
+Overfull \hbox (7.85982pt too wide) in paragraph at lines 226--228
 []\T1/ppl/m/n/10.95 Finding a node's de-scen-dants re-quires a re-cur-sive quer
 y, how-ever, this is bounded
  []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 261.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 265.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
 [18]
 
-Package caption Warning: \label without proper reference on input line 302.
+Package caption Warning: \label without proper reference on input line 306.
 See the caption package documentation for explanation.
 
 
 LaTeX Warning: Reference `fig:comparison-db-tree-models-pic' on page 19 undefin
-ed on input line 296.
+ed on input line 300.
 
-<./images/tree-map.drawio.png, id=449, 734.745pt x 524.96124pt>
+<./images/tree-map.drawio.png, id=434, 734.745pt x 524.96124pt>
 File: ./images/tree-map.drawio.png Graphic file (type png)
 <use ./images/tree-map.drawio.png>
-Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 303.
+Package pdftex.def Info: ./images/tree-map.drawio.png  used on input line 307.
 (pdftex.def)             Requested size: 440.85039pt x 314.97917pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19]
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 []|\T1/ppl/m/n/10.95 Materialized
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+ppl on input line 3
-28.
+32.
 (/home/felipetrost/.miktex/texmfs/install/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 328.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 332.
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 400.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 404.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [20 <./images/tree-map.drawio.png>]
+[20]
 Underfull \vbox (badness 5787) has occurred while \output is active []
 
- [21]
+[21]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 550.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 554.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-
 [22]
-<./images/tree-roles.drawio.png, id=475, 2111.89pt x 887.315pt>
+<./images/tree-roles.drawio.png, id=459, 2111.89pt x 887.315pt>
 File: ./images/tree-roles.drawio.png Graphic file (type png)
 <use ./images/tree-roles.drawio.png>
-Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 597
+Package pdftex.def Info: ./images/tree-roles.drawio.png  used on input line 601
 .
 (pdftex.def)             Requested size: 422.37051pt x 177.45985pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
+[23]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 647.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 651.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-
-[24 <./images/tree-roles.drawio.png>]) (content/04_implementation.tex [25]
+[24]) (content/04_implementation.tex [25]
 chapter 4.
 [26
 
 ]
-<images/fill-data-prompt.png, id=504, 532.99126pt x 398.48875pt>
+<images/fill-data-prompt.png, id=487, 532.99126pt x 398.48875pt>
 File: images/fill-data-prompt.png Graphic file (type png)
 <use images/fill-data-prompt.png>
 Package pdftex.def Info: images/fill-data-prompt.png  used on input line 156.
 (pdftex.def)             Requested size: 213.19272pt x 159.39267pt.
- [27 <./images/fill-data-prompt.png>]
+[27]
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 343.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 285.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [28] [29]
-<images/create-organization-ui.png, id=561, 993.7125pt x 587.19376pt>
-File: images/create-organization-ui.png Graphic file (type png)
-<use images/create-organization-ui.png>
-Package pdftex.def Info: images/create-organization-ui.png  used on input line 
-437.
-(pdftex.def)             Requested size: 298.11604pt x 176.15948pt.
+[28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (127.24222pt too wide) in paragraph at lines 472--477
-\T1/ppl/m/n/10.95 The se-lected en-vi-ron-ment is en-coded in the URL's path li
-ke this: [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[]
- []
+[29]
+Underfull \vbox (badness 2913) has occurred while \output is active []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 488.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 531.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[30 <./images/create-organization-ui.png>]
-<images/select-environment.png, id=573, 993.7125pt x 167.62625pt>
+[30]
+<images/select-environment.png, id=546, 993.7125pt x 167.62625pt>
 File: images/select-environment.png Graphic file (type png)
 <use images/select-environment.png>
-Package pdftex.def Info: images/select-environment.png  used on input line 504.
+Package pdftex.def Info: images/select-environment.png  used on input line 558.
 
 (pdftex.def)             Requested size: 298.11604pt x 50.28825pt.
- [31 <./images/select-environment.png>]
-<images/role-permissions-view.png, id=607, 1242.6425pt x 1079.03125pt>
-File: images/role-permissions-view.png Graphic file (type png)
-<use images/role-permissions-view.png>
-Package pdftex.def Info: images/role-permissions-view.png  used on input line 5
-77.
-(pdftex.def)             Requested size: 248.5241pt x 215.80243pt.
-
-Overfull \hbox (3.63542pt too wide) in paragraph at lines 595--598
-[]\T1/ppl/m/n/10.95 The func-tion [][][][][] was im-ple-mented in or-der to fa-
-cil-i-tate get-ting a user's
+[31]
+Overfull \hbox (53.09975pt too wide) in paragraph at lines 726--732
+\T1/ppl/m/n/10.95 and is cir-cu-lar. []4.6[] shows a sim-pli-fied ver-sion of t
+he im-ple-men-ta-tion of [][][][][],
  []
 
 File: images/snet/snet_footer.png Graphic file (type png)
 <use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 609.
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 759.
 (pdftex.def)             Requested size: 54.629pt x 25.15543pt.
-[32 <./images/role-permissions-view.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 620--620
-  [][][][]$\T1/pcr/m/n/9 https : / / casl . js . org / v6 / en / advanced / cus
-tomize -[] ability # custom -[] conditions -[] matcher -[]
- []
-
-[33]
+[32]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 724.
+(Font)              scaled to size 10.42007pt on input line 778.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 724.
+(Font)              scaled to size 7.91925pt on input line 778.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 724.
+(Font)              scaled to size 10.42007pt on input line 778.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 724.
+(Font)              scaled to size 7.91925pt on input line 778.
 
-Overfull \hbox (106.1959pt too wide) in paragraph at lines 726--734
+Overfull \hbox (106.1959pt too wide) in paragraph at lines 780--788
 \T1/ppl/m/n/10.95 rule. When the role is as-so-ci-ated to a folder, the rules f
 or pro-cesses and fold-ers, use [][][][][]
  []
 
-) (content/05_evaluation.tex
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [34]
+) (content/05_evaluation.tex [33]
 chapter 5.
-[35
+[34
 
 ]
-<images/../../figures/survey/1-changes-ms.png, id=716, 734.745pt x 240.9pt>
+<images/../../figures/survey/1-changes-ms.png, id=622, 734.745pt x 240.9pt>
 File: images/../../figures/survey/1-changes-ms.png Graphic file (type png)
 <use images/../../figures/survey/1-changes-ms.png>
 Package pdftex.def Info: images/../../figures/survey/1-changes-ms.png  used on 
 input line 173.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 191.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [36 <./images/../../figures/survey/1-changes-ms.png>]
-<images/../../figures/survey/2-ui.png, id=724, 734.745pt x 240.9pt>
+[35]
+<images/../../figures/survey/2-ui.png, id=629, 734.745pt x 240.9pt>
 File: images/../../figures/survey/2-ui.png Graphic file (type png)
 <use images/../../figures/survey/2-ui.png>
 Package pdftex.def Info: images/../../figures/survey/2-ui.png  used on input li
 ne 194.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.2-folder-structures.png, id=726, 734.745pt x 240
+<images/../../figures/survey/3.2-folder-structures.png, id=631, 734.745pt x 240
 .9pt>
 File: images/../../figures/survey/3.2-folder-structures.png Graphic file (type 
 png)
@@ -1700,9 +1556,12 @@ png)
 Package pdftex.def Info: images/../../figures/survey/3.2-folder-structures.png 
  used on input line 228.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
- [37 <./images/../../figures/survey/2-ui.png> <./images/../../figures/survey/3.
-2-folder-structures.png>]
-<images/../../figures/survey/3.3-backend-permissions.png, id=736, 734.745pt x 2
+File: images/snet/snet_footer.png Graphic file (type png)
+<use images/snet/snet_footer.png>
+Package pdftex.def Info: images/snet/snet_footer.png  used on input line 246.
+(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
+[36]
+<images/../../figures/survey/3.3-backend-permissions.png, id=639, 734.745pt x 2
 40.9pt>
 File: images/../../figures/survey/3.3-backend-permissions.png Graphic file (typ
 e png)
@@ -1710,7 +1569,7 @@ e png)
 Package pdftex.def Info: images/../../figures/survey/3.3-backend-permissions.pn
 g  used on input line 249.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-<images/../../figures/survey/3.4-frontend-permissions.png, id=738, 734.745pt x 
+<images/../../figures/survey/3.4-frontend-permissions.png, id=641, 734.745pt x 
 240.9pt>
 File: images/../../figures/survey/3.4-frontend-permissions.png Graphic file (ty
 pe png)
@@ -1718,18 +1577,9 @@ pe png)
 Package pdftex.def Info: images/../../figures/survey/3.4-frontend-permissions.p
 ng  used on input line 270.
 (pdftex.def)             Requested size: 404.111pt x 132.49539pt.
-) (content/06_conclusion.tex
-File: images/snet/snet_footer.png Graphic file (type png)
-<use images/snet/snet_footer.png>
-Package pdftex.def Info: images/snet/snet_footer.png  used on input line 1.
-(pdftex.def)             Requested size: 54.629pt x 25.15543pt.
- [38 <./images/../../figures/survey/3.3-backend-permissions.png> <./images/../.
-./figures/survey/3.4-frontend-permissions.png>]
+) (content/06_conclusion.tex [37]
 chapter 6.
-) [39
-
-] [40
-
+) [38
 
 ]
 chapter without number
@@ -1737,21 +1587,22 @@ chapter without number
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [41
+[39
+
+
 
 ]
 chapter without number
-(main.lof
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42
-
-])
+(main.lof)
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
 
-[43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40
+
+] [41]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1784,19 +1635,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- (main.bbl
+(main.bbl
 chapter without number
-) [44
+) [42
 
 
-] [45
+] [43
 
 
 
 
-] [46] (content/99_appendices/a01_listings.tex
+] [44] (content/99_appendices/a01_listings.tex
 chapter without number
-) [47
+) [45
 
 ] (main.aux)
  ***********
@@ -1804,43 +1655,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 
-
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35143 strings out of 476372
- 673773 string characters out of 5793694
- 2208995 words of memory out of 5000000
- 56151 multiletter control sequences out of 15000+600000
- 616596 words of font info for 142 fonts, out of 8000000 for 9000
+ 35038 strings out of 476372
+ 671789 string characters out of 5793694
+ 2163995 words of memory out of 5000000
+ 56116 multiletter control sequences out of 15000+600000
+ 615975 words of font info for 140 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 108i,17n,107p,10922b,2244s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,17n,107p,10922b,2246s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.4.1.6} has been referenced but does not 
-exist, replaced by a fixed one
+pdfTeX warning: \pdfdraftmode enabled, not changing output pdf
 
-</home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/amsfonts/latx
-font/lcircle1.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/public/
-amsfonts/symbols/msam10.pfb></home/felipetrost/.miktex/texmfs/install/fonts/typ
-e1/urw/courier/ucrb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1
-/urw/courier/ucrr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/u
-rw/helvetic/uhvb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/ur
-w/helvetic/uhvr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
-/helvetic/uhvro8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw
-/palatino/uplb8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/
-palatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/p
-alatino/uplr8a.pfb></home/felipetrost/.miktex/texmfs/install/fonts/type1/urw/pa
-latino/uplri8a.pfb>
-Output written on main.pdf (56 pages, 981427 bytes).
 PDF statistics:
- 1175 PDF objects out of 1200 (max. 8388607)
- 425 named destinations out of 1000 (max. 500000)
- 647 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 927 PDF objects out of 1000 (max. 8388607)
+ 361 named destinations out of 1000 (max. 500000)
+ 637 words of extra memory for PDF output out of 10000 (max. 10000000)
 
