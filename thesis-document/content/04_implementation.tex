@@ -367,6 +367,34 @@ Otherwise, their schemas remain unchanged.
 % - talk about data normalization
 % - talk about breaking normalization for performance gains -> reference a paper or smth
 
+\section{Folder Structure}
+
+Folders were added to the MS's assets to provide users with a tool to organize their assets and
+for organizations to mirror their hierarchical structures or teams.
+They are implemented as entries within the MS' storage solution,
+and processes are stored in a folder by storing a reference to the folder in the process entry.
+
+\subsection{Storage of Folder Structure}
+
+To realize the hierarchical folder structure within the MS,
+the Adjacency List model was chosen,
+which was discussed extensively in \ref{cha:conceptanddesign:folders}.
+This model was chosen due to its advantages in managing dynamic operations such as 
+adding, deleting, and especially moving folders.
+Each folder in the MS is stored as an entry with a unique ID, a name and optionally a reference to
+its parent folder.
+Folders without a parent folder are root folders, representing the top level of the folder
+structure within an environment.
+
+\subsection{Associating Assets with Folders}
+
+Assets, specifically processes within the scope of this thesis,
+are also assigned to folders via a direct reference.
+Processes are stored with a \lstinline{parentId} field,
+which points to the folder they belong to.
+This field has always got to be set, and by default it is set to the root folder of the
+environment the asset belongs to.
+
 \section{Environments}
 
 % TODO: work on this introduciton
@@ -713,76 +741,82 @@ This structure allows traversing the tree upwards and get a folder's ancestors.
 With the help of this structure, two new conditions were added to abilities:
 
 \begin{itemize}
-  \item \lstinline{$property_has_to_be_child_of}: checks if a resource is a child of a folder.
-  \item \lstinline{$property_has_to_be_parent_of}: checks if a folder is a parent of
-    another folder. This condition will only be applied it the asset that is being checked
-    is a folder.
+  \item \lstinline{$property_has_to_be_descendant_of}: checks if a resource is a child of a
+    folder by going up the folder structure.
+  \item \lstinline{$property_has_to_be_ancestor_of}: checks if a folder is a parent of
+    a hardcoded folder, by starting at the hardcoded folder and going upwards through the
+    tree sructure.
+    This condition will only be applied it the asset that is being checked is a folder.
 \end{itemize}
 
-While these conditions don't discriminate based on the asset they're checking, they are
-only been used for folders and processes.
 
 % NOTE: turning is not the right word I think
-These new conditions are used when turning role's permissions into rules.
-The conditions matcher also includes a list of seen folders, in the case that the folder
-structure is has an error and is circular.
-\ref{lst:conditions-matcher-child-of} shows a simplified version of the implementation of
-\lstinline{$property_has_to_be_child_of}, this implementation doesn't take into account
-that the conditions object can have multiple conditions.
+% These new conditions are used when turning role's permissions into rules.
+% The conditions matcher also includes a list of seen folders, in the case that the folder
+% structure is has an error and is circular.
+% \ref{lst:conditions-matcher-child-of} shows a simplified version of the implementation of
+% \lstinline{$property_has_to_be_descendant_of}, this implementation doesn't take into account
+% that the conditions object can have multiple conditions.
+%
+% \begin{lstlisting}[
+%   language=JavaScript,
+%   style=codestyle,
+%   caption={Simplified implementation of \lstinline{$property_has_to_be_descendant_of} in the conditions matcher.},
+%   label={lst:conditions-matcher-child-of}
+% ]
+%
+% function conditionsMatcherFactory(folderStructure){
+%   function conditionsMatcher(conditions){
+%     if("$property_has_to_be_descendant_of" in conditions){
+%       return (resource: any) => {
+%         // Folder permissions are also applied to the folder itself
+%         if (
+%           (resource.__caslSubjectType__ as ResourceType) === 'Folder' &&
+%           resource.id === valueInCondition
+%         )
+%           return true;
+%
+%         let currentFolder = resource.parentId;
+%         const seen = new Set<string>();
+%         while (currentFolder) {
+%           if (currentFolder === valueInCondition) return true;
+%
+%           if (seen.has(currentFolder)) throw new Error('Circular reference in folder tree');
+%           seen.add(currentFolder);
+%
+%           // Go up the folder structure
+%           currentFolder = folderStructure[currentFolder];
+%         }
+%
+%         return false;
+%       };
+%     }
+%   }
+% }
+%
+% function buildAbility(folderStructure, rootFolderId){
+%   const builder = new AbilityBuilder(PureAbility);
+%
+%   builder.can('view', 'Process', {$property_has_to_be_descendant_of : rootFolderId });
+%
+%   return builder.build({
+%     conditionsMatcher: conditionsMatcherFactory(folderStructure) 
+%   });
+% }
+% \end{lstlisting}
 
-\begin{lstlisting}[
-  language=JavaScript,
-  style=codestyle,
-  caption={Simplified implementation of \lstinline{$property_has_to_be_child_of} in the conditions matcher.},
-  label={lst:conditions-matcher-child-of}
-]
-
-function conditionsMatcherFactory(folderStructure){
-  function conditionsMatcher(conditions){
-    if("$property_has_to_be_child_of" in conditions){
-      return (resource: any) => {
-        // Folder permissions are also applied to the folder itself
-        if (
-          (resource.__caslSubjectType__ as ResourceType) === 'Folder' &&
-          resource.id === valueInCondition
-        )
-          return true;
-
-        let currentFolder = resource.parentId;
-        const seen = new Set<string>();
-        while (currentFolder) {
-          if (currentFolder === valueInCondition) return true;
-
-          if (seen.has(currentFolder)) throw new Error('Circular reference in folder tree');
-          seen.add(currentFolder);
-
-          // Go up the folder structure
-          currentFolder = folderStructure[currentFolder];
-        }
-
-        return false;
-      };
-    }
-  }
-}
-
-function buildAbility(folderStructure, rootFolderId){
-  const builder = new AbilityBuilder(PureAbility);
-
-  builder.can('view', 'Process', {$property_has_to_be_child_of : rootFolderId });
-
-  return builder.build({
-    conditionsMatcher: conditionsMatcherFactory(folderStructure) 
-  });
-}
-\end{lstlisting}
-
+%While these conditions don't discriminate based on the asset they're checking, they are
+%only been used for folders and processes.
 When a role is being used to build an ability, each permission for each asset is turned into a
 rule.
-When the role is associated to a folder, the rules for processes and folders, use
-\lstinline{$property_has_to_be_child_of} in their conditions object, so that the
-permissions cascade down the folder structure.
-Additionally, if the role allows a user to view, either a folder or a process, a rule is
-added, that allows the user to view all ancestors of the asset with
-\lstinline{$property_has_to_be_child_of}.
+When a role is associated to a folder, the rules for processes and folders, use the
+\\ \lstinline{$property_has_to_be_descendant_of} 
+condition, so that the
+permissions only apply to assets that are descendants of the folder.
+This way the permissions cascade down the folder structure.
+Additionally, if the role allows a user to view, either a folder or a process,
+a rule is added, that allows the user to view all ancestors of the asset's folder.
+This is done by creating a rule for folders 
+with the \lstinline{$property_has_to_be_descendant_of} condition set to the asset's folder.
+
 
