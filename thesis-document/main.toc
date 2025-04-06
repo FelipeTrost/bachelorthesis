@@ -22,26 +22,27 @@
 \contentsline {subsection}{\numberline {2.3.3}Role Mappings}{13}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{13}{subsection.2.3.4}%
 \contentsline {chapter}{\numberline {3}Concept and Design}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Modifications to Assets and Resources}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Data Storage Approaches for Isolated Environment Data}{15}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Users}{16}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Authenticated Users and Accounts}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Merging a Guest User with an Authenticated User}{16}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Guest User Storage}{17}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Development Users}{17}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Folders}{17}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Folder Structure Storage Model}{18}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Storing Assets Inside Folders}{21}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Environments}{21}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Personal Environments}{21}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Organization Environments}{22}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Environment Memberships}{22}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Storing Assets inside Environments}{22}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Environment Selection}{22}{subsection.3.5.5}%
-\contentsline {section}{\numberline {3.6}Roles}{23}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}New Resources}{24}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Enforcing Permissions Based on the Folder Structure}{25}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Default Roles}{25}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.1}Conceptual Overview}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Modifications to Assets and Resources}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Data Storage Approaches for Isolated Environment Data}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}New User Management System}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Authenticated Users and Accounts}{17}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Merging a Guest User with an Authenticated User}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Guest User Storage}{17}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Development Users}{18}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Hierarchical Folder Structure}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Folder Structure Storage Model}{18}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Storing Assets Inside Folders}{21}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Environments}{22}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Personal Environments}{22}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Organization Environments}{22}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Environment Memberships}{22}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Storing Assets inside Environments}{22}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}Environment Selection}{23}{subsection.3.6.5}%
+\contentsline {section}{\numberline {3.7}Role Based Access Control within Environments}{23}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}New Resources}{24}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Enforcing Permissions Based on the Folder Structure}{25}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Default Roles}{25}{subsection.3.7.3}%
 \contentsline {chapter}{\numberline {4}Implementation}{26}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Users}{26}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Sign In Flows}{26}{subsection.4.1.1}%
@@ -66,9 +67,9 @@
 \contentsline {chapter}{\numberline {5}Evaluation}{34}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Outlook}{38}{section.6.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.22}%
-\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.23}%
-\contentsline {chapter}{\nonumberline Bibliography}{42}{chapter*.24}%
-\contentsline {chapter}{Appendices}{43}{section*.25}%
-\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.26}%
+\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.23}%
+\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.24}%
+\contentsline {chapter}{\nonumberline Bibliography}{42}{chapter*.25}%
+\contentsline {chapter}{Appendices}{43}{section*.26}%
+\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.27}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -4,10 +4,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>so', function()
 
   if vim.v.shell_error ~= 0 then
     print('Error compiling LaTeX')
-    return
   else
     print('LaTeX compiled')
-    vim.cmd('silent ! xdg-open main.pdf')
   end
 end)
 

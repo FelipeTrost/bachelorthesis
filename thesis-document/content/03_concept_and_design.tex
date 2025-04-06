@@ -1,6 +1,8 @@
 \chapter{Concept and Design}
 \label{cha:conceptanddesign}
 
+\vspace{-3.5em} % Negative value for uml diag 
+
 This chapter outlines the key components of the implementation of environments in the MS.
 The core components are users, environments, roles, and assets.
 In essence the concept can be summarized as follows: users can be part of multiple
@@ -9,6 +11,31 @@ Users that are part of an environment can work on the assets that are stored in 
 Each environment has a set of Roles that determine what their users can do with its
 assets.
 All other components that will be introduced will help to manage and enforce these relationships.
+Figure \ref{fig:concept-uml} shows the relation between users and accounts.
+
+
+\section{Conceptual Overview}
+
+Environments will be either personal or organization environments.
+Personal environments have an explicit owner and organization environments can have
+multiple members which are associated to the environment via a new management asset called
+membership.
+Every environment will have an ID.
+All assets and management assets will store an environment ID, which will link them to
+only one environment, this includes roles and role mappings.
+%
+Folders will be added to the MS' assets and thus will also store an environment ID.
+Each folder stores a reference to its parent folder.
+Processes will store a folder ID under \lstinline{folderId}, which will be used to determine the folder they belong to.
+Figure \ref{fig:concept-uml} shows these relationships.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1185]{../figures/concept_uml.png}
+	\caption{Relation between users, environments, processes, folders and roles.}
+  \label{fig:concept-uml}
+	\vspace{-1em} % Negative value to remove space
+\end{figure}
 
 \section{Modifications to Assets and Resources}
 

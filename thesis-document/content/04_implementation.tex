@@ -355,13 +355,18 @@ that signed in with the user's \lstinline{id}.
 % \subsection{Development Users}
 % \label{cha:ms-architecture:users:development-users}
 %
-% TODO: I'm not even sure If this belongs in this thesis
+% TODO: I'm not even sure If this belongs in this thesis (dev users)
 
 \section{Assets}
 
-Every asset entry in the MS' storage solution is now stored with an
-\lstinline{environmentId} field.
-Otherwise, their schemas remain unchanged.
+All assets in the MS are now stored with an additional \lstinline{environmentId} field to enforce multi-tenant isolation.
+This field ensures that each asset belongs exclusively to one environment.
+Aside from \lstinline{environmentId}, the schema for each asset remains unchanged.
+All permissions checks leverage the \lstinline{environmentId} field to ensure users only interact with assets in the environments to which they belong.
+
+% Every asset entry in the MS' storage solution is now stored with an
+% \lstinline{environmentId} field.
+% Otherwise, their schemas remain unchanged.
 
 % - environmentId stored on each thing to improve querying
 % - talk about data normalization
