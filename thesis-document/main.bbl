@@ -21,18 +21,22 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{rfcOauth2}
+\bibitem{rfc7519}
+\BIBentryALTinterwordspacing
+M.~B. Jones, J.~Bradley, and N.~Sakimura, ``{JSON Web Token (JWT)},'' RFC 7519,
+  May 2015. [Online]. Available: \url{https://www.rfc-editor.org/info/rfc7519}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rfcOAuth2}
 \BIBentryALTinterwordspacing
 D.~Hardt, ``{The OAuth 2.0 Authorization Framework},'' RFC 6749, Oct. 2012.
   [Online]. Available: \url{https://www.rfc-editor.org/info/rfc6749}
 \BIBentrySTDinterwordspacing
 
-\bibitem{rfcPkce}
-\BIBentryALTinterwordspacing
-N.~Sakimura, J.~Bradley, and N.~Agarwal, ``{Proof Key for Code Exchange by
-  OAuth Public Clients},'' RFC 7636, Sep. 2015. [Online]. Available:
-  \url{https://www.rfc-editor.org/info/rfc7636}
-\BIBentrySTDinterwordspacing
+\bibitem{OpenIDConnectCore}
+O.~Foundation, ``Openid connect core 1.0,''
+  \url{https://openid.net/specs/openid-connect-core-1_0.html}, 2014, accessed
+  [Insert Date of Access Here].
 
 \bibitem{multi-tenant-dream-or-nightmare}
 \BIBentryALTinterwordspacing

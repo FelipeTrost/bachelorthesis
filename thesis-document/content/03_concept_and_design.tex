@@ -5,7 +5,7 @@
 
 This chapter outlines the key components of the implementation of environments in the MS.
 The core components are users, environments, roles, and assets.
-In essence the concept can be summarized as follows: users can be part of multiple
+In essence, the concept can be summarized as follows: users can be part of multiple
 environments, which hold Assets.
 Users that are part of an environment can work on the assets that are stored in it.
 Each environment has a set of Roles that determine what their users can do with its
@@ -16,11 +16,11 @@ Figure \ref{fig:concept-uml} shows the relation between users and accounts.
 
 \section{Conceptual Overview}
 
-Environments will be either personal or organization environments.
-Personal environments have an explicit owner and organization environments can have
+There are two types of environments.
+Personal environments only have one member, while organization environments can have
 multiple members which are associated to the environment via a new management asset called
 membership.
-Every environment will have an ID.
+Every environment has an ID.
 All assets and management assets will store an environment ID, which will link them to
 only one environment, this includes roles and role mappings.
 %
@@ -60,7 +60,7 @@ There are mainly three models to choose from as described in
 
 \begin{itemize}
   \item \textbf{Separate databases}: Each tenant has a dedicated database instance,
-    offering complete physical isolation.
+    offering complete isolation.
     This model offers a high isolation level,
     however it is resource-intensive and it involves a high operational overhead.
 
@@ -101,7 +101,7 @@ To facilitate the exploration of the MS, without creating a user, we introduced 
 to use the MS as a guest.
 Thus, we differentiate between authenticated users and guest users.
 Guest users can only use a subset of the MS' features.
-Guest users can transition to being authenticated users whilst retaining their
+Guest users can transition to authenticated users whilst retaining their
 assets, to do this they will need to sign in with their personal data.
 % Creating a Guest user doesn't require any data from the person creating it.
 
@@ -113,16 +113,16 @@ where they can collaborate with other users.
 
 \subsection{Authenticated Users and Accounts}
 
-% NOTE: is Oauth2 account the correct term here?
-To allow the same user to be able to sign in with different Oauth 2.0 providers, e.g. with
+% NOTE: is OAuth2 account the correct term here?
+To allow the same user to be able to sign in with different OpenID Connect providers, e.g. with
 Google or Facebook,
 we store a separate record, called \textit{account}, for each of the user's sign-in methods.
 This means, that the relationship between users and accounts is one-to-many,
 a user can have multiple accounts, but an account can only be linked to one user.
-When a user signs in with a Oauth 2.0 provider, the provider returns a user ID, 
+When a user signs in with a  OpenID Connect provider, the provider returns a user ID, 
 then the MS searches for an account with the same user ID.
 From that account the MS can find the user.
-% This way, when a user is signing in with credentials from a Oauth 2.0 provider,
+% This way, when a user is signing in with credentials from a OAuth 2.0 provider,
 % the MS can look up the corresponding account to the account returned by the provider, and then find the user
 % that the account is linked to.
 
@@ -139,7 +139,7 @@ From that account the MS can find the user.
 
 As previously stated, a guest user can transition to being an authenticated user by
 signing in with his personal data.
-Afterward the user will be marked as authenticated and will be able to use the MS freely.
+The user will then be marked as authenticated and will be able to use the MS freely.
 However, it could be the case that his personal data already corresponds to an existing user.
 In this case, the user will be asked if he wants to merge his assets with the existing
 authenticated user.
@@ -155,24 +155,24 @@ Otherwise, all the assets created by the guest user will be deleted.
 For storing guest user data, one could take one of two approaches:
 storing the data in the user's browser or storing it in the MS' database, alongside the
 data of authenticated users.
-Storing the data locally has two benefits:
+Storing the data locally on the user's browser has two benefits:
 The MS doesn't have to store data of users who might never return and
 the MS would become less susceptible to an attack where the attacker tries to use up as
 much space as possible in the MS' storage solution.
-However, this approach has one key downside, the MS would have to implement two storage
+Nonetheless, this approach has one key downside, the MS would have to implement two storage
 solutions and the frontend would need to switch accordingly between them.
 The added complexity would make it harder for developers to get an overview of the MS'
-codebase and it would mean that any future changes will have to be implemented twice.
+codebase and it would mean that any future changes would have to be implemented twice.
 % and it also makes it harder to use coding assistance features of IDEs like Goto
 % definition \footnote{\url{https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/\#textDocument_definition}}.
 For this reason, we determined that storing guest user's data locally isn't worth the benefits.
-We decided to store guest users data in the MS the same way we do it for
+We decided to store guest users data in the MS the same way we do for
 authenticated users,
-with the difference that a flag is set
+except that a flag is set
 in the user entry to indicate that they are a guest.
 This way, all the endpoints that authenticated users can call to interact with the MS
 can also be called by guest users.
-An important caveat is that, to enforce some of the feature restrictions, relevant
+An important caveat is that to enforce some of the feature restrictions, relevant
 endpoints have to check whether the user is a guest.
 Furthermore, the MS needs to clean up inactive guest users, to prevent the MS' storage
 solution from filling up with unused data.
@@ -180,7 +180,7 @@ solution from filling up with unused data.
 \subsection{Development Users}
 
 During development, it is often inconvenient or impractical for developers to configure all the necessary environment variables required for full authentication functionality.
-For instance, integrating OAuth 2.0 authentication (see Section \ref{cha:relatedwork:oauth}) or enabling email-based sign-in requires valid credentials, secrets, and sometimes external services that may not be accessible in a local development environment.
+For instance, using OpenID Connect for authentication (see Section \ref{cha:relatedwork:oauth}) or enabling email-based sign-in requires valid credentials, secrets, and sometimes external services that may not be accessible in a local development environment.
 
 To streamline testing and development without depending on such services,
 the Management System (MS) implements two predefined development users: \textit{johndoe} and \textit{admin}.
@@ -209,7 +209,7 @@ support more of the assets that were described in \ref{cha:relatedwork:proceed-a
 % TODO: say that because of the way the ms is built, the processes needs to be in a
 % sepparate table
 
-The folder structure is essentially just a rooted tree.
+The folder structure is essentially a rooted tree.
 The MS doesn't use a database management system, thus it doesn't use a relational
 language like SQL, still, the data is stored in a way that mimics a relational model.
 For this reason the rooted folder tree needs to be mapped to a relational model.
@@ -330,9 +330,9 @@ A simple comparison of these models is presented in Figure \ref{fig:comparison-d
 % TODO: figure out spacing
 \begin{figure}[H]
 	\centering
-	\label{fig:comparison-db-tree-models-pic}
 	\includegraphics[scale=0.6]{./images/tree-map.drawio.png}
 	\caption{Comparison of the Adjacency List, Nested Set, and Materialized Path models.}
+	\label{fig:comparison-db-tree-models-pic}
 \end{figure}
 
 % It is worth noting, that for each of these models, we will have to sepparately delete all
@@ -420,11 +420,11 @@ Both queries only require simple string comparisons.
 % only requires a query with a simple string comparison, and the same goes for removing a
 % folder and its subtree. 
 %
-However, the adjacency list model isn't far behind on those two points, and is
+However, the adjacency list model isn't far behind on these two points, and is
 substantially more efficient when it comes to moving nodes.
-Furthermore, the adjacency list model is better at finding children, which is more
-valuable to the MS than finding descendants, as the Process view will only show the
-children.
+Furthermore, the adjacency list model is better at finding children, 
+which is more valuable to the MS than finding descendants,
+as the Process view will only show the children.
 Additionally, the adjacency list model is more space-efficient, as it doesn't store its
 path, this can be important for trees with a large depth.
 For these reasons, the MS will use the adjacency list model to store the folder structure.
@@ -437,7 +437,7 @@ This thesis only implemented this feature for processes, however, the same princ
 be applied for other assets.
 A complete redesign of the process' data structures isn't feasible, as it would require
 rewriting a large part of the MS.
-For this reason a simple expansion to the data structure was chosen, were analogous to
+For this reason a simple expansion to the data structure was chosen, where analogous to
 the adjacency list model, each process stores a reference to the folder it is stored in.
 This approach allows a folder to be moved without requiring updates to its descendants.
 Additionally, moving an asset to another folder only requires updating the asset's
@@ -493,7 +493,7 @@ an organization environment.
 % resources \ref{cha:relatedwork:proceedroles:ms-resources-actions} for organization
 % environments can be determined when deploying a MS instance.
 
-Organization environments can also have multiple Users that are part of it, these are
+Organization environments can also have multiple Users that are part of it,
 called members.
 
 \subsection{Environment Memberships}
@@ -521,7 +521,7 @@ the same environment as their root folder.
 This means that for these assets, we are storing the environment they belong too twice.
 Storing redundant information is risky as it can lead to inconsistencies if updates aren't
 done correctly.
-For instance if a folder's environment reference is changed, but those of its children
+For instance, if a folder's environment reference is changed, but those of its children
 are not, then the folder structure would span across two environments.
 However, this is not a practical issue in our implementation for two reasons.
 First, an asset's environment reference is

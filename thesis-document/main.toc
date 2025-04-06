@@ -50,22 +50,22 @@
 \contentsline {section}{\numberline {4.3}Folder Structure}{28}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Storage of Folder Structure}{28}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Associating Assets with Folders}{28}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Environments}{29}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Environments}{28}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Creation of Personal Environments}{29}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Memberships}{29}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Creation of Organization Environments}{29}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Adding Users to an Environment}{30}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.4}Adding Users to an Environment}{29}{subsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.4.5}Environment Selection}{30}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}Roles}{30}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}New Resources}{31}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{31}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.1}New Resources}{30}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{30}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{31}{subsection.4.5.3}%
-\contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Outlook}{37}{section.6.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.22}%
-\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.23}%
-\contentsline {chapter}{\nonumberline Bibliography}{42}{chapter*.24}%
-\contentsline {chapter}{Appendices}{43}{section*.25}%
-\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.26}%
+\contentsline {chapter}{\numberline {5}Evaluation}{32}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{36}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Outlook}{36}{section.6.1}%
+\contentsline {chapter}{\nonumberline List of Tables}{37}{chapter*.22}%
+\contentsline {chapter}{\nonumberline List of Figures}{38}{chapter*.23}%
+\contentsline {chapter}{\nonumberline Bibliography}{40}{chapter*.24}%
+\contentsline {chapter}{Appendices}{41}{section*.25}%
+\contentsline {chapter}{\nonumberline Appendix 1}{43}{chapter*.26}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

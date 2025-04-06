@@ -11,7 +11,7 @@ then describes the MS' architecture and its role-based access control (RBAC) sys
 
 \section{JSON Web Tokens (JWT)}
 
-JWT is an open, industry-standard [RFC 7519] that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+JWT is an open, industry-standard \cite{rfc7519} that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
 This information can be verified and trusted because it is digitally signed.
 
 A JWT consists of three parts separated by dots.
@@ -27,8 +27,8 @@ The three parts are:
 
 \item \textbf{Signature}:
   The signature is used to verify that the payload of the JWT hasn't been changed.
-  To create the signature, the header and the payload are concatenated with a period (.),
-    this string is then either hashed with a secret or encrypted with a private key.
+  To create the signature, the header and the payload are concatenated with a period,
+    this string is then either hashed concatenated with a secret, or encrypted using a private key.
 \end{enumerate}
 
 
@@ -37,13 +37,12 @@ if this matches the signature included in the JWT we can be sure that we issued 
 JWT and that the payload hasn't been tampered with.
 
 \section{OAuth 2.0 and OpenID Connect}
-\label{cha:relatedwork:OAuth}
-%TODO: fix citing
+\label{cha:relatedwork:oauth}
 
 OAuth 2.0 is an open standard for access delegation,
 commonly used as a way for users to grant client applications access to their information on other applications.
 OAuth 2.0 was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
-Plaintext credential sharing, as outlined in \cite{rfcOAuth2} has many security risks:
+As outlined in \cite{rfcOAuth2} plaintext credential sharing presents many security risks:
 
 \begin{enumerate}
 	\item Applications are forced to implement password authentication, to support the sharing of plaintext credentials.
@@ -56,7 +55,7 @@ OAuth 2.0 addresses these issues by decoupling the client application from the r
 meaning that the client application will not get a full set of permissions to the user's account.
 Instead of users handing their credentials to third party applications,
 they can grant these applications limited access to their resources with an access token. 
-This method avoids the user having to share his credentials with third party applications.
+This method avoids the need for the user to share their credentials with third-party applications.
 
 \subsection{OAuth 2.0 Roles}
 
@@ -64,12 +63,12 @@ OAuth 2.0 defines four roles for participants in the protocol flow:
 
 %TODO: rewrite this, it is looking too much like the original spec
 \begin{enumerate}
-	\item Resource owner: The entity that can grant access to a protected resource, typically this would be an end user of a web application.
-	\item Resource server: The server hosting the protected resources.
-	\item Client: The application requesting access to the protected resources.
+  \item \textbf{Resource owner}: The entity that can grant access to a protected resource, typically this would be an end user of a web application.
+  \item \textbf{Resource server}: The server hosting the protected resources.
+  \item \textbf{Client}: The application requesting access to the protected resources.
 	      OAuth 2.0 distinguishes between two types of clients: confidential and public clients.
 	      Confidential clients are capable of keeping their credentials confidential, while public clients, like browser-based applications, cannot.
-	\item Authorization server: The server that issues access tokens to the client after the resource owner has been successfully authenticated.
+  \item \textbf{Authorization server}: The server that issues access tokens to the client after the resource owner has been successfully authenticated.
 \end{enumerate}
 
 The resource server and the authorization server can be the same entity, but they are not required to be.
@@ -86,7 +85,7 @@ The resource server and the authorization server can be the same entity, but the
 %TODO: footnote for http redirects or smthing
 
 %\subsubsection{Implicit}
-%\label{cha:relatedwork:OAuth:implicit}
+%\label{cha:relatedwork:oauth:implicit}
 %
 %% The implicit grant is a simplified version of the Authorization Code grant.
 %The implicit grant is very helpful for public clients, as it doesn't require confidential client credentials.
@@ -105,7 +104,7 @@ The resource server and the authorization server can be the same entity, but the
 %This is why PKCE (Proof Key for Code Exchange) was later introduced as an addition to the implicit grant \cite{rfcPkce}.
 %
 % \subsubsection{Resource Owner Password Credentials}
-% \label{cha:relatedwork:OAuth:passwordcredentials}
+% \label{cha:relatedwork:oauth:passwordcredentials}
 %
 % This grant type requires the resource owner to share his password credentials with the client.
 % The resource owner's password credentials represent an authorization grant,
@@ -115,14 +114,14 @@ The resource server and the authorization server can be the same entity, but the
 %
 %
 % \subsubsection{Client Credentials}
-% \label{cha:relatedwork:OAuth:cleintcredentials}
+% \label{cha:relatedwork:oauth:cleintcredentials}
 %
 % The client credentials grant is used when the client is the resource owner.
 % Clients are typycally issued credentials, which they can use to authenticate themselves.
 % Clients send these credentials to the authorization server and are issued an access token.
 
 \subsubsection{Authorization Code}
-\label{cha:relatedwork:OAuth:authcode}
+\label{cha:relatedwork:oauth:authcode}
 
 Of the possible OAuth 2.0 authorization mechanisms,
 the Authorization Code grant is the most widely used for confidential clients (i.e., those capable of safely storing secrets).
@@ -159,11 +158,12 @@ The Authorization steps are as follows:
 
 
 \subsection{OpenID Connect}
-\label{cha:relatedwork:OAuth:openid}
+\label{cha:relatedwork:oauth:openid}
 
 % source: https://openid.net/specs/openid-connect-core-1_0.html
 
-OpenID (OIDC for short) Connect is an identity layer built on top of the OAuth 2.0.
+OpenID (OIDC for short) Connect is an identity layer built on top of the OAuth 2.0
+\cite{OpenIDConnectCore}.
 % While OAuth 2.0 focuses on authorization (granting clients access to resources),
 % OIDC extends this to authentication.
 % Since OIDC deals with authentication, I will call the resource owner the user from now on.
@@ -266,17 +266,17 @@ e.g. saving or querying data.
 The PROCEED MS doesn't use a database management system (DBMS) like MySQL or PostgreSQL to store its data.
 Instead, it stores its data in multiple
 JSON \footnote{https://datatracker.ietf.org/doc/html/rfc8259} files.
-While these files allow for a very flexible data structure, the MS stores one array of
-objects per file.
-The objects found in each file have the same structure, 
-making each file comparable to a table in a relational database.
+While these files allow for a very flexible data structure, the MS only stores one array of
+objects per file,
+each with a fixed schema.
+This makes each file comparable to a table in a relational database.
 Each object will be called an entry from now on.
 The MS uses Zod \footnote{\url{https://zod.dev/}} to enforce that the data that is being
 stored follows a specific structure. 
 Zod is a schema declaration and validation library, it allows the MS to define the shape
-of JSON serializable data.
+of JSON-serializable data.
 For purposes of simplicity, when we talk about a schema, instead of showing the code that
-describes the Schema, we will show the typescript type that is inferred from the schema.
+describes the schema, we will show the typescript type that is inferred from the schema.
 
  \begin{lstlisting}[
    language=JavaScript,
@@ -315,20 +315,20 @@ describes the Schema, we will show the typescript type that is inferred from the
 Assets are objects that users can create and manage through the MS' interface.
 They are the core "product" that PROCEED offers, i.e. the focal point of its value
 proposition,
-unlike management assets, which regulate how a user can use the MS.
-When referring to assets, we are only talking about the core features of the MS, not
-objects that aid in the usage of the MS, like Roles .e.g., which only help with managing
-access to assets.
+in contrast to management assets, which regulate how a user can use the MS.
+When referring to assets, we are only talking about the core features of the MS,
+not about objects that aid in the usage of the MS, like Roles .e.g.,
+which only help with managing access to assets.
 Currently, the MS supports the following assets:
 
 \begin{enumerate}
-	\item Processes, Project and Templates: These assets store BPNN at their core.
+  \item \textbf{Processes, Project and Templates}: These assets store BPNN at their core.
 	%       % TODO: description for task
 	% \item Task:
-	\item Machine: Asset that represents a server running Distributed Process Engine. 
+  \item \textbf{Machine}: Asset that represents a server running Distributed Process Engine. 
     % The machine is used to manage properties of the server.
 	      % NOTE  maybe remove execution
-	\item Execution: An execution represents a process that is being executed distributedly.
+  \item \textbf{Execution}: An execution represents a process that is being executed distributedly.
 \end{enumerate}
 
 Furthermore, the MS implements management assets, which are used to control how users interact with the MS.
@@ -336,9 +336,9 @@ These are considered assets because users can directly manage them.
 Currently, the MS includes the following management assets:
 
 \begin{itemize}
-	\item Role \ref{cha:relatedwork:proceedroles}: roles are used to manage how users can access assets.
-	\item{RoleMapping}: role mappings are used to assign roles to users.
-	\item User: represents a user's personal information, e.g. name, username and email.
+  \item \textbf{Role}: roles are used to manage how users can access assets.
+  \item \textbf{RoleMapping}: role mappings are used to assign roles to users.
+  \item \textbf{User}: represents a user's personal information, e.g. name, username and email.
 \end{itemize}
 
 
@@ -364,17 +364,17 @@ don't change often, making them easier to manage than individual permissions.
 The following terms are important to understand the role system in the MS:
 
 \begin{itemize}
-	\item Resource: A resource is any protected entity in the management system, that can be
-	      accessed by users. Resources can be either assets or management assets.
-        % assets \ref{cha:relatedwork:proceed-assets}, but they don't have to be.
-	\item Action: An action is a specific operation that can be performed on a resource, e.g. view, update, create, delete.
-	\item Permission: A permission is a tuple consisting of resource type and a list of
-        actions, which specifies that a user can perform the actions on the resource instances.
-        Optionally a permission can have conditions that have to be met the by resource instances,
-        for the user to be able to perform the actions.
-	\item Role: A role is a set of permissions. Roles can be assigned to users, which then
-	      inherit the role's permissions. Roles can have expiration dates, after which all
-	      permissions are revoked.
+  \item \textbf{Resource}: A resource is any protected entity in the management system, that can be
+    accessed by users. Resources can be either assets or management assets.
+    % assets \ref{cha:relatedwork:proceed-assets}, but they don't have to be.
+  \item \textbf{Action}: An action is a specific operation that can be performed on a resource, e.g. view, update, create, delete.
+  \item \textbf{Permission}: A permission is a tuple consisting of a resource type and a list of
+    actions, which specifies that a user can perform the actions on the resource instances.
+    Optionally a permission can have conditions that have to be met the by resource instances,
+    for the user to be able to perform the actions.
+  \item \textbf{Role}: A role is a set of permissions. Roles can be assigned to users, which then
+    inherit the role's permissions. Roles can have expiration dates, after which all
+    permissions are revoked.
 \end{itemize}
 
 \subsection{MS' Resources and Actions}
@@ -402,8 +402,8 @@ These are the actions that can be performed on these resources:
 \subsection{Role Mappings}
 \label{cha:relatedwork:proceedroles:role-mappings}
 
-RoleMappings are a management asset, that is used to assign roles to users.
-RoleMappings store a user identifier ID and a role ID.
+\lstinline{RoleMappings} are a management asset, that is used to assign roles to users.
+\lstinline{RoleMappings} store a user identifier ID and a role ID.
 
 \subsection{MS' Roles in CASL}
 \label{cha:relatedwork:proceedroles:casl}
@@ -411,8 +411,8 @@ RoleMappings store a user identifier ID and a role ID.
 The PROCEED MS uses CASL \footnote{https://casl.js.org/v6/en/} to implement Roles. 
 CASL is an isomorphic authorization JavaScript library.
 To enforce authorization CASL has \textit{abilities}, which are assigned to users.
-Abilities expose functions to check weather a user can perform an action on a resource.
-Abilities are made up of rules, which are defined by four parameters: user action, subject,
+Abilities expose functions to check wether a user can perform an action on a resource.
+Abilities are made up of rules, which are defined by three parameters: user action, subject,
 % fields,
 conditions.
 User actions and subjects are analogous to actions and resources \ref{cha:relatedwork:proceedroles:terminology}.
@@ -424,7 +424,7 @@ users are working on, is an instance of the resource type "Process".
 % Fields are used to specify which fields of a resource instance an action can be performed
 % on, e.g. a user can update a process's name, but not its id, or creation date.
 
-Conditions are used to specify additional conditions that have to be met by a resource
+Conditions are used to specify additional conditions that must be met by a resource
 instance, for a user to be able to perform an action on it. E.g. a user can only update a
 process if he created it.
 
