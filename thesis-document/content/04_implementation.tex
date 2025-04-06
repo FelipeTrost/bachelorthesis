@@ -33,7 +33,7 @@ signing in with their personal information.
 % TODO: this section
 \subsection{Sign In Flows}
 
-User authentication is implemented by leveraging OpenID Connect \ref{cha:relatedwork:oauth:openid},
+User authentication is implemented by leveraging OpenID Connect \ref{cha:relatedwork:OAuth:openid},
 with the help of the NextAuth.js \footnote{\url{https://next-auth.js.org/}} library.
 A JWT token \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.txt}}
 is stored in the user's browser cookies \footnote{\url{https://www.rfc-editor.org/rfc/rfc7519.html}},
@@ -172,7 +172,7 @@ source of the image is reliable.
 
 As stated before, Accounts are used to link sign-in data provided by OAuth 2.0 providers
 after someone signs in, to a user in the MS.
-Oauth 2.0 providers provide a unique ID for the user that signed in,
+OAuth 2.0 providers provide a unique ID for the user that signed in,
 to recognize a user's account we need to store this ID and
 the name of the provider.
 Additionally, to link the account to a user, we store the user's ID in the MS.
@@ -186,7 +186,7 @@ The schema for accounts is as follows:
 ]
 {
     id: string;
-    type: "oauth";
+    type: "OAuth";
     userId: string;
     provider: string;
     providerAccountId: string;

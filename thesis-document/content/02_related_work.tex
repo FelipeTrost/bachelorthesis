@@ -9,14 +9,41 @@ external technologies, and the core architectural elements of the MS.
 This chapter briefly introduces the OAuth 2.0 standard,
 then describes the MS' architecture and its role-based access control (RBAC) system.
 
+\section{JSON Web Tokens (JWT)}
+
+JWT is an open, industry-standard [RFC 7519] that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+This information can be verified and trusted because it is digitally signed.
+
+A JWT consists of three parts separated by dots.
+Each part is a Base64Url encoded JSON string.
+The three parts are:
+
+\begin{enumerate}
+  \item \textbf{Header}: \
+    The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+
+  \item \textbf{Payload}:
+    The payload sections contains a JSON object, the contents of it are arbitrary. 
+
+\item \textbf{Signature}:
+  The signature is used to verify that the payload of the JWT hasn't been changed.
+  To create the signature, the header and the payload are concatenated with a period (.),
+    this string is then either hashed with a secret or encrypted with a private key.
+\end{enumerate}
+
+
+Once an application receives a JWT, it can compute the signature with the header and payload,
+if this matches the signature included in the JWT we can be sure that we issued the
+JWT and that the payload hasn't been tampered with.
+
 \section{OAuth 2.0 and OpenID Connect}
-\label{cha:relatedwork:oauth}
+\label{cha:relatedwork:OAuth}
 %TODO: fix citing
 
-Oauth 2.0 is an open standard for access delegation,
+OAuth 2.0 is an open standard for access delegation,
 commonly used as a way for users to grant client applications access to their information on other applications.
-Oauth 2.0 was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
-Plaintext credential sharing, as outlined in \cite{rfcOauth2} has many security risks:
+OAuth 2.0 was born as a necessary security measure, to avoid sharing plaintext credentials between applications.
+Plaintext credential sharing, as outlined in \cite{rfcOAuth2} has many security risks:
 
 \begin{enumerate}
 	\item Applications are forced to implement password authentication, to support the sharing of plaintext credentials.
@@ -25,15 +52,15 @@ Plaintext credential sharing, as outlined in \cite{rfcOauth2} has many security 
 	\item If any of the third party applications are compromised, the user's account is at risk.
 \end{enumerate}
 
-Oauth 2.0 addresses these issues by decoupling the client application from the role of the resource owner,
+OAuth 2.0 addresses these issues by decoupling the client application from the role of the resource owner,
 meaning that the client application will not get a full set of permissions to the user's account.
-Instead of handing his credentials to the third party application,
-the resource owner signs in, in the application's website which then issues an access token to the client application.
+Instead of users handing their credentials to third party applications,
+they can grant these applications limited access to their resources with an access token. 
 This method avoids the user having to share his credentials with third party applications.
 
 \subsection{OAuth 2.0 Roles}
 
-Oauth 2.0 defines four roles for participants in the protocol flow:
+OAuth 2.0 defines four roles for participants in the protocol flow:
 
 %TODO: rewrite this, it is looking too much like the original spec
 \begin{enumerate}
@@ -47,93 +74,111 @@ Oauth 2.0 defines four roles for participants in the protocol flow:
 
 The resource server and the authorization server can be the same entity, but they are not required to be.
 
-\subsection{Authorization Grants}
-
-%TODO: public and private client
-%TODO: authorization tokens
-
-Authorization Grants are credentials that are issued to clients, which can be exchanged for an access token.
-This access token can be used to access the protected resources on the resource server.
-Oauth 2.0 defines four authorization grants with different flows.
+% \subsection{Authorization Grants}
+%
+% %TODO: public and private client
+% %TODO: authorization tokens
+%
+% Authorization Grants are credentials that are issued to clients, which can be exchanged for an access token.
+% This access token can be used to access the protected resources on the resource server.
+% OAuth 2.0 defines four authorization grants with different flows.
 
 %TODO: footnote for http redirects or smthing
 
-\subsubsection{Implicit}
-\label{cha:relatedwork:oauth:implicit}
-
-% The implicit grant is a simplified version of the Authorization Code grant.
-The implicit grant is very helpful for public clients, as it doesn't require confidential client credentials.
-This is very helpful for browser-based clients, as they can't store confidential credentials securely.
-In the implicit grant users are redirected to the authorization server, where they
-authenticate themselves and authorize the client.
-Afterwhich the authorization server issues an access token directly to the client,
-this is done so with a HTTP redirect, where the access token is embedded in the redirect URL,
-this way the client can extract the access token from the URL.
-% The access token gets embedded in the redirect URL, after the resource owner was authenticated, which is then sent to the client.
-
-In this flow the resource owner only authenticates with the authorization server,
-thus never having to share his credentials with the client.
-
-Implicit grants have many security risks, as the access token is exposed in the URL and can be intercepted by a malicious attacker.
-This is why PKCE (Proof Key for Code Exchange) was later introduced as an addition to the implicit grant \cite{rfcPkce}.
-
-\subsubsection{Resource Owner Password Credentials}
-\label{cha:relatedwork:oauth:passwordcredentials}
-
-This grant type requires the resource owner to share his password credentials with the client.
-The resource owner's password credentials represent an authorization grant,
-which the client can exchange them for an access token.
-Even though this grant type requires the resource owner to share his credentials with the client,
-these are only used for one request and don't have to be stored.
-
-
-\subsubsection{Client Credentials}
-\label{cha:relatedwork:oauth:cleintcredentials}
-
-The client credentials grant is used when the client is the resource owner.
-Clients are typycally issued credentials, which they can use to authenticate themselves.
-Clients send these credentials to the authorization server and are issued an access token.
+%\subsubsection{Implicit}
+%\label{cha:relatedwork:OAuth:implicit}
+%
+%% The implicit grant is a simplified version of the Authorization Code grant.
+%The implicit grant is very helpful for public clients, as it doesn't require confidential client credentials.
+%This is very helpful for browser-based clients, as they can't store confidential credentials securely.
+%In the implicit grant users are redirected to the authorization server, where they
+%authenticate themselves and authorize the client.
+%Afterwhich the authorization server issues an access token directly to the client,
+%this is done so with a HTTP redirect, where the access token is embedded in the redirect URL,
+%this way the client can extract the access token from the URL.
+%% The access token gets embedded in the redirect URL, after the resource owner was authenticated, which is then sent to the client.
+%
+%In this flow the resource owner only authenticates with the authorization server,
+%thus never having to share his credentials with the client.
+%
+%Implicit grants have many security risks, as the access token is exposed in the URL and can be intercepted by a malicious attacker.
+%This is why PKCE (Proof Key for Code Exchange) was later introduced as an addition to the implicit grant \cite{rfcPkce}.
+%
+% \subsubsection{Resource Owner Password Credentials}
+% \label{cha:relatedwork:OAuth:passwordcredentials}
+%
+% This grant type requires the resource owner to share his password credentials with the client.
+% The resource owner's password credentials represent an authorization grant,
+% which the client can exchange them for an access token.
+% Even though this grant type requires the resource owner to share his credentials with the client,
+% these are only used for one request and don't have to be stored.
+%
+%
+% \subsubsection{Client Credentials}
+% \label{cha:relatedwork:OAuth:cleintcredentials}
+%
+% The client credentials grant is used when the client is the resource owner.
+% Clients are typycally issued credentials, which they can use to authenticate themselves.
+% Clients send these credentials to the authorization server and are issued an access token.
 
 \subsubsection{Authorization Code}
-\label{cha:relatedwork:oauth:authcode}
+\label{cha:relatedwork:OAuth:authcode}
 
-The Authorization Code grant is the most common grant type used in OAuth 2.0,
-it is similar to the implicit grant \ref{cha:relatedwork:oauth:implicit}, as it also uses HTTP redirects and it doesn't require the resource owner to share his credentials with the client.
-In the authorization code grant, the client redirects the resource owner to the authorization server.
-There the resource owner authenticates himself and authorizes the client.
-afterwhich the authorization server redirects the resource owner back to the client with an authorization code.
-The client then authenticates itself with his confidential credentials on the authorization server and exchanges the authorization code for an access token.
-As the client needs confidential credentials, this flow is only suitable for confidential clients.
-The exact steps are shown in figure \ref{fig:oauth:authcodeflow}.
+Of the possible OAuth 2.0 authorization mechanisms,
+the Authorization Code grant is the most widely used for confidential clients (i.e., those capable of safely storing secrets).
+The Authorization steps are as follows:
 
-\begin{figure}[H]
-	\centering"
-	\includegraphics[scale=0.4]{images/basic-cloud-services.drawio.png}
-	\caption{Cloud Application.}
-	\label{fig:oauth:authcodeflow}
-\end{figure}
+\begin{enumerate}
+
+  \item \textbf{Client Redirects to Authorization Server}:
+    The client first redirects the user to the Authorization Server’s authorization endpoint.
+    This request includes information such as the client’s identifier, the requested scope of access,
+    and the URL to which the Authorization Server should redirect once the user grants or denies permission.
+
+  \item \textbf{User Authenticates and Grants Access}:
+    The user logs in (if they are not already) in the Authorization Server and decides whether to grant the client’s request.
+    If the user grants access, the Authorization Server returns only an authorization code to the client via the specified redirect URL.
+
+  \item \textbf{Client Exchanges Code for Access Token}:
+    After receiving the authorization code, the client sends it to the Authorization Server’s token endpoint,
+    authenticating itself using its client credentials.
+    In response, the Authorization Server returns an access token.
+    The client then can use the access token to call APIs on the Resource Server.
+\end{enumerate}
+
+% Because the client must present its own client credentials (such as a client secret) to retrieve the access token, the Authorization Code grant reduces the risk of token exposure in situations like browser redirects.
+
+% The Authorization Code grant is the most common grant type used in OAuth 2.0,
+% it is similar to the implicit grant \ref{cha:relatedwork:OAuth:implicit}, as it also uses HTTP redirects and it doesn't require the resource owner to share his credentials with the client.
+% In the authorization code grant, the client redirects the resource owner to the authorization server.
+% There the resource owner authenticates himself and authorizes the client.
+% afterwhich the authorization server redirects the resource owner back to the client with an authorization code.
+% The client then authenticates itself with his confidential credentials on the authorization server and exchanges the authorization code for an access token.
+% As the client needs confidential credentials, this flow is only suitable for confidential clients.
+% The exact steps are shown in figure \ref{fig:OAuth:authcodeflow}.
+
 
 \subsection{OpenID Connect}
-\label{cha:relatedwork:oauth:openid}
+\label{cha:relatedwork:OAuth:openid}
 
 % source: https://openid.net/specs/openid-connect-core-1_0.html
 
 OpenID (OIDC for short) Connect is an identity layer built on top of the OAuth 2.0.
-While OAuth 2.0 focuses on authorization (granting clients access to resources),
-OIDC extends this to authentication.
-Since OIDC deals with authentication, I will call the resource owner the user from now on.
-
-% OIDC leverages the Authorization Code flow (described in Section \ref{cha:relatedwork:oauth:authcode}) of OAuth 2.0. However,
-OIDC uses as its base either the Authorization Code flow
-\ref{cha:relatedwork:oauth:authcode} or the Implicit flow
-\ref{cha:relatedwork:oauth:implicit} and
-it introduces a new type of token called an ID Token.
+% While OAuth 2.0 focuses on authorization (granting clients access to resources),
+% OIDC extends this to authentication.
+% Since OIDC deals with authentication, I will call the resource owner the user from now on.
+%
+% OIDC leverages the Authorization Code flow (described in Section \ref{cha:relatedwork:OAuth:authcode}) of OAuth 2.0. However,
+OIDC uses as its base the Authorization Code flow, 
+and it introduces a new type of token called an ID Token.
 This ID Token is a JSON Web Token (JWT) that contains minimal information about the authenticated
-user
-Most importantly, the ID Token carries a Subject identifier, which is a unique identifier
-for the user in the <- finish here
-The ID Token is sent alongside the Access token to the client, on which step this happens
-depends on weather the Authorization Code flow or the Implicit flow is used.
+user.
+Most importantly, the ID Token carries a Subject ID, which is a unique identifier
+for the user in the Identity Provider's system.
+The ID Token is sent alongside the Access token to the client.
+Through the Subject ID the client can authenticate the user, since it came from a trusted
+source, and sign them in to their platform.
+
 
 
 % 3.2.1.  Implicit Flow Steps
@@ -149,9 +194,9 @@ depends on weather the Authorization Code flow or the Implicit flow is used.
 % are sent to the client after the user authenticated himself.
 % After this the client could also use the Access Token to access 
 
-In the OIDC flow, after the client obtains the Authorization Code,
-it exchanges it for both an Access Token (as in OAuth 2.0) and an ID Token.
-The client can then validate the ID Token to ensure it's genuine and extract the user information contained within.
+% In the OIDC flow, after the client obtains the Authorization Code,
+% it exchanges it for both an Access Token (as in OAuth 2.0) and an ID Token.
+% The client can then validate the ID Token to ensure it's genuine and extract the user information contained within.
 
 
 % 3.1.1.  Authorization Code Flow Steps
@@ -165,10 +210,6 @@ The client can then validate the ID Token to ensure it's genuine and extract the
 % Client requests a response using the Authorization Code at the Token Endpoint.
 % Client receives a response that contains an ID Token and Access Token in the response body.
 % Client validates the ID token and retrieves the End-User's Subject Identifier.
-
-
-% NOTE: maybe remove this
-In essence, OIDC allows clients to obtain information about the authenticated user in a standardized way.
 
 
 \section {MS Architecture}
@@ -258,8 +299,8 @@ describes the Schema, we will show the typescript type that is inferred from the
  }
  \end{lstlisting}
 
- \subsection{Data storage}
- \label{cha:ms-architecture:data-storage}
+ % \subsection{Data storage}
+ % \label{cha:ms-architecture:data-storage}
 
 % % TODO: footnote or something for json
 %

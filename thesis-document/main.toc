@@ -4,72 +4,68 @@
 \contentsline {section}{\numberline {1.1}Research Questions}{4}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Task List}{5}{section.1.2}%
 \contentsline {chapter}{\numberline {2}Foundations}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}OAuth 2.0 and OpenID Connect}{8}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}OAuth 2.0 Roles}{8}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Authorization Grants}{9}{subsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.2.1}Implicit}{9}{subsubsection.2.1.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.2.2}Resource Owner Password Credentials}{9}{subsubsection.2.1.2.2}%
-\contentsline {subsubsection}{\numberline {2.1.2.3}Client Credentials}{9}{subsubsection.2.1.2.3}%
-\contentsline {subsubsection}{\numberline {2.1.2.4}Authorization Code}{10}{subsubsection.2.1.2.4}%
-\contentsline {subsection}{\numberline {2.1.3}OpenID Connect}{10}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}MS Architecture}{11}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}PROCEED MS' Storage Solution}{11}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Data storage}{12}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}PROCEED's Assets}{12}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}PROCEED's Role System}{12}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}MS' Role System Terminology}{12}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}MS' Resources and Actions}{13}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Role Mappings}{13}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}MS' Roles in CASL}{13}{subsection.2.3.4}%
-\contentsline {chapter}{\numberline {3}Concept and Design}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Conceptual Overview}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Modifications to Assets and Resources}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Data Storage Approaches for Isolated Environment Data}{16}{section.3.3}%
-\contentsline {section}{\numberline {3.4}New User Management System}{16}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Authenticated Users and Accounts}{17}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Merging a Guest User with an Authenticated User}{17}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Guest User Storage}{17}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Development Users}{18}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}Hierarchical Folder Structure}{18}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Folder Structure Storage Model}{18}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Storing Assets Inside Folders}{21}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Environments}{22}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Personal Environments}{22}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Organization Environments}{22}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Environment Memberships}{22}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Storing Assets inside Environments}{22}{subsection.3.6.4}%
-\contentsline {subsection}{\numberline {3.6.5}Environment Selection}{23}{subsection.3.6.5}%
-\contentsline {section}{\numberline {3.7}Role Based Access Control within Environments}{23}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}New Resources}{24}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Enforcing Permissions Based on the Folder Structure}{25}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Default Roles}{25}{subsection.3.7.3}%
-\contentsline {chapter}{\numberline {4}Implementation}{26}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Users}{26}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Sign In Flows}{26}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Authenticated Users}{27}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Guest Users}{28}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Enforcement of limits for guest users}{28}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}Merging Guest User's Data with an Authenticated User's Data}{28}{subsection.4.1.5}%
-\contentsline {section}{\numberline {4.2}Assets}{29}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Folder Structure}{29}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Storage of Folder Structure}{29}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Associating Assets with Folders}{29}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Environments}{30}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Creation of Personal Environments}{30}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Memberships}{30}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Creation of Organization Environments}{30}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Adding Users to an Environment}{31}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Environment Selection}{31}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Roles}{31}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}New Resources}{32}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{32}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{32}{subsection.4.5.3}%
-\contentsline {chapter}{\numberline {5}Evaluation}{34}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Outlook}{38}{section.6.1}%
-\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.23}%
-\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.24}%
-\contentsline {chapter}{\nonumberline Bibliography}{42}{chapter*.25}%
-\contentsline {chapter}{Appendices}{43}{section*.26}%
-\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.27}%
+\contentsline {section}{\numberline {2.1}JSON Web Tokens (JWT)}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}OAuth 2.0 and OpenID Connect}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}OAuth 2.0 Roles}{9}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}Authorization Code}{9}{subsubsection.2.2.1.1}%
+\contentsline {subsection}{\numberline {2.2.2}OpenID Connect}{10}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}MS Architecture}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}PROCEED MS' Storage Solution}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}PROCEED's Assets}{11}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}PROCEED's Role System}{11}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}MS' Role System Terminology}{11}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}MS' Resources and Actions}{12}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Role Mappings}{12}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}MS' Roles in CASL}{12}{subsection.2.4.4}%
+\contentsline {chapter}{\numberline {3}Concept and Design}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conceptual Overview}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Modifications to Assets and Resources}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Data Storage Approaches for Isolated Environment Data}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}New User Management System}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Authenticated Users and Accounts}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Merging a Guest User with an Authenticated User}{16}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Guest User Storage}{16}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Development Users}{17}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Hierarchical Folder Structure}{17}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Folder Structure Storage Model}{17}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Storing Assets Inside Folders}{20}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Environments}{21}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Personal Environments}{21}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Organization Environments}{21}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Environment Memberships}{21}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Storing Assets inside Environments}{21}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}Environment Selection}{22}{subsection.3.6.5}%
+\contentsline {section}{\numberline {3.7}Role Based Access Control within Environments}{22}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}New Resources}{23}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Enforcing Permissions Based on the Folder Structure}{24}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Default Roles}{24}{subsection.3.7.3}%
+\contentsline {chapter}{\numberline {4}Implementation}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Users}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Sign In Flows}{25}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Authenticated Users}{26}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Guest Users}{27}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Enforcement of limits for guest users}{27}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Merging Guest User's Data with an Authenticated User's Data}{27}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Assets}{28}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Folder Structure}{28}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Storage of Folder Structure}{28}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Associating Assets with Folders}{28}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Environments}{29}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Creation of Personal Environments}{29}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Memberships}{29}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Creation of Organization Environments}{29}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Adding Users to an Environment}{30}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Environment Selection}{30}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Roles}{30}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}New Resources}{31}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Enforcing Roles in the MS}{31}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Checking Permissions associated to a Folder}{31}{subsection.4.5.3}%
+\contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Outlook}{37}{section.6.1}%
+\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.22}%
+\contentsline {chapter}{\nonumberline List of Figures}{40}{chapter*.23}%
+\contentsline {chapter}{\nonumberline Bibliography}{42}{chapter*.24}%
+\contentsline {chapter}{Appendices}{43}{section*.25}%
+\contentsline {chapter}{\nonumberline Appendix 1}{45}{chapter*.26}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
