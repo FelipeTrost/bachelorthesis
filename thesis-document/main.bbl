@@ -21,6 +21,14 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Tsai2014}
+\BIBentryALTinterwordspacing
+W.~Tsai, X.~Bai, and Y.~Huang, ``Software-as-a-service (saas): perspectives and
+  challenges,'' \emph{Science China Information Sciences}, vol.~57, no.~5, pp.
+  1--15, May 2014. [Online]. Available:
+  \url{https://doi.org/10.1007/s11432-013-5050-z}
+\BIBentrySTDinterwordspacing
+
 \bibitem{rfc7519}
 \BIBentryALTinterwordspacing
 M.~B. Jones, J.~Bradley, and N.~Sakimura, ``{JSON Web Token (JWT)},'' RFC 7519,
@@ -63,6 +71,13 @@ J.~Celko, \emph{Joe Celko's Trees and Hierarchies in SQL for Smarties, (The
   Morgan Kaufmann Series in Data Management Systems)}, 1st~ed.\hskip 1em plus
   0.5em minus 0.4em\relax Morgan Kaufmann, 2004. [Online]. Available:
   \url{http://www.amazon.com/Hierarchies-Smarties-Kaufmann-Management-Systems/dp/1558609202}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Silberschatz2010}
+\BIBentryALTinterwordspacing
+A.~Silberschatz, H.~F. Korth, and S.~Sudarshan, \emph{Database system
+  concepts}, 6th~ed.\hskip 1em plus 0.5em minus 0.4em\relax New York:
+  McGraw-Hill, 2010. [Online]. Available: \url{http://www.db-book.com/}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

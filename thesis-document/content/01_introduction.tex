@@ -1,6 +1,8 @@
 \chapter{Introduction}
 \label{cha:introduction}
 
+\vspace{-1em} % Negative value to remove space
+
 % Most enterprise tools nowadays support multiple companies as users. And of course for organization each company needs to have their own sepparate space to work in
 
 % The focus of this thesis, is to propose and implement a multi-tenant feature for Management System of PROCEED.
@@ -15,39 +17,46 @@
 In today's digital age, businesses heavily rely on cloud applications
 to work on their assets, e.g. documents, spreadsheets, and presentations.
 Cloud applications are software tools that are accessed and run entirely over the internet.
-Typically, a copy of the application runs on a remote computer in a data center. %, this copy is called an instance.
-Users access it through a web browser or a dedicated application.
+Typically, a copy of the application runs on a remote computer in a data center and %, this copy is called an instance.
+users access it through a web browser or a dedicated application.
+Many of these apps are delivered through Software as a Service (SaaS) models,
+where users pay a subscription fee to use the software.
 These tools represent a paradigm shift from traditional software applications,
 where the majority of the work was done on the user's device.
 Shifting a part, or even all the workload to a remote computer offers many advantages
 for both the users and the developers of applications:
-
+%
 \begin{itemize}
-	\item Accessibility: Cloud applications can be accessed anywhere from anywhere with an internet connection.
+  \item \textbf{Accessibility}: Cloud applications can be accessed anywhere from anywhere with an internet connection.
 	      % \item Cost-Efficient: Most cloud applications implement a payment structure, where
 	      %       users pay based on how much they use.
 
-	\item Data safety: There is a big potential for increased data safety, as data can be
+  \item \textbf{Data safety}: There is a big potential for increased data safety, as data can be
 	      stored in a secure data center, instead of on a user's device, which could be lost, stolen or damaged.
 	      % All files are stored by the application in the cloud, and they don't
 	      % have to be stored in the user's device, which could be lost, stolen or damaged.
 	      % users don't have to implement their own data storage solutions,
 	      % which may be insecure.
 
-	\item Collaboration: Collaboration is easier for application developers to implement, as
+      \item \textbf{Collaboration}: Collaboration is easier for application developers to implement, as
 	      all users could interact with the same instance of the application, instead
 	      of having to manage communication between different local applications.
 	      % Typically, collaboration is easier since everything can be found
 	      %    in one place, instead of having to send files back and forth.
 
-	\item Device-agnostic: Many cloud applications can be accessed from various devices because most
+      \item \textbf{Device-agnostic}: Many cloud applications can be accessed from various devices because most
 	      of the functionality runs on a server and isn't dependent on the device, unlike
 	      traditional software, which often requires a large part of the application to be
 	      specifically programmed for each device.
 
-	\item Low IT overhead: Users don't have to set up the application on their own, which
-	      would require technical knowledge. And in the case of cloud applications that are
-	      accessed through a browser, users don't have to install anything.
+      \item \textbf{Low IT overhead}: Users don't have to set up the application on their own, which
+	      can require technical knowledge.
+        And in the case of cloud applications that are accessed through a browser,
+        users don't have to install anything.
+
+      \item \textbf{High resource usage}: The same computer that is running the
+        application can be used by many users at the same time, maximizing its usage.
+
 \end{itemize}
 
 \begin{figure}[H]
@@ -58,6 +67,7 @@ for both the users and the developers of applications:
 	\vspace{-2em} % Negative  oalue to remove space
 \end{figure}
 \FloatBarrier
+
 % A key selling point of these, is that companies don't have to do any technical work setting the software up, they can pay for a subscription and start using the tool right away, either through a browser or by installing an executable on their computer.
 % A very important technical aspect for such tools, that enables the ease of use, is the ability to support multiple companies using them at once.
 %
@@ -66,9 +76,10 @@ for both the users and the developers of applications:
 % This is called multi-tenancy, and it is implemented by most popular cloud applications, e.g. by Teams, Slack, Asana, and many more.
 % A tenant can be seen as an entity that uses the application, which can be either a single user or an organization made up of many users.
 
-One very common feature that makes these benefits possible is called \textit{multi-tenancy}.
-\textit{Multi-tenancy} is a software architecture in which an application
-can be used by multiple users or organizations at the same time.
+One very common feature in Cloud applications delivered over SaaS, that makes these benefits possible is called \textit{multi-tenancy}.
+
+\textit{Multi-tenancy} is a key feature of SaaS where the application can be used by multiple users or organizations at the same time
+\cite[1]{Tsai2014}.
 This has to be achieved without a new execution
 of the application, also referred to as an \textit{instance}, for each user or organization.
 Without \textit{multi-tenancy}, each user or organization would need to run the application on

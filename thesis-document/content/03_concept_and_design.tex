@@ -346,7 +346,7 @@ A simple comparison of these models is presented in Figure \ref{fig:comparison-d
 \newcommand{\mediumefficency}[1]{\textcolor{orange}{\textcircled{}}}
 \newcommand{\badefficency}[1]{\textcolor{red}{X}}
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
 
 	\begin{tabular}{ | m{7.45em} | m{7em} | m{7em} | m{7em} | }
@@ -402,7 +402,7 @@ A simple comparison of these models is presented in Figure \ref{fig:comparison-d
 
 	\caption{Comparison between Adjacency List, Nested Set and Materialized Path models.}
 	\label{fig:comparison-db-tree-models}
-\end{figure}
+\end{table}
 
 To choose the right model, we have to consider the requirements of the MS.
 Users need to be able to view, add, delete and remove folders.
@@ -429,7 +429,7 @@ Additionally, the adjacency list model is more space-efficient, as it doesn't st
 path, this can be important for trees with a large depth.
 For these reasons, the MS will use the adjacency list model to store the folder structure.
 
-\subsection{Storing Assets Inside Folders}
+\subsection{Storing Assets within Folders}
 
 After the folder structure is implemented, it is necessary to store assets inside
 folders.
@@ -519,8 +519,8 @@ from a guest user to an authenticated user \ref{cha:conceptanddesign:users:merge
 Processes and folders will be contained within folders, which implies that they belong to
 the same environment as their root folder.
 This means that for these assets, we are storing the environment they belong too twice.
-Storing redundant information is risky as it can lead to inconsistencies if updates aren't
-done correctly.
+As explained in \cite[1.6.4]{Silberschatz2010}, storing redundant information is risky as 
+it can lead to inconsistencies if updates aren't done correctly.
 For instance, if a folder's environment reference is changed, but those of its children
 are not, then the folder structure would span across two environments.
 However, this is not a practical issue in our implementation for two reasons.
